@@ -128,22 +128,20 @@ pub const Delay = struct {
     mix: f32, // [0.0, 1.0]
     vt: VTable = .{ .process = Delay._process },
 
-    pub fn init(a: std.mem.Allocator, input: Node, buffer_size: usize) !*Delay {
-        const d = try a.create(Delay);
-        d.* = .{
+    pub fn init(alloc: std.mem.Allocator, input: Node, buffer_size: usize) !Delay {
+        const buffer = try alloc.alloc(Sample, buffer_size);
+        @memset(buffer, 0);
+        return .{
             .input = input,
-            .buffer = try a.alloc(Sample, buffer_size),
+            .buffer = buffer,
             .delay_time = 0.25,
             .feedback = 0.3,
             .mix = 0.2,
         };
-        @memset(d.buffer, 0);
-        return d;
     }
 
     pub fn deinit(self: *Delay, alloc: std.mem.Allocator) void {
         alloc.free(self.buffer);
-        alloc.destroy(self);
     }
 
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {

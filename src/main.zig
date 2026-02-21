@@ -6,6 +6,7 @@ const midi = @import("midi.zig");
 const ops = @import("ops.zig");
 const interface = @import("interface.zig");
 const project = @import("project.zig");
+const plugin = @import("plugin.zig");
 
 var g_note_queue: midi.NoteQueue = .{};
 var g_playhead: u64 = 0;
@@ -356,7 +357,7 @@ pub fn main() !void {
         // drain garbage from audio thread
         while (g_garbage_queue.pop()) |item| {
             switch (item) {
-                .plugin => |p| p.deinitState(A),
+                .plugin => |p| p.deinit(A),
                 .track => |t| {
                     t.deinit(A);
                     A.destroy(t);
@@ -446,7 +447,8 @@ pub fn main() !void {
             if (track.hasPlugin(.lpf)) {
                 while (!g_op_queue.push(.{ .Graph = .{ .RemovePluginByTag = .{ .track_idx = g_active_track, .tag = .lpf } } })) {}
             } else {
-                while (!g_op_queue.push(.{ .Graph = .{ .AddPlugin = .{ .track_idx = g_active_track, .plugin = .{ .lpf = audio.Lpf.init(undefined, 1.0, 2.0, 2000.0) } } } })) {}
+                const lpf = plugin.Lpf.init(A, undefined, 1.0, 2.0, 2000.0) catch continue;
+                while (!g_op_queue.push(.{ .Graph = .{ .AddPlugin = .{ .track_idx = g_active_track, .plugin = .{ .lpf = lpf } } } })) {}
             }
         }
 

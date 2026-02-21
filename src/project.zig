@@ -2,6 +2,7 @@ const std = @import("std");
 const synth = @import("synth.zig");
 const midi = @import("midi.zig");
 const audio = @import("audio.zig");
+const plugin = @import("plugin.zig");
 const interface = @import("interface.zig");
 const rl = @import("raylib");
 
@@ -111,39 +112,8 @@ pub const Timeline = struct {
     }
 };
 
-pub const PluginTag = enum { lpf };
-
-pub const Plugin = union(PluginTag) {
-    lpf: audio.Lpf,
-
-    pub fn deinitState(self: Plugin, alloc: std.mem.Allocator) void {
-        switch (self) {
-            inline else => |p| {
-                if (@hasField(@TypeOf(p), "state")) {
-                    if (@hasDecl(@TypeOf(p.state.*), "deinit")) {
-                        p.state.deinit(alloc);
-                    } else {
-                        alloc.destroy(p.state);
-                    }
-                }
-            },
-        }
-    }
-
-    pub fn asNode(self: *Plugin) audio.Node {
-        switch (self.*) {
-            inline else => |*p| return p.asNode(),
-        }
-    }
-
-    pub fn setInput(self: *Plugin, input: audio.Node) void {
-        switch (self.*) {
-            inline else => |*p| {
-                p.input = input;
-            },
-        }
-    }
-};
+pub const PluginTag = plugin.Tag;
+pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
     pub const MAX_PLUGINS = 8;
@@ -173,7 +143,7 @@ pub const Track = struct {
         self.synth.deinit(alloc);
         self.player.deinit(alloc);
         for (self.plugins[0..self.plugin_count]) |p| {
-            p.deinitState(alloc);
+            p.deinit(alloc);
         }
     }
 
@@ -192,9 +162,9 @@ pub const Track = struct {
         return .{ .ptr = self, .v = &self.vt };
     }
 
-    pub fn addPlugin(self: *Track, plugin: Plugin) void {
+    pub fn addPlugin(self: *Track, p: Plugin) void {
         std.debug.assert(self.plugin_count < MAX_PLUGINS);
-        self.plugins[self.plugin_count] = plugin;
+        self.plugins[self.plugin_count] = p;
         self.plugin_count += 1;
         self.rewire();
     }
