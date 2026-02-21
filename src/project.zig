@@ -9,9 +9,8 @@ pub const Timeline = struct {
     pub const MAX_TRACKS = 8;
 
     alloc: std.mem.Allocator,
-    tracks: [2][MAX_TRACKS]*Track,
-    track_counts: [2]usize,
-    active: std.atomic.Value(usize) = .init(0),
+    tracks: [MAX_TRACKS]*Track,
+    track_count: usize,
     vt: audio.VTable = .{ .process = _process },
 
     pub fn init(
@@ -26,19 +25,18 @@ pub const Timeline = struct {
         var timeline: Timeline = .{
             .alloc = alloc,
             .tracks = undefined,
-            .track_counts = .{ num_tracks, 0 },
+            .track_count = num_tracks,
         };
 
         for (0..num_tracks) |i| {
-            timeline.tracks[0][i] = try Track.init(alloc, voices_per_track, notes_per_track[i]);
+            timeline.tracks[i] = try Track.init(alloc, voices_per_track, notes_per_track[i]);
         }
 
         return timeline;
     }
 
     pub fn deinit(self: *Timeline) void {
-        const buf = self.active.load(.acquire);
-        for (self.tracks[buf][0..self.track_counts[buf]]) |t| {
+        for (self.tracks[0..self.track_count]) |t| {
             t.deinit(self.alloc);
             self.alloc.destroy(t);
         }
@@ -49,45 +47,35 @@ pub const Timeline = struct {
     }
 
     pub fn activeTracks(self: *Timeline) []*Track {
-        const buf = self.active.load(.acquire);
-        return self.tracks[buf][0..self.track_counts[buf]];
+        return self.tracks[0..self.track_count];
     }
 
     pub fn trackCount(self: *Timeline) usize {
-        return self.track_counts[self.active.load(.acquire)];
+        return self.track_count;
     }
 
     pub fn addTrack(self: *Timeline, track: *Track) void {
-        const front = self.active.load(.monotonic);
-        const back = 1 - front;
-        const n = self.track_counts[front];
-        std.debug.assert(n < MAX_TRACKS);
-        @memcpy(self.tracks[back][0..n], self.tracks[front][0..n]);
-        self.tracks[back][n] = track;
-        self.track_counts[back] = n + 1;
-        self.active.store(back, .release);
+        std.debug.assert(self.track_count < MAX_TRACKS);
+        self.tracks[self.track_count] = track;
+        self.track_count += 1;
     }
 
     pub fn removeTrack(self: *Timeline, idx: usize) *Track {
-        const front = self.active.load(.monotonic);
-        const back = 1 - front;
-        const n = self.track_counts[front];
+        const n = self.track_count;
         std.debug.assert(idx < n);
-        const removed = self.tracks[front][idx];
-        @memcpy(self.tracks[back][0..idx], self.tracks[front][0..idx]);
-        if (idx < n - 1) {
-            @memcpy(self.tracks[back][idx .. n - 1], self.tracks[front][idx + 1 .. n]);
+        const removed = self.tracks[idx];
+        var i = idx;
+        while (i < n - 1) : (i += 1) {
+            self.tracks[i] = self.tracks[i + 1];
         }
-        self.track_counts[back] = n - 1;
-        self.active.store(back, .release);
+        self.track_count = n - 1;
         return removed;
     }
 
     fn _process(p: *anyopaque, ctx: *audio.Context, out: []audio.Sample) void {
         const self: *Timeline = @ptrCast(@alignCast(p));
-        const buf = self.active.load(.acquire);
         @memset(out, 0);
-        for (self.tracks[buf][0..self.track_counts[buf]]) |track| {
+        for (self.tracks[0..self.track_count]) |track| {
             const track_out = ctx.tmp().alloc(audio.Sample, out.len) catch unreachable;
             const node = track.asNode();
             node.v.process(node.ptr, ctx, track_out);
@@ -148,9 +136,8 @@ pub const Track = struct {
     player: midi.Player,
     alloc: std.mem.Allocator,
 
-    plugins: [2][MAX_PLUGINS]Plugin,
-    plugin_counts: [2]usize,
-    active: std.atomic.Value(usize) = .init(0),
+    plugins: [MAX_PLUGINS]Plugin,
+    plugin_count: usize,
 
     vt: audio.VTable = .{ .process = Track._process },
 
@@ -161,7 +148,7 @@ pub const Track = struct {
             .player = try midi.Player.init(alloc, notes_in),
             .alloc = alloc,
             .plugins = undefined,
-            .plugin_counts = .{ 0, 0 },
+            .plugin_count = 0,
         };
         return t;
     }
@@ -169,8 +156,7 @@ pub const Track = struct {
     pub fn deinit(self: *Track, alloc: std.mem.Allocator) void {
         self.synth.deinit(alloc);
         self.player.deinit(alloc);
-        const buf = self.active.load(.acquire);
-        for (self.plugins[buf][0..self.plugin_counts[buf]]) |p| {
+        for (self.plugins[0..self.plugin_count]) |p| {
             p.deinitState(alloc);
         }
     }
@@ -182,8 +168,7 @@ pub const Track = struct {
     }
 
     fn output(self: *Track) audio.Node {
-        const buf = self.active.load(.acquire);
-        if (self.plugin_counts[buf] > 0) return self.plugins[buf][self.plugin_counts[buf] - 1].asNode();
+        if (self.plugin_count > 0) return self.plugins[self.plugin_count - 1].asNode();
         return self.synth.asNode();
     }
 
@@ -192,43 +177,33 @@ pub const Track = struct {
     }
 
     pub fn addPlugin(self: *Track, plugin: Plugin) void {
-        const front = self.active.load(.monotonic);
-        const back = 1 - front;
-        const n = self.plugin_counts[front];
-        std.debug.assert(n < MAX_PLUGINS);
-        @memcpy(self.plugins[back][0..n], self.plugins[front][0..n]);
-        self.plugins[back][n] = plugin;
-        self.plugin_counts[back] = n + 1;
-        self.rewireBuf(back);
-        self.active.store(back, .release);
+        std.debug.assert(self.plugin_count < MAX_PLUGINS);
+        self.plugins[self.plugin_count] = plugin;
+        self.plugin_count += 1;
+        self.rewire();
     }
 
     pub fn removePlugin(self: *Track, idx: usize) Plugin {
-        const front = self.active.load(.monotonic);
-        const back = 1 - front;
-        const n = self.plugin_counts[front];
-        const removed = self.plugins[front][idx];
-        @memcpy(self.plugins[back][0..idx], self.plugins[front][0..idx]);
-        if (idx < n - 1) {
-            @memcpy(self.plugins[back][idx .. n - 1], self.plugins[front][idx + 1 .. n]);
+        const n = self.plugin_count;
+        const removed = self.plugins[idx];
+        var i = idx;
+        while (i < n - 1) : (i += 1) {
+            self.plugins[i] = self.plugins[i + 1];
         }
-        self.plugin_counts[back] = n - 1;
-        self.rewireBuf(back);
-        self.active.store(back, .release);
+        self.plugin_count = n - 1;
+        self.rewire();
         return removed;
     }
 
     pub fn hasPlugin(self: *Track, tag: PluginTag) bool {
-        const buf = self.active.load(.acquire);
-        for (self.plugins[buf][0..self.plugin_counts[buf]]) |p| {
+        for (self.plugins[0..self.plugin_count]) |p| {
             if (p == tag) return true;
         }
         return false;
     }
 
     pub fn findPlugin(self: *Track, tag: PluginTag) ?usize {
-        const buf = self.active.load(.acquire);
-        for (self.plugins[buf][0..self.plugin_counts[buf]], 0..) |p, i| {
+        for (self.plugins[0..self.plugin_count], 0..) |p, i| {
             if (p == tag) return i;
         }
         return null;
@@ -244,15 +219,12 @@ pub const Track = struct {
     pub fn clear(self: *Track) void {
         self.player.clear();
         self.synth.allNotesOff();
-        const front = self.active.load(.monotonic);
-        const back = 1 - front;
-        self.plugin_counts[back] = 0;
-        self.active.store(back, .release);
+        self.plugin_count = 0;
     }
 
-    fn rewireBuf(self: *Track, buf: usize) void {
+    fn rewire(self: *Track) void {
         var prev = self.synth.asNode();
-        for (self.plugins[buf][0..self.plugin_counts[buf]]) |*p| {
+        for (self.plugins[0..self.plugin_count]) |*p| {
             p.setInput(prev);
             prev = p.asNode();
         }

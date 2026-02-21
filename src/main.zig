@@ -19,11 +19,8 @@ var g_active_track: usize = 0;
 var g_held_notes: [128]?midi.Frame = .{null} ** 128; // note -> start frame
 var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
 
-// Deferred garbage — freed at start of next frame
-var g_plugin_garbage_buf: [32]project.Plugin = undefined;
-var g_plugin_garbage_len: usize = 0;
-var g_track_garbage_buf: [8]*project.Track = undefined;
-var g_track_garbage_len: usize = 0;
+// Garbage queue: audio thread pushes removed items, UI thread frees them
+var g_garbage_queue: ops.GarbageQueue = .{};
 
 inline fn getActiveTrack() *project.Track {
     const tracks = g_timeline.activeTracks();
@@ -109,7 +106,7 @@ fn write_callback(
             }
         }
 
-        // process Ops (playback / recording only)
+        // process Ops
         while (g_op_queue.pop()) |op| {
             switch (op) {
                 .Playback => |p| switch (p) {
@@ -151,6 +148,31 @@ fn write_callback(
                             g_recording = true;
                         } else {
                             g_recording = true;
+                        }
+                    },
+                },
+                .Graph => |g| switch (g) {
+                    .AddTrack => |track| {
+                        g_timeline.addTrack(track);
+                    },
+                    .RemoveTrack => |idx| {
+                        if (idx < g_timeline.trackCount()) {
+                            const removed = g_timeline.removeTrack(idx);
+                            _ = g_garbage_queue.push(.{ .track = removed });
+                        }
+                    },
+                    .AddPlugin => |ap| {
+                        const tracks = g_timeline.activeTracks();
+                        if (ap.track_idx < tracks.len) {
+                            tracks[ap.track_idx].addPlugin(ap.plugin);
+                        }
+                    },
+                    .RemovePluginByTag => |rp| {
+                        const tracks = g_timeline.activeTracks();
+                        if (rp.track_idx < tracks.len) {
+                            if (tracks[rp.track_idx].removePluginByTag(rp.tag)) |old| {
+                                _ = g_garbage_queue.push(.{ .plugin = old });
+                            }
                         }
                     },
                 },
@@ -331,14 +353,16 @@ pub fn main() !void {
     for (note_keys) |k| try key_state.put(k, null);
 
     while (!rl.windowShouldClose()) {
-        // drain deferred garbage — safe because at least one audio block has passed
-        for (g_plugin_garbage_buf[0..g_plugin_garbage_len]) |p| p.deinitState(A);
-        g_plugin_garbage_len = 0;
-        for (g_track_garbage_buf[0..g_track_garbage_len]) |t| {
-            t.deinit(A);
-            A.destroy(t);
+        // drain garbage from audio thread
+        while (g_garbage_queue.pop()) |item| {
+            switch (item) {
+                .plugin => |p| p.deinitState(A),
+                .track => |t| {
+                    t.deinit(A);
+                    A.destroy(t);
+                },
+            }
         }
-        g_track_garbage_len = 0;
 
         for (note_keys) |key| {
             const down = rl.isKeyDown(key);
@@ -388,22 +412,19 @@ pub fn main() !void {
             while (!g_op_queue.push(.{ .Record = .{ .ToggleRecord = g_active_track } })) {}
         }
 
-        // - / = : remove / add track (direct, no graph queue)
+        // - / = : remove / add track
         if (rl.isKeyPressed(.minus)) {
-            if (g_timeline.trackCount() > 1) {
-                const removed = g_timeline.removeTrack(g_active_track);
-                if (g_track_garbage_len < g_track_garbage_buf.len) {
-                    g_track_garbage_buf[g_track_garbage_len] = removed;
-                    g_track_garbage_len += 1;
-                }
-                if (g_active_track >= g_timeline.trackCount()) g_active_track = g_timeline.trackCount() - 1;
+            const count = g_timeline.trackCount();
+            if (count > 1) {
+                while (!g_op_queue.push(.{ .Graph = .{ .RemoveTrack = g_active_track } })) {}
+                if (g_active_track >= count - 1) g_active_track = count - 2;
                 std.debug.print("removed track {}\n", .{g_active_track});
             }
         }
         if (rl.isKeyPressed(.equal)) {
             if (g_timeline.trackCount() < project.Timeline.MAX_TRACKS) {
                 const new_track = project.Track.init(A, 4, &.{}) catch continue;
-                g_timeline.addTrack(new_track);
+                while (!g_op_queue.push(.{ .Graph = .{ .AddTrack = new_track } })) {}
                 std.debug.print("added track\n", .{});
             }
         }
@@ -418,16 +439,13 @@ pub fn main() !void {
             std.debug.print("current track: {}\n", .{g_active_track});
         }
 
-        // 1: toggle LPF (direct, no graph queue)
+        // 1: toggle LPF
         if (rl.isKeyPressed(.one)) {
             const track = getActiveTrack();
-            if (track.removePluginByTag(.lpf)) |old| {
-                if (g_plugin_garbage_len < g_plugin_garbage_buf.len) {
-                    g_plugin_garbage_buf[g_plugin_garbage_len] = old;
-                    g_plugin_garbage_len += 1;
-                }
+            if (track.hasPlugin(.lpf)) {
+                while (!g_op_queue.push(.{ .Graph = .{ .RemovePluginByTag = .{ .track_idx = g_active_track, .tag = .lpf } } })) {}
             } else {
-                track.addPlugin(.{ .lpf = audio.Lpf.init(undefined, 1.0, 2.0, 2000.0) });
+                while (!g_op_queue.push(.{ .Graph = .{ .AddPlugin = .{ .track_idx = g_active_track, .plugin = .{ .lpf = audio.Lpf.init(undefined, 1.0, 2.0, 2000.0) } } } })) {}
             }
         }
 
