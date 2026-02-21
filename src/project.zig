@@ -1,5 +1,5 @@
 const std = @import("std");
-const uni = @import("uni.zig");
+const synth = @import("synth.zig");
 const midi = @import("midi.zig");
 const audio = @import("audio.zig");
 const interface = @import("interface.zig");
@@ -144,7 +144,7 @@ pub const Plugin = union(PluginTag) {
 pub const Track = struct {
     pub const MAX_PLUGINS = 8;
 
-    synth: *uni.Uni,
+    synth: *synth.Uni,
     player: midi.Player,
     alloc: std.mem.Allocator,
 
@@ -157,7 +157,7 @@ pub const Track = struct {
     pub fn init(alloc: std.mem.Allocator, voice_count: usize, notes_in: []const midi.Note) !*Track {
         const t = try alloc.create(Track);
         t.* = .{
-            .synth = try uni.Uni.init(alloc, voice_count),
+            .synth = try synth.Uni.init(alloc, voice_count),
             .player = try midi.Player.init(alloc, notes_in),
             .alloc = alloc,
             .plugins = undefined,
