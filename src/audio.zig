@@ -23,10 +23,6 @@ pub const Context = struct {
 };
 
 pub const Osc = struct {
-    pub const State = struct {
-        phase: f32 = 0,
-    };
-
     pub const Kind = union(enum) {
         sine: struct {},
         pwm: struct { duty: f32 = 0.5 },
@@ -34,17 +30,16 @@ pub const Osc = struct {
         sub: struct { duty: f32 = 0.5, offset: f32 = -12 },
     };
 
+    phase: f32 = 0,
     freq: f32,
     kind: Kind,
-    state: *State,
     vt: VTable = .{ .process = Osc._process },
 
-    pub fn init(freq: f32, kind: Kind, state: *State) Osc {
-        return .{ .freq = freq, .kind = kind, .state = state };
+    pub fn init(freq: f32, kind: Kind) Osc {
+        return .{ .freq = freq, .kind = kind };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Osc = @ptrCast(@alignCast(p));
-        const st = self.state;
         const base_inc = self.freq / ctx.sample_rate;
         const inc = switch (self.kind) {
             .sub => |sub| base_inc * std.math.exp2(sub.offset / 12.0),
@@ -52,14 +47,14 @@ pub const Osc = struct {
         };
         for (0..out.len) |i| {
             const sample: Sample = switch (self.kind) {
-                .sine => std.math.sin(st.phase * 2.0 * std.math.pi),
-                .pwm => |pwm| if (st.phase < pwm.duty) 1.0 else -1.0,
-                .saw => 2.0 * st.phase - 1.0,
-                .sub => |sub| if (st.phase < sub.duty) 1.0 else -1.0,
+                .sine => std.math.sin(self.phase * 2.0 * std.math.pi),
+                .pwm => |pwm| if (self.phase < pwm.duty) 1.0 else -1.0,
+                .saw => 2.0 * self.phase - 1.0,
+                .sub => |sub| if (self.phase < sub.duty) 1.0 else -1.0,
             };
             out[i] = @floatCast(sample);
-            st.phase += inc;
-            while (st.phase >= 1.0) st.phase -= 1.0;
+            self.phase += inc;
+            while (self.phase >= 1.0) self.phase -= 1.0;
         }
     }
     pub fn asNode(self: *Osc) Node {
@@ -75,52 +70,48 @@ pub const Lpf = struct {
     // Original Implementation: D'Angelo, Valimaki
     pub const THERMAL_VOLTAGE = 0.312;
 
-    pub const State = struct {
-        V: [4]f32 = .{ 0, 0, 0, 0 },
-        dV: [4]f32 = .{ 0, 0, 0, 0 },
-        tV: [4]f32 = .{ 0, 0, 0, 0 },
-    };
+    V: [4]f32 = .{ 0, 0, 0, 0 },
+    dV: [4]f32 = .{ 0, 0, 0, 0 },
+    tV: [4]f32 = .{ 0, 0, 0, 0 },
 
     input: Node,
     drive: f32,
     resonance: f32,
     cutoff: f32,
-    state: *State,
     vt: VTable = .{ .process = Lpf._process },
 
-    pub fn init(input: Node, drive: f32, resonance: f32, cutoff: f32, state: *State) Lpf {
-        return .{ .input = input, .drive = drive, .resonance = resonance, .cutoff = cutoff, .state = state };
+    pub fn init(input: Node, drive: f32, resonance: f32, cutoff: f32) Lpf {
+        return .{ .input = input, .drive = drive, .resonance = resonance, .cutoff = cutoff };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Lpf = @ptrCast(@alignCast(p));
         const in = ctx.tmp().alloc(Sample, out.len) catch unreachable;
         self.input.v.process(self.input.ptr, ctx, in);
 
-        const st = self.state;
         const x = (std.math.pi * self.cutoff) / ctx.sample_rate;
         const g = 4.0 * std.math.pi * THERMAL_VOLTAGE * self.cutoff * (1.0 - x) / (1.0 + x);
         for (0..out.len) |i| {
-            const dV0 = -g * (std.math.tanh((self.drive * in[i] + self.resonance * st.V[3] / (2.0 * THERMAL_VOLTAGE)) + st.tV[0]));
-            st.V[0] += (dV0 + st.dV[0]) / (2.0 * ctx.sample_rate);
-            st.dV[0] = dV0;
-            st.tV[0] = std.math.tanh(st.V[0] / (2.0 * THERMAL_VOLTAGE));
+            const dV0 = -g * (std.math.tanh((self.drive * in[i] + self.resonance * self.V[3] / (2.0 * THERMAL_VOLTAGE)) + self.tV[0]));
+            self.V[0] += (dV0 + self.dV[0]) / (2.0 * ctx.sample_rate);
+            self.dV[0] = dV0;
+            self.tV[0] = std.math.tanh(self.V[0] / (2.0 * THERMAL_VOLTAGE));
 
-            const dV1 = g * (st.tV[0] - st.tV[1]);
-            st.V[1] += (dV1 + st.dV[1]) / (2.0 * ctx.sample_rate);
-            st.dV[1] = dV1;
-            st.tV[1] = std.math.tanh(st.V[1] / (2.0 * THERMAL_VOLTAGE));
+            const dV1 = g * (self.tV[0] - self.tV[1]);
+            self.V[1] += (dV1 + self.dV[1]) / (2.0 * ctx.sample_rate);
+            self.dV[1] = dV1;
+            self.tV[1] = std.math.tanh(self.V[1] / (2.0 * THERMAL_VOLTAGE));
 
-            const dV2 = g * (st.tV[1] - st.tV[2]);
-            st.V[2] += (dV2 + st.dV[2]) / (2.0 * ctx.sample_rate);
-            st.dV[2] = dV2;
-            st.tV[2] = std.math.tanh(st.V[2] / (2.0 * THERMAL_VOLTAGE));
+            const dV2 = g * (self.tV[1] - self.tV[2]);
+            self.V[2] += (dV2 + self.dV[2]) / (2.0 * ctx.sample_rate);
+            self.dV[2] = dV2;
+            self.tV[2] = std.math.tanh(self.V[2] / (2.0 * THERMAL_VOLTAGE));
 
-            const dV3 = g * (st.tV[2] - st.tV[3]);
-            st.V[3] += (dV3 + st.dV[3]) / (2.0 * ctx.sample_rate);
-            st.dV[3] = dV3;
-            st.tV[3] = std.math.tanh(st.V[3] / (2.0 * THERMAL_VOLTAGE));
+            const dV3 = g * (self.tV[2] - self.tV[3]);
+            self.V[3] += (dV3 + self.dV[3]) / (2.0 * ctx.sample_rate);
+            self.dV[3] = dV3;
+            self.tV[3] = std.math.tanh(self.V[3] / (2.0 * THERMAL_VOLTAGE));
 
-            out[i] = st.V[3];
+            out[i] = self.V[3];
         }
     }
     pub fn asNode(self: *Lpf) Node {
@@ -178,7 +169,7 @@ pub const Adsr = struct {
         const st = self.state;
 
         // short circuit dfs if idle
-        if (st.stage == .Idle) {
+        if (self.stage == .Idle) {
             @memset(out, 0);
             return;
         }
@@ -188,32 +179,32 @@ pub const Adsr = struct {
 
         const sr = ctx.sample_rate;
         for (out, tmp) |*o, x| {
-            switch (st.stage) {
-                .Idle => st.value = 0.0,
+            switch (self.stage) {
+                .Idle => self.value = 0.0,
                 .Attack => {
-                    st.value += 1.0 / (self.params.attack * sr);
-                    if (st.value >= 1.0) {
-                        st.value = 1.0;
-                        st.stage = .Decay;
+                    self.value += 1.0 / (self.params.attack * sr);
+                    if (self.value >= 1.0) {
+                        self.value = 1.0;
+                        self.stage = .Decay;
                     }
                 },
                 .Decay => {
-                    st.value -= (1.0 - self.params.sustain) / (self.params.decay * sr);
-                    if (st.value <= self.params.sustain) {
-                        st.value = self.params.sustain;
-                        st.stage = .Sustain;
+                    self.value -= (1.0 - self.params.sustain) / (self.params.decay * sr);
+                    if (self.value <= self.params.sustain) {
+                        self.value = self.params.sustain;
+                        self.stage = .Sustain;
                     }
                 },
                 .Sustain => {}, // hold
                 .Release => {
-                    st.value -= self.params.sustain / (self.params.release * sr);
-                    if (st.value <= 0.0) {
-                        st.value = 0.0;
-                        st.stage = .Idle;
+                    self.value -= self.params.sustain / (self.params.release * sr);
+                    if (self.value <= 0.0) {
+                        self.value = 0.0;
+                        self.stage = .Idle;
                     }
                 },
             }
-            o.* = x * st.value;
+            o.* = x * self.value;
         }
     }
 };
