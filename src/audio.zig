@@ -175,26 +175,25 @@ pub const Delay = struct {
 };
 
 pub const Adsr = struct {
-    pub const Params = struct {
-        attack: f32,
-        decay: f32,
-        sustain: f32,
-        release: f32,
-    };
-
     pub const Stage = enum { Idle, Attack, Decay, Sustain, Release };
 
     value: f32 = 0.0,
     stage: Stage = .Idle,
 
     input: Node,
-    params: Params,
+    attack: f32,
+    decay: f32,
+    sustain: f32,
+    release: f32,
     vt: VTable = .{ .process = Adsr._process },
 
-    pub fn init(input: Node, params: Params) Adsr {
+    pub fn init(input: Node, attack: f32, decay: f32, sustain: f32, release: f32) Adsr {
         return .{
             .input = input,
-            .params = params,
+            .attack = attack,
+            .decay = decay,
+            .sustain = sustain,
+            .release = release,
         };
     }
     pub fn asNode(self: *Adsr) Node {
@@ -225,22 +224,22 @@ pub const Adsr = struct {
             switch (self.stage) {
                 .Idle => self.value = 0.0,
                 .Attack => {
-                    self.value += 1.0 / (self.params.attack * sr);
+                    self.value += 1.0 / (self.attack * sr);
                     if (self.value >= 1.0) {
                         self.value = 1.0;
                         self.stage = .Decay;
                     }
                 },
                 .Decay => {
-                    self.value -= (1.0 - self.params.sustain) / (self.params.decay * sr);
-                    if (self.value <= self.params.sustain) {
-                        self.value = self.params.sustain;
+                    self.value -= (1.0 - self.sustain) / (self.decay * sr);
+                    if (self.value <= self.sustain) {
+                        self.value = self.sustain;
                         self.stage = .Sustain;
                     }
                 },
                 .Sustain => {}, // hold
                 .Release => {
-                    self.value -= self.params.sustain / (self.params.release * sr);
+                    self.value -= self.sustain / (self.release * sr);
                     if (self.value <= 0.0) {
                         self.value = 0.0;
                         self.stage = .Idle;
