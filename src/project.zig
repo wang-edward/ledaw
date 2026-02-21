@@ -83,6 +83,22 @@ pub const Timeline = struct {
         }
     }
 
+    pub fn print(self: *Timeline) void {
+        std.debug.print("timeline: {d} tracks\n", .{self.track_count});
+        for (self.tracks[0..self.track_count], 0..) |track, i| {
+            std.debug.print("  track {d}: {d} notes, {d} plugins", .{ i, track.player.notes.items.len, track.plugin_count });
+            if (track.plugin_count > 0) {
+                std.debug.print(" [", .{});
+                for (track.plugins[0..track.plugin_count], 0..) |p, j| {
+                    if (j > 0) std.debug.print(", ", .{});
+                    std.debug.print("{s}", .{@tagName(p)});
+                }
+                std.debug.print("]", .{});
+            }
+            std.debug.print("\n", .{});
+        }
+    }
+
     pub fn render(self: *Timeline) void {
         _ = self;
         for (0..interface.WIDTH) |x| {

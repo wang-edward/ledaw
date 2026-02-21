@@ -398,6 +398,7 @@ pub fn main() !void {
 
         if (rl.isKeyPressed(.x)) offset += 12;
         if (rl.isKeyPressed(.z)) offset -= 12;
+        if (rl.isKeyPressed(.c)) g_timeline.print();
 
         if (rl.isKeyPressed(.space)) {
             while (!g_op_queue.push(.{ .Playback = .TogglePlay })) {}
