@@ -119,6 +119,63 @@ pub const Lpf = struct {
     }
 };
 
+pub const Delay = struct {
+    input: Node,
+    buffer: []Sample,
+    write_pos: usize = 0,
+    delay_time: f32, // seconds
+    feedback: f32,
+    mix: f32, // [0.0, 1.0]
+    vt: VTable = .{ .process = Delay._process },
+
+    pub fn init(a: std.mem.Allocator, input: Node, buffer_size: usize) !*Delay {
+        const d = try a.create(Delay);
+        d.* = .{
+            .input = input,
+            .buffer = try a.alloc(Sample, buffer_size),
+            .delay_time = 0.25,
+            .feedback = 0.3,
+            .mix = 0.2,
+        };
+        @memset(d.buffer, 0);
+        return d;
+    }
+
+    pub fn deinit(self: *Delay, alloc: std.mem.Allocator) void {
+        alloc.free(self.buffer);
+        alloc.destroy(self);
+    }
+
+    fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
+        var self: *Delay = @ptrCast(@alignCast(p));
+        const tmp = ctx.tmp().alloc(Sample, out.len) catch unreachable;
+        self.input.v.process(self.input.ptr, ctx, tmp);
+
+        const delay_samples = @as(usize, @intFromFloat(self.delay_time * ctx.sample_rate));
+        const buffer_len = self.buffer.len;
+
+        std.debug.assert(delay_samples < buffer_len);
+
+        for (out, tmp) |*o, dry| {
+            // read from buffer
+            const read_pos = if (self.write_pos >= delay_samples)
+                self.write_pos - delay_samples
+            else
+                buffer_len - (delay_samples - self.write_pos);
+
+            const delayed = self.buffer[read_pos];
+
+            self.buffer[self.write_pos] = dry + (delayed * self.feedback); // Write to buffer (input + feedback)
+            o.* = dry * (1.0 - self.mix) + delayed * self.mix; // mix
+            self.write_pos = (self.write_pos + 1) % buffer_len; // advance
+        }
+    }
+
+    pub fn asNode(self: *Delay) Node {
+        return .{ .ptr = self, .v = &self.vt };
+    }
+};
+
 pub const Adsr = struct {
     pub const Params = struct {
         attack: f32,
