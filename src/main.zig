@@ -427,9 +427,7 @@ pub fn main() !void {
                     g_plugin_garbage_len += 1;
                 }
             } else {
-                const state = A.create(audio.Lpf.State) catch continue;
-                state.* = .{};
-                track.addPlugin(.{ .lpf = audio.Lpf.init(undefined, 1.0, 2.0, 2000.0, state) });
+                track.addPlugin(.{ .lpf = audio.Lpf.init(undefined, 1.0, 2.0, 2000.0) });
             }
         }
 

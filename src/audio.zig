@@ -61,7 +61,7 @@ pub const Osc = struct {
         return .{ .ptr = self, .v = &self.vt };
     }
     pub fn resetPhase(self: *Osc) void {
-        self.state.phase = 0.0;
+        self.phase = 0.0;
     }
 };
 
@@ -129,44 +129,32 @@ pub const Adsr = struct {
 
     pub const Stage = enum { Idle, Attack, Decay, Sustain, Release };
 
-    pub const State = struct {
-        value: f32 = 0.0,
-        stage: Stage = .Idle,
-
-        pub fn noteOn(self: *State) void {
-            self.stage = .Attack;
-        }
-        pub fn noteOff(self: *State) void {
-            if (self.stage != .Idle) {
-                self.stage = .Release;
-            }
-        }
-    };
+    value: f32 = 0.0,
+    stage: Stage = .Idle,
 
     input: Node,
     params: Params,
-    state: *State,
     vt: VTable = .{ .process = Adsr._process },
 
-    pub fn init(input: Node, params: Params, state: *State) Adsr {
+    pub fn init(input: Node, params: Params) Adsr {
         return .{
             .input = input,
             .params = params,
-            .state = state,
         };
     }
     pub fn asNode(self: *Adsr) Node {
         return .{ .ptr = self, .v = &self.vt };
     }
     pub fn noteOn(self: *Adsr) void {
-        self.state.noteOn();
+        self.stage = .Attack;
     }
     pub fn noteOff(self: *Adsr) void {
-        self.state.noteOff();
+        if (self.stage != .Idle) {
+            self.stage = .Release;
+        }
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Adsr = @ptrCast(@alignCast(p));
-        const st = self.state;
 
         // short circuit dfs if idle
         if (self.stage == .Idle) {

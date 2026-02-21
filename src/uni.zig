@@ -7,10 +7,6 @@ const NoteState = union(enum) {
 };
 
 const Voice = struct {
-    osc_state: audio.Osc.State,
-    lpf_state: audio.Lpf.State,
-    adsr_state: audio.Adsr.State,
-
     osc: audio.Osc,
     lpf: audio.Lpf,
     adsr: audio.Adsr,
@@ -19,12 +15,9 @@ const Voice = struct {
 
     pub fn init(alloc: std.mem.Allocator, freq: f32) !*Voice {
         const v = try alloc.create(Voice);
-        v.osc_state = .{};
-        v.lpf_state = .{};
-        v.adsr_state = .{};
-        v.osc = audio.Osc.init(freq, .{ .saw = .{} }, &v.osc_state);
-        v.lpf = audio.Lpf.init(v.osc.asNode(), 1.0, 0.5, 5000.0, &v.lpf_state);
-        v.adsr = audio.Adsr.init(v.lpf.asNode(), .{ .attack = 0.01, .decay = 0.1, .sustain = 0.4, .release = 0.6 }, &v.adsr_state);
+        v.osc = audio.Osc.init(freq, .{ .saw = .{} });
+        v.lpf = audio.Lpf.init(v.osc.asNode(), 1.0, 0.5, 5000.0);
+        v.adsr = audio.Adsr.init(v.lpf.asNode(), .{ .attack = 0.01, .decay = 0.1, .sustain = 0.4, .release = 0.6 });
         v.noteState = .Off;
         return v;
     }
