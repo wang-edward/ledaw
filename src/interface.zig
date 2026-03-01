@@ -61,3 +61,53 @@ pub fn postRender() void {
 pub fn shouldClose() bool {
     return rl.windowShouldClose();
 }
+
+pub const EventType = enum {
+    key_press,
+    key_release,
+};
+
+pub const Event = struct {
+    type: EventType,
+    key: rl.KeyboardKey,
+};
+
+const poll_keys = [_]rl.KeyboardKey{
+    .a,             .b,         .c,         .d,          .e,          .f,           .g,            .h,             .i,        .j,         .k,          .l,           .m,
+    .n,             .o,         .p,         .q,          .r,          .s,           .t,            .u,             .v,        .w,         .x,          .y,           .z,
+    .zero,          .one,       .two,       .three,      .four,       .five,        .six,          .seven,         .eight,    .nine,      .escape,     .grave,       .minus,
+    .equal,         .backspace, .tab,       .caps_lock,  .left_shift, .right_shift, .left_control, .right_control, .left_alt, .right_alt, .left_super, .right_super, .left_bracket,
+    .right_bracket, .backslash, .semicolon, .apostrophe, .enter,      .comma,       .period,       .slash,         .space,    .up,        .down,       .left,        .right,
+    .delete,
+};
+
+var poll_index: usize = 0;
+var poll_phase: enum { press, release } = .press;
+
+pub fn nextEvent() ?Event {
+    while (true) {
+        if (poll_phase == .press) {
+            while (poll_index < poll_keys.len) {
+                const key = poll_keys[poll_index];
+                poll_index += 1;
+                if (rl.isKeyPressed(key)) {
+                    return .{ .type = .key_press, .key = key };
+                }
+            }
+            poll_index = 0;
+            poll_phase = .release;
+        }
+        if (poll_phase == .release) {
+            while (poll_index < poll_keys.len) {
+                const key = poll_keys[poll_index];
+                poll_index += 1;
+                if (rl.isKeyReleased(key)) {
+                    return .{ .type = .key_release, .key = key };
+                }
+            }
+            poll_index = 0;
+            poll_phase = .press;
+            return null;
+        }
+    }
+}
