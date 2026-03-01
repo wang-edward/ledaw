@@ -14,7 +14,6 @@ var g_playing: bool = false;
 var g_recording: bool = false;
 var g_timeline: project.Timeline = undefined;
 var g_op_queue: ops.OpQueue = .{};
-var g_active_track: usize = 0;
 
 // Recording state
 var g_held_notes: [128]?midi.Frame = .{null} ** 128; // note -> start frame
@@ -24,9 +23,7 @@ var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
 var g_garbage_queue: ops.GarbageQueue = .{};
 
 inline fn getActiveTrack() *project.Track {
-    const tracks = g_timeline.activeTracks();
-    if (g_active_track >= tracks.len) return tracks[tracks.len - 1];
-    return tracks[g_active_track];
+    return g_timeline.activeTrack();
 }
 
 var gpa = std.heap.GeneralPurposeAllocator(.{}){};
@@ -354,9 +351,17 @@ pub fn main() !void {
     for (note_keys) |k| try key_state.put(k, null);
 
     while (!rl.windowShouldClose()) {
-        // poll events
+        // poll events and dispatch to current screen
         while (interface.nextEvent()) |ev| {
             std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
+            const op: ?ops.Op = switch (project.screen) {
+                .timeline => g_timeline.handleEvent(ev),
+                .track => g_timeline.activeTrack().handleEvent(ev),
+                .plugin => null, // TODO
+            };
+            if (op) |o| {
+                while (!g_op_queue.push(o)) {}
+            }
         }
 
         // drain garbage from audio thread
@@ -377,81 +382,18 @@ pub fn main() !void {
             if (down and active_note == null) {
                 if (keyToMidi(key)) |base| {
                     const note: u8 = @intCast(@as(i16, base) + @as(i16, offset));
-                    while (!g_note_queue.push(.{ .On = note })) {} // TODO remove blocking?
+                    while (!g_note_queue.push(.{ .On = note })) {}
                     try key_state.put(key, note);
                 }
             } else if (!down and active_note != null) {
-                while (!g_note_queue.push(.{ .Off = active_note.? })) {} // TODO remove blocking?
+                while (!g_note_queue.push(.{ .Off = active_note.? })) {}
                 try key_state.put(key, null);
             }
         }
 
-        // cutoff: direct write, no atomic params needed
-        if (rl.isKeyPressed(.up)) {
-            const track = getActiveTrack();
-            track.synth.cutoff *= 1.1;
-            std.debug.print("cutoff: {}\n", .{track.synth.cutoff});
-        }
-        if (rl.isKeyPressed(.down)) {
-            const track = getActiveTrack();
-            track.synth.cutoff *= 0.9;
-            std.debug.print("cutoff: {}\n", .{track.synth.cutoff});
-        }
-
+        // octave shift
         if (rl.isKeyPressed(.x)) offset += 12;
         if (rl.isKeyPressed(.z)) offset -= 12;
-        if (rl.isKeyPressed(.c)) g_timeline.print();
-
-        if (rl.isKeyPressed(.space)) {
-            while (!g_op_queue.push(.{ .Playback = .TogglePlay })) {}
-        }
-
-        if (rl.isKeyPressed(.backspace)) {
-            while (!g_op_queue.push(.{ .Playback = .Reset })) {}
-        }
-
-        // r: toggle recording on active track
-        if (rl.isKeyPressed(.r)) {
-            while (!g_op_queue.push(.{ .Record = .{ .ToggleRecord = g_active_track } })) {}
-        }
-
-        // - / = : remove / add track
-        if (rl.isKeyPressed(.minus)) {
-            const count = g_timeline.trackCount();
-            if (count > 1) {
-                while (!g_op_queue.push(.{ .Graph = .{ .RemoveTrack = g_active_track } })) {}
-                if (g_active_track >= count - 1) g_active_track = count - 2;
-                std.debug.print("removed track {}\n", .{g_active_track});
-            }
-        }
-        if (rl.isKeyPressed(.equal)) {
-            if (g_timeline.trackCount() < project.Timeline.MAX_TRACKS) {
-                const new_track = project.Track.init(A, 4, &.{}) catch continue;
-                while (!g_op_queue.push(.{ .Graph = .{ .AddTrack = new_track } })) {}
-                std.debug.print("added track\n", .{});
-            }
-        }
-
-        // [ / ] : switch active track
-        if (rl.isKeyPressed(.left_bracket)) {
-            if (g_active_track > 0) g_active_track -= 1;
-            std.debug.print("current track: {}\n", .{g_active_track});
-        }
-        if (rl.isKeyPressed(.right_bracket)) {
-            if (g_active_track < g_timeline.trackCount() - 1) g_active_track += 1;
-            std.debug.print("current track: {}\n", .{g_active_track});
-        }
-
-        // 1: toggle LPF
-        if (rl.isKeyPressed(.one)) {
-            const track = getActiveTrack();
-            if (track.hasPlugin(.lpf)) {
-                while (!g_op_queue.push(.{ .Graph = .{ .RemovePluginByTag = .{ .track_idx = g_active_track, .tag = .lpf } } })) {}
-            } else {
-                const lpf = plugin.Lpf.init(A, undefined, 1.0, 2.0, 2000.0) catch continue;
-                while (!g_op_queue.push(.{ .Graph = .{ .AddPlugin = .{ .track_idx = g_active_track, .plugin = .{ .lpf = lpf } } } })) {}
-            }
-        }
 
         // draw UI
         interface.preRender();
