@@ -354,6 +354,11 @@ pub fn main() !void {
     for (note_keys) |k| try key_state.put(k, null);
 
     while (!rl.windowShouldClose()) {
+        // poll events
+        while (interface.nextEvent()) |ev| {
+            std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
+        }
+
         // drain garbage from audio thread
         while (g_garbage_queue.pop()) |item| {
             switch (item) {
@@ -374,14 +379,10 @@ pub fn main() !void {
                     const note: u8 = @intCast(@as(i16, base) + @as(i16, offset));
                     while (!g_note_queue.push(.{ .On = note })) {} // TODO remove blocking?
                     try key_state.put(key, note);
-
-                    std.debug.print("key pressed {}\n", .{key});
                 }
             } else if (!down and active_note != null) {
                 while (!g_note_queue.push(.{ .Off = active_note.? })) {} // TODO remove blocking?
                 try key_state.put(key, null);
-
-                std.debug.print("key released {}\n", .{key});
             }
         }
 
