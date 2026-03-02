@@ -9,9 +9,15 @@ const rl = @import("raylib");
 pub const Timeline = struct {
     pub const MAX_TRACKS = 8;
 
+    pub const Screen = enum {
+        arrangement,
+        track,
+    };
+
     alloc: std.mem.Allocator,
     tracks: [MAX_TRACKS]*Track,
     track_count: usize,
+    screen: Screen = .arrangement,
     vt: audio.VTable = .{ .process = _process },
 
     pub fn init(
