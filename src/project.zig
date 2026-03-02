@@ -5,6 +5,15 @@ const audio = @import("audio.zig");
 const plugin = @import("plugin.zig");
 const interface = @import("interface.zig");
 const rl = @import("raylib");
+const ops = @import("ops.zig");
+
+pub const ScreenState = enum {
+    timeline,
+    track,
+    plugin,
+};
+
+pub var screen: ScreenState = .timeline;
 
 pub const Timeline = struct {
     pub const MAX_TRACKS = 8;
@@ -13,6 +22,9 @@ pub const Timeline = struct {
     tracks: [MAX_TRACKS]*Track,
     track_count: usize,
     vt: audio.VTable = .{ .process = _process },
+
+    active_track: usize = 0,
+    scroll_offset: usize = 0,
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -88,6 +100,7 @@ pub const Timeline = struct {
         std.debug.print("timeline: {d} tracks\n", .{self.track_count});
         for (self.tracks[0..self.track_count], 0..) |track, i| {
             std.debug.print("  track {d}: {d} notes, {d} plugins", .{ i, track.player.notes.items.len, track.plugin_count });
+            if (i == self.active_track) std.debug.print(" [active] ", .{});
             if (track.plugin_count > 0) {
                 std.debug.print(" [", .{});
                 for (track.plugins[0..track.plugin_count], 0..) |p, j| {
@@ -110,6 +123,58 @@ pub const Timeline = struct {
             }
         }
     }
+
+    pub fn handleEvent(self: *Timeline, ev: interface.Event) ?ops.Op {
+        if (ev.type != .key_press) return null;
+
+        switch (ev.key) {
+            .enter => {
+                screen = .track;
+                return null;
+            },
+            .down => {
+                if (self.active_track < self.track_count - 1) {
+                    self.active_track += 1;
+                }
+                return null;
+            },
+            .up => {
+                if (self.active_track > 0) {
+                    self.active_track -= 1;
+                }
+                return null;
+            },
+            .space => return .{ .Playback = .TogglePlay },
+            .backspace => return .{ .Playback = .Reset },
+            .r => return .{ .Record = .{ .ToggleRecord = self.active_track } },
+            .c => {
+                self.print();
+                return null;
+            },
+            .equal => {
+                if (self.track_count < MAX_TRACKS) {
+                    const new_track = Track.init(self.alloc, 4, &.{}) catch return null;
+                    return .{ .Graph = .{ .AddTrack = new_track } };
+                }
+                return null;
+            },
+            .minus => {
+                if (self.track_count > 1) {
+                    const idx = self.active_track;
+                    if (self.active_track >= self.track_count - 1) {
+                        self.active_track = self.track_count - 2;
+                    }
+                    return .{ .Graph = .{ .RemoveTrack = idx } };
+                }
+                return null;
+            },
+            else => return null,
+        }
+    }
+
+    pub fn activeTrack(self: *Timeline) *Track {
+        return self.tracks[self.active_track];
+    }
 };
 
 pub const PluginTag = plugin.Tag;
@@ -124,6 +189,7 @@ pub const Track = struct {
 
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
+    active_plugin: usize = 0,
 
     vt: audio.VTable = .{ .process = Track._process },
 
@@ -213,6 +279,36 @@ pub const Track = struct {
         for (self.plugins[0..self.plugin_count]) |*p| {
             p.setInput(prev);
             prev = p.asNode();
+        }
+    }
+
+    pub fn handleEvent(self: *Track, ev: interface.Event) ?ops.Op {
+        if (ev.type != .key_press) return null;
+
+        switch (ev.key) {
+            .escape => {
+                screen = .timeline;
+                return null;
+            },
+            .h => {
+                if (self.active_plugin > 0) {
+                    self.active_plugin -= 1;
+                }
+                return null;
+            },
+            .l => {
+                if (self.plugin_count > 0 and self.active_plugin < self.plugin_count - 1) {
+                    self.active_plugin += 1;
+                }
+                return null;
+            },
+            .enter => {
+                if (self.plugin_count > 0) {
+                    screen = .plugin;
+                }
+                return null;
+            },
+            else => return null,
         }
     }
 };
