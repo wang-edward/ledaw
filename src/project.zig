@@ -52,7 +52,10 @@ pub const App = struct {
             .insert => {
                 // play notes
                 if (midi.keyToMidi(event.key)) |base| {
-                    const note: u8 = @intCast(@as(i16, base) + self.note_offset);
+                    const raw = @as(i16, base) + self.note_offset;
+                    if (raw < 0 or raw > 127) return null;
+                    const note: u8 = @intCast(raw);
+
                     switch (event.type) {
                         .key_press => {
                             self.active_notes.put(event.key, note) catch return null;
@@ -72,8 +75,8 @@ pub const App = struct {
                 if (event.type == .key_press) {
                     switch (event.key) {
                         .escape => self.mode = .normal,
-                        .z => self.note_offset -= 12,
-                        .x => self.note_offset += 12,
+                        .z => self.note_offset = @max(self.note_offset - 12, -48),
+                        .x => self.note_offset = @min(self.note_offset + 12, 48),
                         else => {},
                     }
                 }
