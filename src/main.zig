@@ -400,7 +400,7 @@ pub fn main() !void {
         interface.preRender();
         defer interface.postRender();
         {
-            g_app.timeline.render();
+            g_app.render();
         }
     }
 }
