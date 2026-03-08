@@ -60,12 +60,12 @@ pub const App = struct {
                     switch (event.type) {
                         .key_press => {
                             self.active_notes.put(event.key, note) catch return null;
-                            while (!self.note_queue.push(.{ .On = note })) {}
+                            while (!self.note_queue.push(.{ .on = note })) {}
                         },
                         .key_release => {
                             if (self.active_notes.get(event.key)) |held| {
                                 _ = self.active_notes.remove(event.key);
-                                while (!self.note_queue.push(.{ .Off = held })) {}
+                                while (!self.note_queue.push(.{ .off = held })) {}
                             }
                         },
                     }
@@ -79,7 +79,7 @@ pub const App = struct {
                             // drain held notes before switching mode
                             var it = self.active_notes.iterator();
                             while (it.next()) |entry| {
-                                while (!self.note_queue.push(.{ .Off = entry.value_ptr.* })) {}
+                                while (!self.note_queue.push(.{ .off = entry.value_ptr.* })) {}
                             }
                             self.active_notes.clearRetainingCapacity();
                             self.mode = .normal;
@@ -242,20 +242,20 @@ pub const Timeline = struct {
                     .up => if (self.active_track > 0) {
                         self.active_track -= 1;
                     },
-                    .space => return .{ .op = .{ .Playback = .TogglePlay } },
-                    .backspace => return .{ .op = .{ .Playback = .Reset } },
-                    .r => return .{ .op = .{ .Record = .{ .ToggleRecord = self.active_track } } },
+                    .space => return .{ .op = .{ .playback = .toggle_play } },
+                    .backspace => return .{ .op = .{ .playback = .reset } },
+                    .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, 4, &.{}) catch return null;
-                        return .{ .op = .{ .Graph = .{ .AddTrack = new_track } } };
+                        return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                     },
                     .minus => if (self.track_count > 1) {
                         const idx = self.active_track;
                         if (self.active_track >= self.track_count - 1) {
                             self.active_track = self.track_count - 2;
                         }
-                        return .{ .op = .{ .Graph = .{ .RemoveTrack = idx } } };
+                        return .{ .op = .{ .graph = .{ .remove_track = idx } } };
                     },
                     else => {},
                 }

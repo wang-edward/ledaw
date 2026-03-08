@@ -79,7 +79,7 @@ fn write_callback(
         // process note
         while (g_app.note_queue.pop()) |msg| {
             switch (msg) {
-                .Off => |note| {
+                .off => |note| {
                     getActiveTrack().synth.noteOff(note);
                     // Record note off
                     if (g_recording and g_playing) {
@@ -93,7 +93,7 @@ fn write_callback(
                         }
                     }
                 },
-                .On => |note| {
+                .on => |note| {
                     getActiveTrack().synth.noteOn(note);
                     // Record note on
                     if (g_recording and g_playing) {
@@ -106,8 +106,8 @@ fn write_callback(
         // process Ops
         while (g_op_queue.pop()) |op| {
             switch (op) {
-                .Playback => |p| switch (p) {
-                    .TogglePlay => {
+                .playback => |p| switch (p) {
+                    .toggle_play => {
                         for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
@@ -120,15 +120,15 @@ fn write_callback(
                             g_playing = !g_playing;
                         }
                     },
-                    .Reset => {
+                    .reset => {
                         for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
                         g_playhead = 0;
                     },
                 },
-                .Record => |r| switch (r) {
-                    .ToggleRecord => |track_idx| {
+                .record => |r| switch (r) {
+                    .toggle_record => |track_idx| {
                         if (g_recording) {
                             if (g_record_buffer.items.len > 0) {
                                 g_app.timeline.activeTracks()[track_idx].player.appendNotes(
@@ -148,23 +148,23 @@ fn write_callback(
                         }
                     },
                 },
-                .Graph => |g| switch (g) {
-                    .AddTrack => |track| {
+                .graph => |g| switch (g) {
+                    .add_track => |track| {
                         g_app.timeline.addTrack(track);
                     },
-                    .RemoveTrack => |idx| {
+                    .remove_track => |idx| {
                         if (idx < g_app.timeline.trackCount()) {
                             const removed = g_app.timeline.removeTrack(idx);
                             _ = g_garbage_queue.push(.{ .track = removed });
                         }
                     },
-                    .AddPlugin => |ap| {
+                    .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
                         if (ap.track_idx < tracks.len) {
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
                     },
-                    .RemovePluginByTag => |rp| {
+                    .remove_plugin_by_tag => |rp| {
                         const tracks = g_app.timeline.activeTracks();
                         if (rp.track_idx < tracks.len) {
                             if (tracks[rp.track_idx].removePluginByTag(rp.tag)) |old| {
@@ -204,8 +204,8 @@ fn write_callback(
                 const n = track.player.advance(start, g_playhead, &midi_notes);
                 for (midi_notes[0..n]) |msg| {
                     switch (msg) {
-                        .Off => |note| track.synth.noteOff(note),
-                        .On => |note| track.synth.noteOn(note),
+                        .off => |note| track.synth.noteOff(note),
+                        .on => |note| track.synth.noteOn(note),
                     }
                 }
             }

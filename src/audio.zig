@@ -175,10 +175,10 @@ pub const Delay = struct {
 };
 
 pub const Adsr = struct {
-    pub const Stage = enum { Idle, Attack, Decay, Sustain, Release };
+    pub const Stage = enum { idle, attack, decay, sustain, release };
 
     value: f32 = 0.0,
-    stage: Stage = .Idle,
+    stage: Stage = .idle,
 
     input: Node,
     attack: f32,
@@ -200,18 +200,18 @@ pub const Adsr = struct {
         return .{ .ptr = self, .v = &self.vt };
     }
     pub fn noteOn(self: *Adsr) void {
-        self.stage = .Attack;
+        self.stage = .attack;
     }
     pub fn noteOff(self: *Adsr) void {
-        if (self.stage != .Idle) {
-            self.stage = .Release;
+        if (self.stage != .idle) {
+            self.stage = .release;
         }
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Adsr = @ptrCast(@alignCast(p));
 
         // short circuit dfs if idle
-        if (self.stage == .Idle) {
+        if (self.stage == .idle) {
             @memset(out, 0);
             return;
         }
@@ -222,27 +222,27 @@ pub const Adsr = struct {
         const sr = ctx.sample_rate;
         for (out, tmp) |*o, x| {
             switch (self.stage) {
-                .Idle => self.value = 0.0,
-                .Attack => {
+                .idle => self.value = 0.0,
+                .attack => {
                     self.value += 1.0 / (self.attack * sr);
                     if (self.value >= 1.0) {
                         self.value = 1.0;
-                        self.stage = .Decay;
+                        self.stage = .decay;
                     }
                 },
-                .Decay => {
+                .decay => {
                     self.value -= (1.0 - self.sustain) / (self.decay * sr);
                     if (self.value <= self.sustain) {
                         self.value = self.sustain;
-                        self.stage = .Sustain;
+                        self.stage = .sustain;
                     }
                 },
-                .Sustain => {}, // hold
-                .Release => {
+                .sustain => {}, // hold
+                .release => {
                     self.value -= self.sustain / (self.release * sr);
                     if (self.value <= 0.0) {
                         self.value = 0.0;
-                        self.stage = .Idle;
+                        self.stage = .idle;
                     }
                 },
             }

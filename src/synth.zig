@@ -2,8 +2,8 @@ const std = @import("std");
 const audio = @import("audio.zig");
 
 const NoteState = union(enum) {
-    Off,
-    On: u8,
+    off,
+    on: u8,
 };
 
 const Voice = struct {
@@ -11,14 +11,14 @@ const Voice = struct {
     lpf: audio.Lpf,
     adsr: audio.Adsr,
 
-    noteState: NoteState = .Off,
+    noteState: NoteState = .off,
 
     pub fn init(alloc: std.mem.Allocator, freq: f32) !*Voice {
         const v = try alloc.create(Voice);
         v.osc = audio.Osc.init(freq, .{ .saw = .{} });
         v.lpf = audio.Lpf.init(v.osc.asNode(), 1.0, 0.5, 5000.0);
         v.adsr = audio.Adsr.init(v.lpf.asNode(), 0.01, 0.1, 0.4, 0.6);
-        v.noteState = .Off;
+        v.noteState = .off;
         return v;
     }
     pub fn deinit(self: *Voice, alloc: std.mem.Allocator) void {
@@ -28,7 +28,7 @@ const Voice = struct {
         return self.adsr.asNode();
     }
     pub fn setNoteOn(self: *Voice, note: u8) void {
-        self.noteState = .{ .On = note };
+        self.noteState = .{ .on = note };
         const freq = noteToFreq(note);
         self.osc.resetPhase();
         self.osc.freq = freq;
@@ -36,8 +36,8 @@ const Voice = struct {
     }
     pub fn setNoteOff(self: *Voice, note: u8) void {
         switch (self.noteState) {
-            .On => |on| if (on == note) {
-                self.noteState = .Off;
+            .on => |on| if (on == note) {
+                self.noteState = .off;
                 self.adsr.noteOff();
             },
             else => {},
@@ -75,7 +75,7 @@ pub const Uni = struct {
     fn findFreeVoice(self: *Uni) ?*Voice {
         for (self.voices) |v| {
             switch (v.noteState) {
-                .Off => return v,
+                .off => return v,
                 else => {},
             }
         }
@@ -97,8 +97,8 @@ pub const Uni = struct {
     pub fn allNotesOff(self: *Uni) void {
         for (self.voices) |v| {
             switch (v.noteState) {
-                .On => |note| v.setNoteOff(note),
-                .Off => {},
+                .on => |note| v.setNoteOff(note),
+                .off => {},
             }
         }
     }
