@@ -9,6 +9,22 @@ const ops = @import("ops.zig");
 
 pub const App = struct {
     timeline: Timeline,
+
+    pub fn init(
+        alloc: std.mem.Allocator,
+        num_tracks: usize,
+        voices_per_track: usize,
+        notes_per_track: []const []const midi.Note,
+    ) !App {
+        return .{
+            .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track),
+        };
+    }
+
+    pub fn deinit(self: *App) void {
+        self.timeline.deinit();
+    }
+
     pub fn render(self: *App) void {
         self.timeline.render();
         // draw after for overlay
@@ -35,6 +51,7 @@ pub const Timeline = struct {
     alloc: std.mem.Allocator,
     tracks: [MAX_TRACKS]*Track,
     track_count: usize,
+    midi_editor: MidiEditor,
     vt: audio.VTable = .{ .process = _process },
 
     active_track: usize = 0,
@@ -55,6 +72,7 @@ pub const Timeline = struct {
             .alloc = alloc,
             .tracks = undefined,
             .track_count = num_tracks,
+            .midi_editor = .{},
             .screen = .overview,
         };
 
@@ -76,8 +94,13 @@ pub const Timeline = struct {
         return .{ .ptr = self, .v = &self.vt };
     }
 
+    // TODO remove?
     pub fn activeTracks(self: *Timeline) []*Track {
         return self.tracks[0..self.track_count];
+    }
+
+    pub fn activeTrack(self: *Timeline) *Track {
+        return self.tracks[self.active_track];
     }
 
     pub fn trackCount(self: *Timeline) usize {
@@ -142,7 +165,7 @@ pub const Timeline = struct {
                 }
                 rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
             },
-            .track => self.track.render(),
+            .track => self.activeTrack().render(),
             .midi_editor => self.midi_editor.render(),
         }
     }
@@ -160,9 +183,9 @@ pub const Timeline = struct {
                 }
                 return null;
             },
-            .track => self.track.handleEvent(event),
+            .track => self.activeTrack().handleEvent(event),
             .midi_editor => self.midi_editor.handleEvent(event),
-        };
+        } orelse return null;
 
         switch (action) {
             .go_back => self.screen = .overview,
@@ -170,10 +193,6 @@ pub const Timeline = struct {
         }
 
         return null;
-    }
-
-    pub fn activeTrack(self: *Timeline) *Track {
-        return self.tracks[self.active_track];
     }
 };
 

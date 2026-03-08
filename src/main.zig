@@ -12,7 +12,7 @@ var g_note_queue: midi.NoteQueue = .{};
 var g_playhead: u64 = 0;
 var g_playing: bool = false;
 var g_recording: bool = false;
-var g_timeline: project.Timeline = undefined;
+var g_app: project.App = undefined;
 var g_op_queue: ops.OpQueue = .{};
 
 // Recording state
@@ -23,7 +23,7 @@ var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
 var g_garbage_queue: ops.GarbageQueue = .{};
 
 inline fn getActiveTrack() *project.Track {
-    return g_timeline.activeTrack();
+    return g_app.timeline.activeTrack();
 }
 
 var gpa = std.heap.GeneralPurposeAllocator(.{}){};
@@ -109,7 +109,7 @@ fn write_callback(
             switch (op) {
                 .Playback => |p| switch (p) {
                     .TogglePlay => {
-                        for (g_timeline.activeTracks()) |t| {
+                        for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
                         if (g_recording and g_playing) {
@@ -122,7 +122,7 @@ fn write_callback(
                         }
                     },
                     .Reset => {
-                        for (g_timeline.activeTracks()) |t| {
+                        for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
                         g_playhead = 0;
@@ -132,7 +132,7 @@ fn write_callback(
                     .ToggleRecord => |track_idx| {
                         if (g_recording) {
                             if (g_record_buffer.items.len > 0) {
-                                g_timeline.activeTracks()[track_idx].player.appendNotes(
+                                g_app.timeline.activeTracks()[track_idx].player.appendNotes(
                                     A,
                                     g_record_buffer.items,
                                 ) catch {};
@@ -151,22 +151,22 @@ fn write_callback(
                 },
                 .Graph => |g| switch (g) {
                     .AddTrack => |track| {
-                        g_timeline.addTrack(track);
+                        g_app.timeline.addTrack(track);
                     },
                     .RemoveTrack => |idx| {
-                        if (idx < g_timeline.trackCount()) {
-                            const removed = g_timeline.removeTrack(idx);
+                        if (idx < g_app.timeline.trackCount()) {
+                            const removed = g_app.timeline.removeTrack(idx);
                             _ = g_garbage_queue.push(.{ .track = removed });
                         }
                     },
                     .AddPlugin => |ap| {
-                        const tracks = g_timeline.activeTracks();
+                        const tracks = g_app.timeline.activeTracks();
                         if (ap.track_idx < tracks.len) {
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
                     },
                     .RemovePluginByTag => |rp| {
-                        const tracks = g_timeline.activeTracks();
+                        const tracks = g_app.timeline.activeTracks();
                         if (rp.track_idx < tracks.len) {
                             if (tracks[rp.track_idx].removePluginByTag(rp.tag)) |old| {
                                 _ = g_garbage_queue.push(.{ .plugin = old });
@@ -201,7 +201,7 @@ fn write_callback(
             const start = g_playhead;
             g_playhead += @intCast(frame_count);
 
-            for (g_timeline.activeTracks()) |track| {
+            for (g_app.timeline.activeTracks()) |track| {
                 const n = track.player.advance(start, g_playhead, &midi_notes);
                 for (midi_notes[0..n]) |msg| {
                     switch (msg) {
@@ -284,9 +284,9 @@ fn audioThreadMain() !void {
     };
     const notes_per_track = [_][]const midi.Note{ &notes, &bass_notes };
 
-    g_timeline = try project.Timeline.init(A, 2, 4, &notes_per_track);
-    defer g_timeline.deinit();
-    root = g_timeline.asNode();
+    g_app = try project.App.init(A, 2, 4, &notes_per_track);
+    defer g_app.deinit();
+    root = g_app.timeline.asNode();
 
     defer g_record_buffer.deinit(A);
 
@@ -354,13 +354,14 @@ pub fn main() !void {
         // poll events and dispatch to current screen
         while (interface.nextEvent()) |ev| {
             std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
-            const op: ?ops.Op = switch (project.screen) {
-                .timeline => g_timeline.handleEvent(ev),
-                .track => g_timeline.activeTrack().handleEvent(ev),
-                .plugin => null, // TODO
-            };
-            if (op) |o| {
-                while (!g_op_queue.push(o)) {}
+
+            const action = g_app.handleEvent(ev);
+
+            if (action) |ac| {
+                switch (ac) {
+                    .op => |o| while (!g_op_queue.push(o)) {},
+                    else => {},
+                }
             }
         }
 
@@ -399,7 +400,7 @@ pub fn main() !void {
         interface.preRender();
         defer interface.postRender();
         {
-            g_timeline.render();
+            g_app.timeline.render();
         }
     }
 }
