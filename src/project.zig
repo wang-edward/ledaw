@@ -15,6 +15,7 @@ pub const App = struct {
 
     active_notes: std.AutoHashMap(rl.KeyboardKey, u8), // keep key state for (press, offset, release) case
     note_offset: i16,
+    note_queue: midi.NoteQueue = .{},
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -59,22 +60,30 @@ pub const App = struct {
                     switch (event.type) {
                         .key_press => {
                             self.active_notes.put(event.key, note) catch return null;
-                            return .{ .note = .{ .On = note } };
+                            while (!self.note_queue.push(.{ .On = note })) {}
                         },
                         .key_release => {
                             if (self.active_notes.get(event.key)) |held| {
                                 _ = self.active_notes.remove(event.key);
-                                return .{ .note = .{ .Off = held } };
+                                while (!self.note_queue.push(.{ .Off = held })) {}
                             }
-                            return null;
                         },
                     }
+                    return null;
                 }
 
                 // insert mode commands
                 if (event.type == .key_press) {
                     switch (event.key) {
-                        .escape => self.mode = .normal,
+                        .escape => {
+                            // drain held notes before switching mode
+                            var it = self.active_notes.iterator();
+                            while (it.next()) |entry| {
+                                while (!self.note_queue.push(.{ .Off = entry.value_ptr.* })) {}
+                            }
+                            self.active_notes.clearRetainingCapacity();
+                            self.mode = .normal;
+                        },
                         .z => self.note_offset = @max(self.note_offset - 12, -48),
                         .x => self.note_offset = @min(self.note_offset + 12, 48),
                         else => {},

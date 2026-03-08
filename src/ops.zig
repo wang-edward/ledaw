@@ -1,6 +1,5 @@
 const SpscQueue = @import("queue.zig").SpscQueue;
 const project = @import("project.zig");
-const midi = @import("midi.zig");
 
 pub const PlaybackOp = union(enum) {
     TogglePlay,
@@ -34,6 +33,5 @@ pub const GarbageQueue = SpscQueue(GarbageItem, 32);
 
 pub const Action = union(enum) {
     op: Op,
-    note: midi.NoteMsg,
     go_back,
 };

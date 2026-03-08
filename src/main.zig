@@ -8,7 +8,6 @@ const interface = @import("interface.zig");
 const project = @import("project.zig");
 const plugin = @import("plugin.zig");
 
-var g_note_queue: midi.NoteQueue = .{};
 var g_playhead: u64 = 0;
 var g_playing: bool = false;
 var g_recording: bool = false;
@@ -78,7 +77,7 @@ fn write_callback(
         if (frame_count == 0) break;
 
         // process note
-        while (g_note_queue.pop()) |msg| {
+        while (g_app.note_queue.pop()) |msg| {
             switch (msg) {
                 .Off => |note| {
                     getActiveTrack().synth.noteOff(note);
@@ -324,7 +323,6 @@ pub fn main() !void {
             if (action) |ac| {
                 switch (ac) {
                     .op => |o| while (!g_op_queue.push(o)) {},
-                    .note => |n| while (!g_note_queue.push(n)) {},
                     else => {},
                 }
             }
