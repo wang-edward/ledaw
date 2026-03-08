@@ -8,7 +8,13 @@ const rl = @import("raylib");
 const ops = @import("ops.zig");
 
 pub const App = struct {
+    const Mode = enum { normal, insert };
+
     timeline: Timeline,
+    mode: Mode,
+
+    active_notes: std.AutoHashMap(rl.KeyboardKey, u8), // keep key state for (press, offset, release) case
+    note_offset: i16,
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -18,11 +24,15 @@ pub const App = struct {
     ) !App {
         return .{
             .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track),
+            .mode = .normal,
+            .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
+            .note_offset = 0,
         };
     }
 
     pub fn deinit(self: *App) void {
         self.timeline.deinit();
+        self.active_notes.deinit();
     }
 
     pub fn render(self: *App) void {
@@ -38,9 +48,39 @@ pub const App = struct {
     }
 
     pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
-        if (event.type != .key_press) return null;
-
-        return self.timeline.handleEvent(event);
+        switch (self.mode) {
+            .insert => {
+                if (event.key == .escape and event.type == .key_press) {
+                    self.mode = .normal;
+                    return null;
+                }
+                if (midi.keyToMidi(event.key)) |base| {
+                    const note: u8 = @intCast(@as(i16, base) + self.note_offset);
+                    switch (event.type) {
+                        .key_press => {
+                            self.active_notes.put(event.key, note) catch return null;
+                            return .{ .note = .{ .On = note } };
+                        },
+                        .key_release => {
+                            if (self.active_notes.get(event.key)) |held| {
+                                _ = self.active_notes.remove(event.key);
+                                return .{ .note = .{ .Off = held } };
+                            }
+                            return null;
+                        },
+                    }
+                }
+                return null;
+            },
+            .normal => {
+                if (event.type != .key_press) return null;
+                if (event.key == .i) {
+                    self.mode = .insert;
+                    return null;
+                }
+                return self.timeline.handleEvent(event);
+            },
+        }
     }
 };
 
