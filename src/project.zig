@@ -171,13 +171,33 @@ pub const Timeline = struct {
     }
 
     pub fn handleEvent(self: *Timeline, event: interface.Event) ?ops.Action {
-
         const action = switch (self.screen) {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TRACK\n", .{}),
                     .enter => self.screen = .track,
                     .e => self.screen = .midi_editor,
+                    .down => if (self.active_track < self.track_count - 1) {
+                        self.active_track += 1;
+                    },
+                    .up => if (self.active_track > 0) {
+                        self.active_track -= 1;
+                    },
+                    .space => return .{ .op = .{ .Playback = .TogglePlay } },
+                    .backspace => return .{ .op = .{ .Playback = .Reset } },
+                    .r => return .{ .op = .{ .Record = .{ .ToggleRecord = self.active_track } } },
+                    .c => self.print(),
+                    .equal => if (self.track_count < MAX_TRACKS) {
+                        const new_track = Track.init(self.alloc, 4, &.{}) catch return null;
+                        return .{ .op = .{ .Graph = .{ .AddTrack = new_track } } };
+                    },
+                    .minus => if (self.track_count > 1) {
+                        const idx = self.active_track;
+                        if (self.active_track >= self.track_count - 1) {
+                            self.active_track = self.track_count - 2;
+                        }
+                        return .{ .op = .{ .Graph = .{ .RemoveTrack = idx } } };
+                    },
                     else => {},
                 }
                 return null;
@@ -186,12 +206,13 @@ pub const Timeline = struct {
             .midi_editor => self.midi_editor.handleEvent(event),
         } orelse return null;
 
-        switch (action) {
-            .go_back => self.screen = .overview,
-            else => {},
-        }
-
-        return null;
+        return switch (action) {
+            .go_back => {
+                self.screen = .overview;
+                return null;
+            },
+            else => action,
+        };
     }
 };
 
