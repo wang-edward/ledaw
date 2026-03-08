@@ -30,3 +30,8 @@ pub const GarbageItem = union(enum) {
 
 pub const OpQueue = SpscQueue(Op, 32);
 pub const GarbageQueue = SpscQueue(GarbageItem, 32);
+
+pub const Action = union(enum) {
+    op: Op,
+    go_back,
+};
