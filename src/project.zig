@@ -7,15 +7,29 @@ const interface = @import("interface.zig");
 const rl = @import("raylib");
 const ops = @import("ops.zig");
 
-pub const ScreenState = enum {
-    timeline,
-    track,
-    plugin,
+pub const App = struct {
+    timeline: Timeline,
+    pub fn render(self: *App) void {
+        self.timeline.render();
+        // draw after for overlay
+        for (0..interface.WIDTH) |x| {
+            for (0..interface.HEIGHT) |y| {
+                if (x == 0 or y == 0) {
+                    rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+                }
+            }
+        }
+    }
+
+    pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
+        if (event.type != .key_press) return null;
+
+        return self.timeline.handleEvent(event);
+    }
 };
 
-pub var screen: ScreenState = .timeline;
-
 pub const Timeline = struct {
+    const Screen = enum { overview, track, midi_editor };
     pub const MAX_TRACKS = 8;
 
     alloc: std.mem.Allocator,
@@ -25,6 +39,8 @@ pub const Timeline = struct {
 
     active_track: usize = 0,
     scroll_offset: usize = 0,
+
+    screen: Screen,
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -39,6 +55,7 @@ pub const Timeline = struct {
             .alloc = alloc,
             .tracks = undefined,
             .track_count = num_tracks,
+            .screen = .overview,
         };
 
         for (0..num_tracks) |i| {
@@ -114,62 +131,45 @@ pub const Timeline = struct {
     }
 
     pub fn render(self: *Timeline) void {
-        _ = self;
-        for (0..interface.WIDTH) |x| {
-            for (0..interface.HEIGHT) |y| {
-                if ((x + y) % 2 == 0) {
-                    rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
+        switch (self.screen) {
+            .overview => {
+                for (0..interface.WIDTH) |x| {
+                    for (0..interface.HEIGHT) |y| {
+                        if ((x + y) % 2 == 0) {
+                            // rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
+                        }
+                    }
                 }
-            }
+                rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
+            },
+            .track => self.track.render(),
+            .midi_editor => self.midi_editor.render(),
         }
     }
 
-    pub fn handleEvent(self: *Timeline, ev: interface.Event) ?ops.Op {
-        if (ev.type != .key_press) return null;
+    pub fn handleEvent(self: *Timeline, event: interface.Event) ?ops.Action {
+        if (event.type != .key_press) return null;
 
-        switch (ev.key) {
-            .enter => {
-                screen = .track;
-                return null;
-            },
-            .down => {
-                if (self.active_track < self.track_count - 1) {
-                    self.active_track += 1;
+        const action = switch (self.screen) {
+            .overview => {
+                switch (event.key) {
+                    .p => std.debug.print("in the TRACK\n", .{}),
+                    .enter => self.screen = .track,
+                    .e => self.screen = .midi_editor,
+                    else => {},
                 }
                 return null;
             },
-            .up => {
-                if (self.active_track > 0) {
-                    self.active_track -= 1;
-                }
-                return null;
-            },
-            .space => return .{ .Playback = .TogglePlay },
-            .backspace => return .{ .Playback = .Reset },
-            .r => return .{ .Record = .{ .ToggleRecord = self.active_track } },
-            .c => {
-                self.print();
-                return null;
-            },
-            .equal => {
-                if (self.track_count < MAX_TRACKS) {
-                    const new_track = Track.init(self.alloc, 4, &.{}) catch return null;
-                    return .{ .Graph = .{ .AddTrack = new_track } };
-                }
-                return null;
-            },
-            .minus => {
-                if (self.track_count > 1) {
-                    const idx = self.active_track;
-                    if (self.active_track >= self.track_count - 1) {
-                        self.active_track = self.track_count - 2;
-                    }
-                    return .{ .Graph = .{ .RemoveTrack = idx } };
-                }
-                return null;
-            },
-            else => return null,
+            .track => self.track.handleEvent(event),
+            .midi_editor => self.midi_editor.handleEvent(event),
+        };
+
+        switch (action) {
+            .go_back => self.screen = .overview,
+            else => {},
         }
+
+        return null;
     }
 
     pub fn activeTrack(self: *Timeline) *Track {
@@ -219,6 +219,18 @@ pub const Track = struct {
         node.v.process(node.ptr, ctx, out);
     }
 
+    pub fn render(self: *Track) void {
+        _ = self;
+        for (0..interface.WIDTH) |x| {
+            for (0..interface.HEIGHT) |y| {
+                if ((x + y) % 2 == 0) {
+                    // rl.drawPixel(@intCast(x), @intCast(y), rl.Color.green);
+                }
+            }
+        }
+        rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
+    }
+
     fn output(self: *Track) audio.Node {
         if (self.plugin_count > 0) return self.plugins[self.plugin_count - 1].asNode();
         return self.synth.asNode();
@@ -247,6 +259,7 @@ pub const Track = struct {
         return removed;
     }
 
+    // TODO REMOVE
     pub fn hasPlugin(self: *Track, tag: PluginTag) bool {
         for (self.plugins[0..self.plugin_count]) |p| {
             if (p == tag) return true;
@@ -254,6 +267,7 @@ pub const Track = struct {
         return false;
     }
 
+    // TODO REMOVE
     pub fn findPlugin(self: *Track, tag: PluginTag) ?usize {
         for (self.plugins[0..self.plugin_count], 0..) |p, i| {
             if (p == tag) return i;
@@ -261,6 +275,7 @@ pub const Track = struct {
         return null;
     }
 
+    // TODO REMOVE
     pub fn removePluginByTag(self: *Track, tag: PluginTag) ?Plugin {
         if (self.findPlugin(tag)) |idx| {
             return self.removePlugin(idx);
@@ -282,33 +297,42 @@ pub const Track = struct {
         }
     }
 
-    pub fn handleEvent(self: *Track, ev: interface.Event) ?ops.Op {
-        if (ev.type != .key_press) return null;
+    pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
+        _ = self;
+        if (event.type != .key_press) return null;
 
-        switch (ev.key) {
-            .escape => {
-                screen = .timeline;
-                return null;
-            },
-            .h => {
-                if (self.active_plugin > 0) {
-                    self.active_plugin -= 1;
-                }
-                return null;
-            },
-            .l => {
-                if (self.plugin_count > 0 and self.active_plugin < self.plugin_count - 1) {
-                    self.active_plugin += 1;
-                }
-                return null;
-            },
-            .enter => {
-                if (self.plugin_count > 0) {
-                    screen = .plugin;
-                }
-                return null;
-            },
-            else => return null,
+        switch (event.key) {
+            .p => std.debug.print("in the TRACK\n", .{}),
+            .backspace => return .go_back,
+            else => {},
         }
+        return null;
+    }
+};
+
+pub const MidiEditor = struct {
+    pub fn render(self: *MidiEditor) void {
+        _ = self;
+        for (0..interface.WIDTH) |x| {
+            for (0..interface.HEIGHT) |y| {
+                if ((x + y) % 2 == 0) {
+                    // rl.drawPixel(@intCast(x), @intCast(y), rl.Color.brown);
+                }
+            }
+        }
+
+        rl.drawText("MIDI_EDITOR", 30, 30, 10, rl.Color.light_gray);
+    }
+
+    pub fn handleEvent(self: *MidiEditor, event: interface.Event) ?ops.Action {
+        _ = self;
+        if (event.type != .key_press) return null;
+
+        switch (event.key) {
+            .p => std.debug.print("in the MIDI EDITOR\n", .{}),
+            .backspace => return .go_back,
+            else => {},
+        }
+        return null;
     }
 };
