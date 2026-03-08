@@ -50,15 +50,7 @@ pub const App = struct {
     pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
         switch (self.mode) {
             .insert => {
-                if (event.key == .escape and event.type == .key_press) {
-                    self.mode = .normal;
-                    return null;
-                }
-
-                // TODO early return? in general need to make this fn less imperative
-                if (event.key == .z) self.note_offset -= 12;
-                if (event.key == .x) self.note_offset += 12;
-
+                // play notes
                 if (midi.keyToMidi(event.key)) |base| {
                     const note: u8 = @intCast(@as(i16, base) + self.note_offset);
                     switch (event.type) {
@@ -73,6 +65,16 @@ pub const App = struct {
                             }
                             return null;
                         },
+                    }
+                }
+
+                // insert mode commands
+                if (event.type == .key_press) {
+                    switch (event.key) {
+                        .escape => self.mode = .normal,
+                        .z => self.note_offset -= 12,
+                        .x => self.note_offset += 12,
+                        else => {},
                     }
                 }
                 return null;
