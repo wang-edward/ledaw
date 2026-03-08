@@ -13,8 +13,8 @@ pub const Note = struct {
 };
 
 pub const NoteMsg = union(enum) {
-    On: u8,
-    Off: u8,
+    on: u8,
+    off: u8,
 };
 
 pub const NoteQueue = SpscQueue(NoteMsg, 16);
@@ -87,7 +87,7 @@ pub const Player = struct {
             if (start <= n.start and n.start < end) {
                 if (count < out.len) {
                     std.debug.print("on: {}\n", .{n});
-                    out[count] = .{ .On = n.note };
+                    out[count] = .{ .on = n.note };
                     count += 1;
                 }
             }
@@ -95,7 +95,7 @@ pub const Player = struct {
                 if (count < out.len) {
                     std.debug.print("on: {}\n", .{n});
                     std.debug.print("off: {}\n", .{n});
-                    out[count] = .{ .Off = n.note };
+                    out[count] = .{ .off = n.note };
                     count += 1;
                 }
             }

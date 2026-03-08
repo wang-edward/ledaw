@@ -2,25 +2,25 @@ const SpscQueue = @import("queue.zig").SpscQueue;
 const project = @import("project.zig");
 
 pub const PlaybackOp = union(enum) {
-    TogglePlay,
-    Reset,
+    toggle_play,
+    reset,
 };
 
 pub const RecordOp = union(enum) {
-    ToggleRecord: usize, // track index to record to
+    toggle_record: usize, // track index to record to
 };
 
 pub const GraphOp = union(enum) {
-    AddTrack: *project.Track,
-    RemoveTrack: usize,
-    AddPlugin: struct { track_idx: usize, plugin: project.Plugin },
-    RemovePluginByTag: struct { track_idx: usize, tag: project.PluginTag },
+    add_track: *project.Track,
+    remove_track: usize,
+    add_plugin: struct { track_idx: usize, plugin: project.Plugin },
+    remove_plugin_by_tag: struct { track_idx: usize, tag: project.PluginTag },
 };
 
 pub const Op = union(enum) {
-    Playback: PlaybackOp,
-    Record: RecordOp,
-    Graph: GraphOp,
+    playback: PlaybackOp,
+    record: RecordOp,
+    graph: GraphOp,
 };
 
 pub const GarbageItem = union(enum) {
