@@ -1,5 +1,6 @@
 const std = @import("std");
 const audio = @import("audio.zig");
+const rl = @import("raylib");
 const SpscQueue = @import("queue.zig").SpscQueue;
 
 pub const Frame = u64;
@@ -20,6 +21,33 @@ pub const NoteQueue = SpscQueue(NoteMsg, 16);
 
 pub fn beatsToFrames(beats: f32, tempo: f32, ctx: *audio.Context) Frame {
     return @intFromFloat((60.0 / tempo) * ctx.sample_rate * beats);
+}
+
+pub fn keyToMidi(key: rl.KeyboardKey) ?u8 {
+    return switch (key) {
+        // --- white keys (A–L) ---
+        .a => 48, // C3
+        .s => 50, // D3
+        .d => 52, // E3
+        .f => 53, // F3
+        .g => 55, // G3
+        .h => 57, // A3
+        .j => 59, // B3
+        .k => 60, // C4
+        .l => 62, // D4
+        .semicolon => 64, // E4
+        .apostrophe => 65, // F4
+
+        // --- black keys (W–O) ---
+        .w => 49, // C#3
+        .e => 51, // D#3
+        .t => 54, // F#3
+        .y => 56, // G#3
+        .u => 58, // A#3
+        .o => 61, // C#4
+        .p => 63, // D#4
+        else => null,
+    };
 }
 
 pub const Player = struct {

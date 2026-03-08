@@ -8,7 +8,6 @@ const interface = @import("interface.zig");
 const project = @import("project.zig");
 const plugin = @import("plugin.zig");
 
-var g_note_queue: midi.NoteQueue = .{};
 var g_playhead: u64 = 0;
 var g_playing: bool = false;
 var g_recording: bool = false;
@@ -78,7 +77,7 @@ fn write_callback(
         if (frame_count == 0) break;
 
         // process note
-        while (g_note_queue.pop()) |msg| {
+        while (g_app.note_queue.pop()) |msg| {
             switch (msg) {
                 .Off => |note| {
                     getActiveTrack().synth.noteOff(note);
@@ -301,33 +300,6 @@ fn audioThreadMain() !void {
     out = null;
 }
 
-fn keyToMidi(key: rl.KeyboardKey) ?u8 {
-    return switch (key) {
-        // --- white keys (A–L) ---
-        .a => 48, // C3
-        .s => 50, // D3
-        .d => 52, // E3
-        .f => 53, // F3
-        .g => 55, // G3
-        .h => 57, // A3
-        .j => 59, // B3
-        .k => 60, // C4
-        .l => 62, // D4
-        .semicolon => 64, // E4
-        .apostrophe => 65, // F4
-
-        // --- black keys (W–O) ---
-        .w => 49, // C#3
-        .e => 51, // D#3
-        .t => 54, // F#3
-        .y => 56, // G#3
-        .u => 58, // A#3
-        .o => 61, // C#4
-        .p => 63, // D#4
-        else => null,
-    };
-}
-
 pub fn main() !void {
     defer _ = gpa.deinit();
 
@@ -340,15 +312,6 @@ pub fn main() !void {
 
     try interface.init();
     defer interface.deinit();
-    const note_keys = [_]rl.KeyboardKey{
-        .a, .w, .s, .e, .d,         .f,          .t, .g, .y, .h, .u, .j,
-        .k, .o, .l, .p, .semicolon, .apostrophe,
-    };
-
-    var offset: i8 = 0;
-    var key_state = std.AutoHashMap(rl.KeyboardKey, ?u8).init(A);
-    defer key_state.deinit();
-    for (note_keys) |k| try key_state.put(k, null);
 
     while (!rl.windowShouldClose()) {
         // poll events and dispatch to current screen
@@ -375,26 +338,6 @@ pub fn main() !void {
                 },
             }
         }
-
-        for (note_keys) |key| {
-            const down = rl.isKeyDown(key);
-            const active_note = key_state.get(key).?;
-
-            if (down and active_note == null) {
-                if (keyToMidi(key)) |base| {
-                    const note: u8 = @intCast(@as(i16, base) + @as(i16, offset));
-                    while (!g_note_queue.push(.{ .On = note })) {}
-                    try key_state.put(key, note);
-                }
-            } else if (!down and active_note != null) {
-                while (!g_note_queue.push(.{ .Off = active_note.? })) {}
-                try key_state.put(key, null);
-            }
-        }
-
-        // octave shift
-        if (rl.isKeyPressed(.x)) offset += 12;
-        if (rl.isKeyPressed(.z)) offset -= 12;
 
         // draw UI
         interface.preRender();

@@ -8,7 +8,14 @@ const rl = @import("raylib");
 const ops = @import("ops.zig");
 
 pub const App = struct {
+    const Mode = enum { normal, insert };
+
     timeline: Timeline,
+    mode: Mode,
+
+    active_notes: std.AutoHashMap(rl.KeyboardKey, u8), // keep key state for (press, offset, release) case
+    note_offset: i16,
+    note_queue: midi.NoteQueue = .{},
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -18,11 +25,15 @@ pub const App = struct {
     ) !App {
         return .{
             .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track),
+            .mode = .normal,
+            .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
+            .note_offset = 0,
         };
     }
 
     pub fn deinit(self: *App) void {
         self.timeline.deinit();
+        self.active_notes.deinit();
     }
 
     pub fn render(self: *App) void {
@@ -38,9 +49,57 @@ pub const App = struct {
     }
 
     pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
-        if (event.type != .key_press) return null;
+        switch (self.mode) {
+            .insert => {
+                // play notes
+                if (midi.keyToMidi(event.key)) |base| {
+                    const raw = @as(i16, base) + self.note_offset;
+                    if (raw < 0 or raw > 127) return null;
+                    const note: u8 = @intCast(raw);
 
-        return self.timeline.handleEvent(event);
+                    switch (event.type) {
+                        .key_press => {
+                            self.active_notes.put(event.key, note) catch return null;
+                            while (!self.note_queue.push(.{ .On = note })) {}
+                        },
+                        .key_release => {
+                            if (self.active_notes.get(event.key)) |held| {
+                                _ = self.active_notes.remove(event.key);
+                                while (!self.note_queue.push(.{ .Off = held })) {}
+                            }
+                        },
+                    }
+                    return null;
+                }
+
+                // insert mode commands
+                if (event.type == .key_press) {
+                    switch (event.key) {
+                        .escape => {
+                            // drain held notes before switching mode
+                            var it = self.active_notes.iterator();
+                            while (it.next()) |entry| {
+                                while (!self.note_queue.push(.{ .Off = entry.value_ptr.* })) {}
+                            }
+                            self.active_notes.clearRetainingCapacity();
+                            self.mode = .normal;
+                        },
+                        .z => self.note_offset = @max(self.note_offset - 12, -48),
+                        .x => self.note_offset = @min(self.note_offset + 12, 48),
+                        else => {},
+                    }
+                }
+                return null;
+            },
+            .normal => {
+                if (event.type != .key_press) return null;
+                if (event.key == .i) {
+                    self.mode = .insert;
+                    return null;
+                }
+                return self.timeline.handleEvent(event);
+            },
+        }
     }
 };
 
