@@ -159,7 +159,7 @@ pub const Timeline = struct {
                 for (0..interface.WIDTH) |x| {
                     for (0..interface.HEIGHT) |y| {
                         if ((x + y) % 2 == 0) {
-                            // rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
+                            rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
                         }
                     }
                 }
@@ -171,7 +171,6 @@ pub const Timeline = struct {
     }
 
     pub fn handleEvent(self: *Timeline, event: interface.Event) ?ops.Action {
-        if (event.type != .key_press) return null;
 
         const action = switch (self.screen) {
             .overview => {
@@ -318,7 +317,6 @@ pub const Track = struct {
 
     pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
         _ = self;
-        if (event.type != .key_press) return null;
 
         switch (event.key) {
             .p => std.debug.print("in the TRACK\n", .{}),
@@ -345,7 +343,6 @@ pub const MidiEditor = struct {
 
     pub fn handleEvent(self: *MidiEditor, event: interface.Event) ?ops.Action {
         _ = self;
-        if (event.type != .key_press) return null;
 
         switch (event.key) {
             .p => std.debug.print("in the MIDI EDITOR\n", .{}),
