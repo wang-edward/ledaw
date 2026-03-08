@@ -313,15 +313,6 @@ pub fn main() !void {
 
     try interface.init();
     defer interface.deinit();
-    const note_keys = [_]rl.KeyboardKey{
-        .a, .w, .s, .e, .d,         .f,          .t, .g, .y, .h, .u, .j,
-        .k, .o, .l, .p, .semicolon, .apostrophe,
-    };
-
-    var offset: i8 = 0;
-    var key_state = std.AutoHashMap(rl.KeyboardKey, ?u8).init(A);
-    defer key_state.deinit();
-    for (note_keys) |k| try key_state.put(k, null);
 
     while (!rl.windowShouldClose()) {
         // poll events and dispatch to current screen
@@ -349,26 +340,6 @@ pub fn main() !void {
                 },
             }
         }
-
-        // for (note_keys) |key| {
-        //     const down = rl.isKeyDown(key);
-        //     const active_note = key_state.get(key).?;
-        //
-        //     if (down and active_note == null) {
-        //         if (keyToMidi(key)) |base| {
-        //             const note: u8 = @intCast(@as(i16, base) + @as(i16, offset));
-        //             while (!g_note_queue.push(.{ .On = note })) {}
-        //             try key_state.put(key, note);
-        //         }
-        //     } else if (!down and active_note != null) {
-        //         while (!g_note_queue.push(.{ .Off = active_note.? })) {}
-        //         try key_state.put(key, null);
-        //     }
-        // }
-
-        // octave shift
-        if (rl.isKeyPressed(.x)) offset += 12;
-        if (rl.isKeyPressed(.z)) offset -= 12;
 
         // draw UI
         interface.preRender();

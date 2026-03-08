@@ -54,6 +54,11 @@ pub const App = struct {
                     self.mode = .normal;
                     return null;
                 }
+
+                // TODO early return? in general need to make this fn less imperative
+                if (event.key == .z) self.note_offset -= 12;
+                if (event.key == .x) self.note_offset += 12;
+
                 if (midi.keyToMidi(event.key)) |base| {
                     const note: u8 = @intCast(@as(i16, base) + self.note_offset);
                     switch (event.type) {
