@@ -164,14 +164,6 @@ fn write_callback(
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
                     },
-                    .remove_plugin_by_tag => |rp| {
-                        const tracks = g_app.timeline.activeTracks();
-                        if (rp.track_idx < tracks.len) {
-                            if (tracks[rp.track_idx].removePluginByTag(rp.tag)) |old| {
-                                _ = g_garbage_queue.push(.{ .plugin = old });
-                            }
-                        }
-                    },
                 },
             }
         }

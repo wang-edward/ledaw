@@ -41,7 +41,7 @@ pub const App = struct {
         // draw after for overlay
         for (0..interface.WIDTH) |x| {
             for (0..interface.HEIGHT) |y| {
-                if (x == 0 or y == 0) {
+                if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
                     rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
                 }
             }
@@ -313,7 +313,7 @@ pub const Track = struct {
 
     fn _process(p: *anyopaque, ctx: *audio.Context, out: []audio.Sample) void {
         const self: *Track = @ptrCast(@alignCast(p));
-        const node = self.output();
+        const node = if (self.plugin_count > 0) self.plugins[self.plugin_count - 1].asNode() else self.synth.asNode();
         node.v.process(node.ptr, ctx, out);
     }
 
@@ -327,11 +327,6 @@ pub const Track = struct {
             }
         }
         rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
-    }
-
-    fn output(self: *Track) audio.Node {
-        if (self.plugin_count > 0) return self.plugins[self.plugin_count - 1].asNode();
-        return self.synth.asNode();
     }
 
     pub fn asNode(self: *Track) audio.Node {
@@ -355,30 +350,6 @@ pub const Track = struct {
         self.plugin_count = n - 1;
         self.rewire();
         return removed;
-    }
-
-    // TODO REMOVE
-    pub fn hasPlugin(self: *Track, tag: PluginTag) bool {
-        for (self.plugins[0..self.plugin_count]) |p| {
-            if (p == tag) return true;
-        }
-        return false;
-    }
-
-    // TODO REMOVE
-    pub fn findPlugin(self: *Track, tag: PluginTag) ?usize {
-        for (self.plugins[0..self.plugin_count], 0..) |p, i| {
-            if (p == tag) return i;
-        }
-        return null;
-    }
-
-    // TODO REMOVE
-    pub fn removePluginByTag(self: *Track, tag: PluginTag) ?Plugin {
-        if (self.findPlugin(tag)) |idx| {
-            return self.removePlugin(idx);
-        }
-        return null;
     }
 
     pub fn clear(self: *Track) void {
