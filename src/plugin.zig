@@ -2,6 +2,14 @@ const std = @import("std");
 const audio = @import("audio.zig");
 
 pub const Tag = enum { lpf, delay };
+pub const list = std.enums.values(Tag);
+
+pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
+    return switch (tag) {
+        .lpf => .{ .lpf = try Lpf.init(alloc, input, 1.0, 0.5, 1000.0) },
+        .delay => .{ .delay = try Delay.init(alloc, input, 22050) },
+    };
+}
 
 pub const Plugin = union(Tag) {
     lpf: *Lpf,
