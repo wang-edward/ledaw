@@ -443,6 +443,13 @@ pub const Track = struct {
                     .p => std.debug.print("in the TRACK\n", .{}),
                     .backspace => return .go_back,
                     .a => self.screen = .plugin_selector,
+                    .l => if (self.plugin_count > 0) {
+                        self.active_plugin = @min(self.active_plugin + 1, self.plugin_count - 1);
+                    },
+                    .h => if (self.active_plugin > 0) {
+                        self.active_plugin -= 1;
+                    },
+                    // .x => self.removePlugin(self.active_plugin),
                     else => {},
                 }
             },
