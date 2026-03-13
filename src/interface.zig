@@ -58,6 +58,21 @@ pub fn postRender() void {
     );
 }
 
+// ---------------------------------------
+// utility stuff
+// ---------------------------------------
+
+pub fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
+    const text_width = rl.measureText(text, font_size);
+    rl.drawText(text, center_x - @divTrunc(text_width, 2), center_y - @divTrunc(font_size, 2), font_size, color);
+}
+
+pub fn toString(comptime T: type, value: T) [20:0]u8 {
+    var buf: [20:0]u8 = .{0} ** 20;
+    _ = std.fmt.bufPrint(&buf, "{d}", .{value}) catch unreachable;
+    return buf;
+}
+
 pub fn shouldClose() bool {
     return rl.windowShouldClose();
 }
