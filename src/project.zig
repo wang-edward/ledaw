@@ -295,7 +295,7 @@ pub const PluginTag = plugin.Tag;
 pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
-    const Screen = enum { overview, plugin };
+    const Screen = enum { overview, plugin, plugin_selector };
     pub const MAX_PLUGINS = 8;
 
     synth: *synth.Uni,
@@ -416,17 +416,23 @@ pub const Track = struct {
             .plugin => {
                 // TODO: plugin render
             },
+            .plugin_selector => {},
         }
         rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
-        _ = self;
-
-        switch (event.key) {
-            .p => std.debug.print("in the TRACK\n", .{}),
-            .backspace => return .go_back,
-            else => {},
+        switch (self.screen) {
+            .overview => {
+                switch (event.key) {
+                    .p => std.debug.print("in the TRACK\n", .{}),
+                    .backspace => return .go_back,
+                    .a => self.screen = .plugin_selector,
+                    else => {},
+                }
+            },
+            .plugin => {},
+            .plugin_selector => {},
         }
         return null;
     }
