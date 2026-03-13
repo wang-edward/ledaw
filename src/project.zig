@@ -411,7 +411,8 @@ pub const Track = struct {
                 rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
             },
             .plugin => {
-                // TODO: plugin render
+                std.debug.assert(self.plugin_count > 0);
+                self.plugins[self.active_plugin].render();
             },
             .plugin_selector => {
                 for (plugin.list, 0..) |tag, i| {
