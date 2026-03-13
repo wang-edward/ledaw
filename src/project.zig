@@ -445,10 +445,14 @@ pub const Track = struct {
                 }
             },
             .plugin => {
-                switch (event.key) {
-                    .backspace => return .go_back,
-                    else => {},
-                }
+                const action = self.plugins[self.active_plugin].handleEvent(event) orelse return null;
+                return switch (action) {
+                    .go_back => {
+                        self.screen = .overview;
+                        return null;
+                    },
+                    else => action,
+                };
             },
             .plugin_selector => {
                 switch (event.key) {

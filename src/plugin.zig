@@ -1,6 +1,7 @@
 const std = @import("std");
 const audio = @import("audio.zig");
 const interface = @import("interface.zig");
+const ops = @import("ops.zig");
 const rl = @import("raylib");
 
 pub const Tag = enum { lpf, delay };
@@ -40,6 +41,12 @@ pub const Plugin = union(Tag) {
             inline else => |p| p.render(),
         }
     }
+
+    pub fn handleEvent(self: *Plugin, event: interface.Event) ?ops.Action {
+        switch (self.*) {
+            inline else => |p| return p.handleEvent(event),
+        }
+    }
 };
 
 pub const Lpf = struct {
@@ -66,6 +73,14 @@ pub const Lpf = struct {
     pub fn render(self: *Lpf) void {
         _ = self;
         interface.drawTextCentered("LPF", 64, 64, 10, rl.Color.green);
+    }
+
+    pub fn handleEvent(self: *Lpf, event: interface.Event) ?ops.Action {
+        _ = self;
+        return switch (event.key) {
+            .backspace => .go_back,
+            else => null,
+        };
     }
 };
 
@@ -94,5 +109,13 @@ pub const Delay = struct {
     pub fn render(self: *Delay) void {
         _ = self;
         interface.drawTextCentered("DELAY", 64, 64, 10, rl.Color.purple);
+    }
+
+    pub fn handleEvent(self: *Delay, event: interface.Event) ?ops.Action {
+        _ = self;
+        return switch (event.key) {
+            .backspace => .go_back,
+            else => null,
+        };
     }
 };
