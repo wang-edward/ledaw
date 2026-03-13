@@ -286,6 +286,7 @@ pub const Timeline = struct {
                 self.screen = .overview;
                 return null;
             },
+            .add_plugin => |p| .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.active_track, .plugin = p } } } },
             else => action,
         };
     }
@@ -295,7 +296,7 @@ pub const PluginTag = plugin.Tag;
 pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
-    const Screen = enum { overview, plugin };
+    const Screen = enum { overview, plugin, plugin_selector };
     pub const MAX_PLUGINS = 8;
 
     synth: *synth.Uni,
@@ -305,6 +306,7 @@ pub const Track = struct {
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
+    selector_index: usize = 0,
 
     screen: Screen,
 
@@ -412,21 +414,57 @@ pub const Track = struct {
                     rl.drawCircle(x, y, 1.0, rl.Color.red);
                     rl.drawText("none", x - 11, y + 4, 10, rl.Color.white);
                 }
+
+                rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
             },
             .plugin => {
                 // TODO: plugin render
             },
+            .plugin_selector => {
+                for (plugin.list, 0..) |tag, i| {
+                    const name = @tagName(tag);
+                    const y: i32 = @intCast(i * 16);
+                    const color: rl.Color = if (i == self.selector_index) rl.Color.blue else rl.Color.red;
+                    rl.drawRectangle(0, y, 128, 16, rl.Color.dark_gray);
+                    rl.drawText(name, 0, y, 5, color);
+                }
+            },
         }
-        rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
-        _ = self;
+        switch (self.screen) {
+            .overview => {
+                switch (event.key) {
+                    .p => std.debug.print("in the TRACK\n", .{}),
+                    .backspace => return .go_back,
+                    .a => self.screen = .plugin_selector,
+                    else => {},
+                }
+            },
+            .plugin => {},
+            .plugin_selector => {
+                switch (event.key) {
+                    .escape, .backspace => self.screen = .overview,
+                    .k => if (self.selector_index > 0) {
+                        self.selector_index -= 1;
+                    },
+                    .j => if (self.selector_index < plugin.list.len - 1) {
+                        self.selector_index += 1;
+                    },
+                    .enter => {
+                        const input = if (self.plugin_count > 0)
+                            self.plugins[self.plugin_count - 1].asNode()
+                        else
+                            self.synth.asNode();
 
-        switch (event.key) {
-            .p => std.debug.print("in the TRACK\n", .{}),
-            .backspace => return .go_back,
-            else => {},
+                        self.screen = .overview;
+                        const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
+                        return .{ .add_plugin = p };
+                    },
+                    else => {},
+                }
+            },
         }
         return null;
     }
