@@ -7,6 +7,17 @@ const interface = @import("interface.zig");
 const rl = @import("raylib");
 const ops = @import("ops.zig");
 
+fn toString(comptime T: type, value: T) [20:0]u8 {
+    var buf: [20:0]u8 = .{0} ** 20;
+    _ = std.fmt.bufPrint(&buf, "{d}", .{value}) catch unreachable;
+    return buf;
+}
+
+fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
+    const text_width = rl.measureText(text, font_size);
+    rl.drawText(text, center_x - @divTrunc(text_width, 2), center_y - @divTrunc(font_size, 2), font_size, color);
+}
+
 pub const App = struct {
     const Mode = enum { normal, insert };
 
@@ -224,7 +235,12 @@ pub const Timeline = struct {
                 }
                 rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
             },
-            .track => self.activeTrack().render(),
+            .track => {
+                // track doesn't know it's own index, draw it here
+                rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
+                drawTextCentered(&toString(usize, self.active_track), 16, 16, 8, rl.Color.light_gray);
+                self.activeTrack().render();
+            },
             .midi_editor => self.midi_editor.render(),
         }
     }
@@ -279,6 +295,7 @@ pub const PluginTag = plugin.Tag;
 pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
+    const Screen = enum { overview, plugin };
     pub const MAX_PLUGINS = 8;
 
     synth: *synth.Uni,
@@ -288,6 +305,8 @@ pub const Track = struct {
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
+
+    screen: Screen,
 
     vt: audio.VTable = .{ .process = Track._process },
 
@@ -299,6 +318,7 @@ pub const Track = struct {
             .alloc = alloc,
             .plugins = undefined,
             .plugin_count = 0,
+            .screen = .overview,
         };
         return t;
     }
@@ -315,18 +335,6 @@ pub const Track = struct {
         const self: *Track = @ptrCast(@alignCast(p));
         const node = if (self.plugin_count > 0) self.plugins[self.plugin_count - 1].asNode() else self.synth.asNode();
         node.v.process(node.ptr, ctx, out);
-    }
-
-    pub fn render(self: *Track) void {
-        _ = self;
-        for (0..interface.WIDTH) |x| {
-            for (0..interface.HEIGHT) |y| {
-                if ((x + y) % 2 == 0) {
-                    // rl.drawPixel(@intCast(x), @intCast(y), rl.Color.green);
-                }
-            }
-        }
-        rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn asNode(self: *Track) audio.Node {
@@ -364,6 +372,14 @@ pub const Track = struct {
             p.setInput(prev);
             prev = p.asNode();
         }
+    }
+
+    pub fn render(self: *Track) void {
+        switch (self.screen) {
+            .overview => {},
+            .plugin => {},
+        }
+        rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
