@@ -414,6 +414,8 @@ pub const Track = struct {
                     rl.drawCircle(x, y, 1.0, rl.Color.red);
                     rl.drawText("none", x - 11, y + 4, 10, rl.Color.white);
                 }
+
+                rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
             },
             .plugin => {
                 // TODO: plugin render
@@ -423,12 +425,11 @@ pub const Track = struct {
                     const name = @tagName(tag);
                     const y: i32 = @intCast(i * 16);
                     const color: rl.Color = if (i == self.selector_index) rl.Color.blue else rl.Color.red;
-                    rl.drawRectangle(0, y, 128, 15, rl.Color.dark_gray);
+                    rl.drawRectangle(0, y, 128, 16, rl.Color.dark_gray);
                     rl.drawText(name, 0, y, 5, color);
                 }
             },
         }
-        rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
