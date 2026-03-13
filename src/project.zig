@@ -286,6 +286,7 @@ pub const Timeline = struct {
                 self.screen = .overview;
                 return null;
             },
+            .add_plugin => |p| .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.active_track, .plugin = p } } } },
             else => action,
         };
     }
@@ -305,6 +306,7 @@ pub const Track = struct {
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
+    selector_index: usize = 0,
 
     screen: Screen,
 
@@ -416,7 +418,15 @@ pub const Track = struct {
             .plugin => {
                 // TODO: plugin render
             },
-            .plugin_selector => {},
+            .plugin_selector => {
+                const names = [_][:0]const u8{ "lpf", "delay" };
+                for (names, 0..) |name, i| {
+                    const y: i32 = @intCast(i * 16);
+                    const color: rl.Color = if (i == self.selector_index) rl.Color.blue else rl.Color.red;
+                    rl.drawRectangle(0, y, 128, 15, rl.Color.dark_gray);
+                    rl.drawText(name, 0, y, 5, color);
+                }
+            },
         }
         rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
@@ -432,7 +442,44 @@ pub const Track = struct {
                 }
             },
             .plugin => {},
-            .plugin_selector => {},
+            .plugin_selector => {
+                const NUM_PLUGINS = 2;
+                switch (event.key) {
+                    .escape, .backspace => {
+                        self.screen = .overview;
+                    },
+                    .k => {
+                        if (self.selector_index > 0) self.selector_index -= 1;
+                    },
+                    .j => {
+                        if (self.selector_index < NUM_PLUGINS - 1) self.selector_index += 1;
+                    },
+                    .enter => {
+                        const input = if (self.plugin_count > 0)
+                            self.plugins[self.plugin_count - 1].asNode()
+                        else
+                            self.synth.asNode();
+
+                        const p: ?Plugin = switch (self.selector_index) {
+                            0 => blk: {
+                                const lpf = plugin.Lpf.init(self.alloc, input, 1.0, 0.5, 1000.0) catch break :blk null;
+                                break :blk .{ .lpf = lpf };
+                            },
+                            1 => blk: {
+                                const delay = plugin.Delay.init(self.alloc, input, 22050) catch break :blk null;
+                                break :blk .{ .delay = delay };
+                            },
+                            else => null,
+                        };
+
+                        self.screen = .overview;
+                        if (p) |new_plugin| {
+                            return .{ .add_plugin = new_plugin };
+                        }
+                    },
+                    else => {},
+                }
+            },
         }
         return null;
     }
