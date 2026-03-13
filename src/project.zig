@@ -7,17 +7,6 @@ const interface = @import("interface.zig");
 const rl = @import("raylib");
 const ops = @import("ops.zig");
 
-fn toString(comptime T: type, value: T) [20:0]u8 {
-    var buf: [20:0]u8 = .{0} ** 20;
-    _ = std.fmt.bufPrint(&buf, "{d}", .{value}) catch unreachable;
-    return buf;
-}
-
-fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
-    const text_width = rl.measureText(text, font_size);
-    rl.drawText(text, center_x - @divTrunc(text_width, 2), center_y - @divTrunc(font_size, 2), font_size, color);
-}
-
 pub const App = struct {
     const Mode = enum { normal, insert };
 
@@ -238,7 +227,7 @@ pub const Timeline = struct {
             .track => {
                 // track doesn't know it's own index, draw it here
                 rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
-                drawTextCentered(&toString(usize, self.active_track), 16, 16, 8, rl.Color.light_gray);
+                interface.drawTextCentered(&interface.toString(usize, self.active_track), 16, 16, 8, rl.Color.light_gray);
                 self.activeTrack().render();
             },
             .midi_editor => self.midi_editor.render(),
@@ -443,6 +432,7 @@ pub const Track = struct {
                     .p => std.debug.print("in the TRACK\n", .{}),
                     .backspace => return .go_back,
                     .a => self.screen = .plugin_selector,
+                    .enter => self.screen = .plugin,
                     .l => if (self.plugin_count > 0) {
                         self.active_plugin = @min(self.active_plugin + 1, self.plugin_count - 1);
                     },
@@ -453,10 +443,15 @@ pub const Track = struct {
                     else => {},
                 }
             },
-            .plugin => {},
+            .plugin => {
+                switch (event.key) {
+                    .backspace => return .go_back,
+                    else => {},
+                }
+            },
             .plugin_selector => {
                 switch (event.key) {
-                    .escape, .backspace => self.screen = .overview,
+                    .backspace => self.screen = .overview,
                     .k => if (self.selector_index > 0) {
                         self.selector_index -= 1;
                     },
