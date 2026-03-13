@@ -376,8 +376,46 @@ pub const Track = struct {
 
     pub fn render(self: *Track) void {
         switch (self.screen) {
-            .overview => {},
-            .plugin => {},
+            .overview => {
+                // draw grid (bottom half only, y >= 64)
+                for (0..5) |i| {
+                    const ix: i32 = @intCast(i);
+                    rl.drawLine(ix * 32, 64, ix * 32, 128, rl.Color.white); // vertical
+                }
+                for (0..3) |i| {
+                    const iy: i32 = @intCast(i);
+                    rl.drawLine(0, 64 + iy * 32, 128, 64 + iy * 32, rl.Color.white); // horizontal
+                }
+
+                for (0..self.plugin_count) |i| {
+                    const ix: i32 = @intCast(i % 4);
+                    const iy: i32 = @intCast(i / 4);
+                    const x = ix * 32 + 16;
+                    const y = iy * 32 + 64 + 16;
+
+                    const name = @tagName(self.plugins[i]);
+                    const font_size = 10;
+                    const width = rl.measureText(name, font_size);
+                    rl.drawText(name, x - @divTrunc(width, 2), y + 6, font_size, rl.Color.white);
+
+                    if (i == self.active_plugin) {
+                        rl.drawCircle(x, y, 5.0, rl.Color.green);
+                    }
+                }
+
+                for (self.plugin_count..MAX_PLUGINS) |i| {
+                    const ix: i32 = @intCast(i % 4);
+                    const iy: i32 = @intCast(i / 4);
+                    const x = ix * 32 + 16;
+                    const y = iy * 32 + 64 + 16;
+
+                    rl.drawCircle(x, y, 1.0, rl.Color.red);
+                    rl.drawText("none", x - 11, y + 4, 10, rl.Color.white);
+                }
+            },
+            .plugin => {
+                // TODO: plugin render
+            },
         }
         rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
     }
