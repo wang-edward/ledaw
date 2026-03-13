@@ -335,7 +335,7 @@ pub const Track = struct {
 
     fn _process(p: *anyopaque, ctx: *audio.Context, out: []audio.Sample) void {
         const self: *Track = @ptrCast(@alignCast(p));
-        const node = if (self.plugin_count > 0) self.plugins[self.plugin_count - 1].asNode() else self.synth.asNode();
+        const node = self.outputNode();
         node.v.process(node.ptr, ctx, out);
     }
 
@@ -374,6 +374,10 @@ pub const Track = struct {
             p.setInput(prev);
             prev = p.asNode();
         }
+    }
+
+    fn outputNode(self: *Track) audio.Node {
+        return if (self.plugin_count > 0) self.plugins[self.plugin_count - 1].asNode() else self.synth.asNode();
     }
 
     pub fn render(self: *Track) void {
@@ -453,10 +457,7 @@ pub const Track = struct {
                         self.selector_index += 1;
                     },
                     .enter => {
-                        const input = if (self.plugin_count > 0)
-                            self.plugins[self.plugin_count - 1].asNode()
-                        else
-                            self.synth.asNode();
+                        const input = self.outputNode();
 
                         self.screen = .overview;
                         const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
