@@ -146,9 +146,9 @@ pub const Delay = struct {
     input: Node,
     buffer: []Sample,
     write_pos: usize = 0,
-    delay_time: f32, // seconds
-    feedback: f32,
-    mix: f32, // [0.0, 1.0]
+    delay_time: Param, // seconds
+    feedback: Param,
+    mix: Param, // [0.0, 1.0]
     vt: VTable = .{ .process = Delay._process },
 
     pub fn init(alloc: std.mem.Allocator, input: Node, buffer_size: usize) !Delay {
@@ -157,9 +157,9 @@ pub const Delay = struct {
         return .{
             .input = input,
             .buffer = buffer,
-            .delay_time = 0.25,
-            .feedback = 0.3,
-            .mix = 0.2,
+            .delay_time = .{ .val = 0.25, .min = 0, .max = 1 },
+            .feedback = .{ .val = 0.6, .min = 0, .max = 1 },
+            .mix = .{ .val = 0.5, .min = 0, .max = 1 },
         };
     }
 
@@ -172,7 +172,7 @@ pub const Delay = struct {
         const tmp = ctx.tmp().alloc(Sample, out.len) catch unreachable;
         self.input.v.process(self.input.ptr, ctx, tmp);
 
-        const delay_samples = @as(usize, @intFromFloat(self.delay_time * ctx.sample_rate));
+        const delay_samples = @as(usize, @intFromFloat(self.delay_time.get() * ctx.sample_rate));
         const buffer_len = self.buffer.len;
 
         std.debug.assert(delay_samples < buffer_len);
@@ -186,8 +186,8 @@ pub const Delay = struct {
 
             const delayed = self.buffer[read_pos];
 
-            self.buffer[self.write_pos] = dry + (delayed * self.feedback); // Write to buffer (input + feedback)
-            o.* = dry * (1.0 - self.mix) + delayed * self.mix; // mix
+            self.buffer[self.write_pos] = dry + (delayed * self.feedback.get()); // Write to buffer (input + feedback)
+            o.* = dry * (1.0 - self.mix.get()) + delayed * self.mix.get(); // mix
             self.write_pos = (self.write_pos + 1) % buffer_len; // advance
         }
     }
