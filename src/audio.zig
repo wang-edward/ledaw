@@ -22,6 +22,29 @@ pub const Context = struct {
     }
 };
 
+// TODO <T>?
+pub const Param = struct {
+    val: f32,
+    min: f32,
+    max: f32,
+    pub fn set(self: *Param, new_val: f32) void {
+        std.debug.assert(self.min < self.max);
+        self.val = std.math.clamp(new_val, self.min, self.max);
+    }
+    pub fn get(self: Param) f32 {
+        std.debug.assert(self.min < self.max and self.min <= self.val and self.val <= self.max);
+        return self.val;
+    }
+    pub fn getNorm(self: Param) f32 {
+        std.debug.assert(self.min < self.max);
+        return (self.val - self.min) / (self.max - self.min);
+    }
+    pub fn setNorm(self: *Param, norm: f32) void {
+        std.debug.assert(0 <= norm and norm <= 1); // TODO needed?
+        self.set(self.min + norm * (self.max - self.min));
+    }
+};
+
 pub const Osc = struct {
     pub const Kind = union(enum) {
         sine: struct {},
@@ -75,23 +98,23 @@ pub const Lpf = struct {
     tV: [4]f32 = .{ 0, 0, 0, 0 },
 
     input: Node,
-    drive: f32,
-    resonance: f32,
-    cutoff: f32,
+    drive: Param,
+    resonance: Param,
+    cutoff: Param,
     vt: VTable = .{ .process = Lpf._process },
 
-    pub fn init(input: Node, drive: f32, resonance: f32, cutoff: f32) Lpf {
-        return .{ .input = input, .drive = drive, .resonance = resonance, .cutoff = cutoff };
+    pub fn init(input: Node) Lpf {
+        return .{ .input = input, .drive = .{ .val = 1.0, .min = 0, .max = 2 }, .resonance = .{ .val = 0.5, .min = 0, .max = 2 }, .cutoff = .{ .val = 5_000, .min = 0, .max = 10_000 } };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Lpf = @ptrCast(@alignCast(p));
         const in = ctx.tmp().alloc(Sample, out.len) catch unreachable;
         self.input.v.process(self.input.ptr, ctx, in);
 
-        const x = (std.math.pi * self.cutoff) / ctx.sample_rate;
-        const g = 4.0 * std.math.pi * THERMAL_VOLTAGE * self.cutoff * (1.0 - x) / (1.0 + x);
+        const x = (std.math.pi * self.cutoff.get()) / ctx.sample_rate;
+        const g = 4.0 * std.math.pi * THERMAL_VOLTAGE * self.cutoff.get() * (1.0 - x) / (1.0 + x);
         for (0..out.len) |i| {
-            const dV0 = -g * (std.math.tanh((self.drive * in[i] + self.resonance * self.V[3] / (2.0 * THERMAL_VOLTAGE)) + self.tV[0]));
+            const dV0 = -g * (std.math.tanh((self.drive.get() * in[i] + self.resonance.get() * self.V[3] / (2.0 * THERMAL_VOLTAGE)) + self.tV[0]));
             self.V[0] += (dV0 + self.dV[0]) / (2.0 * ctx.sample_rate);
             self.dV[0] = dV0;
             self.tV[0] = std.math.tanh(self.V[0] / (2.0 * THERMAL_VOLTAGE));
@@ -123,9 +146,9 @@ pub const Delay = struct {
     input: Node,
     buffer: []Sample,
     write_pos: usize = 0,
-    delay_time: f32, // seconds
-    feedback: f32,
-    mix: f32, // [0.0, 1.0]
+    delay_time: Param, // seconds
+    feedback: Param,
+    mix: Param, // [0.0, 1.0]
     vt: VTable = .{ .process = Delay._process },
 
     pub fn init(alloc: std.mem.Allocator, input: Node, buffer_size: usize) !Delay {
@@ -134,9 +157,9 @@ pub const Delay = struct {
         return .{
             .input = input,
             .buffer = buffer,
-            .delay_time = 0.25,
-            .feedback = 0.3,
-            .mix = 0.2,
+            .delay_time = .{ .val = 0.25, .min = 0, .max = 1 },
+            .feedback = .{ .val = 0.6, .min = 0, .max = 1 },
+            .mix = .{ .val = 0.5, .min = 0, .max = 1 },
         };
     }
 
@@ -149,7 +172,7 @@ pub const Delay = struct {
         const tmp = ctx.tmp().alloc(Sample, out.len) catch unreachable;
         self.input.v.process(self.input.ptr, ctx, tmp);
 
-        const delay_samples = @as(usize, @intFromFloat(self.delay_time * ctx.sample_rate));
+        const delay_samples = @as(usize, @intFromFloat(self.delay_time.get() * ctx.sample_rate));
         const buffer_len = self.buffer.len;
 
         std.debug.assert(delay_samples < buffer_len);
@@ -163,8 +186,8 @@ pub const Delay = struct {
 
             const delayed = self.buffer[read_pos];
 
-            self.buffer[self.write_pos] = dry + (delayed * self.feedback); // Write to buffer (input + feedback)
-            o.* = dry * (1.0 - self.mix) + delayed * self.mix; // mix
+            self.buffer[self.write_pos] = dry + (delayed * self.feedback.get()); // Write to buffer (input + feedback)
+            o.* = dry * (1.0 - self.mix.get()) + delayed * self.mix.get(); // mix
             self.write_pos = (self.write_pos + 1) % buffer_len; // advance
         }
     }
@@ -187,13 +210,13 @@ pub const Adsr = struct {
     release: f32,
     vt: VTable = .{ .process = Adsr._process },
 
-    pub fn init(input: Node, attack: f32, decay: f32, sustain: f32, release: f32) Adsr {
+    pub fn init(input: Node) Adsr {
         return .{
             .input = input,
-            .attack = attack,
-            .decay = decay,
-            .sustain = sustain,
-            .release = release,
+            .attack = 0.01,
+            .decay = 0.1,
+            .sustain = 0.4,
+            .release = 0.6,
         };
     }
     pub fn asNode(self: *Adsr) Node {

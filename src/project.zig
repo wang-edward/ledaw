@@ -432,7 +432,9 @@ pub const Track = struct {
                     .p => std.debug.print("in the TRACK\n", .{}),
                     .backspace => return .go_back,
                     .a => self.screen = .plugin_selector,
-                    .enter => self.screen = .plugin,
+                    .enter => if (self.plugin_count > 0) {
+                        self.screen = .plugin;
+                    },
                     .l => if (self.plugin_count > 0) {
                         self.active_plugin = @min(self.active_plugin + 1, self.plugin_count - 1);
                     },
