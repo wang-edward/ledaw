@@ -136,7 +136,7 @@ pub const Timeline = struct {
         };
 
         for (0..num_tracks) |i| {
-            timeline.tracks[i] = try Track.init(alloc, voices_per_track, notes_per_track[i]);
+            timeline.tracks[i] = try Track.init(alloc, &timeline.active_track, voices_per_track, notes_per_track[i]);
         }
 
         return timeline;
@@ -224,12 +224,7 @@ pub const Timeline = struct {
                 }
                 rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
             },
-            .track => {
-                // track doesn't know it's own index, draw it here
-                rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
-                interface.drawTextCentered(&interface.toString(usize, self.active_track), 16, 16, 8, rl.Color.light_gray);
-                self.activeTrack().render();
-            },
+            .track => self.activeTrack().render(),
             .midi_editor => self.midi_editor.render(),
         }
     }
@@ -252,7 +247,7 @@ pub const Timeline = struct {
                     .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
-                        const new_track = Track.init(self.alloc, 4, &.{}) catch return null;
+                        const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch return null;
                         return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                     },
                     .minus => if (self.track_count > 1) {
@@ -275,7 +270,6 @@ pub const Timeline = struct {
                 self.screen = .overview;
                 return null;
             },
-            .add_plugin => |p| .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.active_track, .plugin = p } } } },
             else => action,
         };
     }
@@ -292,6 +286,7 @@ pub const Track = struct {
     player: midi.Player,
     alloc: std.mem.Allocator,
 
+    index: *const usize,
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
@@ -301,12 +296,13 @@ pub const Track = struct {
 
     vt: audio.VTable = .{ .process = Track._process },
 
-    pub fn init(alloc: std.mem.Allocator, voice_count: usize, notes_in: []const midi.Note) !*Track {
+    pub fn init(alloc: std.mem.Allocator, index: *const usize, voice_count: usize, notes_in: []const midi.Note) !*Track {
         const t = try alloc.create(Track);
         t.* = .{
             .synth = try synth.Uni.init(alloc, voice_count),
             .player = try midi.Player.init(alloc, notes_in),
             .alloc = alloc,
+            .index = index,
             .plugins = undefined,
             .plugin_count = 0,
             .screen = .overview,
@@ -372,6 +368,9 @@ pub const Track = struct {
     pub fn render(self: *Track) void {
         switch (self.screen) {
             .overview => {
+                rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
+                interface.drawTextCentered(&interface.toString(usize, self.index.*), 16, 16, 8, rl.Color.light_gray);
+
                 // draw grid (bottom half only, y >= 64)
                 for (0..5) |i| {
                     const ix: i32 = @intCast(i);
@@ -468,7 +467,7 @@ pub const Track = struct {
 
                         self.screen = .overview;
                         const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
-                        return .{ .add_plugin = p };
+                        return .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } };
                     },
                     else => {},
                 }
