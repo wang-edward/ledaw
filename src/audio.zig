@@ -31,6 +31,10 @@ pub const Param = struct {
         std.debug.assert(self.min < self.max);
         self.val = std.math.clamp(new_val, self.min, self.max);
     }
+    pub fn get(self: Param) f32 {
+        std.debug.assert(self.min < self.max and self.min <= self.val and self.val <= self.max);
+        return self.val;
+    }
     pub fn getNorm(self: Param) f32 {
         std.debug.assert(self.min < self.max);
         return (self.val - self.min) / (self.max - self.min);
@@ -94,23 +98,23 @@ pub const Lpf = struct {
     tV: [4]f32 = .{ 0, 0, 0, 0 },
 
     input: Node,
-    drive: f32,
-    resonance: f32,
-    cutoff: f32,
+    drive: Param,
+    resonance: Param,
+    cutoff: Param,
     vt: VTable = .{ .process = Lpf._process },
 
     pub fn init(input: Node) Lpf {
-        return .{ .input = input, .drive = 1.0, .resonance = 0.5, .cutoff = 5_000 };
+        return .{ .input = input, .drive = .{ .val = 1.0, .min = 0, .max = 2 }, .resonance = .{ .val = 0.5, .min = 0, .max = 2 }, .cutoff = .{ .val = 5_000, .min = 0, .max = 10_000 } };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Lpf = @ptrCast(@alignCast(p));
         const in = ctx.tmp().alloc(Sample, out.len) catch unreachable;
         self.input.v.process(self.input.ptr, ctx, in);
 
-        const x = (std.math.pi * self.cutoff) / ctx.sample_rate;
-        const g = 4.0 * std.math.pi * THERMAL_VOLTAGE * self.cutoff * (1.0 - x) / (1.0 + x);
+        const x = (std.math.pi * self.cutoff.get()) / ctx.sample_rate;
+        const g = 4.0 * std.math.pi * THERMAL_VOLTAGE * self.cutoff.get() * (1.0 - x) / (1.0 + x);
         for (0..out.len) |i| {
-            const dV0 = -g * (std.math.tanh((self.drive * in[i] + self.resonance * self.V[3] / (2.0 * THERMAL_VOLTAGE)) + self.tV[0]));
+            const dV0 = -g * (std.math.tanh((self.drive.get() * in[i] + self.resonance.get() * self.V[3] / (2.0 * THERMAL_VOLTAGE)) + self.tV[0]));
             self.V[0] += (dV0 + self.dV[0]) / (2.0 * ctx.sample_rate);
             self.dV[0] = dV0;
             self.tV[0] = std.math.tanh(self.V[0] / (2.0 * THERMAL_VOLTAGE));

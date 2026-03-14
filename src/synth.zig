@@ -44,12 +44,12 @@ const Voice = struct {
         }
     }
     pub fn setLpfCutoff(self: *Voice, cutoff: f32) void {
-        self.lpf.cutoff = cutoff;
+        self.lpf.cutoff.set(cutoff);
     }
 };
 
 pub const Uni = struct {
-    cutoff: f32 = 5000.0,
+    cutoff: f32 = 5000.0, // TODO Param-ify?
     voices: []*Voice,
     vt: audio.VTable = .{ .process = Uni._process },
     next_idx: usize = 0,
@@ -106,7 +106,7 @@ pub const Uni = struct {
         const self: *Uni = @ptrCast(@alignCast(p));
         @memset(out, 0);
         for (self.voices) |v| {
-            v.lpf.cutoff = self.cutoff;
+            v.lpf.cutoff.set(self.cutoff);
             const tmp = ctx.tmp().alloc(audio.Sample, out.len) catch unreachable;
             const node = v.asNode();
             node.v.process(node.ptr, ctx, tmp);
