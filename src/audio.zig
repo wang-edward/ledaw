@@ -22,6 +22,25 @@ pub const Context = struct {
     }
 };
 
+// TODO <T>?
+pub const Param = struct {
+    val: f32,
+    min: f32,
+    max: f32,
+    pub fn set(self: Param, new_val: f32) void {
+        std.debug.assert(self.min < self.max); // TODO <=?
+        self.val = @max(@min(self.max, new_val), self.min);
+    }
+    pub fn getNorm(self: Param) f32 {
+        std.debug.assert(self.min < self.max); // TODO <=?
+        return self.value / (self.max - self.min);
+    }
+    pub fn setNorm(self: Param, norm: f32) void {
+        std.debug.assert(0 <= norm and norm <= 1); // TODO <=?
+        self.set(norm * self.max);
+    }
+};
+
 pub const Osc = struct {
     pub const Kind = union(enum) {
         sine: struct {},
