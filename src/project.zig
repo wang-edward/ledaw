@@ -136,7 +136,7 @@ pub const Timeline = struct {
         };
 
         for (0..num_tracks) |i| {
-            timeline.tracks[i] = try Track.init(alloc, i, voices_per_track, notes_per_track[i]);
+            timeline.tracks[i] = try Track.init(alloc, &timeline.active_track, voices_per_track, notes_per_track[i]);
         }
 
         return timeline;
@@ -179,7 +179,6 @@ pub const Timeline = struct {
         var i = idx;
         while (i < n - 1) : (i += 1) {
             self.tracks[i] = self.tracks[i + 1];
-            self.tracks[i].index = i;
         }
         self.track_count = n - 1;
         return removed;
@@ -248,7 +247,7 @@ pub const Timeline = struct {
                     .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
-                        const new_track = Track.init(self.alloc, self.track_count, 4, &.{}) catch return null;
+                        const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch return null;
                         return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                     },
                     .minus => if (self.track_count > 1) {
@@ -287,7 +286,7 @@ pub const Track = struct {
     player: midi.Player,
     alloc: std.mem.Allocator,
 
-    index: usize,
+    index: *const usize,
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
@@ -297,7 +296,7 @@ pub const Track = struct {
 
     vt: audio.VTable = .{ .process = Track._process },
 
-    pub fn init(alloc: std.mem.Allocator, index: usize, voice_count: usize, notes_in: []const midi.Note) !*Track {
+    pub fn init(alloc: std.mem.Allocator, index: *const usize, voice_count: usize, notes_in: []const midi.Note) !*Track {
         const t = try alloc.create(Track);
         t.* = .{
             .synth = try synth.Uni.init(alloc, voice_count),
@@ -370,7 +369,7 @@ pub const Track = struct {
         switch (self.screen) {
             .overview => {
                 rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
-                interface.drawTextCentered(&interface.toString(usize, self.index), 16, 16, 8, rl.Color.light_gray);
+                interface.drawTextCentered(&interface.toString(usize, self.index.*), 16, 16, 8, rl.Color.light_gray);
 
                 // draw grid (bottom half only, y >= 64)
                 for (0..5) |i| {
@@ -468,7 +467,7 @@ pub const Track = struct {
 
                         self.screen = .overview;
                         const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
-                        return .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index, .plugin = p } } } };
+                        return .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } };
                     },
                     else => {},
                 }
