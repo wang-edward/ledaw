@@ -14,11 +14,6 @@ pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     };
 }
 
-pub const Knob = struct {
-    param: *audio.Param,
-    pos: struct { x: f32, y: f32 },
-};
-
 pub const Plugin = union(Tag) {
     lpf: *Lpf,
     delay: *Delay,
