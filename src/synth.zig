@@ -16,8 +16,8 @@ const Voice = struct {
     pub fn init(alloc: std.mem.Allocator, freq: f32) !*Voice {
         const v = try alloc.create(Voice);
         v.osc = audio.Osc.init(freq, .{ .saw = .{} });
-        v.lpf = audio.Lpf.init(v.osc.asNode(), 1.0, 0.5, 5000.0);
-        v.adsr = audio.Adsr.init(v.lpf.asNode(), 0.01, 0.1, 0.4, 0.6);
+        v.lpf = audio.Lpf.init(v.osc.asNode());
+        v.adsr = audio.Adsr.init(v.lpf.asNode());
         v.noteState = .off;
         return v;
     }

@@ -99,8 +99,8 @@ pub const Lpf = struct {
     cutoff: f32,
     vt: VTable = .{ .process = Lpf._process },
 
-    pub fn init(input: Node, drive: f32, resonance: f32, cutoff: f32) Lpf {
-        return .{ .input = input, .drive = drive, .resonance = resonance, .cutoff = cutoff };
+    pub fn init(input: Node) Lpf {
+        return .{ .input = input, .drive = 1.0, .resonance = 0.5, .cutoff = 5_000 };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Lpf = @ptrCast(@alignCast(p));
@@ -206,13 +206,13 @@ pub const Adsr = struct {
     release: f32,
     vt: VTable = .{ .process = Adsr._process },
 
-    pub fn init(input: Node, attack: f32, decay: f32, sustain: f32, release: f32) Adsr {
+    pub fn init(input: Node) Adsr {
         return .{
             .input = input,
-            .attack = attack,
-            .decay = decay,
-            .sustain = sustain,
-            .release = release,
+            .attack = 0.01,
+            .decay = 0.1,
+            .sustain = 0.4,
+            .release = 0.6,
         };
     }
     pub fn asNode(self: *Adsr) Node {

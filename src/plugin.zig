@@ -9,7 +9,7 @@ pub const list = std.enums.values(Tag);
 
 pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     return switch (tag) {
-        .lpf => .{ .lpf = try Lpf.init(alloc, input, 1.0, 0.5, 1000.0) },
+        .lpf => .{ .lpf = try Lpf.init(alloc, input) },
         .delay => .{ .delay = try Delay.init(alloc, input, 22050) },
     };
 }
@@ -52,9 +52,9 @@ pub const Plugin = union(Tag) {
 pub const Lpf = struct {
     lpf: audio.Lpf,
 
-    pub fn init(alloc: std.mem.Allocator, input: audio.Node, drive: f32, resonance: f32, cutoff: f32) !*Lpf {
+    pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
-        self.* = .{ .lpf = audio.Lpf.init(input, drive, resonance, cutoff) };
+        self.* = .{ .lpf = audio.Lpf.init(input) };
         return self;
     }
 
