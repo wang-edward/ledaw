@@ -16,10 +16,16 @@ pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
 
 pub const Knob = struct {
     param: *audio.Param,
-    pos: struct { x: i32, y: i32 },
+    pos: rl.Vector2,
     radius: i32,
     color: rl.Color,
     name: [:0]const u8,
+
+    pub fn render(self: Knob) void {
+        const angle = self.param.getNorm() * 360;
+        rl.drawCircleSector(self.pos, self.radius, 0, angle, 360, self.color);
+        interface.drawTextCentered(self.name, self.pos.x, self.pos.y, 10, self.color);
+    }
 };
 
 pub const Plugin = union(Tag) {
@@ -59,10 +65,12 @@ pub const Plugin = union(Tag) {
 
 pub const Lpf = struct {
     lpf: audio.Lpf,
+    cutoff: Knob,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
-        self.* = .{ .lpf = audio.Lpf.init(input) };
+        const lpf = audio.Lpf.init(input);
+        self.* = .{ .lpf = lpf, .cutoff = .{ .param = lpf.cutoff, .pos = .{ 32, 32 }, .radius = 10, .color = rl.Color.White, .name = "cutoff" } };
         return self;
     }
 
