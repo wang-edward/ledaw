@@ -102,9 +102,9 @@ pub const Lpf = struct {
             .backspace => return .go_back,
             .one => self.drive.param.setNorm(self.drive.param.getNorm() - 0.1),
             .two => self.drive.param.setNorm(self.drive.param.getNorm() + 0.1),
-            .three => self.cutoff.param.setNorm(self.resonance.param.getNorm() - 0.1),
+            .three => self.resonance.param.setNorm(self.resonance.param.getNorm() - 0.1),
             .four => self.resonance.param.setNorm(self.resonance.param.getNorm() + 0.1),
-            .five => self.resonance.param.setNorm(self.cutoff.param.getNorm() - 0.1),
+            .five => self.cutoff.param.setNorm(self.cutoff.param.getNorm() - 0.1),
             .six => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
             else => {},
         }
