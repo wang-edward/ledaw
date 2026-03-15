@@ -65,12 +65,16 @@ pub const Plugin = union(Tag) {
 
 pub const Lpf = struct {
     lpf: audio.Lpf,
+    drive: Knob,
+    resonance: Knob,
     cutoff: Knob,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
         self.lpf = audio.Lpf.init(input);
-        self.cutoff = .{ .param = &self.lpf.cutoff, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "cutoff" };
+        self.drive = .{ .param = &self.lpf.drive, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "drive" };
+        self.resonance = .{ .param = &self.lpf.resonance, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "resonance" };
+        self.cutoff = .{ .param = &self.lpf.cutoff, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "cutoff" };
         return self;
     }
 
@@ -87,6 +91,8 @@ pub const Lpf = struct {
     }
 
     pub fn render(self: *Lpf) void {
+        self.drive.render();
+        self.resonance.render();
         self.cutoff.render();
         interface.drawTextCentered("LPF", 64, 64, 10, rl.Color.green);
     }
@@ -94,8 +100,12 @@ pub const Lpf = struct {
     pub fn handleEvent(self: *Lpf, event: interface.Event) ?ops.Action {
         switch (event.key) {
             .backspace => return .go_back,
-            .one => self.cutoff.param.setNorm(self.cutoff.param.getNorm() - 0.1),
-            .two => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
+            .one => self.drive.param.setNorm(self.drive.param.getNorm() - 0.1),
+            .two => self.drive.param.setNorm(self.drive.param.getNorm() + 0.1),
+            .three => self.cutoff.param.setNorm(self.resonance.param.getNorm() - 0.1),
+            .four => self.resonance.param.setNorm(self.resonance.param.getNorm() + 0.1),
+            .five => self.resonance.param.setNorm(self.cutoff.param.getNorm() - 0.1),
+            .six => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
             else => {},
         }
         return null;
