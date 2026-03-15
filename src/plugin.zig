@@ -17,14 +17,14 @@ pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
 pub const Knob = struct {
     param: *audio.Param,
     pos: rl.Vector2,
-    radius: i32,
+    radius: f32,
     color: rl.Color,
     name: [:0]const u8,
 
     pub fn render(self: Knob) void {
         const angle = self.param.getNorm() * 360;
         rl.drawCircleSector(self.pos, self.radius, 0, angle, 360, self.color);
-        interface.drawTextCentered(self.name, self.pos.x, self.pos.y, 10, self.color);
+        interface.drawTextCentered(self.name, @intFromFloat(self.pos.x), @intFromFloat(self.pos.y + 20), 10, self.color);
     }
 };
 
@@ -69,8 +69,8 @@ pub const Lpf = struct {
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
-        const lpf = audio.Lpf.init(input);
-        self.* = .{ .lpf = lpf, .cutoff = .{ .param = lpf.cutoff, .pos = .{ 32, 32 }, .radius = 10, .color = rl.Color.White, .name = "cutoff" } };
+        self.lpf = audio.Lpf.init(input);
+        self.cutoff = .{ .param = &self.lpf.cutoff, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "cutoff" };
         return self;
     }
 
@@ -87,7 +87,7 @@ pub const Lpf = struct {
     }
 
     pub fn render(self: *Lpf) void {
-        _ = self;
+        self.cutoff.render();
         interface.drawTextCentered("LPF", 64, 64, 10, rl.Color.green);
     }
 
