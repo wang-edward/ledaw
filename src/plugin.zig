@@ -14,6 +14,20 @@ pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     };
 }
 
+pub const Knob = struct {
+    param: *audio.Param,
+    pos: rl.Vector2,
+    radius: f32,
+    color: rl.Color,
+    name: [:0]const u8,
+
+    pub fn render(self: Knob) void {
+        const angle = self.param.getNorm() * 360;
+        rl.drawCircleSector(self.pos, self.radius, 0, angle, 360, self.color);
+        interface.drawTextCentered(self.name, @intFromFloat(self.pos.x), @intFromFloat(self.pos.y + 20), 10, self.color);
+    }
+};
+
 pub const Plugin = union(Tag) {
     lpf: *Lpf,
     delay: *Delay,
@@ -51,10 +65,16 @@ pub const Plugin = union(Tag) {
 
 pub const Lpf = struct {
     lpf: audio.Lpf,
+    drive: Knob,
+    resonance: Knob,
+    cutoff: Knob,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
-        self.* = .{ .lpf = audio.Lpf.init(input) };
+        self.lpf = audio.Lpf.init(input);
+        self.drive = .{ .param = &self.lpf.drive, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "drive" };
+        self.resonance = .{ .param = &self.lpf.resonance, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "resonance" };
+        self.cutoff = .{ .param = &self.lpf.cutoff, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "cutoff" };
         return self;
     }
 
@@ -71,16 +91,24 @@ pub const Lpf = struct {
     }
 
     pub fn render(self: *Lpf) void {
-        _ = self;
+        self.drive.render();
+        self.resonance.render();
+        self.cutoff.render();
         interface.drawTextCentered("LPF", 64, 64, 10, rl.Color.green);
     }
 
     pub fn handleEvent(self: *Lpf, event: interface.Event) ?ops.Action {
-        _ = self;
-        return switch (event.key) {
-            .backspace => .go_back,
-            else => null,
-        };
+        switch (event.key) {
+            .backspace => return .go_back,
+            .one => self.drive.param.setNorm(self.drive.param.getNorm() - 0.1),
+            .two => self.drive.param.setNorm(self.drive.param.getNorm() + 0.1),
+            .three => self.resonance.param.setNorm(self.resonance.param.getNorm() - 0.1),
+            .four => self.resonance.param.setNorm(self.resonance.param.getNorm() + 0.1),
+            .five => self.cutoff.param.setNorm(self.cutoff.param.getNorm() - 0.1),
+            .six => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
+            else => {},
+        }
+        return null;
     }
 };
 

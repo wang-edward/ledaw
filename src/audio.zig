@@ -40,8 +40,9 @@ pub const Param = struct {
         return (self.val - self.min) / (self.max - self.min);
     }
     pub fn setNorm(self: *Param, norm: f32) void {
-        std.debug.assert(0 <= norm and norm <= 1); // TODO needed?
-        self.set(self.min + norm * (self.max - self.min));
+        const n = std.math.clamp(norm, 0, 1);
+        std.debug.print("setNorm: norm={d} clamped={d} result={d} (min={d} max={d})\n", .{ norm, n, self.min + n * (self.max - self.min), self.min, self.max });
+        self.set(self.min + n * (self.max - self.min));
     }
 };
 
@@ -104,7 +105,12 @@ pub const Lpf = struct {
     vt: VTable = .{ .process = Lpf._process },
 
     pub fn init(input: Node) Lpf {
-        return .{ .input = input, .drive = .{ .val = 1.0, .min = 0, .max = 2 }, .resonance = .{ .val = 0.5, .min = 0, .max = 2 }, .cutoff = .{ .val = 5_000, .min = 0, .max = 10_000 } };
+        return .{
+            .input = input,
+            .drive = .{ .val = 1.0, .min = 0, .max = 2 },
+            .resonance = .{ .val = 0.5, .min = 0, .max = 2 },
+            .cutoff = .{ .val = 5_000, .min = 0, .max = 10_000 }, // Moog ladder model requires cutoff < sample_rate / pi (~15278 Hz at 48kHz). but above 10k it sounds more closed which is weird
+        };
     }
     fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
         const self: *Lpf = @ptrCast(@alignCast(p));

@@ -173,6 +173,13 @@ fn write_callback(
         const mono = context.tmp().alloc(audio.Sample, @intCast(frame_count)) catch unreachable;
         root.v.process(root.ptr, &context, mono);
 
+        for (mono[0..@intCast(frame_count)]) |s| {
+            if (!std.math.isFinite(s)) {
+                std.debug.print("NaN/inf detected\n", .{});
+                @panic("NaN/inf detected");
+            }
+        }
+
         // copy mono audio to all channels
         var f: c_int = 0;
         while (f < frame_count) : (f += 1) {
