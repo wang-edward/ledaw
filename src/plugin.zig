@@ -92,11 +92,13 @@ pub const Lpf = struct {
     }
 
     pub fn handleEvent(self: *Lpf, event: interface.Event) ?ops.Action {
-        _ = self;
-        return switch (event.key) {
-            .backspace => .go_back,
-            else => null,
-        };
+        switch (event.key) {
+            .backspace => return .go_back,
+            .one => self.cutoff.param.setNorm(self.cutoff.param.getNorm() - 0.1),
+            .two => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
+            else => {},
+        }
+        return null;
     }
 };
 
