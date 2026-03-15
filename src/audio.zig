@@ -40,8 +40,8 @@ pub const Param = struct {
         return (self.val - self.min) / (self.max - self.min);
     }
     pub fn setNorm(self: *Param, norm: f32) void {
-        std.debug.assert(0 <= norm and norm <= 1); // TODO needed?
-        self.set(self.min + norm * (self.max - self.min));
+        const n = std.math.clamp(norm, 0, 1);
+        self.set(self.min + n * (self.max - self.min));
     }
 };
 
