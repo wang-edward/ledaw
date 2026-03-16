@@ -114,10 +114,16 @@ pub const Lpf = struct {
 
 pub const Delay = struct {
     delay: audio.Delay,
+    delay_time: Knob,
+    feedback: Knob,
+    mix: Knob,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node, buffer_size: usize) !*Delay {
         const self = try alloc.create(Delay);
-        self.* = .{ .delay = try audio.Delay.init(alloc, input, buffer_size) };
+        self.delay = try audio.Delay.init(alloc, input, buffer_size);
+        self.delay_time = .{ .param = &self.delay.delay_time, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "delay_time" };
+        self.feedback = .{ .param = &self.delay.feedback, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "feedback" };
+        self.mix = .{ .param = &self.delay.mix, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "mix" };
         return self;
     }
 
@@ -135,15 +141,23 @@ pub const Delay = struct {
     }
 
     pub fn render(self: *Delay) void {
-        _ = self;
+        self.delay_time.render();
+        self.feedback.render();
+        self.mix.render();
         interface.drawTextCentered("DELAY", 64, 64, 10, rl.Color.purple);
     }
 
     pub fn handleEvent(self: *Delay, event: interface.Event) ?ops.Action {
-        _ = self;
-        return switch (event.key) {
-            .backspace => .go_back,
-            else => null,
-        };
+        switch (event.key) {
+            .backspace => return .go_back,
+            .one => self.delay_time.param.setNorm(self.delay_time.param.getNorm() - 0.1),
+            .two => self.delay_time.param.setNorm(self.delay_time.param.getNorm() + 0.1),
+            .three => self.feedback.param.setNorm(self.feedback.param.getNorm() - 0.1),
+            .four => self.feedback.param.setNorm(self.feedback.param.getNorm() + 0.1),
+            .five => self.mix.param.setNorm(self.mix.param.getNorm() - 0.1),
+            .six => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
+            else => {},
+        }
+        return null;
     }
 };
