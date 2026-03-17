@@ -295,30 +295,37 @@ pub const Timeline = struct {
         const action = switch (self.screen) {
             .overview => {
                 switch (event.key) {
-                    .p => std.debug.print("in the TRACK\n", .{}),
+                    .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
-                    .e => self.screen = .midi_editor,
-                    .down => if (self.active_track < self.track_count - 1) {
+                    // .e => self.screen = .midi_editor,
+                    .j => if (self.active_track < self.track_count - 1) {
                         self.active_track += 1;
                     },
-                    .up => if (self.active_track > 0) {
+                    .k => if (self.active_track > 0) {
                         self.active_track -= 1;
                     },
                     .space => return .{ .op = .{ .playback = .toggle_play } },
                     .backspace => return .{ .op = .{ .playback = .reset } },
                     .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
-                    .equal => if (self.track_count < MAX_TRACKS) {
-                        const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch return null;
-                        return .{ .op = .{ .graph = .{ .add_track = new_track } } };
-                    },
-                    .minus => if (self.track_count > 1) {
-                        const idx = self.active_track;
-                        if (self.active_track >= self.track_count - 1) {
-                            self.active_track = self.track_count - 2;
+                    .equal => {
+                        if (self.track_count < MAX_TRACKS) {
+                            const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch unreachable;
+                            return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                         }
-                        return .{ .op = .{ .graph = .{ .remove_track = idx } } };
                     },
+                    .minus => {
+                        if (self.track_count > 1) {
+                            const idx = self.active_track;
+                            if (self.active_track >= self.track_count - 1) {
+                                self.active_track = self.track_count - 2;
+                            }
+                            return .{ .op = .{ .graph = .{ .remove_track = idx } } };
+                        }
+                    },
+                    // zoom
+                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
+                    .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 128),
                     else => {},
                 }
                 return null;
