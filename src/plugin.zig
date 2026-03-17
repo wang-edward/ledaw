@@ -87,7 +87,7 @@ pub const Lpf = struct {
     }
 
     pub fn deinit(self: *Lpf, alloc: std.mem.Allocator) void {
-        rl.unloadTexture(self.icon);
+        // rl.unloadTexture(self.icon); // TODO let this leak for now, app should be allocated on UI thread
         alloc.destroy(self);
     }
 
@@ -144,6 +144,7 @@ pub const Delay = struct {
     }
 
     pub fn asNode(self: *Delay) audio.Node {
+        // rl.unloadTexture(self.icon); // TODO let this leak for now, app should be allocated on UI thread
         return self.delay.asNode();
     }
 
