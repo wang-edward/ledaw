@@ -61,6 +61,12 @@ pub const Plugin = union(Tag) {
             inline else => |p| return p.handleEvent(event),
         }
     }
+
+    pub fn getIcon(self: *Plugin) rl.Texture2D {
+        switch (self.*) {
+            inline else => |p| return p.icon,
+        }
+    }
 };
 
 pub const Lpf = struct {
@@ -68,6 +74,7 @@ pub const Lpf = struct {
     drive: Knob,
     resonance: Knob,
     cutoff: Knob,
+    icon: rl.Texture2D,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Lpf {
         const self = try alloc.create(Lpf);
@@ -75,10 +82,12 @@ pub const Lpf = struct {
         self.drive = .{ .param = &self.lpf.drive, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "drive" };
         self.resonance = .{ .param = &self.lpf.resonance, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "resonance" };
         self.cutoff = .{ .param = &self.lpf.cutoff, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "cutoff" };
+        self.icon = rl.loadTexture("assets/water_spell.png") catch unreachable;
         return self;
     }
 
     pub fn deinit(self: *Lpf, alloc: std.mem.Allocator) void {
+        rl.unloadTexture(self.icon);
         alloc.destroy(self);
     }
 
@@ -117,6 +126,7 @@ pub const Delay = struct {
     delay_time: Knob,
     feedback: Knob,
     mix: Knob,
+    icon: rl.Texture2D,
 
     pub fn init(alloc: std.mem.Allocator, input: audio.Node, buffer_size: usize) !*Delay {
         const self = try alloc.create(Delay);
@@ -124,6 +134,7 @@ pub const Delay = struct {
         self.delay_time = .{ .param = &self.delay.delay_time, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "delay_time" };
         self.feedback = .{ .param = &self.delay.feedback, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "feedback" };
         self.mix = .{ .param = &self.delay.mix, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "mix" };
+        self.icon = rl.loadTexture("assets/slowed.png") catch unreachable;
         return self;
     }
 
