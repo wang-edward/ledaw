@@ -8,7 +8,7 @@ const interface = @import("interface.zig");
 const project = @import("project.zig");
 const plugin = @import("plugin.zig");
 
-var g_playhead: u64 = 0;
+var g_playhead: std.atomic.Value(u64) = std.atomic.Value(u64).init(0);
 var g_playing: bool = false;
 var g_recording: bool = false;
 var g_app: project.App = undefined;
@@ -88,7 +88,7 @@ fn write_callback(
                         if (g_held_notes[note]) |start| {
                             g_record_buffer.append(A, .{
                                 .start = start,
-                                .end = g_playhead,
+                                .end = g_playhead.raw,
                                 .note = note,
                             }) catch {};
                             g_held_notes[note] = null;
@@ -99,7 +99,7 @@ fn write_callback(
                     getActiveTrack().synth.noteOn(note);
                     // Record note on
                     if (g_recording and g_playing) {
-                        g_held_notes[note] = g_playhead;
+                        g_held_notes[note] = g_playhead.raw;
                     }
                 },
             }
@@ -126,7 +126,7 @@ fn write_callback(
                         for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
-                        g_playhead = 0;
+                        g_playhead.store(0, .monotonic);
                     },
                 },
                 .record => |r| switch (r) {
@@ -198,11 +198,11 @@ fn write_callback(
 
         // advance playhead
         if (g_playing) {
-            const start = g_playhead;
-            g_playhead += @intCast(frame_count);
+            const start = g_playhead.raw;
+            _ = g_playhead.fetchAdd(@intCast(frame_count), .monotonic);
 
             for (g_app.timeline.activeTracks()) |track| {
-                const n = track.player.advance(start, g_playhead, &midi_notes);
+                const n = track.player.advance(start, g_playhead.raw, &midi_notes);
                 for (midi_notes[0..n]) |msg| {
                     switch (msg) {
                         .off => |note| track.synth.noteOff(note),

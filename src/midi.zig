@@ -23,6 +23,10 @@ pub fn beatsToFrames(beats: f32, tempo: f32, sample_rate: f32) Frame {
     return @intFromFloat((60.0 / tempo) * sample_rate * beats);
 }
 
+pub fn framesToBeats(frames: Frame, tempo: f32, ctx: *audio.Context) f32 {
+    return @as(f32, @floatFromInt(frames)) / (ctx.sample_rate * 60.0 / tempo);
+}
+
 pub fn keyToMidi(key: rl.KeyboardKey) ?u8 {
     return switch (key) {
         // --- white keys (A–L) ---
