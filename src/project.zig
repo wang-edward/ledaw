@@ -390,6 +390,7 @@ pub const Track = struct {
                     const name = @tagName(self.plugins[i]);
                     const font_size = 10;
                     const width = rl.measureText(name, font_size);
+                    rl.drawTexture(self.plugins[i].getIcon(), x - 8, y - 8, rl.Color.white);
                     rl.drawText(name, x - @divTrunc(width, 2), y + 6, font_size, rl.Color.white);
 
                     if (i == self.active_plugin) {
