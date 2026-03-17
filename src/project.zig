@@ -41,10 +41,12 @@ pub const App = struct {
     pub fn render(self: *App) void {
         self.timeline.render();
         // draw after for overlay
-        for (0..interface.WIDTH) |x| {
-            for (0..interface.HEIGHT) |y| {
-                if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
-                    rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+        if (self.mode == .insert) {
+            for (0..interface.WIDTH) |x| {
+                for (0..interface.HEIGHT) |y| {
+                    if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
+                        rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+                    }
                 }
             }
         }
