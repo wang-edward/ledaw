@@ -246,6 +246,7 @@ fn audioThreadMain() !void {
     out.?.*.software_latency = 0.02;
     must(c.soundio_outstream_open(out.?));
 
+    std.debug.assert(out.?.*.sample_rate == SAMPLE_RATE); // assert write succeeded
     context = audio.Context.init(scratch_fba.allocator(), SAMPLE_RATE, 120);
 
     must(c.soundio_outstream_start(out.?));
