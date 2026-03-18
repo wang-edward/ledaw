@@ -246,7 +246,7 @@ pub const Timeline = struct {
                 rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
                 const W: f32 = @floatFromInt(interface.WIDTH);
                 const num_rows = @min(self.track_count, MAX_TRACKS);
-                const b = midi.framesToBeats(self.playhead.load(.acquire), self.ctx.bpm, self.ctx);
+                const b = midi.framesToBeats(self.playhead.load(.acquire), self.ctx.bpm, self.ctx.sample_rate);
                 if (b > self.frame.rightEdge() or b < self.frame.leftEdge()) {
                     self.frame.center = b;
                 }
