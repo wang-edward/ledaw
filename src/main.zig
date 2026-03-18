@@ -296,7 +296,7 @@ pub fn main() !void {
     };
     const notes_per_track = [_][]const midi.Note{ &notes, &bass_notes };
 
-    g_app = try project.App.init(A, 2, 4, &notes_per_track);
+    g_app = try project.App.init(A, 2, 4, &notes_per_track, &g_playhead, &context);
     defer g_app.deinit();
     root = g_app.timeline.asNode();
     defer g_record_buffer.deinit(A);
