@@ -22,9 +22,11 @@ pub const App = struct {
         num_tracks: usize,
         voices_per_track: usize,
         notes_per_track: []const []const midi.Note,
+        playhead: *std.atomic.Value(u64),
+        ctx: *audio.Context,
     ) !App {
         return .{
-            .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track),
+            .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track, playhead, ctx),
             .mode = .normal,
             .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
             .note_offset = 0,
@@ -39,10 +41,12 @@ pub const App = struct {
     pub fn render(self: *App) void {
         self.timeline.render();
         // draw after for overlay
-        for (0..interface.WIDTH) |x| {
-            for (0..interface.HEIGHT) |y| {
-                if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
-                    rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+        if (self.mode == .insert) {
+            for (0..interface.WIDTH) |x| {
+                for (0..interface.HEIGHT) |y| {
+                    if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
+                        rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+                    }
                 }
             }
         }
@@ -103,9 +107,27 @@ pub const App = struct {
     }
 };
 
+const BeatFrame = struct {
+    center: f32,
+    radius: f32,
+    fn leftEdge(self: BeatFrame) f32 {
+        return self.center - self.radius;
+    }
+    fn rightEdge(self: BeatFrame) f32 {
+        return self.center + self.radius;
+    }
+    fn width(self: BeatFrame) f32 {
+        return self.radius * 2;
+    }
+};
+
 pub const Timeline = struct {
     const Screen = enum { overview, track, midi_editor };
     pub const MAX_TRACKS = 8;
+    const HEADER_HEIGHT = 12;
+    const ROW_HEIGHT = 14;
+
+    screen: Screen,
 
     alloc: std.mem.Allocator,
     tracks: [MAX_TRACKS]*Track,
@@ -115,14 +137,18 @@ pub const Timeline = struct {
 
     active_track: usize = 0,
     scroll_offset: usize = 0,
-
-    screen: Screen,
+    playhead: *std.atomic.Value(u64),
+    ctx: *audio.Context,
+    frame: BeatFrame = .{ .center = 0, .radius = 8.0 },
+    bar_width: f32 = 4.0,
 
     pub fn init(
         alloc: std.mem.Allocator,
         num_tracks: usize,
         voices_per_track: usize,
         notes_per_track: []const []const midi.Note,
+        playhead: *std.atomic.Value(u64),
+        ctx: *audio.Context,
     ) !Timeline {
         std.debug.assert(num_tracks <= MAX_TRACKS);
         std.debug.assert(notes_per_track.len == num_tracks);
@@ -133,6 +159,8 @@ pub const Timeline = struct {
             .track_count = num_tracks,
             .midi_editor = .{},
             .screen = .overview,
+            .playhead = playhead,
+            .ctx = ctx,
         };
 
         for (0..num_tracks) |i| {
@@ -215,14 +243,48 @@ pub const Timeline = struct {
     pub fn render(self: *Timeline) void {
         switch (self.screen) {
             .overview => {
-                for (0..interface.WIDTH) |x| {
-                    for (0..interface.HEIGHT) |y| {
-                        if ((x + y) % 2 == 0) {
-                            rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
-                        }
-                    }
-                }
                 rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
+                const W: f32 = @floatFromInt(interface.WIDTH);
+                const num_rows = @min(self.track_count, MAX_TRACKS);
+                const b = midi.framesToBeats(self.playhead.load(.acquire), self.ctx.bpm, self.ctx.sample_rate);
+                if (b > self.frame.rightEdge() or b < self.frame.leftEdge()) {
+                    self.frame.center = b;
+                }
+
+                // beat position text
+                const bar: i32 = @intFromFloat(@floor(b / self.bar_width));
+                const beat_in_bar: i32 = @intFromFloat(@mod(b, self.bar_width));
+                var buf: [20:0]u8 = .{0} ** 20;
+                _ = std.fmt.bufPrint(&buf, "{d}.{d}", .{ bar + 1, beat_in_bar + 1 }) catch {};
+                interface.drawTextCentered(&buf, interface.WIDTH / 2, HEADER_HEIGHT / 2, 8, rl.Color.white);
+
+                // bar lines
+                var bar_pos = @floor(self.frame.leftEdge() / self.bar_width) * self.bar_width;
+                while (bar_pos < self.frame.rightEdge()) : (bar_pos += self.bar_width) {
+                    const pct = (bar_pos - self.frame.leftEdge()) / self.frame.width();
+                    const x: i32 = @intFromFloat(pct * W);
+                    rl.drawLine(x, HEADER_HEIGHT, x, HEADER_HEIGHT + @as(i32, @intCast(num_rows)) * ROW_HEIGHT, rl.Color.dark_gray);
+                }
+
+                // track rows
+                for (0..num_rows) |i| {
+                    const y: i32 = @as(i32, @intCast(i)) * ROW_HEIGHT + HEADER_HEIGHT;
+                    rl.drawRectangleLines(0, y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.dark_gray);
+                }
+
+                // active track highlight
+                {
+                    const row: i32 = @intCast(self.active_track - self.scroll_offset);
+                    const y = row * ROW_HEIGHT + HEADER_HEIGHT;
+                    rl.drawRectangleLines(0, y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.red);
+                }
+
+                // playhead
+                if (self.frame.leftEdge() < b and b < self.frame.rightEdge()) {
+                    const pct = (b - self.frame.leftEdge()) / self.frame.width();
+                    const x: i32 = @intFromFloat(pct * W);
+                    rl.drawLine(x, HEADER_HEIGHT, x, @intCast(interface.HEIGHT), rl.Color.white);
+                }
             },
             .track => self.activeTrack().render(),
             .midi_editor => self.midi_editor.render(),
@@ -233,30 +295,37 @@ pub const Timeline = struct {
         const action = switch (self.screen) {
             .overview => {
                 switch (event.key) {
-                    .p => std.debug.print("in the TRACK\n", .{}),
+                    .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
-                    .e => self.screen = .midi_editor,
-                    .down => if (self.active_track < self.track_count - 1) {
+                    // .e => self.screen = .midi_editor,
+                    .j => if (self.active_track < self.track_count - 1) {
                         self.active_track += 1;
                     },
-                    .up => if (self.active_track > 0) {
+                    .k => if (self.active_track > 0) {
                         self.active_track -= 1;
                     },
                     .space => return .{ .op = .{ .playback = .toggle_play } },
                     .backspace => return .{ .op = .{ .playback = .reset } },
                     .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
-                    .equal => if (self.track_count < MAX_TRACKS) {
-                        const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch return null;
-                        return .{ .op = .{ .graph = .{ .add_track = new_track } } };
-                    },
-                    .minus => if (self.track_count > 1) {
-                        const idx = self.active_track;
-                        if (self.active_track >= self.track_count - 1) {
-                            self.active_track = self.track_count - 2;
+                    .equal => {
+                        if (self.track_count < MAX_TRACKS) {
+                            const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch unreachable;
+                            return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                         }
-                        return .{ .op = .{ .graph = .{ .remove_track = idx } } };
                     },
+                    .minus => {
+                        if (self.track_count > 1) {
+                            const idx = self.active_track;
+                            if (self.active_track >= self.track_count - 1) {
+                                self.active_track = self.track_count - 2;
+                            }
+                            return .{ .op = .{ .graph = .{ .remove_track = idx } } };
+                        }
+                    },
+                    // zoom
+                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
+                    .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 128),
                     else => {},
                 }
                 return null;
