@@ -162,6 +162,7 @@ fn write_callback(
                     },
                     .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
+                        std.debug.print("add_plugin: track_idx={d} tracks.len={d}\n,", .{ ap.track_idx, tracks.len });
                         if (ap.track_idx < tracks.len) {
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
