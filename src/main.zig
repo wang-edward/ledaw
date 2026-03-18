@@ -294,9 +294,10 @@ pub fn main() !void {
         .{ .start = midi.beatsToFrames(12.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .note = 38 },
         .{ .start = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(16.0, tempo, SAMPLE_RATE), .note = 36 },
     };
-    const notes_per_track = [_][]const midi.Note{ &notes, &bass_notes };
 
-    g_app = try project.App.init(A, 2, 4, &notes_per_track, &g_playhead, &context);
+    g_app = try project.App.init(A, &g_playhead, &context);
+    g_app.timeline.addTrack(try project.Track.init(A, &g_app.timeline.active_track, &notes));
+    g_app.timeline.addTrack(try project.Track.init(A, &g_app.timeline.active_track, &bass_notes));
     defer g_app.deinit();
     root = g_app.timeline.asNode();
     defer g_record_buffer.deinit(A);

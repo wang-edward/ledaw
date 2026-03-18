@@ -19,14 +19,11 @@ pub const App = struct {
 
     pub fn init(
         alloc: std.mem.Allocator,
-        num_tracks: usize,
-        voices_per_track: usize,
-        notes_per_track: []const []const midi.Note,
         playhead: *std.atomic.Value(u64),
         ctx: *audio.Context,
     ) !App {
         return .{
-            .timeline = try Timeline.init(alloc, num_tracks, voices_per_track, notes_per_track, playhead, ctx),
+            .timeline = try Timeline.init(alloc, playhead, ctx),
             .mode = .normal,
             .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
             .note_offset = 0,
@@ -144,30 +141,18 @@ pub const Timeline = struct {
 
     pub fn init(
         alloc: std.mem.Allocator,
-        num_tracks: usize,
-        voices_per_track: usize,
-        notes_per_track: []const []const midi.Note,
         playhead: *std.atomic.Value(u64),
         ctx: *audio.Context,
     ) !Timeline {
-        std.debug.assert(num_tracks <= MAX_TRACKS);
-        std.debug.assert(notes_per_track.len == num_tracks);
-
-        var timeline: Timeline = .{
+        return .{
             .alloc = alloc,
             .tracks = undefined,
-            .track_count = num_tracks,
+            .track_count = 0,
             .midi_editor = .{},
             .screen = .overview,
             .playhead = playhead,
             .ctx = ctx,
         };
-
-        for (0..num_tracks) |i| {
-            timeline.tracks[i] = try Track.init(alloc, &timeline.active_track, voices_per_track, notes_per_track[i]);
-        }
-
-        return timeline;
     }
 
     pub fn deinit(self: *Timeline) void {
@@ -309,7 +294,7 @@ pub const Timeline = struct {
                     .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
-                        const new_track = Track.init(self.alloc, &self.active_track, 4, &.{}) catch unreachable;
+                        const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
                         return .{ .op = .{ .graph = .{ .add_track = new_track } } };
                     },
                     .minus => if (self.track_count > 1) {
@@ -361,10 +346,10 @@ pub const Track = struct {
 
     vt: audio.VTable = .{ .process = Track._process },
 
-    pub fn init(alloc: std.mem.Allocator, index: *const usize, voice_count: usize, notes_in: []const midi.Note) !*Track {
+    pub fn init(alloc: std.mem.Allocator, index: *const usize, notes_in: []const midi.Note) !*Track {
         const t = try alloc.create(Track);
         t.* = .{
-            .synth = try synth.Uni.init(alloc, voice_count),
+            .synth = try synth.Uni.init(alloc),
             .player = try midi.Player.init(alloc, notes_in),
             .alloc = alloc,
             .index = index,
