@@ -54,12 +54,13 @@ pub const Uni = struct {
     vt: audio.VTable = .{ .process = Uni._process },
     next_idx: usize = 0,
     const SYNTH_TUNING: f32 = 440.0;
+    const NUM_VOICES = 16;
 
-    pub fn init(alloc: std.mem.Allocator, count: usize) !*Uni {
+    pub fn init(alloc: std.mem.Allocator) !*Uni {
         const s = try alloc.create(Uni);
         s.cutoff = 5000.0;
         s.vt = .{ .process = Uni._process };
-        s.voices = try alloc.alloc(*Voice, count);
+        s.voices = try alloc.alloc(*Voice, NUM_VOICES);
         for (s.voices) |*v| v.* = try Voice.init(alloc, 0.0);
         s.next_idx = 0;
         return s;
