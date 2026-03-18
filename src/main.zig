@@ -45,6 +45,8 @@ var g_sio_ptr = std.atomic.Value(?*c.SoundIo).init(null);
 // run flag for audio thread
 var g_run_audio = std.atomic.Value(bool).init(true);
 
+const SAMPLE_RATE: f32 = 48_000;
+
 fn must(ok: c_int) void {
     if (ok != c.SoundIoErrorNone) @panic("soundio error");
 }
@@ -240,53 +242,14 @@ fn audioThreadMain() !void {
     out.?.*.format = c.SoundIoFormatFloat32NE;
     out.?.*.write_callback = write_callback;
     out.?.*.underflow_callback = underflow_callback;
-    // TODO make sample rate setting better
-    out.?.*.sample_rate = 48_000;
+    out.?.*.sample_rate = @intFromFloat(SAMPLE_RATE);
     out.?.*.software_latency = 0.02;
     must(c.soundio_outstream_open(out.?));
 
-    // Init graph context with chosen sample rate
-    const sr: f32 = @floatFromInt(out.?.*.sample_rate);
-    const bpm: f32 = 120;
-    context = audio.Context.init(scratch_fba.allocator(), sr, bpm);
+    std.debug.assert(out.?.*.sample_rate == SAMPLE_RATE); // assert write succeeded
+    context = audio.Context.init(scratch_fba.allocator(), SAMPLE_RATE, 120);
 
     must(c.soundio_outstream_start(out.?));
-
-    // lesynth setup
-    const tempo: f32 = 120;
-    const notes = [_]midi.Note{
-        .{ .start = midi.beatsToFrames(0.0, tempo, &context), .end = midi.beatsToFrames(0.9, tempo, &context), .note = 60 },
-        .{ .start = midi.beatsToFrames(1.0, tempo, &context), .end = midi.beatsToFrames(1.9, tempo, &context), .note = 60 },
-        .{ .start = midi.beatsToFrames(2.0, tempo, &context), .end = midi.beatsToFrames(2.9, tempo, &context), .note = 67 },
-        .{ .start = midi.beatsToFrames(3.0, tempo, &context), .end = midi.beatsToFrames(3.9, tempo, &context), .note = 67 },
-        .{ .start = midi.beatsToFrames(4.0, tempo, &context), .end = midi.beatsToFrames(4.9, tempo, &context), .note = 69 },
-        .{ .start = midi.beatsToFrames(5.0, tempo, &context), .end = midi.beatsToFrames(5.9, tempo, &context), .note = 69 },
-        .{ .start = midi.beatsToFrames(6.0, tempo, &context), .end = midi.beatsToFrames(7.9, tempo, &context), .note = 67 },
-        .{ .start = midi.beatsToFrames(8.0, tempo, &context), .end = midi.beatsToFrames(8.9, tempo, &context), .note = 65 },
-        .{ .start = midi.beatsToFrames(9.0, tempo, &context), .end = midi.beatsToFrames(9.9, tempo, &context), .note = 65 },
-        .{ .start = midi.beatsToFrames(10.0, tempo, &context), .end = midi.beatsToFrames(10.9, tempo, &context), .note = 64 },
-        .{ .start = midi.beatsToFrames(11.0, tempo, &context), .end = midi.beatsToFrames(11.9, tempo, &context), .note = 64 },
-        .{ .start = midi.beatsToFrames(12.0, tempo, &context), .end = midi.beatsToFrames(12.9, tempo, &context), .note = 62 },
-        .{ .start = midi.beatsToFrames(13.0, tempo, &context), .end = midi.beatsToFrames(13.9, tempo, &context), .note = 62 },
-        .{ .start = midi.beatsToFrames(14.0, tempo, &context), .end = midi.beatsToFrames(15.9, tempo, &context), .note = 60 },
-    };
-    const bass_notes = [_]midi.Note{
-        .{ .start = midi.beatsToFrames(0.0, tempo, &context), .end = midi.beatsToFrames(2.0, tempo, &context), .note = 48 },
-        .{ .start = midi.beatsToFrames(2.0, tempo, &context), .end = midi.beatsToFrames(4.0, tempo, &context), .note = 48 },
-        .{ .start = midi.beatsToFrames(4.0, tempo, &context), .end = midi.beatsToFrames(6.0, tempo, &context), .note = 43 },
-        .{ .start = midi.beatsToFrames(6.0, tempo, &context), .end = midi.beatsToFrames(8.0, tempo, &context), .note = 43 },
-        .{ .start = midi.beatsToFrames(8.0, tempo, &context), .end = midi.beatsToFrames(10.0, tempo, &context), .note = 41 },
-        .{ .start = midi.beatsToFrames(10.0, tempo, &context), .end = midi.beatsToFrames(12.0, tempo, &context), .note = 40 },
-        .{ .start = midi.beatsToFrames(12.0, tempo, &context), .end = midi.beatsToFrames(14.0, tempo, &context), .note = 38 },
-        .{ .start = midi.beatsToFrames(14.0, tempo, &context), .end = midi.beatsToFrames(16.0, tempo, &context), .note = 36 },
-    };
-    const notes_per_track = [_][]const midi.Note{ &notes, &bass_notes };
-
-    g_app = try project.App.init(A, 2, 4, &notes_per_track);
-    defer g_app.deinit();
-    root = g_app.timeline.asNode();
-
-    defer g_record_buffer.deinit(A);
 
     while (g_run_audio.load(.acquire)) {
         c.soundio_wait_events(sio);
@@ -301,6 +264,41 @@ fn audioThreadMain() !void {
 
 pub fn main() !void {
     defer _ = gpa.deinit();
+
+    // Init app on main thread (before audio thread starts)
+    const tempo: f32 = 120;
+    const notes = [_]midi.Note{
+        .{ .start = midi.beatsToFrames(0.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(0.9, tempo, SAMPLE_RATE), .note = 60 },
+        .{ .start = midi.beatsToFrames(1.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(1.9, tempo, SAMPLE_RATE), .note = 60 },
+        .{ .start = midi.beatsToFrames(2.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(2.9, tempo, SAMPLE_RATE), .note = 67 },
+        .{ .start = midi.beatsToFrames(3.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(3.9, tempo, SAMPLE_RATE), .note = 67 },
+        .{ .start = midi.beatsToFrames(4.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(4.9, tempo, SAMPLE_RATE), .note = 69 },
+        .{ .start = midi.beatsToFrames(5.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(5.9, tempo, SAMPLE_RATE), .note = 69 },
+        .{ .start = midi.beatsToFrames(6.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(7.9, tempo, SAMPLE_RATE), .note = 67 },
+        .{ .start = midi.beatsToFrames(8.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(8.9, tempo, SAMPLE_RATE), .note = 65 },
+        .{ .start = midi.beatsToFrames(9.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(9.9, tempo, SAMPLE_RATE), .note = 65 },
+        .{ .start = midi.beatsToFrames(10.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(10.9, tempo, SAMPLE_RATE), .note = 64 },
+        .{ .start = midi.beatsToFrames(11.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(11.9, tempo, SAMPLE_RATE), .note = 64 },
+        .{ .start = midi.beatsToFrames(12.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(12.9, tempo, SAMPLE_RATE), .note = 62 },
+        .{ .start = midi.beatsToFrames(13.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(13.9, tempo, SAMPLE_RATE), .note = 62 },
+        .{ .start = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(15.9, tempo, SAMPLE_RATE), .note = 60 },
+    };
+    const bass_notes = [_]midi.Note{
+        .{ .start = midi.beatsToFrames(0.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(2.0, tempo, SAMPLE_RATE), .note = 48 },
+        .{ .start = midi.beatsToFrames(2.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(4.0, tempo, SAMPLE_RATE), .note = 48 },
+        .{ .start = midi.beatsToFrames(4.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(6.0, tempo, SAMPLE_RATE), .note = 43 },
+        .{ .start = midi.beatsToFrames(6.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(8.0, tempo, SAMPLE_RATE), .note = 43 },
+        .{ .start = midi.beatsToFrames(8.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(10.0, tempo, SAMPLE_RATE), .note = 41 },
+        .{ .start = midi.beatsToFrames(10.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(12.0, tempo, SAMPLE_RATE), .note = 40 },
+        .{ .start = midi.beatsToFrames(12.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .note = 38 },
+        .{ .start = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(16.0, tempo, SAMPLE_RATE), .note = 36 },
+    };
+    const notes_per_track = [_][]const midi.Note{ &notes, &bass_notes };
+
+    g_app = try project.App.init(A, 2, 4, &notes_per_track);
+    defer g_app.deinit();
+    root = g_app.timeline.asNode();
+    defer g_record_buffer.deinit(A);
 
     var audio_thread = try std.Thread.spawn(.{}, audioThreadMain, .{});
     defer {

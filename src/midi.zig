@@ -19,8 +19,8 @@ pub const NoteMsg = union(enum) {
 
 pub const NoteQueue = SpscQueue(NoteMsg, 16);
 
-pub fn beatsToFrames(beats: f32, tempo: f32, ctx: *audio.Context) Frame {
-    return @intFromFloat((60.0 / tempo) * ctx.sample_rate * beats);
+pub fn beatsToFrames(beats: f32, tempo: f32, sample_rate: f32) Frame {
+    return @intFromFloat((60.0 / tempo) * sample_rate * beats);
 }
 
 pub fn keyToMidi(key: rl.KeyboardKey) ?u8 {
