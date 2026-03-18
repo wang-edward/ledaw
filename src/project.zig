@@ -19,13 +19,11 @@ pub const App = struct {
 
     pub fn init(
         alloc: std.mem.Allocator,
-        num_tracks: usize,
-        notes_per_track: []const []const midi.Note,
         playhead: *std.atomic.Value(u64),
         ctx: *audio.Context,
     ) !App {
         return .{
-            .timeline = try Timeline.init(alloc, num_tracks, notes_per_track, playhead, ctx),
+            .timeline = try Timeline.init(alloc, playhead, ctx),
             .mode = .normal,
             .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
             .note_offset = 0,
@@ -143,29 +141,18 @@ pub const Timeline = struct {
 
     pub fn init(
         alloc: std.mem.Allocator,
-        num_tracks: usize,
-        notes_per_track: []const []const midi.Note,
         playhead: *std.atomic.Value(u64),
         ctx: *audio.Context,
     ) !Timeline {
-        std.debug.assert(num_tracks <= MAX_TRACKS);
-        std.debug.assert(notes_per_track.len == num_tracks);
-
-        var timeline: Timeline = .{
+        return .{
             .alloc = alloc,
             .tracks = undefined,
-            .track_count = num_tracks,
+            .track_count = 0,
             .midi_editor = .{},
             .screen = .overview,
             .playhead = playhead,
             .ctx = ctx,
         };
-
-        for (0..num_tracks) |i| {
-            timeline.tracks[i] = try Track.init(alloc, &timeline.active_track, notes_per_track[i]);
-        }
-
-        return timeline;
     }
 
     pub fn deinit(self: *Timeline) void {
