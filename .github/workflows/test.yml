@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Install dependencies
-      run: sudo apt-get install -y xvfb
+      run: sudo apt-get install -y xvfb libgl-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxrandr-dev libxrender-dev
     - name: Install Zig
       uses: mlugg/setup-zig@v2
       with:
