@@ -1,51 +1,51 @@
 const std = @import("std");
 const rl = @import("raylib");
-const c = @cImport(@cInclude("soundio/soundio.h"));
-const audio = @import("audio.zig");
-const midi = @import("midi.zig");
-const ops = @import("ops.zig");
-const interface = @import("interface.zig");
-const project = @import("project.zig");
-const plugin = @import("plugin.zig");
+pub const c = @cImport(@cInclude("soundio/soundio.h"));
+pub const audio = @import("audio.zig");
+pub const midi = @import("midi.zig");
+pub const ops = @import("ops.zig");
+pub const interface = @import("interface.zig");
+pub const project = @import("project.zig");
+pub const plugin = @import("plugin.zig");
 
-var g_playhead: std.atomic.Value(u64) = std.atomic.Value(u64).init(0);
-var g_playing: bool = false;
-var g_recording: bool = false;
-var g_app: project.App = undefined;
-var g_op_queue: ops.OpQueue = .{};
+pub var g_playhead: std.atomic.Value(u64) = std.atomic.Value(u64).init(0);
+pub var g_playing: bool = false;
+pub var g_recording: bool = false;
+pub var g_app: project.App = undefined;
+pub var g_op_queue: ops.OpQueue = .{};
 
 // Recording state
-var g_held_notes: [128]?midi.Frame = .{null} ** 128; // note -> start frame
-var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
+pub var g_held_notes: [128]?midi.Frame = .{null} ** 128; // note -> start frame
+pub var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
 
 // Garbage queue: audio thread pushes removed items, UI thread frees them
-var g_garbage_queue: ops.GarbageQueue = .{};
+pub var g_garbage_queue: ops.GarbageQueue = .{};
 
 inline fn getActiveTrack() *project.Track {
     return g_app.timeline.activeTrack();
 }
 
-var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-const A = gpa.allocator();
+pub var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+pub const A = gpa.allocator();
 
 // temp allocator for audio callback
-var scratch_mem: [512 * 1024]u8 = undefined;
-var scratch_fba = std.heap.FixedBufferAllocator.init(&scratch_mem);
-var context: audio.Context = undefined;
+pub var scratch_mem: [512 * 1024]u8 = undefined;
+pub var scratch_fba = std.heap.FixedBufferAllocator.init(&scratch_mem);
+pub var context: audio.Context = undefined;
 
-var root: audio.Node = undefined;
+pub var root: audio.Node = undefined;
 
 // libsoundio
 var sio: ?*c.SoundIo = null;
 var out: ?*c.SoundIoOutStream = null;
 
 // shared sio pointer to allow main to kill sio
-var g_sio_ptr = std.atomic.Value(?*c.SoundIo).init(null);
+pub var g_sio_ptr = std.atomic.Value(?*c.SoundIo).init(null);
 
 // run flag for audio thread
-var g_run_audio = std.atomic.Value(bool).init(true);
+pub var g_run_audio = std.atomic.Value(bool).init(true);
 
-const SAMPLE_RATE: f32 = 48_000;
+pub const SAMPLE_RATE: f32 = 48_000;
 
 fn must(ok: c_int) void {
     if (ok != c.SoundIoErrorNone) @panic("soundio error");
@@ -223,7 +223,7 @@ fn underflow_callback(_: ?[*]c.SoundIoOutStream) callconv(.c) void {
 }
 
 // =============================== Audio thread entry ==================================
-fn audioThreadMain() !void {
+pub fn audioThreadMain() !void {
     // SoundIO setup
     sio = c.soundio_create();
     if (sio == null) return error.NoMem;
