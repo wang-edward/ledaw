@@ -48,23 +48,55 @@ pub fn build(b: *std.Build) void {
     const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
 
-    // // test
-    // const queue_mod = b.createModule(.{
-    //     .root_source_file = b.path("src/queue.zig"),
-    //     .target = target,
-    //     .optimize = optimize,
-    // });
-    // const unit_tests = b.addTest(.{
-    //     .root_module = b.createModule(.{
-    //         .root_source_file = b.path("test/test_queue.zig"),
-    //         .imports = &.{
-    //             .{ .name = "queue", .module = queue_mod },
-    //         },
-    //         .target = target,
-    //         .optimize = optimize,
-    //     }),
-    // });
-    // const run_exe_unit_tests = b.addRunArtifact(unit_tests);
-    // const test_step = b.step("test", "Run unit tests");
-    // test_step.dependOn(&run_exe_unit_tests.step);
+    // fuzz
+    const main_mod = b.createModule(.{
+        .root_source_file = b.path("src/main.zig"),
+        .target = target,
+        .optimize = optimize,
+        .imports = &.{
+            .{ .name = "raylib", .module = raylib },
+            .{ .name = "raygui", .module = raygui },
+            .{ .name = "soundio", .module = soundio_mod },
+        },
+    });
+    const fuzz_exe = b.addExecutable(.{
+        .name = "fuzz",
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("test/test_fuzz.zig"),
+            .target = target,
+            .optimize = optimize,
+            .imports = &.{
+                .{ .name = "main", .module = main_mod },
+                .{ .name = "raylib", .module = raylib },
+            },
+        }),
+    });
+    fuzz_exe.linkLibrary(raylib_artifact);
+    fuzz_exe.linkLibrary(soundio_artifact);
+    fuzz_exe.linkLibC();
+    b.installArtifact(fuzz_exe);
+    const fuzz_run = b.addRunArtifact(fuzz_exe);
+    fuzz_run.step.dependOn(b.getInstallStep());
+    const fuzz_step = b.step("fuzz", "Run fuzz test");
+    fuzz_step.dependOn(&fuzz_run.step);
+
+    // test
+    const queue_mod = b.createModule(.{
+        .root_source_file = b.path("src/queue.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    const unit_tests = b.addTest(.{
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("test/test_queue.zig"),
+            .imports = &.{
+                .{ .name = "queue", .module = queue_mod },
+            },
+            .target = target,
+            .optimize = optimize,
+        }),
+    });
+    const run_exe_unit_tests = b.addRunArtifact(unit_tests);
+    const test_step = b.step("test", "Run unit tests");
+    test_step.dependOn(&run_exe_unit_tests.step);
 }
