@@ -8,13 +8,15 @@ on:
 
 jobs:
   fuzz:
-    runs-on: macos-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: sudo apt-get install -y xvfb
     - name: Install Zig
       uses: mlugg/setup-zig@v2
       with:
         version: 0.15.1
     - name: Fuzz
-      run: zig build fuzz --summary all
+      run: xvfb-run -a --server-args="-screen 0 1920x1080x24" zig build fuzz --summary all
