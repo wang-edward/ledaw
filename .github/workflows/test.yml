@@ -8,15 +8,13 @@ on:
 
 jobs:
   fuzz:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v4
-    - name: Install dependencies
-      run: sudo apt-get install -y xvfb libgl-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxrandr-dev libxrender-dev
     - name: Install Zig
       uses: mlugg/setup-zig@v2
       with:
         version: 0.15.1
     - name: Fuzz
-      run: xvfb-run -a --server-args="-screen 0 1920x1080x24" zig build fuzz --summary all
+      run: zig build fuzz --summary all
