@@ -42,7 +42,7 @@ pub fn main() !void {
     const NUM_EVENTS = 100_000;
     std.debug.print("fuzz: sending {d} random events...\n", .{NUM_EVENTS});
 
-    for (0..NUM_EVENTS) |i| {
+    for (0..NUM_EVENTS) |_| {
         const key = interface.poll_keys[rand.intRangeAtMost(usize, 0, interface.poll_keys.len - 1)];
         const event_type: interface.EventType = if (rand.boolean()) .key_press else .key_release;
         const ev = interface.Event{ .type = event_type, .key = key };
