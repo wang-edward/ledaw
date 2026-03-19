@@ -56,27 +56,14 @@ pub fn main() !void {
             }
         }
 
-        // drain garbage periodically
-        if (i % 1000 == 0) {
-            while (ledaw.g_garbage_queue.pop()) |item| {
-                switch (item) {
-                    .plugin => |p| p.deinit(A),
-                    .track => |t| {
-                        t.deinit(A);
-                        A.destroy(t);
-                    },
-                }
+        while (ledaw.g_garbage_queue.pop()) |item| {
+            switch (item) {
+                .plugin => |p| p.deinit(A),
+                .track => |t| {
+                    t.deinit(A);
+                    A.destroy(t);
+                },
             }
-        }
-    }
-
-    while (ledaw.g_garbage_queue.pop()) |item| {
-        switch (item) {
-            .plugin => |p| p.deinit(A),
-            .track => |t| {
-                t.deinit(A);
-                A.destroy(t);
-            },
         }
     }
 
