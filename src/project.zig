@@ -189,11 +189,17 @@ pub const Timeline = struct {
         const n = self.track_count;
         std.debug.assert(idx < n);
         const removed = self.tracks[idx];
+        removed.synth.allNotesOff();
         var i = idx;
         while (i < n - 1) : (i += 1) {
             self.tracks[i] = self.tracks[i + 1];
         }
         self.track_count = n - 1;
+        if (self.track_count == 0) {
+            self.active_track = 0;
+        } else if (self.active_track >= self.track_count) {
+            self.active_track = self.track_count - 1;
+        }
         return removed;
     }
 
