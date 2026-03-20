@@ -47,9 +47,8 @@ pub fn main() !void {
         const event_type: interface.EventType = if (rand.boolean()) .key_press else .key_release;
         const ev = interface.Event{ .type = event_type, .key = key };
 
-        const action = ledaw.g_app.handleEvent(ev);
-
-        if (action) |ac| {
+        const actions = ledaw.g_app.handleEvent(ev);
+        for (actions.constSlice()) |ac| {
             switch (ac) {
                 .op => |o| while (!ledaw.g_op_queue.push(o)) {},
                 else => {},

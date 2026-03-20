@@ -49,18 +49,18 @@ pub const App = struct {
         }
     }
 
-    pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *App, event: interface.Event) ops.ActionList {
         switch (self.mode) {
             .insert => {
                 // play notes
                 if (midi.keyToMidi(event.key)) |base| {
                     const raw = @as(i16, base) + self.note_offset;
-                    if (raw < 0 or raw > 127) return null;
+                    if (raw < 0 or raw > 127) return .{};
                     const note: u8 = @intCast(raw);
 
                     switch (event.type) {
                         .key_press => {
-                            self.active_notes.put(event.key, note) catch return null;
+                            self.active_notes.put(event.key, note) catch return .{};
                             while (!self.note_queue.push(.{ .on = note })) {}
                         },
                         .key_release => {
@@ -70,7 +70,7 @@ pub const App = struct {
                             }
                         },
                     }
-                    return null;
+                    return .{};
                 }
 
                 // insert mode commands
@@ -90,13 +90,13 @@ pub const App = struct {
                         else => {},
                     }
                 }
-                return null;
+                return .{};
             },
             .normal => {
-                if (event.type != .key_press) return null;
+                if (event.type != .key_press) return .{};
                 if (event.key == .i) {
                     self.mode = .insert;
-                    return null;
+                    return .{};
                 }
                 return self.timeline.handleEvent(event);
             },
@@ -276,8 +276,8 @@ pub const Timeline = struct {
         }
     }
 
-    pub fn handleEvent(self: *Timeline, event: interface.Event) ?ops.Action {
-        const action = switch (self.screen) {
+    pub fn handleEvent(self: *Timeline, event: interface.Event) ops.ActionList {
+        const actions = switch (self.screen) {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TIMELINE\n", .{}),
@@ -289,39 +289,40 @@ pub const Timeline = struct {
                     .k => if (self.active_track > 0) {
                         self.active_track -= 1;
                     },
-                    .space => return .{ .op = .{ .playback = .toggle_play } },
-                    .backspace => return .{ .op = .{ .playback = .reset } },
-                    .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
+                    .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}) catch unreachable,
+                    .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}) catch unreachable,
+                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .{ .toggle_record = self.active_track } } }}) catch unreachable,
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
-                        return .{ .op = .{ .graph = .{ .add_track = new_track } } };
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }}) catch unreachable;
                     },
                     .minus => if (self.track_count > 1) {
                         const idx = self.active_track;
                         if (self.active_track >= self.track_count - 1) {
                             self.active_track = self.track_count - 2;
                         }
-                        return .{ .op = .{ .graph = .{ .remove_track = idx } } };
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }}) catch unreachable;
                     },
                     // zoom
                     .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
                     .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 128),
                     else => {},
                 }
-                return null;
+                return .{};
             },
             .track => self.activeTrack().handleEvent(event),
             .midi_editor => self.midi_editor.handleEvent(event),
-        } orelse return null;
-
-        return switch (action) {
-            .go_back => {
-                self.screen = .overview;
-                return null;
-            },
-            else => action,
         };
+
+        var result = ops.ActionList{};
+        for (actions.constSlice()) |ac| {
+            switch (ac) {
+                .go_back => self.screen = .overview,
+                else => result.appendAssumeCapacity(ac),
+            }
+        }
+        return result;
     }
 };
 
@@ -476,12 +477,12 @@ pub const Track = struct {
         }
     }
 
-    pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *Track, event: interface.Event) ops.ActionList {
         switch (self.screen) {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TRACK\n", .{}),
-                    .backspace => return .go_back,
+                    .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
                     .a => self.screen = .plugin_selector,
                     .enter => if (self.plugin_count > 0) {
                         self.screen = .plugin;
@@ -497,14 +498,15 @@ pub const Track = struct {
                 }
             },
             .plugin => {
-                const action = self.plugins[self.active_plugin].handleEvent(event) orelse return null;
-                return switch (action) {
-                    .go_back => {
-                        self.screen = .overview;
-                        return null;
-                    },
-                    else => action,
-                };
+                const actions = self.plugins[self.active_plugin].handleEvent(event);
+                var result = ops.ActionList{};
+                for (actions.constSlice()) |ac| {
+                    switch (ac) {
+                        .go_back => self.screen = .overview,
+                        else => result.appendAssumeCapacity(ac),
+                    }
+                }
+                return result;
             },
             .plugin_selector => {
                 switch (event.key) {
@@ -519,14 +521,14 @@ pub const Track = struct {
                         const input = self.outputNode();
 
                         self.screen = .overview;
-                        const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
-                        return .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } };
+                        const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return .{};
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } }}) catch unreachable;
                     },
                     else => {},
                 }
             },
         }
-        return null;
+        return .{};
     }
 };
 
@@ -544,14 +546,14 @@ pub const MidiEditor = struct {
         rl.drawText("MIDI_EDITOR", 30, 30, 10, rl.Color.light_gray);
     }
 
-    pub fn handleEvent(self: *MidiEditor, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *MidiEditor, event: interface.Event) ops.ActionList {
         _ = self;
 
         switch (event.key) {
             .p => std.debug.print("in the MIDI EDITOR\n", .{}),
-            .backspace => return .go_back,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
             else => {},
         }
-        return null;
+        return .{};
     }
 };

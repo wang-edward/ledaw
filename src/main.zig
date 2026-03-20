@@ -317,9 +317,8 @@ pub fn main() !void {
         while (interface.nextEvent()) |ev| {
             std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
 
-            const action = g_app.handleEvent(ev);
-
-            if (action) |ac| {
+            const actions = g_app.handleEvent(ev);
+            for (actions.constSlice()) |ac| {
                 switch (ac) {
                     .op => |o| while (!g_op_queue.push(o)) {},
                     else => {},
