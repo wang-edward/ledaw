@@ -289,20 +289,20 @@ pub const Timeline = struct {
                     .k => if (self.active_track > 0) {
                         self.active_track -= 1;
                     },
-                    .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}) catch unreachable,
-                    .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}) catch unreachable,
-                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .{ .toggle_record = self.active_track } } }}) catch unreachable,
+                    .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}),
+                    .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}),
+                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .{ .toggle_record = self.active_track } } }}),
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
-                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }}) catch unreachable;
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }});
                     },
                     .minus => if (self.track_count > 1) {
                         const idx = self.active_track;
                         if (self.active_track >= self.track_count - 1) {
                             self.active_track = self.track_count - 2;
                         }
-                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }}) catch unreachable;
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }});
                     },
                     // zoom
                     .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
@@ -482,7 +482,7 @@ pub const Track = struct {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TRACK\n", .{}),
-                    .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
+                    .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
                     .a => self.screen = .plugin_selector,
                     .enter => if (self.plugin_count > 0) {
                         self.screen = .plugin;
@@ -522,7 +522,7 @@ pub const Track = struct {
 
                         self.screen = .overview;
                         const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return .{};
-                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } }}) catch unreachable;
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } }});
                     },
                     else => {},
                 }
@@ -551,7 +551,7 @@ pub const MidiEditor = struct {
 
         switch (event.key) {
             .p => std.debug.print("in the MIDI EDITOR\n", .{}),
-            .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             else => {},
         }
         return .{};

@@ -108,7 +108,7 @@ pub const Lpf = struct {
 
     pub fn handleEvent(self: *Lpf, event: interface.Event) ops.ActionList {
         switch (event.key) {
-            .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             .one => self.drive.param.setNorm(self.drive.param.getNorm() - 0.1),
             .two => self.drive.param.setNorm(self.drive.param.getNorm() + 0.1),
             .three => self.resonance.param.setNorm(self.resonance.param.getNorm() - 0.1),
@@ -161,7 +161,7 @@ pub const Delay = struct {
 
     pub fn handleEvent(self: *Delay, event: interface.Event) ops.ActionList {
         switch (event.key) {
-            .backspace => return ops.ActionList.fromSlice(&.{.go_back}) catch unreachable,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             .one => self.delay_time.param.setNorm(self.delay_time.param.getNorm() - 0.1),
             .two => self.delay_time.param.setNorm(self.delay_time.param.getNorm() + 0.1),
             .three => self.feedback.param.setNorm(self.feedback.param.getNorm() - 0.1),
