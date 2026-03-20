@@ -283,7 +283,7 @@ pub const Timeline = struct {
                     .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
                     .e => self.screen = .midi_editor,
-                    .j => if (self.active_track < self.track_count - 1) {
+                    .j => if (self.track_count > 0 and self.active_track < self.track_count - 1) {
                         self.active_track += 1;
                     },
                     .k => if (self.active_track > 0) {

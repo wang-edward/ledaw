@@ -21,8 +21,11 @@ pub var g_record_buffer: std.ArrayListUnmanaged(midi.Note) = .{};
 // Garbage queue: audio thread pushes removed items, UI thread frees them
 pub var g_garbage_queue: ops.GarbageQueue = .{};
 
-inline fn getActiveTrack() *project.Track {
-    return g_app.timeline.activeTrack();
+inline fn getActiveTrack() ?*project.Track {
+    const tl = &g_app.timeline;
+    if (tl.track_count == 0) return null;
+    if (tl.active_track >= tl.track_count) return null;
+    return tl.tracks[tl.active_track];
 }
 
 pub var gpa = std.heap.GeneralPurposeAllocator(.{}){};
@@ -78,34 +81,7 @@ fn write_callback(
         must(c.soundio_outstream_begin_write(maybe_outstream, @ptrCast(&areas), &frame_count));
         if (frame_count == 0) break;
 
-        // process note
-        while (g_app.note_queue.pop()) |msg| {
-            switch (msg) {
-                .off => |note| {
-                    getActiveTrack().synth.noteOff(note);
-                    // Record note off
-                    if (g_recording and g_playing) {
-                        if (g_held_notes[note]) |start| {
-                            g_record_buffer.append(A, .{
-                                .start = start,
-                                .end = g_playhead.raw,
-                                .note = note,
-                            }) catch {};
-                            g_held_notes[note] = null;
-                        }
-                    }
-                },
-                .on => |note| {
-                    getActiveTrack().synth.noteOn(note);
-                    // Record note on
-                    if (g_recording and g_playing) {
-                        g_held_notes[note] = g_playhead.raw;
-                    }
-                },
-            }
-        }
-
-        // process Ops
+        // process Ops (before notes, so track list is up-to-date)
         while (g_op_queue.pop()) |op| {
             switch (op) {
                 .playback => |p| switch (p) {
@@ -132,7 +108,7 @@ fn write_callback(
                 .record => |r| switch (r) {
                     .toggle_record => |track_idx| {
                         if (g_recording) {
-                            if (g_record_buffer.items.len > 0) {
+                            if (g_record_buffer.items.len > 0 and track_idx < g_app.timeline.trackCount()) {
                                 g_app.timeline.activeTracks()[track_idx].player.appendNotes(
                                     A,
                                     g_record_buffer.items,
@@ -157,6 +133,7 @@ fn write_callback(
                     .remove_track => |idx| {
                         if (idx < g_app.timeline.trackCount()) {
                             const removed = g_app.timeline.removeTrack(idx);
+                            removed.synth.allNotesOff();
                             _ = g_garbage_queue.push(.{ .track = removed });
                         }
                     },
@@ -167,6 +144,33 @@ fn write_callback(
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
                     },
+                },
+            }
+        }
+
+        // process notes (after ops so track list is current)
+        while (g_app.note_queue.pop()) |msg| {
+            switch (msg) {
+                .off => |note| {
+                    const track = getActiveTrack() orelse continue;
+                    track.synth.noteOff(note);
+                    if (g_recording and g_playing) {
+                        if (g_held_notes[note]) |start| {
+                            g_record_buffer.append(A, .{
+                                .start = start,
+                                .end = g_playhead.raw,
+                                .note = note,
+                            }) catch {};
+                            g_held_notes[note] = null;
+                        }
+                    }
+                },
+                .on => |note| {
+                    const track = getActiveTrack() orelse continue;
+                    track.synth.noteOn(note);
+                    if (g_recording and g_playing) {
+                        g_held_notes[note] = g_playhead.raw;
+                    }
                 },
             }
         }
