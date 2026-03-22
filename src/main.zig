@@ -176,7 +176,8 @@ fn write_callback(
                         }
                     },
                     .set_active_track => |idx| {
-                        g_app.timeline.active_track.store(idx, .release);
+                        const tc = g_app.timeline.trackCount();
+                        g_app.timeline.active_track.store(if (tc > 0) @min(idx, tc - 1) else 0, .release);
                     },
                     .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
