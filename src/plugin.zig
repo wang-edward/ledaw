@@ -10,7 +10,7 @@ pub const list = std.enums.values(Tag);
 pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     return switch (tag) {
         .lpf => .{ .lpf = try Lpf.init(alloc, input) },
-        .delay => .{ .delay = try Delay.init(alloc, input, 22050) },
+        .delay => .{ .delay = try Delay.init(alloc, input, 48_000) },
     };
 }
 
