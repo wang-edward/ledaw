@@ -155,7 +155,15 @@ fn write_callback(
                 },
                 .graph => |g| switch (g) {
                     .add_track => |track| {
-                        g_app.timeline.addTrack(track);
+                        // need double check here because UI thread can read stale track_count
+                        // the "pure" approach would require an uncoditional op send from UI,
+                        // validating space on audio, then re-sending some op to alloc the track (cuz audio cant alloc)
+                        // this is less complicated but unnecessarily checks capacity twice. maybe a bad design for the future
+                        if (g_app.timeline.trackCount() < project.Timeline.MAX_TRACKS) {
+                            g_app.timeline.addTrack(track);
+                        } else {
+                            _ = g_garbage_queue.push(.{ .track = track });
+                        }
                     },
                     .remove_track => |idx| {
                         if (idx < g_app.timeline.trackCount() and g_app.timeline.trackCount() > 1) {
