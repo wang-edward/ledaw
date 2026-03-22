@@ -29,7 +29,7 @@ pub var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 pub const A = gpa.allocator();
 
 // temp allocator for audio callback
-pub var scratch_mem: [512 * 1024]u8 = undefined;
+pub var scratch_mem: [4 * 1024 * 1024]u8 = undefined;
 pub var scratch_fba = std.heap.FixedBufferAllocator.init(&scratch_mem);
 pub var context: audio.Context = undefined;
 
