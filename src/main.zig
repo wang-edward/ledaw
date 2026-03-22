@@ -29,7 +29,7 @@ pub var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 pub const A = gpa.allocator();
 
 // temp allocator for audio callback
-pub var scratch_mem: [512 * 1024]u8 = undefined;
+pub var scratch_mem: [4 * 1024 * 1024]u8 = undefined;
 pub var scratch_fba = std.heap.FixedBufferAllocator.init(&scratch_mem);
 pub var context: audio.Context = undefined;
 
@@ -155,7 +155,15 @@ fn write_callback(
                 },
                 .graph => |g| switch (g) {
                     .add_track => |track| {
-                        g_app.timeline.addTrack(track);
+                        // need double check here because UI thread can read stale track_count
+                        // the "pure" approach would require an uncoditional op send from UI,
+                        // validating space on audio, then re-sending some op to alloc the track (cuz audio cant alloc)
+                        // this is less complicated but unnecessarily checks capacity twice. maybe a bad design for the future
+                        if (g_app.timeline.trackCount() < project.Timeline.MAX_TRACKS) {
+                            g_app.timeline.addTrack(track);
+                        } else {
+                            _ = g_garbage_queue.push(.{ .track = track });
+                        }
                     },
                     .remove_track => |idx| {
                         if (idx < g_app.timeline.trackCount() and g_app.timeline.trackCount() > 1) {
@@ -168,7 +176,8 @@ fn write_callback(
                         }
                     },
                     .set_active_track => |idx| {
-                        g_app.timeline.active_track.store(idx, .release);
+                        const tc = g_app.timeline.trackCount();
+                        g_app.timeline.active_track.store(if (tc > 0) @min(idx, tc - 1) else 0, .release);
                     },
                     .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
