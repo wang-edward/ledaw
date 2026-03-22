@@ -37,5 +37,5 @@ pub const Action = union(enum) {
     go_back,
 };
 
-const FixedList = @import("queue.zig").FixedList;
-pub const ActionList = FixedList(Action, 2);
+const BoundedList = @import("queue.zig").BoundedList;
+pub const ActionList = BoundedList(Action, 2);

@@ -5,7 +5,7 @@ const Message = struct {
     data: f32,
 };
 
-pub fn FixedList(comptime T: type, comptime N: usize) type {
+pub fn BoundedList(comptime T: type, comptime N: usize) type {
     return struct {
         const Self = @This();
         buffer: [N]T = undefined,
