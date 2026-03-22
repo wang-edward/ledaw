@@ -181,7 +181,7 @@ pub const Delay = struct {
         const delay_samples = @as(usize, @intFromFloat(self.delay_time.get() * ctx.sample_rate));
         const buffer_len = self.buffer.len;
 
-        std.debug.assert(delay_samples < buffer_len);
+        std.debug.assert(delay_samples <= buffer_len); // check that max delay_time * sample_rate <= buffer_len
 
         for (out, tmp) |*o, dry| {
             // read from buffer
