@@ -141,6 +141,9 @@ fn write_callback(
                             }
                             g_held_notes = .{null} ** 128;
                             g_recording = false;
+                            for (g_app.timeline.activeTracks()) |t| {
+                                t.synth.allNotesOff();
+                            }
                             if (g_playing) g_playing = false;
                         } else if (!g_playing) {
                             g_playing = true;
