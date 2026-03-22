@@ -56,7 +56,7 @@ pub const Plugin = union(Tag) {
         }
     }
 
-    pub fn handleEvent(self: *Plugin, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *Plugin, event: interface.Event) ops.ActionList {
         switch (self.*) {
             inline else => |p| return p.handleEvent(event),
         }
@@ -106,9 +106,9 @@ pub const Lpf = struct {
         interface.drawTextCentered("LPF", 64, 64, 10, rl.Color.green);
     }
 
-    pub fn handleEvent(self: *Lpf, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *Lpf, event: interface.Event) ops.ActionList {
         switch (event.key) {
-            .backspace => return .go_back,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             .one => self.drive.param.setNorm(self.drive.param.getNorm() - 0.1),
             .two => self.drive.param.setNorm(self.drive.param.getNorm() + 0.1),
             .three => self.resonance.param.setNorm(self.resonance.param.getNorm() - 0.1),
@@ -117,7 +117,7 @@ pub const Lpf = struct {
             .six => self.cutoff.param.setNorm(self.cutoff.param.getNorm() + 0.1),
             else => {},
         }
-        return null;
+        return .{};
     }
 };
 
@@ -159,9 +159,9 @@ pub const Delay = struct {
         interface.drawTextCentered("DELAY", 64, 64, 10, rl.Color.purple);
     }
 
-    pub fn handleEvent(self: *Delay, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *Delay, event: interface.Event) ops.ActionList {
         switch (event.key) {
-            .backspace => return .go_back,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             .one => self.delay_time.param.setNorm(self.delay_time.param.getNorm() - 0.1),
             .two => self.delay_time.param.setNorm(self.delay_time.param.getNorm() + 0.1),
             .three => self.feedback.param.setNorm(self.feedback.param.getNorm() - 0.1),
@@ -170,6 +170,6 @@ pub const Delay = struct {
             .six => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
             else => {},
         }
-        return null;
+        return .{};
     }
 };

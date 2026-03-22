@@ -155,10 +155,17 @@ fn write_callback(
                         g_app.timeline.addTrack(track);
                     },
                     .remove_track => |idx| {
-                        if (idx < g_app.timeline.trackCount()) {
+                        if (idx < g_app.timeline.trackCount() and g_app.timeline.trackCount() > 1) {
                             const removed = g_app.timeline.removeTrack(idx);
                             _ = g_garbage_queue.push(.{ .track = removed });
+                            const at = g_app.timeline.active_track.load(.acquire);
+                            if (at >= g_app.timeline.trackCount()) {
+                                g_app.timeline.active_track.store(g_app.timeline.trackCount() - 1, .release);
+                            }
                         }
+                    },
+                    .set_active_track => |idx| {
+                        g_app.timeline.active_track.store(idx, .release);
                     },
                     .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
@@ -317,9 +324,8 @@ pub fn main() !void {
         while (interface.nextEvent()) |ev| {
             std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
 
-            const action = g_app.handleEvent(ev);
-
-            if (action) |ac| {
+            const actions = g_app.handleEvent(ev);
+            for (actions.constSlice()) |ac| {
                 switch (ac) {
                     .op => |o| while (!g_op_queue.push(o)) {},
                     else => {},

@@ -49,18 +49,18 @@ pub const App = struct {
         }
     }
 
-    pub fn handleEvent(self: *App, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *App, event: interface.Event) ops.ActionList {
         switch (self.mode) {
             .insert => {
                 // play notes
                 if (midi.keyToMidi(event.key)) |base| {
                     const raw = @as(i16, base) + self.note_offset;
-                    if (raw < 0 or raw > 127) return null;
+                    if (raw < 0 or raw > 127) return .{};
                     const note: u8 = @intCast(raw);
 
                     switch (event.type) {
                         .key_press => {
-                            self.active_notes.put(event.key, note) catch return null;
+                            self.active_notes.put(event.key, note) catch return .{};
                             while (!self.note_queue.push(.{ .on = note })) {}
                         },
                         .key_release => {
@@ -70,7 +70,7 @@ pub const App = struct {
                             }
                         },
                     }
-                    return null;
+                    return .{};
                 }
 
                 // insert mode commands
@@ -90,13 +90,13 @@ pub const App = struct {
                         else => {},
                     }
                 }
-                return null;
+                return .{};
             },
             .normal => {
-                if (event.type != .key_press) return null;
+                if (event.type != .key_press) return .{};
                 if (event.key == .i) {
                     self.mode = .insert;
-                    return null;
+                    return .{};
                 }
                 return self.timeline.handleEvent(event);
             },
@@ -132,7 +132,7 @@ pub const Timeline = struct {
     midi_editor: MidiEditor,
     vt: audio.VTable = .{ .process = _process },
 
-    active_track: usize = 0,
+    active_track: std.atomic.Value(usize) = std.atomic.Value(usize).init(0),
     scroll_offset: usize = 0,
     playhead: *std.atomic.Value(u64),
     ctx: *audio.Context,
@@ -172,7 +172,7 @@ pub const Timeline = struct {
     }
 
     pub fn activeTrack(self: *Timeline) *Track {
-        return self.tracks[self.active_track];
+        return self.tracks[self.active_track.load(.acquire)];
     }
 
     pub fn trackCount(self: *Timeline) usize {
@@ -212,7 +212,7 @@ pub const Timeline = struct {
         std.debug.print("timeline: {d} tracks\n", .{self.track_count});
         for (self.tracks[0..self.track_count], 0..) |track, i| {
             std.debug.print("  track {d}: {d} notes, {d} plugins", .{ i, track.player.notes.items.len, track.plugin_count });
-            if (i == self.active_track) std.debug.print(" [active] ", .{});
+            if (i == self.active_track.load(.acquire)) std.debug.print(" [active] ", .{});
             if (track.plugin_count > 0) {
                 std.debug.print(" [", .{});
                 for (track.plugins[0..track.plugin_count], 0..) |p, j| {
@@ -259,7 +259,7 @@ pub const Timeline = struct {
 
                 // active track highlight
                 {
-                    const row: i32 = @intCast(self.active_track - self.scroll_offset);
+                    const row: i32 = @intCast(self.active_track.load(.acquire) - self.scroll_offset);
                     const y = row * ROW_HEIGHT + HEADER_HEIGHT;
                     rl.drawRectangleLines(0, y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.red);
                 }
@@ -276,52 +276,56 @@ pub const Timeline = struct {
         }
     }
 
-    pub fn handleEvent(self: *Timeline, event: interface.Event) ?ops.Action {
-        const action = switch (self.screen) {
+    pub fn handleEvent(self: *Timeline, event: interface.Event) ops.ActionList {
+        const actions = switch (self.screen) {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
                     .e => self.screen = .midi_editor,
-                    .j => if (self.active_track < self.track_count - 1) {
-                        self.active_track += 1;
+                    .j => {
+                        const at = self.active_track.load(.acquire);
+                        if (at < self.track_count - 1) {
+                            return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .set_active_track = at + 1 } } }});
+                        }
                     },
-                    .k => if (self.active_track > 0) {
-                        self.active_track -= 1;
+                    .k => {
+                        const at = self.active_track.load(.acquire);
+                        if (at > 0) {
+                            return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .set_active_track = at - 1 } } }});
+                        }
                     },
-                    .space => return .{ .op = .{ .playback = .toggle_play } },
-                    .backspace => return .{ .op = .{ .playback = .reset } },
-                    .r => return .{ .op = .{ .record = .{ .toggle_record = self.active_track } } },
+                    .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}),
+                    .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}),
+                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .{ .toggle_record = self.active_track.load(.acquire) } } }}),
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
-                        return .{ .op = .{ .graph = .{ .add_track = new_track } } };
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }});
                     },
                     .minus => if (self.track_count > 1) {
-                        const idx = self.active_track;
-                        if (self.active_track >= self.track_count - 1) {
-                            self.active_track = self.track_count - 2;
-                        }
-                        return .{ .op = .{ .graph = .{ .remove_track = idx } } };
+                        const idx = self.active_track.load(.acquire);
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }});
                     },
                     // zoom
                     .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
                     .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 128),
                     else => {},
                 }
-                return null;
+                return .{};
             },
             .track => self.activeTrack().handleEvent(event),
             .midi_editor => self.midi_editor.handleEvent(event),
-        } orelse return null;
-
-        return switch (action) {
-            .go_back => {
-                self.screen = .overview;
-                return null;
-            },
-            else => action,
         };
+
+        var result = ops.ActionList{};
+        for (actions.constSlice()) |ac| {
+            switch (ac) {
+                .go_back => self.screen = .overview,
+                else => result.appendAssumeCapacity(ac),
+            }
+        }
+        return result;
     }
 };
 
@@ -336,7 +340,7 @@ pub const Track = struct {
     player: midi.Player,
     alloc: std.mem.Allocator,
 
-    index: *const usize,
+    index: *const std.atomic.Value(usize),
     plugins: [MAX_PLUGINS]Plugin,
     plugin_count: usize,
     active_plugin: usize = 0,
@@ -346,7 +350,7 @@ pub const Track = struct {
 
     vt: audio.VTable = .{ .process = Track._process },
 
-    pub fn init(alloc: std.mem.Allocator, index: *const usize, notes_in: []const midi.Note) !*Track {
+    pub fn init(alloc: std.mem.Allocator, index: *const std.atomic.Value(usize), notes_in: []const midi.Note) !*Track {
         const t = try alloc.create(Track);
         t.* = .{
             .synth = try synth.Uni.init(alloc),
@@ -419,7 +423,7 @@ pub const Track = struct {
         switch (self.screen) {
             .overview => {
                 rl.drawRectangle(0, 0, 32, 32, rl.Color.red);
-                interface.drawTextCentered(&interface.toString(usize, self.index.*), 16, 16, 8, rl.Color.light_gray);
+                interface.drawTextCentered(&interface.toString(usize, self.index.load(.acquire)), 16, 16, 8, rl.Color.light_gray);
 
                 // draw grid (bottom half only, y >= 64)
                 for (0..5) |i| {
@@ -476,12 +480,12 @@ pub const Track = struct {
         }
     }
 
-    pub fn handleEvent(self: *Track, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *Track, event: interface.Event) ops.ActionList {
         switch (self.screen) {
             .overview => {
                 switch (event.key) {
                     .p => std.debug.print("in the TRACK\n", .{}),
-                    .backspace => return .go_back,
+                    .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
                     .a => self.screen = .plugin_selector,
                     .enter => if (self.plugin_count > 0) {
                         self.screen = .plugin;
@@ -497,14 +501,15 @@ pub const Track = struct {
                 }
             },
             .plugin => {
-                const action = self.plugins[self.active_plugin].handleEvent(event) orelse return null;
-                return switch (action) {
-                    .go_back => {
-                        self.screen = .overview;
-                        return null;
-                    },
-                    else => action,
-                };
+                const actions = self.plugins[self.active_plugin].handleEvent(event);
+                var result = ops.ActionList{};
+                for (actions.constSlice()) |ac| {
+                    switch (ac) {
+                        .go_back => self.screen = .overview,
+                        else => result.appendAssumeCapacity(ac),
+                    }
+                }
+                return result;
             },
             .plugin_selector => {
                 switch (event.key) {
@@ -519,14 +524,14 @@ pub const Track = struct {
                         const input = self.outputNode();
 
                         self.screen = .overview;
-                        const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return null;
-                        return .{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.*, .plugin = p } } } };
+                        const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return .{};
+                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.load(.acquire), .plugin = p } } } }});
                     },
                     else => {},
                 }
             },
         }
-        return null;
+        return .{};
     }
 };
 
@@ -544,14 +549,14 @@ pub const MidiEditor = struct {
         rl.drawText("MIDI_EDITOR", 30, 30, 10, rl.Color.light_gray);
     }
 
-    pub fn handleEvent(self: *MidiEditor, event: interface.Event) ?ops.Action {
+    pub fn handleEvent(self: *MidiEditor, event: interface.Event) ops.ActionList {
         _ = self;
 
         switch (event.key) {
             .p => std.debug.print("in the MIDI EDITOR\n", .{}),
-            .backspace => return .go_back,
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
             else => {},
         }
-        return null;
+        return .{};
     }
 };
