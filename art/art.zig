@@ -3,7 +3,15 @@ const net = std.net;
 
 pub fn main() !void {
     const path = "/tmp/ledaw_ocr.sock";
-    const stream = try net.connectUnixSocket(path);
+    const stream = retry: {
+        for (0..50) |_| {
+            break :retry net.connectUnixSocket(path) catch {
+                std.Thread.sleep(100 * std.time.ns_per_ms);
+                continue;
+            };
+        }
+        return error.OcrConnectionTimeout;
+    };
     defer stream.close();
 
     var buf: [4096]u8 = undefined;
