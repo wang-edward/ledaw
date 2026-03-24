@@ -29,3 +29,14 @@ zig build test --summary all
 
 ## Video demo (pretty outdated)
 [![video demo](https://img.youtube.com/vi/XMdhAa6qCPk/0.jpg)](https://www.youtube.com/watch?v=XMdhAa6qCPk)
+
+## art class requirements
+- install uv, that should be enough
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+run everything
+```
+zig build art
+```
