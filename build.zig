@@ -93,12 +93,6 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(art_exe);
     const art_run = b.addRunArtifact(art_exe);
     art_run.step.dependOn(b.getInstallStep());
-    const ocr_cmd = b.addSystemCommand(&.{
-        "sh", "-c", "uv run --project art art/ocr.py &",
-    });
-    art_run.step.dependOn(&ocr_cmd.step);
-    art_run.step.dependOn(&ocr_cmd.step);
-    art_run.step.dependOn(&ocr_cmd.step);
     const art_step = b.step("art", "Run art project");
     art_step.dependOn(&art_run.step);
 

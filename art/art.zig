@@ -2,17 +2,34 @@ const std = @import("std");
 const net = std.net;
 
 pub fn main() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer _ = gpa.deinit();
+    const allocator = gpa.allocator();
+
     const path = "/tmp/ledaw_ocr.sock";
-    const stream = retry: {
-        for (0..50) |_| {
-            break :retry net.connectUnixSocket(path) catch {
-                std.Thread.sleep(100 * std.time.ns_per_ms);
-                continue;
-            };
-        }
-        return error.OcrConnectionTimeout;
+
+    // Remove stale socket, create server, then spawn python so it can connect
+    std.fs.deleteFileAbsolute(path) catch |err| switch (err) {
+        error.FileNotFound => {},
+        else => return err,
     };
-    defer stream.close();
+    const addr = try net.Address.initUnix(path);
+    var server = try addr.listen(.{});
+    defer server.deinit();
+
+    var child = std.process.Child.init(
+        &.{ "uv", "run", "--project", "art", "art/ocr.py" },
+        allocator,
+    );
+    child.stdin_behavior = .Ignore;
+    child.stdout_behavior = .Inherit;
+    child.stderr_behavior = .Inherit;
+    try child.spawn();
+    defer _ = child.wait() catch {};
+
+    const conn = try server.accept();
+    defer conn.stream.close();
+    const stream = conn.stream;
 
     var buf: [4096]u8 = undefined;
     var leftover: usize = 0;
