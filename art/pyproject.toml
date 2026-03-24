@@ -5,4 +5,5 @@ requires-python = ">=3.11,<3.14"
 dependencies = [
     "easyocr",
     "opencv-python",
+    "torch>=2.1",
 ]
