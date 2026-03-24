@@ -165,12 +165,14 @@ source = { virtual = "." }
 dependencies = [
     { name = "easyocr" },
     { name = "opencv-python" },
+    { name = "torch" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "easyocr" },
     { name = "opencv-python" },
+    { name = "torch", specifier = ">=2.1" },
 ]
 
 [[package]]
