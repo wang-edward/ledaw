@@ -24,19 +24,23 @@ pub fn build(b: *std.Build) void {
     const soundio_mod = soundio_dep.module("SoundIo");
     const soundio_artifact = soundio_dep.artifact("soundio");
 
+    // main module
+    const main_mod = b.createModule(.{
+        .root_source_file = b.path("src/main.zig"),
+        .target = target,
+        .optimize = optimize,
+        .imports = &.{
+            .{ .name = "raylib", .module = raylib },
+            .{ .name = "raygui", .module = raygui },
+            .{ .name = "soundio", .module = soundio_mod },
+        },
+    });
+    main_mod.linkLibrary(soundio_artifact);
+
     // exe
     const exe = b.addExecutable(.{
         .name = "synth",
-        .root_module = b.createModule(.{
-            .root_source_file = b.path("src/main.zig"),
-            .target = target,
-            .optimize = optimize,
-            .imports = &.{
-                .{ .name = "raylib", .module = raylib },
-                .{ .name = "raygui", .module = raygui },
-                .{ .name = "soundio", .module = soundio_mod },
-            },
-        }),
+        .root_module = main_mod,
     });
     exe.linkLibrary(raylib_artifact);
     exe.linkLibrary(soundio_artifact);
@@ -49,17 +53,6 @@ pub fn build(b: *std.Build) void {
     run_step.dependOn(&run_cmd.step);
 
     // fuzz
-    const main_mod = b.createModule(.{
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = optimize,
-        .imports = &.{
-            .{ .name = "raylib", .module = raylib },
-            .{ .name = "raygui", .module = raygui },
-            .{ .name = "soundio", .module = soundio_mod },
-        },
-    });
-    main_mod.linkLibrary(soundio_artifact);
     const fuzz_exe = b.addExecutable(.{
         .name = "fuzz",
         .root_module = b.createModule(.{
