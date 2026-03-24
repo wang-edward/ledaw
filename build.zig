@@ -74,6 +74,30 @@ pub fn build(b: *std.Build) void {
     const fuzz_step = b.step("fuzz", "Run fuzz test");
     fuzz_step.dependOn(&fuzz_run.step);
 
+    // art
+    const art_exe = b.addExecutable(.{
+        .name = "art",
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("art/art.zig"),
+            .target = target,
+            .optimize = optimize,
+            .imports = &.{
+                .{ .name = "main", .module = main_mod },
+                .{ .name = "raylib", .module = raylib },
+            },
+        }),
+    });
+    art_exe.linkLibrary(raylib_artifact);
+    art_exe.linkLibrary(soundio_artifact);
+    art_exe.linkLibC();
+    b.installArtifact(art_exe);
+    const art_run = b.addRunArtifact(art_exe);
+    art_run.step.dependOn(b.getInstallStep());
+    const ocr_cmd = b.addSystemCommand(&.{ "sh", "-c", "python3 art/ocr.py &" });
+    art_run.step.dependOn(&ocr_cmd.step);
+    const art_step = b.step("art", "Run art project");
+    art_step.dependOn(&art_run.step);
+
     // test
     const queue_mod = b.createModule(.{
         .root_source_file = b.path("src/queue.zig"),
