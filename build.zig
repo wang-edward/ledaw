@@ -35,6 +35,7 @@ pub fn build(b: *std.Build) void {
             .{ .name = "soundio", .module = soundio_mod },
         },
     });
+    main_mod.linkLibrary(soundio_artifact);
 
     // exe
     const exe = b.addExecutable(.{
@@ -52,7 +53,6 @@ pub fn build(b: *std.Build) void {
     run_step.dependOn(&run_cmd.step);
 
     // fuzz
-    main_mod.linkLibrary(soundio_artifact);
     const fuzz_exe = b.addExecutable(.{
         .name = "fuzz",
         .root_module = b.createModule(.{
