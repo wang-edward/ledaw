@@ -6,18 +6,12 @@ import easyocr
 
 SOCK_PATH = "/tmp/ledaw_ocr.sock"
 
-if os.path.exists(SOCK_PATH):
-    os.unlink(SOCK_PATH)
-
-server = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-server.bind(SOCK_PATH)
-server.listen(1)
-
 reader = easyocr.Reader(['en'], gpu=False)
 cap = cv2.VideoCapture(0)
 
-print("waiting for zig to connect...")
-conn, _ = server.accept()
+print("connecting to zig...")
+conn = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+conn.connect(SOCK_PATH)
 print("connected")
 
 try:
@@ -56,6 +50,3 @@ except KeyboardInterrupt:
 finally:
     cap.release()
     conn.close()
-    server.close()
-    if os.path.exists(SOCK_PATH):
-        os.unlink(SOCK_PATH)
