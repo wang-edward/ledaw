@@ -117,6 +117,16 @@ const BeatFrame = struct {
         return self.radius * 2;
     }
 };
+const BeatWindow = struct {
+    start: f32,
+    len: f32,
+    fn leftEdge(self: BeatWindow) f32 {
+        return self.start;
+    }
+    fn rightEdge(self: BeatWindow) f32 {
+        return self.start + self.len;
+    }
+};
 
 pub const Timeline = struct {
     const Screen = enum { overview, track, midi_editor };
@@ -138,6 +148,8 @@ pub const Timeline = struct {
     ctx: *audio.Context,
     frame: BeatFrame = .{ .center = 0, .radius = 8.0 },
     bar_width: f32 = 4.0,
+    cursor: BeatWindow = .{ .start = 0, .len = 4.0 },
+    step_size: f32 = 4.0,
 
     pub fn init(
         alloc: std.mem.Allocator,
@@ -195,6 +207,16 @@ pub const Timeline = struct {
         }
         self.track_count = n - 1;
         return removed;
+    }
+
+    fn cursorFocus(self: *Timeline) void {
+        if (self.cursor.leftEdge() < self.frame.leftEdge()) {
+            const diff = self.frame.leftEdge() - self.cursor.leftEdge();
+            self.frame.center -= diff;
+        } else if (self.cursor.rightEdge() > self.frame.rightEdge()) {
+            const diff = self.cursor.rightEdge() - self.frame.rightEdge();
+            self.frame.center += diff;
+        }
     }
 
     fn _process(p: *anyopaque, ctx: *audio.Context, out: []audio.Sample) void {
@@ -270,6 +292,17 @@ pub const Timeline = struct {
                     const x: i32 = @intFromFloat(pct * W);
                     rl.drawLine(x, HEADER_HEIGHT, x, @intCast(interface.HEIGHT), rl.Color.white);
                 }
+
+                // cursor
+                {
+                    const row: i32 = @intCast(self.active_track.load(.acquire) - self.scroll_offset);
+                    const y = row * ROW_HEIGHT + HEADER_HEIGHT;
+                    const left_pct = (self.cursor.leftEdge() - self.frame.leftEdge()) / self.frame.width();
+                    const right_pct = (self.cursor.rightEdge() - self.frame.leftEdge()) / self.frame.width();
+                    const left_px: i32 = @intFromFloat(left_pct * W);
+                    const right_px: i32 = @intFromFloat(right_pct * W);
+                    rl.drawRectangleLines(left_px, y, right_px - left_px, ROW_HEIGHT, rl.Color.orange);
+                }
             },
             .track => self.activeTrack().render(),
             .midi_editor => self.midi_editor.render(),
@@ -283,6 +316,14 @@ pub const Timeline = struct {
                     .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
                     .e => self.screen = .midi_editor,
+                    .h => {
+                        self.cursor.start -= self.step_size;
+                        self.cursorFocus();
+                    },
+                    .l => {
+                        self.cursor.start += self.step_size;
+                        self.cursorFocus();
+                    },
                     .j => {
                         const at = self.active_track.load(.acquire);
                         if (at < self.track_count - 1) {
