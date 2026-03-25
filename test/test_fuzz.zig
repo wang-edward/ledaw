@@ -64,6 +64,13 @@ pub fn main() !void {
                 },
             }
         }
+
+        // draw UI
+        interface.preRender();
+        defer rl.endTextureMode(); // don't call postRender() here because endDrawing() caps fps to 60
+        {
+            ledaw.g_app.render();
+        }
     }
 
     std.debug.print("fuzz: completed {d} events without crash\n", .{NUM_EVENTS});
