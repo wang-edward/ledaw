@@ -17,6 +17,7 @@ pub const GraphOp = union(enum) {
     remove_track: usize,
     add_plugin: struct { track_idx: usize, plugin: project.Plugin },
     set_active_track: usize,
+    clear_timeline,
 };
 
 pub const Op = union(enum) {

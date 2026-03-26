@@ -190,6 +190,9 @@ fn write_callback(
                             tracks[ap.track_idx].addPlugin(ap.plugin);
                         }
                     },
+                    .clear_timeline => {
+                        g_app.timeline.clear();
+                    },
                 },
             }
         }

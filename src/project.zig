@@ -222,6 +222,18 @@ pub const Timeline = struct {
         return removed;
     }
 
+    pub fn clear(self: *Timeline) void {
+        self.screen = .overview;
+        for (self.activeTracks()) |t| {
+            t.clear();
+        }
+        self.track_count = 0;
+        self.active_track = std.atomic.Value(usize).init(0);
+        self.playhead.store(0, .release);
+        self.frame.center = 0;
+        self.cursor.start = 0;
+    }
+
     fn cursorFocus(self: *Timeline) void {
         if (self.cursor.leftEdge() < self.frame.leftEdge()) {
             const diff = self.frame.leftEdge() - self.cursor.leftEdge();
