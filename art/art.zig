@@ -1,14 +1,20 @@
 const std = @import("std");
+const rl = @import("raylib");
+const ledaw = @import("main");
+const c = ledaw.c;
+
 const net = std.net;
+const interface = ledaw.interface;
+const project = ledaw.project;
+const midi = ledaw.midi;
 
 pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     defer _ = gpa.deinit();
-    const allocator = gpa.allocator();
+    const A = gpa.allocator();
 
+    // setup socket and ocr process
     const path = "/tmp/ledaw_ocr.sock";
-
-    // Remove stale socket, create server, then spawn python so it can connect
     std.fs.deleteFileAbsolute(path) catch |err| switch (err) {
         error.FileNotFound => {},
         else => return err,
@@ -19,7 +25,7 @@ pub fn main() !void {
 
     var child = std.process.Child.init(
         &.{ "uv", "run", "--project", "art", "art/ocr.py" },
-        allocator,
+        A,
     );
     child.stdin_behavior = .Ignore;
     child.stdout_behavior = .Inherit;
@@ -34,17 +40,33 @@ pub fn main() !void {
     var buf: [4096]u8 = undefined;
     var leftover: usize = 0;
 
-    while (true) {
+    // ledaw
+    ledaw.g_app = try project.App.init(A, &ledaw.g_playhead, &ledaw.context);
+    ledaw.g_app.timeline.addTrack(try project.Track.init(A, &ledaw.g_app.timeline.active_track, &.{}));
+    defer ledaw.g_app.deinit();
+    ledaw.root = ledaw.g_app.timeline.asNode();
+    defer ledaw.g_record_buffer.deinit(A);
+
+    const audio_thread = try std.Thread.spawn(.{}, ledaw.audioThreadMain, .{});
+    defer {
+        ledaw.g_run_audio.store(false, .release);
+        if (ledaw.g_sio_ptr.load(.acquire)) |p| c.soundio_wakeup(p);
+        audio_thread.join();
+    }
+
+    try interface.init();
+    defer interface.deinit();
+
+    while (!rl.windowShouldClose()) {
         const n = try stream.read(buf[leftover..]);
         if (n == 0) break; // disconnected
         const total = leftover + n;
 
-        // Process complete lines
+        var last_line: ?[]const u8 = null;
         var start: usize = 0;
         for (0..total) |i| {
             if (buf[i] == '\n') {
-                const line = buf[start..i];
-                std.debug.print("got: {s}\n", .{line});
+                last_line = buf[start..i];
                 start = i + 1;
             }
         }
@@ -55,6 +77,10 @@ pub fn main() !void {
             leftover = total - start;
         } else {
             leftover = 0;
+        }
+
+        if (last_line) |line| {
+            std.debug.print("{s}\n", .{line});
         }
     }
 }

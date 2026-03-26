@@ -6,7 +6,7 @@ import easyocr
 
 SOCK_PATH = "/tmp/ledaw_ocr.sock"
 
-reader = easyocr.Reader(['en'], gpu=True)
+reader = easyocr.Reader(['en'], gpu=False)
 cap = cv2.VideoCapture(0)
 
 print("connecting to zig...")
