@@ -203,6 +203,75 @@ pub const Delay = struct {
     }
 };
 
+pub const Flanger = struct {
+    input: Node,
+    buffer: []Sample,
+    write_pos: usize = 0,
+    lfo_phase: f32 = 0,
+    rate: Param, // LFO rate in Hz
+    depth: Param, // modulation depth in ms
+    feedback: Param, // feedback amount
+    mix: Param,
+    vt: VTable = .{ .process = Flanger._process },
+
+    pub fn init(alloc: std.mem.Allocator, input: Node, buffer_size: usize) !Flanger {
+        const buffer = try alloc.alloc(Sample, buffer_size);
+        @memset(buffer, 0);
+        return .{
+            .input = input,
+            .buffer = buffer,
+            .rate = .{ .val = 0.5, .min = 0.05, .max = 5.0 },
+            .depth = .{ .val = 3.0, .min = 0.1, .max = 10.0 }, // ms
+            .feedback = .{ .val = 0.5, .min = 0.0, .max = 0.95 },
+            .mix = .{ .val = 0.5, .min = 0.0, .max = 1.0 },
+        };
+    }
+
+    pub fn deinit(self: *Flanger, alloc: std.mem.Allocator) void {
+        alloc.free(self.buffer);
+    }
+
+    fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
+        var self: *Flanger = @ptrCast(@alignCast(p));
+        const tmp = ctx.tmp().alloc(Sample, out.len) catch unreachable;
+        self.input.v.process(self.input.ptr, ctx, tmp);
+
+        const buffer_len = self.buffer.len;
+        const lfo_inc = self.rate.get() / ctx.sample_rate;
+        const depth_in_samples = self.depth.get() * 0.001 * ctx.sample_rate;
+        const fb = self.feedback.get();
+        const wet = self.mix.get();
+        const dry_gain = 1.0 - wet;
+
+        for (out, tmp) |*o, dry| {
+            // Triangle wave LFO (0 to 1): cheap, no sin needed
+            const lfo = 1.0 - @abs(self.lfo_phase * 2.0 - 1.0);
+            const delay_samples = lfo * depth_in_samples;
+
+            // Fractional delay via linear interpolation
+            const delay_int: usize = @intFromFloat(delay_samples);
+            const frac = delay_samples - @as(f32, @floatFromInt(delay_int));
+
+            const clamped_delay = @min(delay_int, buffer_len - 1);
+            const read_pos_0 = (self.write_pos + buffer_len - clamped_delay) % buffer_len;
+            const read_pos_1 = (read_pos_0 + buffer_len - 1) % buffer_len;
+
+            const delayed = self.buffer[read_pos_0] * (1.0 - frac) + self.buffer[read_pos_1] * frac;
+
+            self.buffer[self.write_pos] = dry + delayed * fb;
+            o.* = dry * dry_gain + delayed * wet;
+
+            self.write_pos = (self.write_pos + 1) % buffer_len;
+            self.lfo_phase += lfo_inc;
+            if (self.lfo_phase >= 1.0) self.lfo_phase -= 1.0;
+        }
+    }
+
+    pub fn asNode(self: *Flanger) Node {
+        return .{ .ptr = self, .v = &self.vt };
+    }
+};
+
 pub const Adsr = struct {
     pub const Stage = enum { idle, attack, decay, sustain, release };
 

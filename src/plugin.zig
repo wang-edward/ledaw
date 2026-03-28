@@ -4,13 +4,14 @@ const interface = @import("interface.zig");
 const ops = @import("ops.zig");
 const rl = @import("raylib");
 
-pub const Tag = enum { lpf, delay };
+pub const Tag = enum { lpf, delay, flanger };
 pub const list = std.enums.values(Tag);
 
 pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     return switch (tag) {
         .lpf => .{ .lpf = try Lpf.init(alloc, input) },
         .delay => .{ .delay = try Delay.init(alloc, input, 48_000) },
+        .flanger => .{ .flanger = try Flanger.init(alloc, input, 4_800) },
     };
 }
 
@@ -31,6 +32,7 @@ pub const Knob = struct {
 pub const Plugin = union(Tag) {
     lpf: *Lpf,
     delay: *Delay,
+    flanger: *Flanger,
 
     pub fn deinit(self: Plugin, alloc: std.mem.Allocator) void {
         switch (self) {
@@ -168,6 +170,64 @@ pub const Delay = struct {
             .four => self.feedback.param.setNorm(self.feedback.param.getNorm() + 0.1),
             .five => self.mix.param.setNorm(self.mix.param.getNorm() - 0.1),
             .six => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
+            else => {},
+        }
+        return .{};
+    }
+};
+
+pub const Flanger = struct {
+    flanger: audio.Flanger,
+    rate: Knob,
+    depth: Knob,
+    feedback: Knob,
+    mix: Knob,
+    icon: rl.Texture2D,
+
+    pub fn init(alloc: std.mem.Allocator, input: audio.Node, buffer_size: usize) !*Flanger {
+        const self = try alloc.create(Flanger);
+        self.flanger = try audio.Flanger.init(alloc, input, buffer_size);
+        self.rate = .{ .param = &self.flanger.rate, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "rate" };
+        self.depth = .{ .param = &self.flanger.depth, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "depth" };
+        self.feedback = .{ .param = &self.flanger.feedback, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "feedback" };
+        self.mix = .{ .param = &self.flanger.mix, .pos = .{ .x = 96, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "mix" };
+        self.icon = rl.loadTexture("assets/slowed.png") catch unreachable;
+        return self;
+    }
+
+    pub fn deinit(self: *Flanger, alloc: std.mem.Allocator) void {
+        rl.unloadTexture(self.icon);
+        self.flanger.deinit(alloc);
+        alloc.destroy(self);
+    }
+
+    pub fn asNode(self: *Flanger) audio.Node {
+        return self.flanger.asNode();
+    }
+
+    pub fn setInput(self: *Flanger, input: audio.Node) void {
+        self.flanger.input = input;
+    }
+
+    pub fn render(self: *Flanger) void {
+        self.rate.render();
+        self.depth.render();
+        self.feedback.render();
+        self.mix.render();
+        interface.drawTextCentered("FLANGER", 64, 64, 10, rl.Color.sky_blue);
+    }
+
+    pub fn handleEvent(self: *Flanger, event: interface.Event) ops.ActionList {
+        switch (event.key) {
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
+            .one => self.rate.param.setNorm(self.rate.param.getNorm() - 0.1),
+            .two => self.rate.param.setNorm(self.rate.param.getNorm() + 0.1),
+            .three => self.depth.param.setNorm(self.depth.param.getNorm() - 0.1),
+            .four => self.depth.param.setNorm(self.depth.param.getNorm() + 0.1),
+            .five => self.feedback.param.setNorm(self.feedback.param.getNorm() - 0.1),
+            .six => self.feedback.param.setNorm(self.feedback.param.getNorm() + 0.1),
+            .seven => self.mix.param.setNorm(self.mix.param.getNorm() - 0.1),
+            .eight => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
             else => {},
         }
         return .{};
