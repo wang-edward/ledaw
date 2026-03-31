@@ -121,14 +121,35 @@ pub fn main() !void {
     defer interface.deinit();
 
     while (!rl.windowShouldClose()) {
+        const idx = line_idx.load(.acquire);
+        const len = line_len[idx];
+
+        if (rl.isKeyPressed(.a)) {
+            std.debug.print("{s}", .{line_buf[idx]});
+            ledaw.g_app.timeline.clear();
+            for (line_buf[idx]) |ch| {
+                const key = std.meta.intToEnum(rl.KeyboardKey, ch) catch continue;
+                const ev = interface.Event{ .type = .key_press, .key = key };
+                const actions = ledaw.g_app.handleEvent(ev);
+                for (actions.constSlice()) |ac| {
+                    switch (ac) {
+                        .op => |o| while (!ledaw.g_op_queue.push(o)) {},
+                        else => {},
+                    }
+                }
+            }
+        }
+        if (rl.isKeyPressed(.b)) {
+            while (!ledaw.g_op_queue.push(.{ .playback = .reset })) {}
+            while (!ledaw.g_op_queue.push(.{ .playback = .toggle_play })) {}
+        }
+
         // render DAW to left texture
         interface.preRender();
         ledaw.g_app.render();
 
         // render OCR boxes to right texture
         interface.preRenderOcr();
-        const idx = line_idx.load(.acquire);
-        const len = line_len[idx];
         if (len > 0) {
             renderOcrBoxes(line_buf[idx][0..len]);
         } else {
