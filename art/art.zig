@@ -76,27 +76,47 @@ pub fn main() !void {
     var read_thread = try std.Thread.spawn(.{}, readerThreadMain, .{});
     defer read_thread.join();
 
-    while (true) {
-        const idx = line_idx.load(.acquire);
-        std.debug.print("got: {s}\n", .{line_buf[idx][0..line_len[idx]]});
+    // while (true) {
+    //     const idx = line_idx.load(.acquire);
+    //     std.debug.print("got: {s}\n", .{line_buf[idx][0..line_len[idx]]});
+    // }
+
+    // ledaw
+    ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.context);
+    ledaw.g_app.timeline.addTrack(try project.Track.init(ledaw.A, &ledaw.g_app.timeline.active_track, &.{}));
+    defer ledaw.g_app.deinit();
+    ledaw.root = ledaw.g_app.timeline.asNode();
+    defer ledaw.g_record_buffer.deinit(ledaw.A);
+
+    const audio_thread = try std.Thread.spawn(.{}, ledaw.audioThreadMain, .{});
+    defer {
+        ledaw.g_run_audio.store(false, .release);
+        if (ledaw.g_sio_ptr.load(.acquire)) |p| c.soundio_wakeup(p);
+        audio_thread.join();
     }
 
-    // // ledaw
-    // ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.context);
-    // ledaw.g_app.timeline.addTrack(try project.Track.init(ledaw.A, &ledaw.g_app.timeline.active_track, &.{}));
-    // defer ledaw.g_app.deinit();
-    // ledaw.root = ledaw.g_app.timeline.asNode();
-    // defer ledaw.g_record_buffer.deinit(ledaw.A);
-    //
-    // const audio_thread = try std.Thread.spawn(.{}, ledaw.audioThreadMain, .{});
-    // defer {
-    //     ledaw.g_run_audio.store(false, .release);
-    //     if (ledaw.g_sio_ptr.load(.acquire)) |p| c.soundio_wakeup(p);
-    //     audio_thread.join();
-    // }
-    //
-    // try interface.init();
-    // defer interface.deinit();
-    //
-    // while (!rl.windowShouldClose()) {}
+    try interface.init();
+    defer interface.deinit();
+
+    while (!rl.windowShouldClose()) {
+        const idx = line_idx.load(.acquire);
+        std.debug.print("got: {s}\n", .{line_buf[idx][0..line_len[idx]]});
+
+        interface.preRender();
+        defer interface.postRender();
+        {
+            ledaw.g_app.render();
+        }
+
+        // drain garbage from audio thread
+        while (ledaw.g_garbage_queue.pop()) |item| {
+            switch (item) {
+                .plugin => |p| p.deinit(ledaw.A),
+                .track => |t| {
+                    t.deinit(ledaw.A);
+                    ledaw.A.destroy(t);
+                },
+            }
+        }
+    }
 }
