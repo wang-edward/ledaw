@@ -99,6 +99,69 @@ fn renderOcrBoxes(json_str: []const u8) void {
     }
 }
 
+fn sendEvent(ev: interface.Event) void {
+    const actions = ledaw.g_app.handleEvent(ev);
+    for (actions.constSlice()) |ac| {
+        switch (ac) {
+            .op => |o| while (!ledaw.g_op_queue.push(o)) {},
+            else => {},
+        }
+    }
+}
+
+fn textToSong(text: []const u8) void {
+    const rand = std.crypto.random;
+    const tempo: f32 = 120;
+    const SR = ledaw.SAMPLE_RATE;
+
+    // reset state: stop recording/playing, clear timeline, reset playhead
+    ledaw.g_app.timeline.clear();
+    while (!ledaw.g_op_queue.push(.{ .playback = .reset })) {}
+
+    // enter insert mode + start recording
+    ledaw.g_app.mode = .insert;
+    while (!ledaw.g_op_queue.push(.{ .record = .{ .toggle_record = 0 } })) {}
+
+    // track which keys are currently held
+    var held = std.StaticBitSet(256).initEmpty();
+
+    // process each character
+    for (text) |ch| {
+        const lower = if (ch >= 'A' and ch <= 'Z') ch + 32 else ch;
+        const key = std.meta.intToEnum(rl.KeyboardKey, lower) catch continue;
+
+        // only process keys that map to notes
+        if (midi.keyToMidi(key) == null) continue;
+
+        if (held.isSet(lower)) {
+            // key already held: release it
+            sendEvent(.{ .type = .key_release, .key = key });
+            held.unset(lower);
+        } else {
+            // new key: press it
+            sendEvent(.{ .type = .key_press, .key = key });
+            held.set(lower);
+        }
+
+        // advance playhead by random duration (0.1 to 1.0 beats)
+        const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
+        const frames = midi.beatsToFrames(duration, tempo, SR);
+        _ = ledaw.g_playhead.fetchAdd(frames, .monotonic);
+    }
+
+    // release all held keys
+    for (0..256) |i| {
+        if (held.isSet(i)) {
+            const key = std.meta.intToEnum(rl.KeyboardKey, @as(u8, @intCast(i))) catch continue;
+            sendEvent(.{ .type = .key_release, .key = key });
+        }
+    }
+
+    // stop recording
+    while (!ledaw.g_op_queue.push(.{ .record = .{ .toggle_record = 0 } })) {}
+    ledaw.g_app.mode = .normal;
+}
+
 pub fn main() !void {
     var read_thread = try std.Thread.spawn(.{}, readerThreadMain, .{});
     defer read_thread.join();
@@ -124,24 +187,21 @@ pub fn main() !void {
         const idx = line_idx.load(.acquire);
         const len = line_len[idx];
 
+        // while (interface.nextEvent()) |ev| {
+        //     std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
+        //
+        //     const actions = ledaw.g_app.handleEvent(ev);
+        //     for (actions.constSlice()) |ac| {
+        //         switch (ac) {
+        //             .op => |o| while (!ledaw.g_op_queue.push(o)) {},
+        //             else => {},
+        //         }
+        //     }
+        // }
+
         if (rl.isKeyPressed(.a)) {
-            std.debug.print("{s}", .{line_buf[idx]});
-            ledaw.g_app.timeline.clear();
-            for (line_buf[idx]) |ch| {
-                const keys = [_]rl.KeyboardKey{ .enter, .backspace, .delete };
-                const key = if (ch == ' ')
-                    keys[std.crypto.random.intRangeAtMost(usize, 0, keys.len - 1)]
-                else
-                    std.meta.intToEnum(rl.KeyboardKey, ch) catch continue;
-                const ev = interface.Event{ .type = .key_press, .key = key };
-                const actions = ledaw.g_app.handleEvent(ev);
-                for (actions.constSlice()) |ac| {
-                    switch (ac) {
-                        .op => |o| while (!ledaw.g_op_queue.push(o)) {},
-                        else => {},
-                    }
-                }
-            }
+            std.debug.print("{s}\n", .{line_buf[idx][0..len]});
+            textToSong(line_buf[idx][0..len]);
         }
         if (rl.isKeyPressed(.b)) {
             while (!ledaw.g_op_queue.push(.{ .playback = .reset })) {}
