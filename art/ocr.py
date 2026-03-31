@@ -1,21 +1,16 @@
 import socket
-import os
 import json
 import cv2
-import easyocr
 
 SOCK_PATH = "/tmp/ledaw_ocr.sock"
-
-reader = easyocr.Reader(['en'], gpu=True)
-
 CAMERA_NAME = "UVC Camera"
+GRID_SIZE = 32
 
 def find_camera(name):
     """Find camera by name. Uses AVFoundation to get native resolution, then matches against OpenCV indices."""
     import AVFoundation
     import CoreMedia
 
-    # Find target device's native resolution via AVFoundation
     target_res = None
     devices = AVFoundation.AVCaptureDevice.devicesWithMediaType_(AVFoundation.AVMediaTypeVideo)
     for d in devices:
@@ -28,8 +23,6 @@ def find_camera(name):
     if target_res is None:
         raise RuntimeError(f"Camera '{name}' not found")
 
-    # OpenCV's AVFoundation backend uses different indices than the API.
-    # Match by resolution.
     for i in range(len(devices)):
         cap = cv2.VideoCapture(i, cv2.CAP_AVFOUNDATION)
         if not cap.isOpened():
@@ -55,24 +48,13 @@ try:
         if not ret:
             continue
 
-        result = reader.readtext(frame)
-
-        boxes = []
-        texts = []
-        for (bbox, text, conf) in result:
-            # bbox = [[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
-            x_min = int(min(p[0] for p in bbox))
-            y_min = int(min(p[1] for p in bbox))
-            x_max = int(max(p[0] for p in bbox))
-            y_max = int(max(p[1] for p in bbox))
-            boxes.append([x_min, y_min, x_max, y_max])
-            texts.append(text)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        small = cv2.resize(gray, (GRID_SIZE, GRID_SIZE))
 
         msg = json.dumps({
-            "text": " ".join(texts),
-            "boxes": boxes,
-            "frame_w": frame.shape[1],
-            "frame_h": frame.shape[0],
+            "px": small.tobytes().hex(),
+            "w": GRID_SIZE,
+            "h": GRID_SIZE,
         }) + "\n"
 
         try:

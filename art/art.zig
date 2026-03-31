@@ -72,32 +72,56 @@ fn readerThreadMain() !void {
     }
 }
 
-const OcrData = struct {
-    boxes: []const [4]i64,
-    frame_w: i64,
-    frame_h: i64,
+// -- pixel data --
+
+const GRID_SIZE = 32;
+
+const FrameData = struct {
+    px: []const u8, // hex string
+    w: i64,
+    h: i64,
 };
 
-fn renderOcrBoxes(json_str: []const u8) void {
-    const parsed = std.json.parseFromSlice(OcrData, ledaw.A, json_str, .{ .ignore_unknown_fields = true }) catch return;
+var pixels: [GRID_SIZE * GRID_SIZE]u8 = .{0} ** (GRID_SIZE * GRID_SIZE);
+var pixels_valid: bool = false;
+
+fn hexVal(ch: u8) ?u4 {
+    if (ch >= '0' and ch <= '9') return @intCast(ch - '0');
+    if (ch >= 'a' and ch <= 'f') return @intCast(ch - 'a' + 10);
+    return null;
+}
+
+fn parsePixels(json_str: []const u8) void {
+    const parsed = std.json.parseFromSlice(FrameData, ledaw.A, json_str, .{ .ignore_unknown_fields = true }) catch return;
     defer parsed.deinit();
-    const data = parsed.value;
+    const hex = parsed.value.px;
 
-    if (data.frame_w == 0 or data.frame_h == 0) return;
+    if (hex.len != GRID_SIZE * GRID_SIZE * 2) return;
 
-    const fw: f32 = @floatFromInt(data.frame_w);
-    const fh: f32 = @floatFromInt(data.frame_h);
-    const w: f32 = @floatFromInt(interface.WIDTH);
-    const h: f32 = @floatFromInt(interface.HEIGHT);
+    for (0..GRID_SIZE * GRID_SIZE) |i| {
+        const hi = hexVal(hex[2 * i]) orelse return;
+        const lo = hexVal(hex[2 * i + 1]) orelse return;
+        pixels[i] = (@as(u8, hi) << 4) | lo;
+    }
+    pixels_valid = true;
+}
 
-    for (data.boxes) |box| {
-        const x1: i32 = @intFromFloat(@as(f32, @floatFromInt(box[0])) * w / fw);
-        const y1: i32 = @intFromFloat(@as(f32, @floatFromInt(box[1])) * h / fh);
-        const x2: i32 = @intFromFloat(@as(f32, @floatFromInt(box[2])) * w / fw);
-        const y2: i32 = @intFromFloat(@as(f32, @floatFromInt(box[3])) * h / fh);
-        rl.drawRectangleLines(x1, y1, x2 - x1, y2 - y1, rl.Color.green);
+fn renderPixelGrid() void {
+    if (!pixels_valid) return;
+
+    const scale = interface.WIDTH / GRID_SIZE; // 128/32 = 4
+    for (0..GRID_SIZE) |py| {
+        for (0..GRID_SIZE) |px| {
+            const val = pixels[py * GRID_SIZE + px];
+            const color = rl.Color{ .r = val, .g = val, .b = val, .a = 255 };
+            const x: i32 = @intCast(px * scale);
+            const y: i32 = @intCast(py * scale);
+            rl.drawRectangle(x, y, scale, scale, color);
+        }
     }
 }
+
+// -- song generation --
 
 fn sendEvent(ev: interface.Event) void {
     const actions = ledaw.g_app.handleEvent(ev);
@@ -109,64 +133,67 @@ fn sendEvent(ev: interface.Event) void {
     }
 }
 
-fn textToSong(text: []const u8) void {
+fn pushOp(op: ledaw.ops.Op) void {
+    while (!ledaw.g_op_queue.push(op)) {}
+}
+
+fn pixelsToSong() void {
+    if (!pixels_valid) return;
+
     const rand = std.crypto.random;
     const tempo: f32 = 120;
     const SR = ledaw.SAMPLE_RATE;
 
-    // reset state: stop recording/playing, clear timeline, reset playhead
+    // reset
     ledaw.g_app.timeline.clear();
-    while (!ledaw.g_op_queue.push(.{ .playback = .reset })) {}
+    pushOp(.{ .playback = .reset });
 
     // enter insert mode + start recording
     ledaw.g_app.mode = .insert;
-    while (!ledaw.g_op_queue.push(.{ .record = .{ .toggle_record = 0 } })) {}
+    pushOp(.{ .record = .{ .toggle_record = 0 } });
 
-    // track which keys are currently held
-    var held = std.StaticBitSet(256).initEmpty();
+    var playhead_pos: u64 = 0;
 
-    // process each character
-    for (text) |ch| {
-        const lower = if (ch >= 'A' and ch <= 'Z') ch + 32 else ch;
-        const key = std.meta.intToEnum(rl.KeyboardKey, lower) catch continue;
+    // track which poll_key indices are held
+    var held = std.StaticBitSet(interface.poll_keys.len).initEmpty();
 
-        // only process keys that map to notes
-        if (midi.keyToMidi(key) == null) continue;
+    for (&pixels) |val| {
+        const key_idx = val % interface.poll_keys.len;
+        const key = interface.poll_keys[key_idx];
 
-        if (held.isSet(lower)) {
-            // key already held: release it
+        if (held.isSet(key_idx)) {
             sendEvent(.{ .type = .key_release, .key = key });
-            held.unset(lower);
+            held.unset(key_idx);
         } else {
-            // new key: press it
             sendEvent(.{ .type = .key_press, .key = key });
-            held.set(lower);
+            held.set(key_idx);
         }
 
         // advance playhead by random duration (0.1 to 1.0 beats)
         const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
         const frames = midi.beatsToFrames(duration, tempo, SR);
-        _ = ledaw.g_playhead.fetchAdd(frames, .monotonic);
+        playhead_pos += frames;
+        pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
     }
 
     // release all held keys
-    for (0..256) |i| {
+    for (0..interface.poll_keys.len) |i| {
         if (held.isSet(i)) {
-            const key = std.meta.intToEnum(rl.KeyboardKey, @as(u8, @intCast(i))) catch continue;
-            sendEvent(.{ .type = .key_release, .key = key });
+            sendEvent(.{ .type = .key_release, .key = interface.poll_keys[i] });
         }
     }
 
     // stop recording
-    while (!ledaw.g_op_queue.push(.{ .record = .{ .toggle_record = 0 } })) {}
+    pushOp(.{ .record = .{ .toggle_record = 0 } });
     ledaw.g_app.mode = .normal;
 }
+
+// -- main --
 
 pub fn main() !void {
     var read_thread = try std.Thread.spawn(.{}, readerThreadMain, .{});
     defer read_thread.join();
 
-    // ledaw
     ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.context);
     ledaw.g_app.timeline.addTrack(try project.Track.init(ledaw.A, &ledaw.g_app.timeline.active_track, &.{}));
     defer ledaw.g_app.deinit();
@@ -187,38 +214,26 @@ pub fn main() !void {
         const idx = line_idx.load(.acquire);
         const len = line_len[idx];
 
-        // while (interface.nextEvent()) |ev| {
-        //     std.debug.print("event: {s} {s}\n", .{ @tagName(ev.type), @tagName(ev.key) });
-        //
-        //     const actions = ledaw.g_app.handleEvent(ev);
-        //     for (actions.constSlice()) |ac| {
-        //         switch (ac) {
-        //             .op => |o| while (!ledaw.g_op_queue.push(o)) {},
-        //             else => {},
-        //         }
-        //     }
-        // }
+        // parse incoming pixel data
+        if (len > 0) {
+            parsePixels(line_buf[idx][0..len]);
+        }
 
         if (rl.isKeyPressed(.a)) {
-            std.debug.print("{s}\n", .{line_buf[idx][0..len]});
-            textToSong(line_buf[idx][0..len]);
+            pixelsToSong();
         }
         if (rl.isKeyPressed(.b)) {
-            while (!ledaw.g_op_queue.push(.{ .playback = .reset })) {}
-            while (!ledaw.g_op_queue.push(.{ .playback = .toggle_play })) {}
+            pushOp(.{ .playback = .reset });
+            pushOp(.{ .playback = .toggle_play });
         }
 
         // render DAW to left texture
         interface.preRender();
         ledaw.g_app.render();
 
-        // render OCR boxes to right texture
+        // render camera feed to right texture
         interface.preRenderOcr();
-        if (len > 0) {
-            renderOcrBoxes(line_buf[idx][0..len]);
-        } else {
-            std.debug.print("no line\n", .{});
-        }
+        renderPixelGrid();
 
         // draw both to screen
         interface.postRender();
