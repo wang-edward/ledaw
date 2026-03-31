@@ -128,7 +128,11 @@ pub fn main() !void {
             std.debug.print("{s}", .{line_buf[idx]});
             ledaw.g_app.timeline.clear();
             for (line_buf[idx]) |ch| {
-                const key = std.meta.intToEnum(rl.KeyboardKey, ch) catch continue;
+                const keys = [_]rl.KeyboardKey{ .enter, .backspace, .delete };
+                const key = if (ch == ' ')
+                    keys[std.crypto.random.intRangeAtMost(usize, 0, keys.len - 1)]
+                else
+                    std.meta.intToEnum(rl.KeyboardKey, ch) catch continue;
                 const ev = interface.Event{ .type = .key_press, .key = key };
                 const actions = ledaw.g_app.handleEvent(ev);
                 for (actions.constSlice()) |ac| {
