@@ -338,7 +338,7 @@ pub const Timeline = struct {
                     },
                     .j => {
                         const at = self.active_track.load(.acquire);
-                        if (at < self.track_count - 1) {
+                        if (self.track_count > 0 and at < self.track_count - 1) {
                             return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .set_active_track = at + 1 } } }});
                         }
                     },
