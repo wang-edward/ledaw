@@ -145,7 +145,7 @@ fn pixelsToSong() void {
     const SR = ledaw.SAMPLE_RATE;
 
     // reset
-    ledaw.g_app.timeline.clear();
+    pushOp(.{ .graph = .clear_timeline });
     pushOp(.{ .playback = .reset });
 
     // enter insert mode + start recording
