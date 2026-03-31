@@ -72,14 +72,36 @@ fn readerThreadMain() !void {
     }
 }
 
+const OcrData = struct {
+    boxes: []const [4]i64,
+    frame_w: i64,
+    frame_h: i64,
+};
+
+fn renderOcrBoxes(json_str: []const u8) void {
+    const parsed = std.json.parseFromSlice(OcrData, ledaw.A, json_str, .{ .ignore_unknown_fields = true }) catch return;
+    defer parsed.deinit();
+    const data = parsed.value;
+
+    if (data.frame_w == 0 or data.frame_h == 0) return;
+
+    const fw: f32 = @floatFromInt(data.frame_w);
+    const fh: f32 = @floatFromInt(data.frame_h);
+    const w: f32 = @floatFromInt(interface.WIDTH);
+    const h: f32 = @floatFromInt(interface.HEIGHT);
+
+    for (data.boxes) |box| {
+        const x1: i32 = @intFromFloat(@as(f32, @floatFromInt(box[0])) * w / fw);
+        const y1: i32 = @intFromFloat(@as(f32, @floatFromInt(box[1])) * h / fh);
+        const x2: i32 = @intFromFloat(@as(f32, @floatFromInt(box[2])) * w / fw);
+        const y2: i32 = @intFromFloat(@as(f32, @floatFromInt(box[3])) * h / fh);
+        rl.drawRectangleLines(x1, y1, x2 - x1, y2 - y1, rl.Color.green);
+    }
+}
+
 pub fn main() !void {
     var read_thread = try std.Thread.spawn(.{}, readerThreadMain, .{});
     defer read_thread.join();
-
-    // while (true) {
-    //     const idx = line_idx.load(.acquire);
-    //     std.debug.print("got: {s}\n", .{line_buf[idx][0..line_len[idx]]});
-    // }
 
     // ledaw
     ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.context);
@@ -95,18 +117,26 @@ pub fn main() !void {
         audio_thread.join();
     }
 
-    try interface.init();
+    try interface.initDual();
     defer interface.deinit();
 
     while (!rl.windowShouldClose()) {
-        const idx = line_idx.load(.acquire);
-        std.debug.print("got: {s}\n", .{line_buf[idx][0..line_len[idx]]});
-
+        // render DAW to left texture
         interface.preRender();
-        defer interface.postRender();
-        {
-            ledaw.g_app.render();
+        ledaw.g_app.render();
+
+        // render OCR boxes to right texture
+        interface.preRenderOcr();
+        const idx = line_idx.load(.acquire);
+        const len = line_len[idx];
+        if (len > 0) {
+            renderOcrBoxes(line_buf[idx][0..len]);
+        } else {
+            std.debug.print("no line\n", .{});
         }
+
+        // draw both to screen
+        interface.postRender();
 
         // drain garbage from audio thread
         while (ledaw.g_garbage_queue.pop()) |item| {

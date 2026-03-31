@@ -5,6 +5,8 @@ pub const WIDTH = 128;
 pub const HEIGHT = 128;
 
 var target: rl.RenderTexture2D = undefined;
+var ocr_target: rl.RenderTexture2D = undefined;
+var dual_mode: bool = false;
 
 pub fn init() !void {
     // rl.setConfigFlags(.{ .window_resizable = true }); // commented because it looks weird with aerospace window manager
@@ -15,8 +17,18 @@ pub fn init() !void {
     rl.setExitKey(.null); // ESC doesn't close program
 }
 
+pub fn initDual() !void {
+    rl.initWindow(1024, 512, "LeDaw Art");
+    target = try rl.loadRenderTexture(WIDTH, HEIGHT);
+    ocr_target = try rl.loadRenderTexture(WIDTH, HEIGHT);
+    dual_mode = true;
+    rl.setTargetFPS(60);
+    rl.setExitKey(.null);
+}
+
 pub fn deinit() void {
     rl.unloadRenderTexture(target);
+    if (dual_mode) rl.unloadRenderTexture(ocr_target);
     rl.closeWindow();
 }
 
@@ -25,32 +37,58 @@ pub fn preRender() void {
     rl.clearBackground(rl.Color.black);
 }
 
+pub fn preRenderOcr() void {
+    rl.endTextureMode();
+    rl.beginTextureMode(ocr_target);
+    rl.clearBackground(rl.Color.black);
+}
+
 pub fn postRender() void {
     const screen_width = rl.getScreenWidth();
     const screen_height = rl.getScreenHeight();
-    const square_len = @min(screen_width, screen_height);
-    const pos_x: f32 = @floatFromInt(@divTrunc(screen_width - square_len, 2));
-    const pos_y: f32 = @floatFromInt(@divTrunc(screen_height - square_len, 2));
-    const square_len_f: f32 = @floatFromInt(square_len);
 
     rl.endTextureMode();
     rl.beginDrawing();
     defer rl.endDrawing();
+    rl.clearBackground(rl.Color.black);
 
-    // render the 128x128 square
+    if (dual_mode) {
+        const half_width = @divTrunc(screen_width, 2);
+        const square_len = @min(half_width, screen_height);
+        const square_len_f: f32 = @floatFromInt(square_len);
+
+        // left: DAW
+        const left_x: f32 = @floatFromInt(@divTrunc(half_width - square_len, 2));
+        const left_y: f32 = @floatFromInt(@divTrunc(screen_height - square_len, 2));
+        drawSquare(target.texture, left_x, left_y, square_len_f);
+
+        // right: OCR boxes
+        const right_x: f32 = @as(f32, @floatFromInt(half_width)) + left_x;
+        const right_y: f32 = left_y;
+        drawSquare(ocr_target.texture, right_x, right_y, square_len_f);
+    } else {
+        const square_len = @min(screen_width, screen_height);
+        const pos_x: f32 = @floatFromInt(@divTrunc(screen_width - square_len, 2));
+        const pos_y: f32 = @floatFromInt(@divTrunc(screen_height - square_len, 2));
+        const square_len_f: f32 = @floatFromInt(square_len);
+        drawSquare(target.texture, pos_x, pos_y, square_len_f);
+    }
+}
+
+fn drawSquare(texture: rl.Texture2D, x: f32, y: f32, size: f32) void {
     rl.drawTexturePro(
-        target.texture,
+        texture,
         rl.Rectangle{
             .x = 0,
             .y = 0,
-            .width = @floatFromInt(target.texture.width),
-            .height = -@as(f32, @floatFromInt(target.texture.height)), // flip Y
+            .width = @floatFromInt(texture.width),
+            .height = -@as(f32, @floatFromInt(texture.height)), // flip Y
         },
         rl.Rectangle{
-            .x = pos_x,
-            .y = pos_y,
-            .width = square_len_f,
-            .height = square_len_f,
+            .x = x,
+            .y = y,
+            .width = size,
+            .height = size,
         },
         rl.Vector2{ .x = 0, .y = 0 },
         0.0,
