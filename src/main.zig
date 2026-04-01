@@ -128,6 +128,9 @@ fn write_callback(
                         }
                         g_playhead.store(0, .monotonic);
                     },
+                    .set_playhead => |frame| {
+                        g_playhead.store(frame, .monotonic);
+                    },
                 },
                 .record => |r| switch (r) {
                     .toggle_record => |track_idx| {

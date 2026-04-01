@@ -5,6 +5,7 @@ const project = @import("project.zig");
 pub const PlaybackOp = union(enum) {
     toggle_play,
     reset,
+    set_playhead: u64,
 };
 
 pub const RecordOp = union(enum) {
