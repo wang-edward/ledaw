@@ -426,7 +426,7 @@ pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
     const Screen = enum { overview, plugin, plugin_selector };
-    pub const MAX_PLUGINS = 8;
+    pub const MAX_PLUGINS = 2;
 
     synth: *synth.Uni,
     player: midi.Player,

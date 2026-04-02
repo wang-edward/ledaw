@@ -216,8 +216,10 @@ fn write_callback(
                     .add_plugin => |ap| {
                         const tracks = g_app.timeline.activeTracks();
                         std.debug.print("add_plugin: track_idx={d} tracks.len={d}\n,", .{ ap.track_idx, tracks.len });
-                        if (ap.track_idx < tracks.len) {
+                        if (ap.track_idx < tracks.len and tracks[ap.track_idx].plugin_count < project.Track.MAX_PLUGINS) {
                             tracks[ap.track_idx].addPlugin(ap.plugin);
+                        } else {
+                            _ = g_garbage_queue.push(.{ .plugin = ap.plugin });
                         }
                     },
                     .clear_timeline => {
