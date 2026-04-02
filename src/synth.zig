@@ -53,6 +53,13 @@ pub const Uni = struct {
     voices: []*Voice,
     vt: audio.VTable = .{ .process = Uni._process },
     next_idx: usize = 0,
+
+    // synth params (applied to all voices)
+    waveform: audio.Param, // 0=sine, 1=pwm, 2=saw, 3=sub
+    attack: audio.Param,
+    decay: audio.Param,
+    release: audio.Param,
+
     const SYNTH_TUNING: f32 = 440.0;
     const NUM_VOICES = 16;
 
@@ -63,7 +70,28 @@ pub const Uni = struct {
         s.voices = try alloc.alloc(*Voice, NUM_VOICES);
         for (s.voices) |*v| v.* = try Voice.init(alloc, 0.0);
         s.next_idx = 0;
+        s.waveform = .{ .val = 2, .min = 0, .max = 3 }; // default saw
+        s.attack = .{ .val = 0.01, .min = 0.001, .max = 1.0 };
+        s.decay = .{ .val = 0.1, .min = 0.001, .max = 1.0 };
+        s.release = .{ .val = 0.6, .min = 0.01, .max = 2.0 };
         return s;
+    }
+
+    pub fn applyParams(self: *Uni) void {
+        const wf: u8 = @intFromFloat(@round(self.waveform.get()));
+        const kind: audio.Osc.Kind = switch (wf) {
+            0 => .{ .sine = .{} },
+            1 => .{ .pwm = .{} },
+            2 => .{ .saw = .{} },
+            else => .{ .sub = .{} },
+        };
+        for (self.voices) |v| {
+            v.osc.kind = kind;
+            v.adsr.attack = self.attack.get();
+            v.adsr.decay = self.decay.get();
+            v.adsr.sustain = 1.0;
+            v.adsr.release = self.release.get();
+        }
     }
     pub fn deinit(self: *Uni, alloc: std.mem.Allocator) void {
         for (self.voices) |v| v.deinit(alloc);
@@ -105,6 +133,7 @@ pub const Uni = struct {
     }
     fn _process(p: *anyopaque, ctx: *audio.Context, out: []audio.Sample) void {
         const self: *Uni = @ptrCast(@alignCast(p));
+        self.applyParams();
         @memset(out, 0);
         for (self.voices) |v| {
             v.lpf.cutoff.set(self.cutoff);

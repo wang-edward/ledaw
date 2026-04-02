@@ -425,7 +425,7 @@ pub const PluginTag = plugin.Tag;
 pub const Plugin = plugin.Plugin;
 
 pub const Track = struct {
-    const Screen = enum { overview, plugin, plugin_selector };
+    const Screen = enum { overview, plugin, plugin_selector, synth };
     pub const MAX_PLUGINS = 2;
 
     synth: *synth.Uni,
@@ -567,6 +567,27 @@ pub const Track = struct {
                     rl.drawText(name, 0, y, 5, color);
                 }
             },
+            .synth => {
+                const wf_names = [_][:0]const u8{ "sine", "pwm", "saw", "sub" };
+                const wf_idx: usize = @intFromFloat(@round(self.synth.waveform.get()));
+                interface.drawTextCentered("SYNTH", 64, 10, 10, rl.Color.green);
+
+                // waveform knob
+                const wf_knob = plugin.Knob{ .param = &self.synth.waveform, .pos = .{ .x = 32, .y = 40 }, .radius = 10, .color = rl.Color.yellow, .name = wf_names[wf_idx] };
+                wf_knob.render();
+
+                // attack knob
+                const atk_knob = plugin.Knob{ .param = &self.synth.attack, .pos = .{ .x = 96, .y = 40 }, .radius = 10, .color = rl.Color.white, .name = "attack" };
+                atk_knob.render();
+
+                // decay knob
+                const dec_knob = plugin.Knob{ .param = &self.synth.decay, .pos = .{ .x = 32, .y = 100 }, .radius = 10, .color = rl.Color.white, .name = "decay" };
+                dec_knob.render();
+
+                // release knob
+                const rel_knob = plugin.Knob{ .param = &self.synth.release, .pos = .{ .x = 96, .y = 100 }, .radius = 10, .color = rl.Color.white, .name = "release" };
+                rel_knob.render();
+            },
         }
     }
 
@@ -580,6 +601,7 @@ pub const Track = struct {
                         self.selector_index = std.crypto.random.intRangeLessThan(usize, 0, plugin.list.len);
                         self.screen = .plugin_selector;
                     },
+                    .s => self.screen = .synth,
                     .enter => if (self.plugin_count > 0) {
                         self.screen = .plugin;
                     },
@@ -620,6 +642,24 @@ pub const Track = struct {
                         const p = plugin.create(self.alloc, plugin.list[self.selector_index], input) catch return .{};
                         return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_plugin = .{ .track_idx = self.index.load(.acquire), .plugin = p } } } }});
                     },
+                    else => {},
+                }
+            },
+            .synth => {
+                switch (event.key) {
+                    .backspace => self.screen = .overview,
+                    // waveform: snap to integers
+                    .one => self.synth.waveform.set(@max(@round(self.synth.waveform.get()) - 1, 0)),
+                    .two => self.synth.waveform.set(@min(@round(self.synth.waveform.get()) + 1, 3)),
+                    // attack
+                    .three => self.synth.attack.setNorm(self.synth.attack.getNorm() - 0.1),
+                    .four => self.synth.attack.setNorm(self.synth.attack.getNorm() + 0.1),
+                    // decay
+                    .five => self.synth.decay.setNorm(self.synth.decay.getNorm() - 0.1),
+                    .six => self.synth.decay.setNorm(self.synth.decay.getNorm() + 0.1),
+                    // release
+                    .seven => self.synth.release.setNorm(self.synth.release.getNorm() - 0.1),
+                    .eight => self.synth.release.setNorm(self.synth.release.getNorm() + 0.1),
                     else => {},
                 }
             },
