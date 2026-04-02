@@ -56,7 +56,7 @@ pub fn main() !void {
         }
 
         // occasionally skip playhead forward (0.1–1.0 beats)
-        if (rand.intRangeAtMost(u32, 0, 999) == 0) {
+        if (rand.intRangeAtMost(u32, 0, 99) == 0) {
             const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
             const frames = midi.beatsToFrames(duration, tempo, SR);
             const pos = ledaw.g_playhead.load(.monotonic) + frames;
