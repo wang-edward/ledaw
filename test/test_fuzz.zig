@@ -56,12 +56,12 @@ pub fn main() !void {
         }
 
         // occasionally skip playhead forward (0.1–1.0 beats)
-        // if (rand.intRangeAtMost(u8, 0, 99) == 0) {
-        //     const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
-        //     const frames = midi.beatsToFrames(duration, tempo, SR);
-        //     const pos = ledaw.g_playhead.load(.monotonic) + frames;
-        //     while (!ledaw.g_op_queue.push(.{ .playback = .{ .set_playhead = pos } })) {}
-        // }
+        if (rand.intRangeAtMost(u8, 0, 9) == 0) {
+            const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
+            const frames = midi.beatsToFrames(duration, tempo, SR);
+            const pos = ledaw.g_playhead.load(.monotonic) + frames;
+            while (!ledaw.g_op_queue.push(.{ .playback = .{ .set_playhead = pos } })) {}
+        }
 
         while (ledaw.g_garbage_queue.pop()) |item| {
             switch (item) {
