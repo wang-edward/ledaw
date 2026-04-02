@@ -137,10 +137,13 @@ fn write_callback(
                         if (g_recording.load(.acquire)) {
                             if (g_record_buffer.items.len > 0) {
                                 const at = g_app.timeline.active_track.load(.acquire);
-                                g_app.timeline.activeTracks()[at].player.appendNotes(
-                                    A,
-                                    g_record_buffer.items,
-                                ) catch {};
+                                const tracks = g_app.timeline.activeTracks();
+                                if (at < tracks.len) {
+                                    tracks[at].player.appendNotes(
+                                        A,
+                                        g_record_buffer.items,
+                                    ) catch {};
+                                }
                                 g_record_buffer.clearRetainingCapacity();
                             }
                             g_held_notes = .{null} ** 128;
@@ -192,6 +195,8 @@ fn write_callback(
                     },
                     .clear_timeline => {
                         g_app.timeline.clear();
+                        g_app.timeline.addTrack(project.Track.init(A, &g_app.timeline.active_track, &.{}) catch unreachable);
+                        // TODO make clear not remove all tracks?
                     },
                 },
             }

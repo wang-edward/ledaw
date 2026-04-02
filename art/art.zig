@@ -150,7 +150,7 @@ fn pixelsToSong() void {
 
     // enter insert mode + start recording
     ledaw.g_app.mode = .insert;
-    pushOp(.{ .record = .{ .toggle_record = 0 } });
+    pushOp(.{ .record = .toggle_record });
 
     var playhead_pos: u64 = 0;
 
@@ -169,8 +169,9 @@ fn pixelsToSong() void {
             held.set(key_idx);
         }
 
-        // advance playhead by random duration (0.1 to 1.0 beats)
-        const duration = 0.1 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.1;
+        // advance playhead by random duration (0.01 to 0.1 beats)
+        const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
+        std.debug.print("skip forward {} beats", .{duration});
         const frames = midi.beatsToFrames(duration, tempo, SR);
         playhead_pos += frames;
         pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
@@ -184,7 +185,7 @@ fn pixelsToSong() void {
     }
 
     // stop recording
-    pushOp(.{ .record = .{ .toggle_record = 0 } });
+    pushOp(.{ .record = .toggle_record });
     ledaw.g_app.mode = .normal;
 }
 
