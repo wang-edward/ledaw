@@ -19,7 +19,7 @@ pub fn main() !void {
         .{ .start = midi.beatsToFrames(3.0, tempo, SR), .end = midi.beatsToFrames(3.9, tempo, SR), .note = 67 },
     };
 
-    ledaw.g_app = try project.App.init(A, &ledaw.g_playhead, &ledaw.context);
+    ledaw.g_app = try project.App.init(A, &ledaw.g_playhead, &ledaw.g_recording, &ledaw.context);
     ledaw.g_app.timeline.addTrack(try project.Track.init(A, &ledaw.g_app.timeline.active_track, &notes));
     ledaw.g_app.timeline.addTrack(try project.Track.init(A, &ledaw.g_app.timeline.active_track, &.{}));
     defer ledaw.g_app.deinit();

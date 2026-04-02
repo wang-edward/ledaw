@@ -17,9 +17,12 @@ pub const App = struct {
     note_offset: i16,
     note_queue: midi.NoteQueue = .{},
 
+    recording: *std.atomic.Value(bool),
+
     pub fn init(
         alloc: std.mem.Allocator,
         playhead: *std.atomic.Value(u64),
+        recording: *std.atomic.Value(bool),
         ctx: *audio.Context,
     ) !App {
         return .{
@@ -27,6 +30,7 @@ pub const App = struct {
             .mode = .normal,
             .active_notes = std.AutoHashMap(rl.KeyboardKey, u8).init(alloc),
             .note_offset = 0,
+            .recording = recording,
         };
     }
 
@@ -43,6 +47,15 @@ pub const App = struct {
                 for (0..interface.HEIGHT) |y| {
                     if (x == 0 or y == 0 or x == interface.WIDTH - 1 or y == interface.WIDTH - 1) {
                         rl.drawPixel(@intCast(x), @intCast(y), rl.Color.purple);
+                    }
+                }
+            }
+        }
+        if (self.recording.load(.acquire)) {
+            for (0..interface.WIDTH) |x| {
+                for (0..interface.HEIGHT) |y| {
+                    if (x == 1 or y == 1 or x == interface.WIDTH - 2 or y == interface.WIDTH - 2) {
+                        rl.drawPixel(@intCast(x), @intCast(y), rl.Color.red);
                     }
                 }
             }

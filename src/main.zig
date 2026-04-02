@@ -10,7 +10,7 @@ pub const plugin = @import("plugin.zig");
 
 pub var g_playhead: std.atomic.Value(u64) = std.atomic.Value(u64).init(0);
 pub var g_playing: bool = false;
-pub var g_recording: bool = false;
+pub var g_recording: std.atomic.Value(bool) = std.atomic.Value(bool).init(false);
 pub var g_app: project.App = undefined;
 pub var g_op_queue: ops.OpQueue = .{};
 
@@ -84,7 +84,7 @@ fn write_callback(
                 .off => |note| {
                     getActiveTrack().synth.noteOff(note);
                     // Record note off
-                    if (g_recording and g_playing) {
+                    if (g_recording.load(.acquire) and g_playing) {
                         if (g_held_notes[note]) |start| {
                             g_record_buffer.append(A, .{
                                 .start = start,
@@ -98,7 +98,7 @@ fn write_callback(
                 .on => |note| {
                     getActiveTrack().synth.noteOn(note);
                     // Record note on
-                    if (g_recording and g_playing) {
+                    if (g_recording.load(.acquire) and g_playing) {
                         g_held_notes[note] = g_playhead.raw;
                     }
                 },
@@ -113,8 +113,8 @@ fn write_callback(
                         for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
                         }
-                        if (g_recording and g_playing) {
-                            g_recording = false;
+                        if (g_recording.load(.acquire) and g_playing) {
+                            _ = g_recording.store(false, .release);
                             g_playing = false;
                             g_held_notes = .{null} ** 128;
                             g_record_buffer.clearRetainingCapacity();
@@ -134,7 +134,7 @@ fn write_callback(
                 },
                 .record => |r| switch (r) {
                     .toggle_record => {
-                        if (g_recording) {
+                        if (g_recording.load(.acquire)) {
                             if (g_record_buffer.items.len > 0) {
                                 const at = g_app.timeline.active_track.load(.acquire);
                                 g_app.timeline.activeTracks()[at].player.appendNotes(
@@ -144,16 +144,16 @@ fn write_callback(
                                 g_record_buffer.clearRetainingCapacity();
                             }
                             g_held_notes = .{null} ** 128;
-                            g_recording = false;
+                            _ = g_recording.store(false, .release);
                             for (g_app.timeline.activeTracks()) |t| {
                                 t.synth.allNotesOff();
                             }
                             if (g_playing) g_playing = false;
                         } else if (!g_playing) {
                             g_playing = true;
-                            g_recording = true;
+                            _ = g_recording.store(true, .release);
                         } else {
-                            g_recording = true;
+                            _ = g_recording.store(true, .release);
                         }
                     },
                 },
@@ -318,7 +318,7 @@ pub fn main() !void {
         .{ .start = midi.beatsToFrames(14.0, tempo, SAMPLE_RATE), .end = midi.beatsToFrames(16.0, tempo, SAMPLE_RATE), .note = 36 },
     };
 
-    g_app = try project.App.init(A, &g_playhead, &context);
+    g_app = try project.App.init(A, &g_playhead, &g_recording, &context);
     g_app.timeline.addTrack(try project.Track.init(A, &g_app.timeline.active_track, &notes));
     g_app.timeline.addTrack(try project.Track.init(A, &g_app.timeline.active_track, &bass_notes));
     defer g_app.deinit();
