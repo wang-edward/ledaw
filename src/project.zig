@@ -307,10 +307,28 @@ pub const Timeline = struct {
                     rl.drawLine(x, HEADER_HEIGHT, x, HEADER_HEIGHT + @as(i32, @intCast(num_rows)) * ROW_HEIGHT, rl.Color.dark_gray);
                 }
 
-                // track rows
+                // track rows + notes
                 for (0..num_rows) |i| {
-                    const y: i32 = @as(i32, @intCast(i)) * ROW_HEIGHT + HEADER_HEIGHT;
-                    rl.drawRectangleLines(0, y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.dark_gray);
+                    const row_y: i32 = @as(i32, @intCast(i)) * ROW_HEIGHT + HEADER_HEIGHT;
+                    rl.drawRectangleLines(0, row_y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.dark_gray);
+
+                    // render notes: 2px buffer top/bottom, 24 semitones (2 octaves) in between
+                    const track = self.tracks[i + self.scroll_offset];
+                    for (track.player.notes.items) |note| {
+                        const start_beat = midi.framesToBeats(note.start, self.ctx.bpm, self.ctx.sample_rate);
+                        const end_beat = midi.framesToBeats(note.end, self.ctx.bpm, self.ctx.sample_rate);
+                        if (end_beat < self.frame.leftEdge() or start_beat > self.frame.rightEdge()) continue;
+
+                        const left_pct = (start_beat - self.frame.leftEdge()) / self.frame.width();
+                        const right_pct = (end_beat - self.frame.leftEdge()) / self.frame.width();
+                        const x1: i32 = @intFromFloat(@max(left_pct * W, 0));
+                        const x2: i32 = @intFromFloat(@min(right_pct * W, W));
+
+                        // map note to 0..23 (2 octaves), invert so higher notes are higher on screen
+                        const slot: i32 = 23 - @as(i32, note.note % 24);
+                        const ny = row_y + 2 + slot;
+                        rl.drawLine(x1, ny, @max(x2, x1 + 1), ny, rl.Color.green);
+                    }
                 }
 
                 // active track highlight
