@@ -576,7 +576,10 @@ pub const Track = struct {
                 switch (event.key) {
                     .p => std.debug.print("in the TRACK\n", .{}),
                     .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
-                    .a => self.screen = .plugin_selector,
+                    .a => {
+                        self.selector_index = std.crypto.random.intRangeLessThan(usize, 0, plugin.list.len);
+                        self.screen = .plugin_selector;
+                    },
                     .enter => if (self.plugin_count > 0) {
                         self.screen = .plugin;
                     },
