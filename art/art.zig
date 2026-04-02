@@ -221,6 +221,7 @@ pub fn main() !void {
         }
 
         if (rl.isKeyPressed(.a)) {
+            ledaw.g_app.note_offset = 0;
             pixelsToSong();
         }
         if (rl.isKeyPressed(.b)) {

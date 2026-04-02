@@ -98,8 +98,8 @@ pub const App = struct {
                             self.active_notes.clearRetainingCapacity();
                             self.mode = .normal;
                         },
-                        .z => self.note_offset = @max(self.note_offset - 12, -48),
-                        .x => self.note_offset = @min(self.note_offset + 12, 48),
+                        .z => self.note_offset = @max(self.note_offset - 12, -24),
+                        .x => self.note_offset = @min(self.note_offset + 12, 24),
                         else => {},
                     }
                 }
@@ -284,7 +284,6 @@ pub const Timeline = struct {
     pub fn render(self: *Timeline) void {
         switch (self.screen) {
             .overview => {
-                rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
                 const W: f32 = @floatFromInt(interface.WIDTH);
                 const num_rows = @min(self.track_count, MAX_TRACKS);
                 const b = midi.framesToBeats(self.playhead.load(.acquire), self.ctx.bpm, self.ctx.sample_rate);
@@ -554,8 +553,6 @@ pub const Track = struct {
                     rl.drawCircle(x, y, 1.0, rl.Color.red);
                     rl.drawText("none", x - 11, y + 4, 10, rl.Color.white);
                 }
-
-                rl.drawText("TRACK", 30, 30, 10, rl.Color.light_gray);
             },
             .plugin => {
                 std.debug.assert(self.plugin_count > 0);
@@ -638,8 +635,6 @@ pub const MidiEditor = struct {
                 }
             }
         }
-
-        rl.drawText("MIDI_EDITOR", 30, 30, 10, rl.Color.light_gray);
     }
 
     pub fn handleEvent(self: *MidiEditor, event: interface.Event) ops.ActionList {
