@@ -166,13 +166,15 @@ fn pixelsToSong() void {
             held.set(key_idx);
         }
 
-        if (rand.intRangeAtMost(u32, 0, 99) == 0) {
-            // advance playhead by random duration (0.01 to 0.1 beats)
-            const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
-            // std.debug.print("skip forward {} beats", .{duration});
-            const frames = midi.beatsToFrames(duration, tempo, SR);
-            playhead_pos += frames;
-            pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
+        if (ledaw.g_app.mode == .insert and ledaw.g_recording.load(.acquire)) {
+            if (rand.intRangeAtMost(u32, 0, 3) == 0) {
+                // advance playhead by random duration (0.01 to 0.1 beats)
+                const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
+                // std.debug.print("skip forward {} beats", .{duration});
+                const frames = midi.beatsToFrames(duration, tempo, SR);
+                playhead_pos += frames;
+                pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
+            }
         }
     }
 

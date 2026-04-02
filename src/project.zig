@@ -99,7 +99,7 @@ pub const App = struct {
                             self.mode = .normal;
                         },
                         .z => self.note_offset = @max(self.note_offset - 12, -24),
-                        .x => self.note_offset = @min(self.note_offset + 12, 24),
+                        .x => self.note_offset = @min(self.note_offset + 12, 36),
                         else => {},
                     }
                 }
@@ -143,7 +143,7 @@ const BeatWindow = struct {
 
 pub const Timeline = struct {
     const Screen = enum { overview, track, midi_editor };
-    pub const MAX_TRACKS = 8;
+    pub const MAX_TRACKS = 4;
     const HEADER_HEIGHT = 12;
     const ROW_HEIGHT = 28;
 
@@ -390,7 +390,7 @@ pub const Timeline = struct {
                     .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}),
                     .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}),
                     .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .toggle_record } }}),
-                    .c => self.print(),
+                    // .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
                         return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }});
