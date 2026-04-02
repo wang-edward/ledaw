@@ -171,7 +171,7 @@ fn pixelsToSong() void {
 
         // advance playhead by random duration (0.01 to 0.1 beats)
         const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
-        std.debug.print("skip forward {} beats", .{duration});
+        // std.debug.print("skip forward {} beats", .{duration});
         const frames = midi.beatsToFrames(duration, tempo, SR);
         playhead_pos += frames;
         pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
@@ -224,8 +224,12 @@ pub fn main() !void {
             pixelsToSong();
         }
         if (rl.isKeyPressed(.b)) {
+            ledaw.g_app.timeline.screen = .overview;
             pushOp(.{ .playback = .reset });
             pushOp(.{ .playback = .toggle_play });
+        }
+        if (rl.isKeyPressed(.c)) {
+            ledaw.g_app.timeline.print();
         }
 
         // render DAW to left texture

@@ -256,6 +256,8 @@ pub const Timeline = struct {
     }
 
     pub fn print(self: *Timeline) void {
+        const tempo = self.ctx.bpm;
+        const sr = self.ctx.sample_rate;
         std.debug.print("timeline: {d} tracks\n", .{self.track_count});
         for (self.tracks[0..self.track_count], 0..) |track, i| {
             std.debug.print("  track {d}: {d} notes, {d} plugins", .{ i, track.player.notes.items.len, track.plugin_count });
@@ -269,6 +271,13 @@ pub const Timeline = struct {
                 std.debug.print("]", .{});
             }
             std.debug.print("\n", .{});
+            for (track.player.notes.items) |note| {
+                std.debug.print("    note={d} start={d:.2} end={d:.2}\n", .{
+                    note.note,
+                    midi.framesToBeats(note.start, tempo, sr),
+                    midi.framesToBeats(note.end, tempo, sr),
+                });
+            }
         }
     }
 
@@ -340,7 +349,7 @@ pub const Timeline = struct {
                 switch (event.key) {
                     .p => std.debug.print("in the TIMELINE\n", .{}),
                     .enter => self.screen = .track,
-                    .e => self.screen = .midi_editor,
+                    // .e => self.screen = .midi_editor,
                     .h => {
                         self.cursor.start -= self.step_size;
                         self.cursorFocus();
