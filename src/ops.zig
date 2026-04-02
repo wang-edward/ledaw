@@ -4,12 +4,14 @@ const project = @import("project.zig");
 
 pub const PlaybackOp = union(enum) {
     toggle_play,
+    set_play: bool,
     reset,
     set_playhead: u64,
 };
 
 pub const RecordOp = union(enum) {
     toggle_record,
+    set_record: bool,
 };
 
 pub const GraphOp = union(enum) {

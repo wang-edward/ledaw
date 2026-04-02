@@ -150,7 +150,7 @@ fn pixelsToSong() void {
 
     // enter insert mode + start recording
     ledaw.g_app.mode = .insert;
-    pushOp(.{ .record = .toggle_record });
+    pushOp(.{ .record = .{ .set_record = true } });
 
     var playhead_pos: u64 = 0;
 
@@ -185,7 +185,7 @@ fn pixelsToSong() void {
     }
 
     // stop recording
-    pushOp(.{ .record = .toggle_record });
+    pushOp(.{ .record = .{ .set_record = false } });
     ledaw.g_app.mode = .normal;
 }
 
@@ -220,14 +220,14 @@ pub fn main() !void {
             parsePixels(line_buf[idx][0..len]);
         }
 
-        if (rl.isKeyPressed(.a)) {
+        if (rl.isKeyPressed(.b)) {
             ledaw.g_app.note_offset = 0;
             pixelsToSong();
         }
-        if (rl.isKeyPressed(.b)) {
+        if (rl.isKeyPressed(.a)) {
             ledaw.g_app.timeline.screen = .overview;
             pushOp(.{ .playback = .reset });
-            pushOp(.{ .playback = .toggle_play });
+            pushOp(.{ .playback = .{ .set_play = true } });
         }
         if (rl.isKeyPressed(.c)) {
             ledaw.g_app.timeline.print();

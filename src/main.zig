@@ -122,6 +122,14 @@ fn write_callback(
                             g_playing = !g_playing;
                         }
                     },
+                    .set_play => |val| {
+                        if (!val) {
+                            for (g_app.timeline.activeTracks()) |t| {
+                                t.synth.allNotesOff();
+                            }
+                        }
+                        g_playing = val;
+                    },
                     .reset => {
                         for (g_app.timeline.activeTracks()) |t| {
                             t.synth.allNotesOff();
@@ -157,6 +165,25 @@ fn write_callback(
                             _ = g_recording.store(true, .release);
                         } else {
                             _ = g_recording.store(true, .release);
+                        }
+                    },
+                    .set_record => |val| {
+                        if (val and !g_recording.load(.acquire)) {
+                            _ = g_recording.store(true, .release);
+                        } else if (!val and g_recording.load(.acquire)) {
+                            if (g_record_buffer.items.len > 0) {
+                                const at = g_app.timeline.active_track.load(.acquire);
+                                const tracks = g_app.timeline.activeTracks();
+                                if (at < tracks.len) {
+                                    tracks[at].player.appendNotes(
+                                        A,
+                                        g_record_buffer.items,
+                                    ) catch {};
+                                }
+                                g_record_buffer.clearRetainingCapacity();
+                            }
+                            g_held_notes = .{null} ** 128;
+                            _ = g_recording.store(false, .release);
                         }
                     },
                 },
