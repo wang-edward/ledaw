@@ -395,13 +395,13 @@ pub const Timeline = struct {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
                         return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .add_track = new_track } } }});
                     },
-                    .minus => if (self.track_count > 1) {
-                        const idx = self.active_track.load(.acquire);
-                        return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }});
-                    },
+                    // .minus => if (self.track_count > 1) {
+                    //     const idx = self.active_track.load(.acquire);
+                    //     return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }});
+                    // },
                     // zoom
-                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 2),
-                    .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 128),
+                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 4),
+                    .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 32),
                     else => {},
                 }
                 return .{};
