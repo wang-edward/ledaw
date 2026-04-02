@@ -36,7 +36,7 @@ pub fn main() !void {
     try interface.init();
     defer interface.deinit();
 
-    var prng = std.Random.DefaultPrng.init(42);
+    var prng = std.Random.DefaultPrng.init(@intCast(std.time.nanoTimestamp()));
     const rand = prng.random();
 
     const NUM_EVENTS = 100_000;
