@@ -195,7 +195,7 @@ pub fn main() !void {
     var read_thread = try std.Thread.spawn(.{}, readerThreadMain, .{});
     defer read_thread.join();
 
-    ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.context);
+    ledaw.g_app = try project.App.init(ledaw.A, &ledaw.g_playhead, &ledaw.g_recording, &ledaw.context);
     ledaw.g_app.timeline.addTrack(try project.Track.init(ledaw.A, &ledaw.g_app.timeline.active_track, &.{}));
     defer ledaw.g_app.deinit();
     ledaw.root = ledaw.g_app.timeline.asNode();
