@@ -189,7 +189,7 @@ pub const Phaser = struct {
         self.rate = .{ .param = &self.phaser.rate, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "rate" };
         self.depth = .{ .param = &self.phaser.depth, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "depth" };
         self.mix = .{ .param = &self.phaser.mix, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "mix" };
-        self.icon = rl.loadTexture("assets/water_spell.png") catch unreachable;
+        self.icon = rl.loadTexture("assets/lightning_spell.png") catch unreachable;
         return self;
     }
 
