@@ -9,7 +9,7 @@ pub const PlaybackOp = union(enum) {
 };
 
 pub const RecordOp = union(enum) {
-    toggle_record: usize, // track index to record to
+    toggle_record,
 };
 
 pub const GraphOp = union(enum) {

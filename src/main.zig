@@ -133,10 +133,11 @@ fn write_callback(
                     },
                 },
                 .record => |r| switch (r) {
-                    .toggle_record => |track_idx| {
+                    .toggle_record => {
                         if (g_recording) {
                             if (g_record_buffer.items.len > 0) {
-                                g_app.timeline.activeTracks()[track_idx].player.appendNotes(
+                                const at = g_app.timeline.active_track.load(.acquire);
+                                g_app.timeline.activeTracks()[at].player.appendNotes(
                                     A,
                                     g_record_buffer.items,
                                 ) catch {};

@@ -338,7 +338,7 @@ pub const Timeline = struct {
                     },
                     .space => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .toggle_play } }}),
                     .backspace => return ops.ActionList.fromSlice(&.{.{ .op = .{ .playback = .reset } }}),
-                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .{ .toggle_record = self.active_track.load(.acquire) } } }}),
+                    .r => return ops.ActionList.fromSlice(&.{.{ .op = .{ .record = .toggle_record } }}),
                     .c => self.print(),
                     .equal => if (self.track_count < MAX_TRACKS) {
                         const new_track = Track.init(self.alloc, &self.active_track, &.{}) catch unreachable;
