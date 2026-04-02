@@ -241,7 +241,7 @@ fn write_callback(
 }
 
 fn underflow_callback(_: ?[*]c.SoundIoOutStream) callconv(.c) void {
-    unreachable;
+    // unreachable; // TODO evaluate whether underflow should crash
 }
 
 // =============================== Audio thread entry ==================================
