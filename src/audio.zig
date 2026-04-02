@@ -203,6 +203,68 @@ pub const Delay = struct {
     }
 };
 
+pub const Phaser = struct {
+    const NUM_STAGES = 6;
+
+    input: Node,
+    allpass_delays: [NUM_STAGES]f32 = .{0} ** NUM_STAGES,
+    lfo_phase: f32 = 0,
+    rate: Param, // LFO rate in Hz
+    depth: Param, // 0-1
+    mix: Param, // dry/wet
+    vt: VTable = .{ .process = Phaser._process },
+
+    pub fn init(input: Node) Phaser {
+        return .{
+            .input = input,
+            .rate = .{ .val = 0.5, .min = 0.05, .max = 5.0 },
+            .depth = .{ .val = 0.7, .min = 0, .max = 1 },
+            .mix = .{ .val = 0.5, .min = 0, .max = 1 },
+        };
+    }
+
+    fn allpass(delay: *f32, input_sample: f32, coeff: f32) f32 {
+        const output = -coeff * input_sample + delay.*;
+        delay.* = output * coeff + input_sample;
+        return output;
+    }
+
+    fn _process(p: *anyopaque, ctx: *Context, out: []Sample) void {
+        const self: *Phaser = @ptrCast(@alignCast(p));
+        const tmp = ctx.tmp().alloc(Sample, out.len) catch unreachable;
+        self.input.v.process(self.input.ptr, ctx, tmp);
+
+        const sr = ctx.sample_rate;
+        const lfo_inc = self.rate.get() / sr;
+
+        for (out, tmp) |*o, dry| {
+            // LFO: sine wave modulating allpass coefficients
+            const lfo = std.math.sin(self.lfo_phase * 2.0 * std.math.pi);
+            self.lfo_phase += lfo_inc;
+            if (self.lfo_phase >= 1.0) self.lfo_phase -= 1.0;
+
+            // Map LFO to frequency range (100Hz - 4000Hz), then to allpass coefficient
+            const min_freq: f32 = 100;
+            const max_freq: f32 = 4000;
+            const mod = (lfo + 1.0) * 0.5; // 0..1
+            const freq = min_freq + mod * self.depth.get() * (max_freq - min_freq);
+            const coeff = (1.0 - std.math.pi * freq / sr) / (1.0 + std.math.pi * freq / sr);
+
+            // Chain of allpass filters
+            var sample = dry;
+            for (&self.allpass_delays) |*d| {
+                sample = allpass(d, sample, coeff);
+            }
+
+            o.* = dry * (1.0 - self.mix.get()) + sample * self.mix.get();
+        }
+    }
+
+    pub fn asNode(self: *Phaser) Node {
+        return .{ .ptr = self, .v = &self.vt };
+    }
+};
+
 pub const Adsr = struct {
     pub const Stage = enum { idle, attack, decay, sustain, release };
 

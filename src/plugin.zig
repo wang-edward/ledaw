@@ -4,13 +4,14 @@ const interface = @import("interface.zig");
 const ops = @import("ops.zig");
 const rl = @import("raylib");
 
-pub const Tag = enum { lpf, delay };
+pub const Tag = enum { lpf, delay, phaser };
 pub const list = std.enums.values(Tag);
 
 pub fn create(alloc: std.mem.Allocator, tag: Tag, input: audio.Node) !Plugin {
     return switch (tag) {
         .lpf => .{ .lpf = try Lpf.init(alloc, input) },
         .delay => .{ .delay = try Delay.init(alloc, input, 48_000) },
+        .phaser => .{ .phaser = try Phaser.init(alloc, input) },
     };
 }
 
@@ -31,6 +32,7 @@ pub const Knob = struct {
 pub const Plugin = union(Tag) {
     lpf: *Lpf,
     delay: *Delay,
+    phaser: *Phaser,
 
     pub fn deinit(self: Plugin, alloc: std.mem.Allocator) void {
         switch (self) {
@@ -166,6 +168,58 @@ pub const Delay = struct {
             .two => self.delay_time.param.setNorm(self.delay_time.param.getNorm() + 0.1),
             .three => self.feedback.param.setNorm(self.feedback.param.getNorm() - 0.1),
             .four => self.feedback.param.setNorm(self.feedback.param.getNorm() + 0.1),
+            .five => self.mix.param.setNorm(self.mix.param.getNorm() - 0.1),
+            .six => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
+            else => {},
+        }
+        return .{};
+    }
+};
+
+pub const Phaser = struct {
+    phaser: audio.Phaser,
+    rate: Knob,
+    depth: Knob,
+    mix: Knob,
+    icon: rl.Texture2D,
+
+    pub fn init(alloc: std.mem.Allocator, input: audio.Node) !*Phaser {
+        const self = try alloc.create(Phaser);
+        self.phaser = audio.Phaser.init(input);
+        self.rate = .{ .param = &self.phaser.rate, .pos = .{ .x = 32, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "rate" };
+        self.depth = .{ .param = &self.phaser.depth, .pos = .{ .x = 96, .y = 32 }, .radius = 10, .color = rl.Color.white, .name = "depth" };
+        self.mix = .{ .param = &self.phaser.mix, .pos = .{ .x = 32, .y = 96 }, .radius = 10, .color = rl.Color.white, .name = "mix" };
+        self.icon = rl.loadTexture("assets/water_spell.png") catch unreachable;
+        return self;
+    }
+
+    pub fn deinit(self: *Phaser, alloc: std.mem.Allocator) void {
+        rl.unloadTexture(self.icon);
+        alloc.destroy(self);
+    }
+
+    pub fn asNode(self: *Phaser) audio.Node {
+        return self.phaser.asNode();
+    }
+
+    pub fn setInput(self: *Phaser, input: audio.Node) void {
+        self.phaser.input = input;
+    }
+
+    pub fn render(self: *Phaser) void {
+        self.rate.render();
+        self.depth.render();
+        self.mix.render();
+        interface.drawTextCentered("PHASER", 64, 64, 10, rl.Color.sky_blue);
+    }
+
+    pub fn handleEvent(self: *Phaser, event: interface.Event) ops.ActionList {
+        switch (event.key) {
+            .backspace => return ops.ActionList.fromSlice(&.{.go_back}),
+            .one => self.rate.param.setNorm(self.rate.param.getNorm() - 0.1),
+            .two => self.rate.param.setNorm(self.rate.param.getNorm() + 0.1),
+            .three => self.depth.param.setNorm(self.depth.param.getNorm() - 0.1),
+            .four => self.depth.param.setNorm(self.depth.param.getNorm() + 0.1),
             .five => self.mix.param.setNorm(self.mix.param.getNorm() - 0.1),
             .six => self.mix.param.setNorm(self.mix.param.getNorm() + 0.1),
             else => {},
