@@ -8,7 +8,7 @@ const interface = ledaw.interface;
 const project = ledaw.project;
 const midi = ledaw.midi;
 
-var line_buf: [2][4096]u8 = undefined;
+var line_buf: [2][65536]u8 = undefined;
 var line_len: [2]usize = .{ 0, 0 };
 var line_idx: std.atomic.Value(u8) = std.atomic.Value(u8).init(0);
 
@@ -37,7 +37,7 @@ fn readerThreadMain() !void {
     defer conn.stream.close();
     const stream = conn.stream;
 
-    var buf: [4096]u8 = undefined;
+    var buf: [65536]u8 = undefined;
     var leftover: usize = 0;
 
     while (true) {
@@ -74,7 +74,7 @@ fn readerThreadMain() !void {
 
 // -- pixel data --
 
-const GRID_SIZE = 32;
+const GRID_SIZE = 128;
 
 const FrameData = struct {
     px: []const u8, // hex string
@@ -109,14 +109,11 @@ fn parsePixels(json_str: []const u8) void {
 fn renderPixelGrid() void {
     if (!pixels_valid) return;
 
-    const scale = interface.WIDTH / GRID_SIZE; // 128/32 = 4
     for (0..GRID_SIZE) |py| {
         for (0..GRID_SIZE) |px| {
             const val = pixels[py * GRID_SIZE + px];
             const color = rl.Color{ .r = val, .g = val, .b = val, .a = 255 };
-            const x: i32 = @intCast(px * scale);
-            const y: i32 = @intCast(py * scale);
-            rl.drawRectangle(x, y, scale, scale, color);
+            rl.drawPixel(@intCast(px), @intCast(py), color);
         }
     }
 }
@@ -169,12 +166,14 @@ fn pixelsToSong() void {
             held.set(key_idx);
         }
 
-        // advance playhead by random duration (0.01 to 0.1 beats)
-        const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
-        // std.debug.print("skip forward {} beats", .{duration});
-        const frames = midi.beatsToFrames(duration, tempo, SR);
-        playhead_pos += frames;
-        pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
+        if (rand.intRangeAtMost(u32, 0, 99) == 0) {
+            // advance playhead by random duration (0.01 to 0.1 beats)
+            const duration = 0.01 + @as(f32, @floatFromInt(rand.intRangeAtMost(u32, 0, 9))) * 0.01;
+            // std.debug.print("skip forward {} beats", .{duration});
+            const frames = midi.beatsToFrames(duration, tempo, SR);
+            playhead_pos += frames;
+            pushOp(.{ .playback = .{ .set_playhead = playhead_pos } });
+        }
     }
 
     // release all held keys

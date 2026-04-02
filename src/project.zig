@@ -400,7 +400,7 @@ pub const Timeline = struct {
                     //     return ops.ActionList.fromSlice(&.{.{ .op = .{ .graph = .{ .remove_track = idx } } }});
                     // },
                     // zoom
-                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 4),
+                    .right_bracket => self.frame.radius = @max(self.frame.radius / 2, 8),
                     .left_bracket => self.frame.radius = @min(self.frame.radius * 2, 32),
                     else => {},
                 }

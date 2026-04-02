@@ -4,7 +4,7 @@ import cv2
 
 SOCK_PATH = "/tmp/ledaw_ocr.sock"
 CAMERA_NAME = "UVC Camera"
-GRID_SIZE = 32
+GRID_SIZE = 128
 
 def find_camera(name):
     """Find camera by name. Uses AVFoundation to get native resolution, then matches against OpenCV indices."""
