@@ -18,7 +18,8 @@ pub fn init() !void {
 }
 
 pub fn initDual() !void {
-    rl.initWindow(1024, 512, "LeDaw Art");
+    rl.setConfigFlags(.{ .fullscreen_mode = true });
+    rl.initWindow(1920, 1080, "LeDaw Art");
     target = try rl.loadRenderTexture(WIDTH, HEIGHT);
     ocr_target = try rl.loadRenderTexture(WIDTH, HEIGHT);
     dual_mode = true;
@@ -53,19 +54,18 @@ pub fn postRender() void {
     rl.clearBackground(rl.Color.black);
 
     if (dual_mode) {
+        // each square is as large as possible, limited by height or half the width
         const half_width = @divTrunc(screen_width, 2);
         const square_len = @min(half_width, screen_height);
         const square_len_f: f32 = @floatFromInt(square_len);
 
-        // left: DAW
-        const left_x: f32 = @floatFromInt(@divTrunc(half_width - square_len, 2));
-        const left_y: f32 = @floatFromInt(@divTrunc(screen_height - square_len, 2));
-        drawSquare(target.texture, left_x, left_y, square_len_f);
+        // center both squares as a pair
+        const total_width = square_len * 2;
+        const offset_x: f32 = @floatFromInt(@divTrunc(screen_width - total_width, 2));
+        const offset_y: f32 = @floatFromInt(@divTrunc(screen_height - square_len, 2));
 
-        // right: OCR boxes
-        const right_x: f32 = @as(f32, @floatFromInt(half_width)) + left_x;
-        const right_y: f32 = left_y;
-        drawSquare(ocr_target.texture, right_x, right_y, square_len_f);
+        drawSquare(target.texture, offset_x, offset_y, square_len_f);
+        drawSquare(ocr_target.texture, offset_x + square_len_f, offset_y, square_len_f);
     } else {
         const square_len = @min(screen_width, screen_height);
         const pos_x: f32 = @floatFromInt(@divTrunc(screen_width - square_len, 2));
