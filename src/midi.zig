@@ -54,28 +54,29 @@ pub fn keyToMidi(key: rl.KeyboardKey) ?u8 {
     };
 }
 
-pub const Player = struct {
+pub const Clip = struct {
+    // TODO use map by note.start and std.sort.equalRange
     notes: std.ArrayListUnmanaged(Note) = .{},
 
-    pub fn init(alloc: std.mem.Allocator, notes_in: []const Note) !Player {
+    pub fn init(alloc: std.mem.Allocator, notes_in: []const Note) !Clip {
         var notes: std.ArrayListUnmanaged(Note) = .{};
         try notes.appendSlice(alloc, notes_in);
         return .{ .notes = notes };
     }
 
-    pub fn deinit(self: *Player, alloc: std.mem.Allocator) void {
+    pub fn deinit(self: *Clip, alloc: std.mem.Allocator) void {
         self.notes.deinit(alloc);
     }
 
-    pub fn clear(self: *Player) void {
+    pub fn clear(self: *Clip) void {
         self.notes.clearRetainingCapacity();
     }
 
-    pub fn appendNotes(self: *Player, alloc: std.mem.Allocator, new_notes: []const Note) !void {
+    pub fn appendNotes(self: *Clip, alloc: std.mem.Allocator, new_notes: []const Note) !void {
         try self.notes.appendSlice(alloc, new_notes);
     }
 
-    pub fn advance(self: *Player, start: Frame, end: Frame, out: []NoteMsg) usize {
+    pub fn advance(self: *Clip, start: Frame, end: Frame, out: []NoteMsg) usize {
         // std.debug.print("start: {}, end: {}", .{ start, end });
         // std.debug.print("notes: {any}", .{self.notes});
         std.debug.assert(end >= start);

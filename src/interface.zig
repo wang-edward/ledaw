@@ -73,6 +73,19 @@ pub fn toString(comptime T: type, value: T) [20:0]u8 {
     return buf;
 }
 
+pub fn indexToColor(index: usize) rl.Color {
+    const i = index % 6;
+    return switch (i) {
+        0 => rl.Color.red,
+        1 => rl.Color.orange,
+        2 => rl.Color.yellow,
+        3 => rl.Color.green,
+        4 => rl.Color.blue,
+        5 => rl.Color.violet,
+        else => @panic("tocolor"),
+    };
+}
+
 pub fn shouldClose() bool {
     return rl.windowShouldClose();
 }
