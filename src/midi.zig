@@ -77,8 +77,6 @@ pub const Clip = struct {
     }
 
     pub fn advance(self: *Clip, start: Frame, end: Frame, out: []NoteMsg) usize {
-        // std.debug.print("start: {}, end: {}", .{ start, end });
-        // std.debug.print("notes: {any}", .{self.notes});
         std.debug.assert(end >= start);
         std.debug.assert(end - start < 8192);
 
