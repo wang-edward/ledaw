@@ -75,7 +75,7 @@ pub const Player = struct {
         try self.notes.appendSlice(alloc, new_notes);
     }
 
-    pub fn advance(self: *Clip, start: Frame, end: Frame, out: []NoteMsg) usize {
+    pub fn advance(self: *Player, start: Frame, end: Frame, out: []NoteMsg) usize {
         std.debug.assert(end >= start);
         std.debug.assert(end - start < 8192);
 
