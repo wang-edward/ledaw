@@ -54,25 +54,24 @@ pub fn keyToMidi(key: rl.KeyboardKey) ?u8 {
     };
 }
 
-pub const Clip = struct {
-    // TODO use map by note.start and std.sort.equalRange
+pub const Player = struct {
     notes: std.ArrayListUnmanaged(Note) = .{},
 
-    pub fn init(alloc: std.mem.Allocator, notes_in: []const Note) !Clip {
+    pub fn init(alloc: std.mem.Allocator, notes_in: []const Note) !Player {
         var notes: std.ArrayListUnmanaged(Note) = .{};
         try notes.appendSlice(alloc, notes_in);
         return .{ .notes = notes };
     }
 
-    pub fn deinit(self: *Clip, alloc: std.mem.Allocator) void {
+    pub fn deinit(self: *Player, alloc: std.mem.Allocator) void {
         self.notes.deinit(alloc);
     }
 
-    pub fn clear(self: *Clip) void {
+    pub fn clear(self: *Player) void {
         self.notes.clearRetainingCapacity();
     }
 
-    pub fn appendNotes(self: *Clip, alloc: std.mem.Allocator, new_notes: []const Note) !void {
+    pub fn appendNotes(self: *Player, alloc: std.mem.Allocator, new_notes: []const Note) !void {
         try self.notes.appendSlice(alloc, new_notes);
     }
 

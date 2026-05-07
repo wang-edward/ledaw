@@ -137,9 +137,10 @@ fn write_callback(
                         if (g_recording.load(.acquire)) {
                             if (g_record_buffer.items.len > 0) {
                                 const at = g_app.timeline.active_track.load(.acquire);
-                                g_app.timeline.activeTracks()[at].clips.append(A, midi.Clip.init(A, g_record_buffer.items) catch {
-                                    @panic("append notes to clip failed");
-                                }) catch @panic("append clip to track failed");
+                                g_app.timeline.activeTracks()[at].player.appendNotes(
+                                    A,
+                                    g_record_buffer.items,
+                                ) catch {};
                                 g_record_buffer.clearRetainingCapacity();
                             }
                             g_held_notes = .{null} ** 128;
@@ -225,13 +226,11 @@ fn write_callback(
             _ = g_playhead.fetchAdd(@intCast(frame_count), .monotonic);
 
             for (g_app.timeline.activeTracks()) |track| {
-                for (track.clips.items) |*clip| {
-                    const n = clip.advance(start, g_playhead.raw, &midi_notes);
-                    for (midi_notes[0..n]) |msg| {
-                        switch (msg) {
-                            .off => |note| track.synth.noteOff(note),
-                            .on => |note| track.synth.noteOn(note),
-                        }
+                const n = track.player.advance(start, g_playhead.raw, &midi_notes);
+                for (midi_notes[0..n]) |msg| {
+                    switch (msg) {
+                        .off => |note| track.synth.noteOff(note),
+                        .on => |note| track.synth.noteOn(note),
                     }
                 }
             }

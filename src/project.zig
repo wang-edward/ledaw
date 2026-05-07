@@ -246,7 +246,7 @@ pub const Timeline = struct {
     pub fn print(self: *Timeline) void {
         std.debug.print("timeline: {d} tracks\n", .{self.track_count});
         for (self.tracks[0..self.track_count], 0..) |track, i| {
-            std.debug.print("  track {d}: {d} clips, {d} plugins", .{ i, track.clips.items.len, track.plugin_count });
+            std.debug.print("  track {d}: {d} notes, {d} plugins", .{ i, track.player.notes.items.len, track.plugin_count });
             if (i == self.active_track.load(.acquire)) std.debug.print(" [active] ", .{});
             if (track.plugin_count > 0) {
                 std.debug.print(" [", .{});
@@ -263,6 +263,7 @@ pub const Timeline = struct {
     pub fn render(self: *Timeline) void {
         switch (self.screen) {
             .overview => {
+                rl.drawText("TIMELINE_OVERVIEW", 30, 30, 10, rl.Color.light_gray);
                 const W: f32 = @floatFromInt(interface.WIDTH);
                 const num_rows = @min(self.track_count, MAX_TRACKS);
                 const b = midi.framesToBeats(self.playhead.load(.acquire), self.ctx.bpm, self.ctx.sample_rate);
@@ -285,31 +286,10 @@ pub const Timeline = struct {
                     rl.drawLine(x, HEADER_HEIGHT, x, HEADER_HEIGHT + @as(i32, @intCast(num_rows)) * ROW_HEIGHT, rl.Color.dark_gray);
                 }
 
-                // track rows + notes
+                // track rows
                 for (0..num_rows) |i| {
-                    const row_y: i32 = @as(i32, @intCast(i)) * ROW_HEIGHT + HEADER_HEIGHT;
-                    rl.drawRectangleLines(0, row_y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.dark_gray);
-
-                    // render notes: 2px buffer top/bottom, 24 semitones (2 octaves) in between
-                    const track = self.tracks[i + self.scroll_offset];
-                    for (track.clips.items, 0..) |clip, c| {
-                        const color = interface.indexToColor(c);
-                        for (clip.notes.items) |note| {
-                            const start_beat = midi.framesToBeats(note.start, self.ctx.bpm, self.ctx.sample_rate);
-                            const end_beat = midi.framesToBeats(note.end, self.ctx.bpm, self.ctx.sample_rate);
-                            if (end_beat < self.frame.leftEdge() or start_beat > self.frame.rightEdge()) continue;
-
-                            const left_pct = (start_beat - self.frame.leftEdge()) / self.frame.width();
-                            const right_pct = (end_beat - self.frame.leftEdge()) / self.frame.width();
-                            const x1: i32 = @intFromFloat(@max(left_pct * W, 0));
-                            const x2: i32 = @intFromFloat(@min(right_pct * W, W));
-
-                            // map note to 0..23 (2 octaves), invert so higher notes are higher on screen
-                            const slot: i32 = 23 - @as(i32, note.note % 24);
-                            const ny = row_y + 2 + slot;
-                            rl.drawLine(x1, ny, @max(x2, x1 + 1), ny, color);
-                        }
-                    }
+                    const y: i32 = @as(i32, @intCast(i)) * ROW_HEIGHT + HEADER_HEIGHT;
+                    rl.drawRectangleLines(0, y, @intCast(interface.WIDTH), ROW_HEIGHT, rl.Color.dark_gray);
                 }
 
                 // active track highlight
@@ -411,7 +391,7 @@ pub const Track = struct {
     pub const MAX_PLUGINS = 8;
 
     synth: *synth.Uni,
-    clips: std.ArrayListUnmanaged(midi.Clip),
+    player: midi.Player,
     alloc: std.mem.Allocator,
 
     index: *const std.atomic.Value(usize),
@@ -428,23 +408,19 @@ pub const Track = struct {
         const t = try alloc.create(Track);
         t.* = .{
             .synth = try synth.Uni.init(alloc),
-            .clips = .{},
+            .player = try midi.Player.init(alloc, notes_in),
             .alloc = alloc,
             .index = index,
             .plugins = undefined,
             .plugin_count = 0,
             .screen = .overview,
         };
-        try t.clips.append(alloc, try midi.Clip.init(alloc, notes_in));
         return t;
     }
 
     pub fn deinit(self: *Track, alloc: std.mem.Allocator) void {
         self.synth.deinit(alloc);
-        for (self.clips.items) |*clip| {
-            clip.deinit(alloc);
-        }
-        self.clips.deinit(alloc);
+        self.player.deinit(alloc);
         for (self.plugins[0..self.plugin_count]) |p| {
             p.deinit(alloc);
         }
