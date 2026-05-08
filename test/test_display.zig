@@ -33,7 +33,7 @@ const SPI_IOC_WR_MODE: u32 = 0x40016b01;
 const SPI_IOC_WR_MAX_SPEED_HZ: u32 = 0x40046b04;
 
 // from <linux/gpio.h>  (gpio v2 chardev — required on Bookworm)
-const GPIO_V2_LINE_FLAG_OUTPUT: u64 = 1 << 1;
+const GPIO_V2_LINE_FLAG_OUTPUT: u64 = 1 << 3;
 const GPIO_V2_GET_LINE_IOCTL: u32 = 0xc250b407;
 const GPIO_V2_LINE_SET_VALUES_IOCTL: u32 = 0xc010b40f;
 
