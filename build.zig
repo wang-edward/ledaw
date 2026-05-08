@@ -76,6 +76,21 @@ pub fn build(b: *std.Build) void {
     const fuzz_step = b.step("fuzz", "Run fuzz test");
     fuzz_step.dependOn(&fuzz_run.step);
 
+    // test_display
+    const test_display_exe = b.addExecutable(.{
+        .name = "test_display",
+        .root_module = b.createModule(.{
+            .root_source_file = b.path("test/test_display.zig"),
+            .target = target,
+            .optimize = optimize,
+        }),
+    });
+    b.installArtifact(test_display_exe);
+    const test_display_run = b.addRunArtifact(test_display_exe);
+    test_display_run.step.dependOn(b.getInstallStep());
+    const test_display_step = b.step("test-display", "Run display test");
+    test_display_step.dependOn(&test_display_run.step);
+
     // test
     const queue_mod = b.createModule(.{
         .root_source_file = b.path("src/queue.zig"),
