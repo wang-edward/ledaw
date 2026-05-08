@@ -164,11 +164,11 @@ const Ssd1351 = struct {
 
     fn reset(self: Ssd1351) !void {
         try self.rst.write(true);
-        std.time.sleep(100 * std.time.ns_per_ms);
+        std.Thread.sleep(100 * std.time.ns_per_ms);
         try self.rst.write(false);
-        std.time.sleep(100 * std.time.ns_per_ms);
+        std.Thread.sleep(100 * std.time.ns_per_ms);
         try self.rst.write(true);
-        std.time.sleep(100 * std.time.ns_per_ms);
+        std.Thread.sleep(100 * std.time.ns_per_ms);
     }
 
     fn cmd(self: Ssd1351, c: u8) !void {
@@ -237,7 +237,7 @@ const Ssd1351 = struct {
         try self.data(0x05);
         try self.cmd(0xA6); // normal display
 
-        std.time.sleep(100 * std.time.ns_per_ms);
+        std.Thread.sleep(100 * std.time.ns_per_ms);
         try self.cmd(0xAF); // display on
     }
 
@@ -286,7 +286,7 @@ pub fn main() !void {
     };
     for (colors) |c| {
         try oled.fill(c[0], c[1], c[2]);
-        std.time.sleep(500 * std.time.ns_per_ms);
+        std.Thread.sleep(500 * std.time.ns_per_ms);
     }
 
     // 8 horizontal color bars
@@ -310,5 +310,5 @@ pub fn main() !void {
         }
     }
     try oled.show(&fb);
-    std.time.sleep(3 * std.time.ns_per_s);
+    std.Thread.sleep(3 * std.time.ns_per_s);
 }
