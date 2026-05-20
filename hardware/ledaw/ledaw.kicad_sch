@@ -4838,46 +4838,6 @@
 				(justify left top)
 			)
 		)
-		(pin "CODEC_SDOUTS2" input
-			(at 135.89 80.01 180)
-			(uuid "9f37cf69-4609-49d5-8a12-718165b6f49d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "CODEC_SDINS2" input
-			(at 135.89 77.47 180)
-			(uuid "e7d95978-c17d-4b6c-8e82-d046d7169d3f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "CODEC_BCLKS2" input
-			(at 135.89 72.39 180)
-			(uuid "ae126415-29aa-4b7f-9b16-b42935c4587f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "CODEC_LRCLKS2" input
-			(at 135.89 74.93 180)
-			(uuid "fa3e8c33-c8d9-4149-83ac-9fcc0cf31e9e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "CODEC_SDOUTS1" input
 			(at 135.89 59.69 180)
 			(uuid "9e1602cc-2af3-4907-a49f-bb51e53d9f21")
