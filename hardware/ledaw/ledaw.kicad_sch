@@ -4801,8 +4801,8 @@
 		)
 	)
 	(sheet
-		(at 129.54 41.91)
-		(size 12.7 24.13)
+		(at 135.89 41.91)
+		(size 30.48 44.45)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -4817,7 +4817,7 @@
 		)
 		(uuid "ce852fb8-95b8-49b4-8488-1a8dad55f3f2")
 		(property "Sheetname" "codec"
-			(at 129.54 41.1984 0)
+			(at 135.89 41.1984 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4828,7 +4828,7 @@
 			)
 		)
 		(property "Sheetfile" "codec.kicad_sch"
-			(at 129.54 66.6246 0)
+			(at 135.89 86.9446 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4836,6 +4836,126 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "CODEC_SDOUTS2" input
+			(at 135.89 80.01 180)
+			(uuid "9f37cf69-4609-49d5-8a12-718165b6f49d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_SDINS2" input
+			(at 135.89 77.47 180)
+			(uuid "e7d95978-c17d-4b6c-8e82-d046d7169d3f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_BCLKS2" input
+			(at 135.89 72.39 180)
+			(uuid "ae126415-29aa-4b7f-9b16-b42935c4587f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_LRCLKS2" input
+			(at 135.89 74.93 180)
+			(uuid "fa3e8c33-c8d9-4149-83ac-9fcc0cf31e9e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_SDOUTS1" input
+			(at 135.89 59.69 180)
+			(uuid "9e1602cc-2af3-4907-a49f-bb51e53d9f21")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_LRCLKS1" input
+			(at 135.89 54.61 180)
+			(uuid "e2c6fdf1-f182-4d2f-bb7d-390ce397c43b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_SDINS1" input
+			(at 135.89 57.15 180)
+			(uuid "85b5dcf5-f180-48e0-9840-e5940a3f1a5d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_BCLKS1" input
+			(at 135.89 52.07 180)
+			(uuid "8e240e21-3c16-4f5e-b99c-a957228d74ae")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_SCL" input
+			(at 135.89 66.04 180)
+			(uuid "0e4b572e-0917-4cec-beca-cb63701b0018")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_~{IRQ}" input
+			(at 135.89 68.58 180)
+			(uuid "21a93082-45e1-4065-9555-c13f3ac13c3f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_SDA" input
+			(at 135.89 63.5 180)
+			(uuid "452514a6-980c-4b4c-970a-223e168b8f50")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_CLKEN" input
+			(at 135.89 48.26 180)
+			(uuid "dcc066d2-5b51-45eb-a9b9-960254e9c551")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
