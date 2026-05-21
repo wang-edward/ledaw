@@ -5806,7 +5806,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0009d74f-a08b-47f3-bd14-f93e700fb52d")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR016"
 			(at 36.83 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -5866,7 +5866,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR029")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -5906,7 +5906,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 161.29 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -5965,7 +5965,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0fb0a490-ee8c-491f-be35-3a5bca27f31f")
-		(property "Reference" "C101"
+		(property "Reference" "C13"
 			(at 119.38 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5985,7 +5985,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 119.38 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -6027,7 +6027,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C101")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -6044,7 +6044,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "10e32f51-adb2-4048-943d-deaa6eaf4297")
-		(property "Reference" "C105"
+		(property "Reference" "C21"
 			(at 154.94 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6064,7 +6064,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 154.94 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -6106,7 +6106,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C105")
+					(reference "C21")
 					(unit 1)
 				)
 			)
@@ -6124,7 +6124,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "12f37bb8-58cc-4077-9737-c594905d4f17")
-		(property "Reference" "C2"
+		(property "Reference" "C26"
 			(at 181.6163 78.74 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6144,7 +6144,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 181.61 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -6186,7 +6186,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C2")
+					(reference "C26")
 					(unit 1)
 				)
 			)
@@ -6204,7 +6204,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "17df82b6-657a-45d0-a331-f64865917261")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR041"
 			(at 158.75 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -6264,7 +6264,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR06")
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -6376,7 +6376,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2197e5c2-e8ce-4a53-84f9-384fa93bfbb2")
-		(property "Reference" "C8"
+		(property "Reference" "C29"
 			(at 250.19 86.3662 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6398,7 +6398,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 247.65 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -6440,7 +6440,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C8")
+					(reference "C29")
 					(unit 1)
 				)
 			)
@@ -6457,7 +6457,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "25b30ec3-5fd4-463b-9698-0c0677275651")
-		(property "Reference" "R16"
+		(property "Reference" "R4"
 			(at 86.36 82.042 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6477,7 +6477,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 86.36 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -6519,7 +6519,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "R16")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -6559,7 +6559,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
 			(at 266.7 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -6618,7 +6618,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "31e04024-8ad0-4139-abb4-c4e7177c9ce9")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR018"
 			(at 41.91 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -6678,7 +6678,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR021")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -6695,7 +6695,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "327f14ff-0fe4-4a93-bcad-b43a66fb53ac")
-		(property "Reference" "TP17"
+		(property "Reference" "TP1"
 			(at 86.36 86.868 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6717,7 +6717,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 92.71 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -6756,7 +6756,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP17")
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -6774,7 +6774,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32fe8487-6358-4fcb-ad50-6c0a1ef71993")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR024"
 			(at 66.04 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -6834,7 +6834,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR013")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -6851,7 +6851,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3521286b-119b-41cd-a4b3-91eb364200a2")
-		(property "Reference" "C6"
+		(property "Reference" "C4"
 			(at 35.56 70.612 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6871,7 +6871,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 39.37 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6913,7 +6913,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C6")
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -6930,7 +6930,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "37198fb6-c5a3-45e3-ac0a-cbaa5d7f9490")
-		(property "Reference" "#PWR041"
+		(property "Reference" "#PWR022"
 			(at 60.96 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -6990,7 +6990,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR041")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -7008,7 +7008,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "39e4f03e-94e3-415f-aa13-9f8c20495fbd")
-		(property "Reference" "C4"
+		(property "Reference" "C28"
 			(at 250.19 72.3962 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7030,7 +7030,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 247.65 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -7072,7 +7072,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C4")
+					(reference "C28")
 					(unit 1)
 				)
 			)
@@ -7090,7 +7090,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a6c2d8f-d851-4f4c-8fad-066854533dfd")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR034"
 			(at 125.73 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -7150,7 +7150,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR033")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -7167,7 +7167,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3af7d3f5-d63a-4a30-8f42-1cd88646b75c")
-		(property "Reference" "TP15"
+		(property "Reference" "TP5"
 			(at 104.14 111.252 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7189,7 +7189,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 97.79 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -7228,7 +7228,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP15")
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -7245,7 +7245,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3b981327-09d2-4a60-ad25-f91e25b8a190")
-		(property "Reference" "C12"
+		(property "Reference" "C15"
 			(at 129.794 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7265,7 +7265,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 128.27 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -7307,7 +7307,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C12")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -7325,7 +7325,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3df8fc90-135b-4c1a-91cd-cfb012b8cff6")
-		(property "Reference" "FB6"
+		(property "Reference" "FB1"
 			(at 63.5 31.788 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7347,7 +7347,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 64.262 33.02 90)
 			(hide yes)
 			(show_name no)
@@ -7389,7 +7389,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB6")
+					(reference "FB1")
 					(unit 1)
 				)
 			)
@@ -7406,7 +7406,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3e2c79f9-1412-438b-891a-73fdfb6d5e73")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR048"
 			(at 201.93 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -7466,7 +7466,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR025")
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -7575,7 +7575,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "442bd62a-2f31-45d1-a83e-2205f8cb0ae6")
-		(property "Reference" "U2"
+		(property "Reference" "U4"
 			(at 116.84 35.83 0)
 			(hide yes)
 			(show_name no)
@@ -7599,7 +7599,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "MAX98089ETN_T:QFN40P700X700X80-57N"
+		(property "Footprint" "footprints:MAX98089ETN_T"
 			(at 142.24 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -7847,7 +7847,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "U2")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -7864,7 +7864,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4909185c-dc5c-40c1-a621-8eee2c4b9515")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR038"
 			(at 146.05 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7924,7 +7924,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR022")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -7942,7 +7942,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a772421-cacc-4ccb-91bd-0966f8dbfe66")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR050"
 			(at 247.65 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -8002,7 +8002,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR031")
+					(reference "#PWR050")
 					(unit 1)
 				)
 			)
@@ -8019,7 +8019,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4e178bf2-69d0-4613-8e21-0682f792cbae")
-		(property "Reference" "TP8"
+		(property "Reference" "TP15"
 			(at 249.936 101.346 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8041,7 +8041,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 257.81 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -8080,7 +8080,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP8")
+					(reference "TP15")
 					(unit 1)
 				)
 			)
@@ -8098,7 +8098,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4ebf9525-1ccd-4134-87e9-d8433fc93e5f")
-		(property "Reference" "FB5"
+		(property "Reference" "FB2"
 			(at 73.6219 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8118,7 +8118,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 73.66 108.458 90)
 			(hide yes)
 			(show_name no)
@@ -8160,7 +8160,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB5")
+					(reference "FB2")
 					(unit 1)
 				)
 			)
@@ -8177,7 +8177,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4ff25736-b13f-4cc8-a061-7cc8eb7646e9")
-		(property "Reference" "TP16"
+		(property "Reference" "TP6"
 			(at 104.14 115.824 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8199,7 +8199,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 97.79 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -8238,7 +8238,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP16")
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -8255,7 +8255,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5028ccdd-f78f-455c-8f4f-6a2705c48eb5")
-		(property "Reference" "C23"
+		(property "Reference" "C14"
 			(at 128.27 32.512 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8275,7 +8275,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 128.27 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -8317,7 +8317,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C23")
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -8334,7 +8334,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5589cebe-978f-4989-b027-b5819aeadd76")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR046"
 			(at 185.42 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -8394,7 +8394,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR040")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -8411,7 +8411,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "566ee1c9-bcc1-41fd-b54a-24e9c3905fce")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR020"
 			(at 41.91 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -8471,7 +8471,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR034")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -8488,7 +8488,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "59f79222-54ba-4fe3-9c4e-63bcab3cc3f4")
-		(property "Reference" "TP21"
+		(property "Reference" "TP3"
 			(at 100.33 127.254 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8510,7 +8510,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 93.98 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -8549,7 +8549,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP21")
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -8653,7 +8653,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5ed48004-a51c-452d-9b7b-ab2ad4f6c124")
-		(property "Reference" "C19"
+		(property "Reference" "C24"
 			(at 173.99 139.7062 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8675,7 +8675,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 176.53 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -8717,7 +8717,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C19")
+					(reference "C24")
 					(unit 1)
 				)
 			)
@@ -8825,7 +8825,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "60ff4c5f-6880-4f14-a9f9-3f74c72d398f")
-		(property "Reference" "R17"
+		(property "Reference" "R5"
 			(at 99.06 89.662 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8845,7 +8845,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 99.06 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -8887,7 +8887,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "R17")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -8905,7 +8905,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6369a5dd-ce18-4e4c-bc97-16b1148d2869")
-		(property "Reference" "C109"
+		(property "Reference" "C11"
 			(at 96.012 109.982 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8925,7 +8925,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 99.06 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -8967,7 +8967,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C109")
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -8985,7 +8985,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6459ad85-2b57-4d10-b723-8e6cebb44384")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR021"
 			(at 55.88 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -9045,7 +9045,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR036")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -9062,7 +9062,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "647e38a9-ee31-4be9-9053-ab0046945dae")
-		(property "Reference" "C102"
+		(property "Reference" "C12"
 			(at 110.49 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9082,7 +9082,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 110.49 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -9124,7 +9124,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C102")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -9142,7 +9142,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66939f8e-a2cd-483c-b4e7-0d25e1921f10")
-		(property "Reference" "#PWR043"
+		(property "Reference" "#PWR053"
 			(at 247.65 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -9202,7 +9202,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR043")
+					(reference "#PWR053")
 					(unit 1)
 				)
 			)
@@ -9219,7 +9219,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "683e245f-24b5-4bf1-b669-8e0a70188b7c")
-		(property "Reference" "C5"
+		(property "Reference" "C7"
 			(at 69.342 108.458 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9241,7 +9241,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 76.2 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -9283,7 +9283,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C5")
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -9300,7 +9300,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6922caa2-ddc3-4d11-90a2-734df1126323")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR031"
 			(at 116.84 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -9360,7 +9360,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR011")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -9378,7 +9378,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6a99c67b-64ae-48ac-9b9b-6b26863da83a")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR035"
 			(at 132.08 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -9438,7 +9438,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR05")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -9455,7 +9455,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "70257af2-7673-4e58-9b9e-11e5031a7657")
-		(property "Reference" "C7"
+		(property "Reference" "C5"
 			(at 35.56 101.092 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9475,7 +9475,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 39.37 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -9517,7 +9517,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C7")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -9535,7 +9535,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "71911c2a-1c53-47f7-a1f6-69cf3148cf58")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR051"
 			(at 247.65 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -9595,7 +9595,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR035")
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
@@ -9613,7 +9613,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7525c32c-b43f-4079-8ccf-a87b6a783581")
-		(property "Reference" "C11"
+		(property "Reference" "C31"
 			(at 250.19 124.4662 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9635,7 +9635,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 247.65 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -9677,7 +9677,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C11")
+					(reference "C31")
 					(unit 1)
 				)
 			)
@@ -9694,7 +9694,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "753d42bf-a553-4bd4-8a6f-8f8e32b5be63")
-		(property "Reference" "TP20"
+		(property "Reference" "TP2"
 			(at 100.33 122.174 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9716,7 +9716,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 93.98 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -9755,7 +9755,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP20")
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -9772,7 +9772,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7606ff38-28e4-4560-9b5a-972790741b66")
-		(property "Reference" "TP4"
+		(property "Reference" "TP13"
 			(at 249.936 62.992 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9794,7 +9794,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 257.81 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -9833,7 +9833,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP4")
+					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -9851,7 +9851,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "768e4627-1265-40b2-a9b8-945268f7eae1")
-		(property "Reference" "C3"
+		(property "Reference" "C27"
 			(at 181.6163 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9871,7 +9871,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 181.61 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -9913,7 +9913,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C3")
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -9930,7 +9930,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7721e00b-1a46-495e-ae44-b44716fe34b8")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR036"
 			(at 134.62 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -9990,7 +9990,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR014")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -10007,7 +10007,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b13764d-ab94-402d-9397-de870ebd0eb8")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR049"
 			(at 208.28 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -10067,7 +10067,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR026")
+					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -10085,7 +10085,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7eb41f8c-c99b-4b4e-9153-e6c3a1594a18")
-		(property "Reference" "FB2"
+		(property "Reference" "FB4"
 			(at 237.4519 78.74 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10105,7 +10105,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 237.49 86.868 90)
 			(hide yes)
 			(show_name no)
@@ -10147,7 +10147,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB2")
+					(reference "FB4")
 					(unit 1)
 				)
 			)
@@ -10165,7 +10165,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "84854138-811f-4bf8-b517-792db72a9d2c")
-		(property "Reference" "C10"
+		(property "Reference" "C30"
 			(at 250.19 110.4962 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10187,7 +10187,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 247.65 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -10229,7 +10229,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C10")
+					(reference "C30")
 					(unit 1)
 				)
 			)
@@ -10269,7 +10269,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 153.67 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -10329,7 +10329,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "85e97b2e-900d-42fb-9a58-09621d49c9ac")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR019"
 			(at 41.91 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -10389,7 +10389,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR032")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -10407,7 +10407,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "86ea5e99-3a55-4e62-ba41-0f9d11f54bb3")
-		(property "Reference" "TP1"
+		(property "Reference" "TP10"
 			(at 198.12 72.8979 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10429,7 +10429,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 200.66 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -10468,7 +10468,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP1")
+					(reference "TP10")
 					(unit 1)
 				)
 			)
@@ -10486,7 +10486,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "88828d44-9aa5-4c0e-835e-cd805688ff8e")
-		(property "Reference" "FB4"
+		(property "Reference" "FB6"
 			(at 237.4519 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10506,7 +10506,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 237.49 124.968 90)
 			(hide yes)
 			(show_name no)
@@ -10548,7 +10548,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB4")
+					(reference "FB6")
 					(unit 1)
 				)
 			)
@@ -10565,7 +10565,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8c767f6d-8244-4f51-909a-9eb61dfe3ae4")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR033"
 			(at 125.73 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -10625,7 +10625,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR012")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -10665,7 +10665,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
 			(at 266.7 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -10724,7 +10724,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9891dcdc-aeb1-44ab-97a1-10e6c18285c9")
-		(property "Reference" "J2"
+		(property "Reference" "J4"
 			(at 220.98 88.2651 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10746,7 +10746,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_PJ311_Horizontal"
 			(at 213.36 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -10791,7 +10791,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "J2")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -10886,7 +10886,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9be542f6-aacd-42d0-860c-728e30fbdad8")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR029"
 			(at 107.95 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -10946,7 +10946,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR010")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -10963,7 +10963,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a08d3855-4d03-4b51-86d6-d25a59bbc827")
-		(property "Reference" "TP6"
+		(property "Reference" "TP14"
 			(at 249.936 77.216 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10985,7 +10985,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 257.81 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -11024,7 +11024,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP6")
+					(reference "TP14")
 					(unit 1)
 				)
 			)
@@ -11042,7 +11042,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a1c4920e-b1d8-492b-b2fb-23f4e88cc728")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR017"
 			(at 41.91 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -11102,7 +11102,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR019")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -11119,7 +11119,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a6082033-d059-4470-a423-70198137ce89")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR042"
 			(at 161.29 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -11179,7 +11179,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR017")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -11197,7 +11197,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a980d17b-4b72-4ba5-b13d-2846cbaaa047")
-		(property "Reference" "TP3"
+		(property "Reference" "TP12"
 			(at 200.66 92.2021 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11219,7 +11219,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 203.2 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -11258,7 +11258,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP3")
+					(reference "TP12")
 					(unit 1)
 				)
 			)
@@ -11276,7 +11276,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a9b7884f-af43-42de-a3b0-b4df8fd33aa1")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR030"
 			(at 114.3 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -11336,7 +11336,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR07")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -11353,7 +11353,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ab075587-f49d-4427-8f61-7ff70baf927b")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR027"
 			(at 81.28 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -11413,7 +11413,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR039")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -11430,7 +11430,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ac7c6e9c-ed7c-4071-a4bb-5ccdd79b3b0b")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR032"
 			(at 125.73 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -11490,7 +11490,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR037")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -11507,7 +11507,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "accd0373-6efb-4ffe-acd6-3d0dbb8b5ae0")
-		(property "Reference" "TP10"
+		(property "Reference" "TP16"
 			(at 249.936 115.316 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11529,7 +11529,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 257.81 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -11568,7 +11568,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP10")
+					(reference "TP16")
 					(unit 1)
 				)
 			)
@@ -11585,7 +11585,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "acdfe6cd-c0b5-4e5c-834f-39e4c882bc1f")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR025"
 			(at 66.04 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -11645,7 +11645,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR018")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -11662,7 +11662,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ad81af0d-7b22-4b2c-9d10-c943cbd80dca")
-		(property "Reference" "TP19"
+		(property "Reference" "TP4"
 			(at 101.6 61.468 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11684,7 +11684,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 107.95 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -11723,7 +11723,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP19")
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -11741,7 +11741,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b34aae0f-e960-44a0-9139-3be467b516ec")
-		(property "Reference" "TP2"
+		(property "Reference" "TP11"
 			(at 200.66 80.5179 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11763,7 +11763,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 203.2 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -11802,7 +11802,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP2")
+					(reference "TP11")
 					(unit 1)
 				)
 			)
@@ -11820,7 +11820,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b65df72b-bb37-4175-ba98-ddbbb8077392")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR052"
 			(at 247.65 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -11880,7 +11880,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR042")
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -11897,7 +11897,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b9b087ea-11cc-4192-89ed-f448fc8e9e94")
-		(property "Reference" "C104"
+		(property "Reference" "C18"
 			(at 146.05 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11917,7 +11917,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 146.05 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11959,7 +11959,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C104")
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -11976,7 +11976,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "be74ca79-bb9e-4ca1-afae-42eb6f3c057f")
-		(property "Reference" "C108"
+		(property "Reference" "C10"
 			(at 99.06 101.092 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11996,7 +11996,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 99.06 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -12038,7 +12038,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C108")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -12055,7 +12055,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bf71259d-63e2-4471-88ef-ac3eb186a2fd")
-		(property "Reference" "C103"
+		(property "Reference" "C16"
 			(at 137.16 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12075,7 +12075,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 137.16 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -12117,7 +12117,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C103")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -12134,7 +12134,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c13ebafa-ef3e-4c10-8100-a0def14f0155")
-		(property "Reference" "C111"
+		(property "Reference" "C9"
 			(at 88.9 126.238 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12154,7 +12154,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 88.9 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -12196,7 +12196,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C111")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -12214,7 +12214,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2800666-3878-4b36-b58c-92d462593deb")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR043"
 			(at 161.29 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -12274,7 +12274,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR038")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -12292,7 +12292,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c3c193c6-5316-4004-9da6-62afc01b1801")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR023"
 			(at 64.77 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -12352,7 +12352,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR024")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -12369,7 +12369,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c54fbffb-5183-429a-98c5-213d0748acde")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR015"
 			(at 36.83 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -12429,7 +12429,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR023")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -12446,7 +12446,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cac9b048-9536-4f24-ad6c-63e219a96da4")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR040"
 			(at 152.4 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -12506,7 +12506,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR016")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -12524,7 +12524,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cd48ade5-425e-428f-b26d-b038574e1450")
-		(property "Reference" "FB3"
+		(property "Reference" "FB5"
 			(at 237.4519 102.87 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12544,7 +12544,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 237.49 110.998 90)
 			(hide yes)
 			(show_name no)
@@ -12586,7 +12586,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB3")
+					(reference "FB5")
 					(unit 1)
 				)
 			)
@@ -12603,7 +12603,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ce455166-24c1-44ba-a4fa-a393957dd6e0")
-		(property "Reference" "C9"
+		(property "Reference" "C6"
 			(at 56.134 37.084 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12623,7 +12623,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 63.5 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -12665,7 +12665,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C9")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -12683,7 +12683,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ce61133e-d9fa-417c-a654-d56a3d7e3f7f")
-		(property "Reference" "FB1"
+		(property "Reference" "FB3"
 			(at 236.1819 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12703,7 +12703,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
 			(at 236.22 72.898 90)
 			(hide yes)
 			(show_name no)
@@ -12745,7 +12745,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "FB1")
+					(reference "FB3")
 					(unit 1)
 				)
 			)
@@ -12762,7 +12762,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d397ecb7-47ee-4f8b-9ff9-6ec505e596eb")
-		(property "Reference" "C21"
+		(property "Reference" "C19"
 			(at 144.018 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12784,7 +12784,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 146.05 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -12826,7 +12826,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C21")
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -12844,7 +12844,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8490548-16f9-486e-a020-9e64c3641b90")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR044"
 			(at 167.64 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -12904,7 +12904,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR08")
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -12944,7 +12944,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_PJ311_Horizontal"
 			(at 77.47 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -13007,7 +13007,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "da93b2b1-d6b5-448b-9a59-19441acf6fe0")
-		(property "Reference" "TP13"
+		(property "Reference" "TP9"
 			(at 187.96 119.888 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13029,7 +13029,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 194.31 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -13068,7 +13068,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP13")
+					(reference "TP9")
 					(unit 1)
 				)
 			)
@@ -13086,7 +13086,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e28f9339-1c78-44d2-8ae5-4e9681656cb2")
-		(property "Reference" "C110"
+		(property "Reference" "C8"
 			(at 91.694 120.904 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13106,7 +13106,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 88.9 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13148,7 +13148,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C110")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -13165,7 +13165,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e45147c8-218c-4acf-aa20-20b454b76c35")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR037"
 			(at 143.51 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -13225,7 +13225,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR015")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -13242,7 +13242,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e4b99237-98f9-40e1-9f28-1713f04ea8a4")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR047"
 			(at 194.31 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -13302,7 +13302,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR09")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -13319,7 +13319,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e9b111e3-1c57-4fd7-95e9-2a57c4d5a808")
-		(property "Reference" "TP12"
+		(property "Reference" "TP8"
 			(at 187.198 101.092 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13341,7 +13341,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 194.31 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -13380,7 +13380,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP12")
+					(reference "TP8")
 					(unit 1)
 				)
 			)
@@ -13397,7 +13397,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "eabfa995-17cc-4a07-96ff-eaabed57d79e")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR026"
 			(at 76.2 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13457,7 +13457,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR027")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -13474,7 +13474,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "eb0c981c-f9e7-4c66-ae72-4ce4488442fb")
-		(property "Reference" "C107"
+		(property "Reference" "C17"
 			(at 150.368 35.052 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13494,7 +13494,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 146.05 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -13536,7 +13536,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C107")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -13553,7 +13553,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "eb2c9087-fd61-4692-a46d-185ae1fc43ee")
-		(property "Reference" "C106"
+		(property "Reference" "C23"
 			(at 163.83 42.672 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13573,7 +13573,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 163.83 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -13615,7 +13615,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C106")
+					(reference "C23")
 					(unit 1)
 				)
 			)
@@ -13633,7 +13633,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ec503881-0354-4ff9-b5ad-8719a5df83cd")
-		(property "Reference" "C18"
+		(property "Reference" "C25"
 			(at 182.88 139.7062 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13655,7 +13655,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 180.34 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -13697,7 +13697,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "C18")
+					(reference "C25")
 					(unit 1)
 				)
 			)
@@ -13715,7 +13715,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eeef6835-acf0-4e5a-ae05-df06124bd991")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR039"
 			(at 146.05 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -13775,7 +13775,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR030")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -13793,7 +13793,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f113824e-1642-4292-9e32-8322c855a4c7")
-		(property "Reference" "TP18"
+		(property "Reference" "TP7"
 			(at 181.356 125.984 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13815,7 +13815,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 189.23 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -13854,7 +13854,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "TP18")
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -13872,7 +13872,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f7c9eca6-53ea-4b42-80e5-44d51979904f")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR045"
 			(at 180.34 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13932,7 +13932,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "#PWR020")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -13950,7 +13950,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fde8390f-b696-40b9-82af-71ad2f7fc4b2")
-		(property "Reference" "J4"
+		(property "Reference" "J5"
 			(at 223.266 116.586 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13970,7 +13970,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_PJ320D_Horizontal"
 			(at 213.36 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -14018,7 +14018,7 @@
 		(instances
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "J4")
+					(reference "J5")
 					(unit 1)
 				)
 			)
