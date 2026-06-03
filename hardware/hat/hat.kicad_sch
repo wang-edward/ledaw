@@ -5103,7 +5103,7 @@
 		)
 		(uuid "29d046c2-f681-4254-89b3-1ec3aa495433")
 	)
-	(label "GPIO27"
+	(label "GPIO6"
 		(at 124.46 109.22 0)
 		(effects
 			(font
@@ -5353,7 +5353,7 @@
 		)
 		(uuid "97afbe02-dc43-4288-8420-bf491584d322")
 	)
-	(label "GPIO25"
+	(label "GPIO5"
 		(at 124.46 106.68 0)
 		(effects
 			(font
@@ -6578,7 +6578,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm_NumberLabels"
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
 			(at 96.52 180.34 0)
 			(hide yes)
 			(show_name no)

@@ -4339,7 +4339,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 123.19) (xy 261.62 115.57)
+			(xy 261.62 123.19) (xy 261.62 116.84)
 		)
 		(stroke
 			(width 0)
@@ -4436,16 +4436,6 @@
 			(type default)
 		)
 		(uuid "46f64afd-71b4-42c4-9dd8-8d3dfb19aac0")
-	)
-	(wire
-		(pts
-			(xy 261.62 85.09) (xy 261.62 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "494780b4-ef3e-4458-a2c9-ab3d97775686")
 	)
 	(wire
 		(pts
@@ -5229,7 +5219,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 109.22) (xy 261.62 113.03)
+			(xy 261.62 109.22) (xy 261.62 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5266,6 +5256,16 @@
 			(type default)
 		)
 		(uuid "cd92fc86-f461-4e8b-9db0-b9fff0133bb0")
+	)
+	(wire
+		(pts
+			(xy 261.62 80.01) (xy 261.62 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce6b7139-c7a5-4ec8-8876-c753bf4e5a8d")
 	)
 	(wire
 		(pts
@@ -5949,6 +5949,87 @@
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
 					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Speaker")
+		(at 266.7 77.47 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "05140744-fdd5-45a8-8a17-f590fa068833")
+		(property "Reference" "LS1"
+			(at 271.78 77.4699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SpeakerL"
+			(at 271.78 80.0099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+			(at 266.7 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 266.446 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Speaker"
+			(at 266.7 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7a81562c-7840-4024-b619-fea075d0e253")
+		)
+		(pin "2"
+			(uuid "d3661729-ece1-4540-a905-3e3a4b22c85f")
+		)
+		(instances
+			(project "hat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
+					(reference "LS1")
 					(unit 1)
 				)
 			)
@@ -6677,88 +6758,6 @@
 			(project "hat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Speaker")
-		(at 266.7 77.47 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2656bc65-965c-436a-af97-b536345cbd93")
-		(property "Reference" "LS1"
-			(at 271.78 77.4699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SpeakerL"
-			(at 271.78 80.0099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
-			(at 266.7 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 266.446 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Speaker"
-			(at 266.7 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0baf7143-19e6-4e18-a073-d5bcf5a35c29")
-		)
-		(pin "2"
-			(uuid "ad263ba7-d9d3-4e04-ab0e-fa83ec714336")
-		)
-		(instances
-			(project "hat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/3a835778-dedc-4b02-91df-d91f32dd536d"
-					(reference "LS1")
 					(unit 1)
 				)
 			)
@@ -10717,7 +10716,8 @@
 	)
 	(symbol
 		(lib_id "Device:Speaker")
-		(at 266.7 113.03 0)
+		(at 266.7 116.84 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10725,10 +10725,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "8cb5098f-0ef3-49c6-a47f-bf0060e94270")
 		(property "Reference" "LS2"
-			(at 271.78 113.0299 0)
+			(at 271.78 116.8401 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10739,7 +10738,7 @@
 			)
 		)
 		(property "Value" "SpeakerR"
-			(at 271.78 115.5699 0)
+			(at 271.78 114.3001 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10750,7 +10749,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
-			(at 266.7 118.11 0)
+			(at 266.7 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10761,7 +10760,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 266.446 114.3 0)
+			(at 266.446 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10772,7 +10771,7 @@
 			)
 		)
 		(property "Description" "Speaker"
-			(at 266.7 113.03 0)
+			(at 266.7 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
