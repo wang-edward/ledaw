@@ -5173,7 +5173,7 @@
 		)
 		(uuid "45550f58-81b3-4113-a98b-8910341c00d8")
 	)
-	(label "GPIO22"
+	(label "GPIO24"
 		(at 132.08 46.99 0)
 		(effects
 			(font
