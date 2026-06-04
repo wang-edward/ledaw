@@ -5453,7 +5453,7 @@
 		)
 		(uuid "dd6c1ab1-463a-460b-93e3-6e17d4c06611")
 	)
-	(label "GPIO17"
+	(label "GPIO25"
 		(at 137.16 67.31 0)
 		(effects
 			(font
