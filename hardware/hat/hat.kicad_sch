@@ -5837,6 +5837,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C2977589"
+			(at 66.04 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "8d678796-43d4-427f-808d-7fd8ec169db6")
 		)
@@ -6066,7 +6077,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 64.9858 178.9493 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6100,6 +6111,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 67.31 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C49678"
 			(at 67.31 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -6181,6 +6203,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 93.98 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17614"
 			(at 93.98 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -6349,6 +6382,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C2862740"
+			(at 100.33 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "fd9c36b6-2890-49c9-8aee-e42dee60c03f")
 		)
@@ -6440,6 +6484,17 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 86.36 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5bed8d05-4581-44c1-a19a-bce04d04effd")
 		)
@@ -6461,7 +6516,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "430d9e2d-6920-4e11-8dec-22d693f14a18")
 		(property "Reference" "J2"
 			(at 149.86 140.9701 0)
@@ -6518,6 +6573,17 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 148.59 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "65c7b4ec-9066-4297-8fa1-9c465b243e88")
 		)
@@ -6545,7 +6611,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "43e66c4c-de75-44f8-8171-19825b035cbb")
 		(property "Reference" "JP1"
 			(at 96.52 183.623 0)
@@ -6591,6 +6657,17 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
+			(at 96.52 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 96.52 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -6672,6 +6749,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 101.6 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17614"
 			(at 101.6 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -6783,7 +6871,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5737e80f-abcb-46e1-afa7-e1f6b8b0b8c2")
 		(property "Reference" "U3"
 			(at 152.146 100.584 0)
@@ -6829,6 +6917,17 @@
 			)
 		)
 		(property "Description" ""
+			(at 144.78 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
 			(at 144.78 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -7014,6 +7113,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C28323"
+			(at 113.03 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6e176f92-4676-47ae-9a2b-541985fb4bac")
 		)
@@ -7083,6 +7193,17 @@
 			)
 		)
 		(property "Description" "256 kb CMOS Serial EEPROM, DIP-8/SOIC-8/TSSOP-8/DFN-8"
+			(at 81.28 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C79987"
 			(at 81.28 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -7347,6 +7468,17 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 82.55 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "296e4cbb-2f12-49f5-95a7-ce70df4715df")
 		)
@@ -7578,6 +7710,17 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 90.17 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e31ffe52-f352-4125-a0c4-3669d550aa95")
 		)
@@ -7648,6 +7791,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 80.01 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17414"
 			(at 80.01 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -7817,6 +7971,17 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 109.22 121.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c91ed097-8093-4c0c-9025-c818607ec537")
 		)
@@ -7964,6 +8129,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 85.09 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C28323"
 			(at 85.09 128.27 0)
 			(hide yes)
 			(show_name no)
