@@ -1218,6 +1218,7 @@
 		)
 	)
 	(footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "16878d97-83e7-4a40-9d13-535f9541c653")
 		(at 105.1275 74.5 -90)
@@ -4289,6 +4290,7 @@
 		)
 	)
 	(footprint "Connector_Audio:Jack_3.5mm_CUI_SJ-3523-SMT_Horizontal"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "50d8a82a-4cb1-4902-a3c1-fb14995e2190")
 		(at 117 90.5 180)
@@ -9157,6 +9159,7 @@
 		(embedded_fonts no)
 	)
 	(footprint "footprints:CUI_SJ-43514-SMT-TR"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "c13e2e93-691c-4d0a-a6fd-c4f0801eb370")
 		(at 132.0375 97.4 90)
@@ -10299,6 +10302,7 @@
 		)
 	)
 	(footprint "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "cafc756c-05dc-4bf1-9c20-2190675e11fd")
 		(at 105.1 63 -90)
@@ -12248,6 +12252,7 @@
 		)
 	)
 	(footprint "Connector_Audio:Jack_3.5mm_CUI_SJ-3523-SMT_Horizontal"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "f734ebdd-2068-47cb-a3ab-9455f461a6e7")
 		(at 140 90.5 180)
@@ -13898,7 +13903,7 @@
 			(uuid "11f30bf2-b375-4fa4-adb5-38418922f318")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x20_P2.54mm_Vertical.wrl"
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x20_P2.54mm_Vertical.step"
 			(offset
 				(xyz 0 0 0)
 			)
