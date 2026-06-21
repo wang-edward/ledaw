@@ -1,113 +1,131 @@
 const std = @import("std");
 const rlz = @import("raylib_zig");
 
-// Although this function looks imperative, note that its job is to
-// declaratively construct a build graph that will be executed by an external
-// runner.
+const Ctx = struct {
+    b: *std.Build,
+    target: std.Build.ResolvedTarget,
+    optimize: std.builtin.OptimizeMode,
+
+    fn mod(c: Ctx, src: []const u8, imports: []const std.Build.Module.Import) *std.Build.Module {
+        return c.b.createModule(.{
+            .root_source_file = c.b.path(src),
+            .target = c.target,
+            .optimize = c.optimize,
+            .imports = imports,
+        });
+    }
+
+    fn app(
+        c: Ctx,
+        name: []const u8,
+        root: *std.Build.Module,
+        libs: []const *std.Build.Step.Compile,
+        step_name: []const u8,
+        step_desc: []const u8,
+        hw: bool,
+    ) void {
+        const b = c.b;
+        const exe = b.addExecutable(.{ .name = name, .root_module = root });
+        for (libs) |lib| exe.linkLibrary(lib);
+        if (libs.len > 0) exe.linkLibC();
+        const options = b.addOptions();
+        options.addOption(bool, "hw", hw);
+        exe.root_module.addOptions("config", options);
+        b.installArtifact(exe);
+        const run = b.addRunArtifact(exe);
+        run.step.dependOn(b.getInstallStep());
+        if (b.args) |args| run.addArgs(args);
+        b.step(step_name, step_desc).dependOn(&run.step);
+    }
+};
+
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
-
-    // raylib
-    const raylib_dep = b.dependency("raylib_zig", .{
-        .target = target,
-        .optimize = optimize,
-        .opengl_version = rlz.OpenglVersion.gles_2,
-    });
-    const raylib = raylib_dep.module("raylib"); // main raylib module
-    const raygui = raylib_dep.module("raygui"); // raygui module
-    const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
+    const c: Ctx = .{ .b = b, .target = target, .optimize = optimize };
 
     // soundio
-    const soundio_dep = b.dependency("libsoundio", .{
-        .target = target,
-        .optimize = optimize,
-    });
-    const soundio_mod = soundio_dep.module("SoundIo");
+    const soundio_dep = b.dependency("libsoundio", .{ .target = target, .optimize = optimize });
+    const soundio_mod = soundio_dep.module("SoundIo"); // weird capitalization
     const soundio_artifact = soundio_dep.artifact("soundio");
 
-    // main module
-    const main_mod = b.createModule(.{
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = optimize,
-        .imports = &.{
-            .{ .name = "raylib", .module = raylib },
-            .{ .name = "raygui", .module = raygui },
-            .{ .name = "soundio", .module = soundio_mod },
-        },
+    // raylib
+    const raylib = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize });
+    const raylib_hw = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize, .opengl_version = rlz.OpenglVersion.gles_2 });
+
+    const main_mod = c.mod("src/main.zig", &.{
+        .{ .name = "raylib", .module = raylib.module("raylib") },
+        .{ .name = "raygui", .module = raylib.module("raygui") },
+        .{ .name = "soundio", .module = soundio_mod },
     });
     main_mod.linkLibrary(soundio_artifact);
 
-    // exe
-    const exe = b.addExecutable(.{
-        .name = "synth",
-        .root_module = main_mod,
+    const hw_mod = c.mod("src/main.zig", &.{
+        .{ .name = "raylib", .module = raylib_hw.module("raylib") },
+        .{ .name = "raygui", .module = raylib_hw.module("raygui") },
+        .{ .name = "soundio", .module = soundio_mod },
     });
-    exe.linkLibrary(raylib_artifact);
-    exe.linkLibrary(soundio_artifact);
-    exe.linkLibC();
-    b.installArtifact(exe);
-    const run_cmd = b.addRunArtifact(exe);
-    run_cmd.step.dependOn(b.getInstallStep());
-    if (b.args) |args| run_cmd.addArgs(args);
-    const run_step = b.step("run", "Run the app");
-    run_step.dependOn(&run_cmd.step);
+    hw_mod.linkLibrary(soundio_artifact);
 
-    // fuzz
-    const fuzz_exe = b.addExecutable(.{
-        .name = "fuzz",
-        .root_module = b.createModule(.{
-            .root_source_file = b.path("test/test_fuzz.zig"),
-            .target = target,
-            .optimize = optimize,
-            .imports = &.{
+    const libs: []const *std.Build.Step.Compile = &.{ raylib.artifact("raylib"), soundio_artifact };
+
+    const targets = [_]struct {
+        root: *std.Build.Module,
+        name: []const u8,
+        step: []const u8,
+        desc: []const u8,
+        hw: bool,
+        libs: []const *std.Build.Step.Compile = &.{},
+    }{
+        .{
+            .name = "ledaw",
+            .step = "run",
+            .desc = "Run the emulator",
+            .libs = libs,
+            .hw = false,
+            .root = main_mod,
+        },
+        .{
+            .name = "ledaw_hw",
+            .step = "hw",
+            .desc = "Run the app",
+            .libs = &.{
+                raylib_hw.artifact("raylib"),
+                soundio_artifact,
+            },
+            .hw = true,
+            .root = hw_mod,
+        },
+        .{
+            .name = "fuzz",
+            .step = "fuzz",
+            .desc = "Run fuzz test",
+            .libs = libs,
+            .hw = false,
+            .root = c.mod("test/test_fuzz.zig", &.{
                 .{ .name = "main", .module = main_mod },
-                .{ .name = "raylib", .module = raylib },
-            },
-        }),
-    });
-    fuzz_exe.linkLibrary(raylib_artifact);
-    fuzz_exe.linkLibrary(soundio_artifact);
-    fuzz_exe.linkLibC();
-    b.installArtifact(fuzz_exe);
-    const fuzz_run = b.addRunArtifact(fuzz_exe);
-    fuzz_run.step.dependOn(b.getInstallStep());
-    const fuzz_step = b.step("fuzz", "Run fuzz test");
-    fuzz_step.dependOn(&fuzz_run.step);
+                .{
+                    .name = "raylib",
+                    .module = raylib.module("raylib"),
+                },
+            }),
+        },
+        .{
+            .name = "test_display",
+            .step = "test_display",
+            .desc = "Run display test",
+            .hw = false,
+            .root = c.mod("test/test_display.zig", &.{}),
+        },
+    };
+    for (targets) |t| c.app(t.name, t.root, t.libs, t.step, t.desc, t.hw);
 
-    // test_display
-    const test_display_exe = b.addExecutable(.{
-        .name = "test_display",
-        .root_module = b.createModule(.{
-            .root_source_file = b.path("test/test_display.zig"),
-            .target = target,
-            .optimize = optimize,
-        }),
-    });
-    b.installArtifact(test_display_exe);
-    const test_display_run = b.addRunArtifact(test_display_exe);
-    test_display_run.step.dependOn(b.getInstallStep());
-    const test_display_step = b.step("test-display", "Run display test");
-    test_display_step.dependOn(&test_display_run.step);
-
-    // test
-    const queue_mod = b.createModule(.{
-        .root_source_file = b.path("src/queue.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
+    // unit tests
+    const queue_mod = c.mod("src/queue.zig", &.{});
     const unit_tests = b.addTest(.{
-        .root_module = b.createModule(.{
-            .root_source_file = b.path("test/test_queue.zig"),
-            .imports = &.{
-                .{ .name = "queue", .module = queue_mod },
-            },
-            .target = target,
-            .optimize = optimize,
+        .root_module = c.mod("test/test_queue.zig", &.{
+            .{ .name = "queue", .module = queue_mod },
         }),
     });
-    const run_exe_unit_tests = b.addRunArtifact(unit_tests);
-    const test_step = b.step("test", "Run unit tests");
-    test_step.dependOn(&run_exe_unit_tests.step);
+    b.step("test", "Run unit tests").dependOn(&b.addRunArtifact(unit_tests).step);
 }
