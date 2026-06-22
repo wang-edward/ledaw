@@ -48,7 +48,8 @@ pub fn postRender() !void {
         const image = try rl.loadImageFromTexture(target.texture);
         defer rl.unloadImage(image);
         const rgba: [*]const u8 = @ptrCast(image.data);
-        var fb = rgb8888_to_rgb565(rgba);
+        var fb: [WIDTH * HEIGHT * 2]u8 = undefined;
+        rgb8888_to_rgb565(rgba, fb);
         try oled.show(&fb);
     } else {
         // render the 128x128 square
@@ -77,8 +78,7 @@ pub fn postRender() !void {
 // utility stuff
 // ---------------------------------------
 
-fn rgb8888_to_rgb565(rgba: [*]const u8) []u8 {
-    var ans: [WIDTH * HEIGHT * 2]u8 = undefined; // RGB565 BE
+fn rgb8888_to_rgb565(rgba: [*]const u8, out: *[WIDTH * HEIGHT * 2]u8) void {
     var y: usize = 0;
     while (y < HEIGHT) : (y += 1) {
         const src_y = HEIGHT - 1 - y; // GL bottom-origin -> panel top-origin
@@ -89,11 +89,10 @@ fn rgb8888_to_rgb565(rgba: [*]const u8) []u8 {
             const g = rgba[s + 1];
             const b = rgba[s + 2];
             const d = (y * WIDTH + x) * 2;
-            ans[d] = (r & 0xF8) | (g >> 5); // hi
-            ans[d + 1] = ((g << 3) & 0xE0) | (b >> 3); // lo
+            out[d] = (r & 0xF8) | (g >> 5); // hi
+            out[d + 1] = ((g << 3) & 0xE0) | (b >> 3); // lo
         }
     }
-    return ans;
 }
 
 pub fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
