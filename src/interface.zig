@@ -1,14 +1,18 @@
 const std = @import("std");
 const rl = @import("raylib");
+const Ssd1351 = @import("oled").Ssd1351;
+const config = @import("config");
 
 pub const WIDTH = 128;
 pub const HEIGHT = 128;
 
 var target: rl.RenderTexture2D = undefined;
+var oled = undefined;
 
 pub fn init() !void {
     // rl.setConfigFlags(.{ .window_resizable = true }); // commented because it looks weird with aerospace window manager
     rl.initWindow(512, 512, "LeDaw");
+    oled = Ssd1351.init();
 
     target = try rl.loadRenderTexture(WIDTH, HEIGHT);
     rl.setTargetFPS(60);
@@ -18,6 +22,8 @@ pub fn init() !void {
 pub fn deinit() void {
     rl.unloadRenderTexture(target);
     rl.closeWindow();
+
+    oled.deinit();
 }
 
 pub fn preRender() void {
@@ -37,30 +43,56 @@ pub fn postRender() void {
     rl.beginDrawing();
     defer rl.endDrawing();
 
-    // render the 128x128 square
-    rl.drawTexturePro(
-        target.texture,
-        rl.Rectangle{
-            .x = 0,
-            .y = 0,
-            .width = @floatFromInt(target.texture.width),
-            .height = -@as(f32, @floatFromInt(target.texture.height)), // flip Y
-        },
-        rl.Rectangle{
-            .x = pos_x,
-            .y = pos_y,
-            .width = square_len_f,
-            .height = square_len_f,
-        },
-        rl.Vector2{ .x = 0, .y = 0 },
-        0.0,
-        rl.Color.white,
-    );
+    if (config.hw) {
+        // copy target texture to oled
+        const image = rl.loadImageFromTexture(target.texture);
+        defer rl.unloadImage(image);
+        const rgb8888: [*]const u8 = @ptrCast(image.data);
+        var fb = rgb8888_to_rgb565(rgb8888);
+        oled.show(&fb);
+    } else {
+        // render the 128x128 square
+        rl.drawTexturePro(
+            target.texture,
+            rl.Rectangle{
+                .x = 0,
+                .y = 0,
+                .width = @floatFromInt(target.texture.width),
+                .height = -@as(f32, @floatFromInt(target.texture.height)), // flip Y
+            },
+            rl.Rectangle{
+                .x = pos_x,
+                .y = pos_y,
+                .width = square_len_f,
+                .height = square_len_f,
+            },
+            rl.Vector2{ .x = 0, .y = 0 },
+            0.0,
+            rl.Color.white,
+        );
+    }
 }
 
 // ---------------------------------------
 // utility stuff
 // ---------------------------------------
+
+fn rgb8888_to_rgb565(rgb8888: []const u8) []u16 {
+    var ans: [WIDTH * HEIGHT]u16 = undefined;
+    var y: usize = 0;
+    while (y < HEIGHT) : (y += 1) {
+        const src_y = HEIGHT - 1 - y; // flip: GL bottom-origin -> OLED top-origin
+        var x: usize = 0;
+        while (x < WIDTH) : (x += 1) {
+            const i = (src_y * WIDTH + x) * 4;
+            const r = px[i];
+            const g = px[i + 1];
+            const b = px[i + 2];
+            ans[y * WIDTH + x] = (@as(u16, r >> 3) << 11) | (@as(u16, g >> 2) << 5) | (b >> 3);
+        }
+    }
+    return ans;
+}
 
 pub fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
     const text_width = rl.measureText(text, font_size);
