@@ -31,7 +31,7 @@ pub fn preRender() void {
     rl.clearBackground(rl.Color.black);
 }
 
-pub fn postRender() void {
+pub fn postRender() !void {
     const screen_width = rl.getScreenWidth();
     const screen_height = rl.getScreenHeight();
     const square_len = @min(screen_width, screen_height);
