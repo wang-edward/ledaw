@@ -47,9 +47,9 @@ pub fn postRender() !void {
         // copy target texture to oled
         const image = try rl.loadImageFromTexture(target.texture);
         defer rl.unloadImage(image);
-        const rgb8888: [*]const u8 = @ptrCast(image.data);
-        var fb = rgb8888_to_rgb565(rgb8888);
-        oled.show(&fb);
+        const rgba: [*]const u8 = @ptrCast(image.data);
+        var fb = rgb8888_to_rgb565(rgba);
+        try oled.show(&fb);
     } else {
         // render the 128x128 square
         rl.drawTexturePro(
@@ -77,18 +77,20 @@ pub fn postRender() !void {
 // utility stuff
 // ---------------------------------------
 
-fn rgb8888_to_rgb565(px: [*]const u8) []u16 {
-    var ans: [WIDTH * HEIGHT]u16 = undefined;
+fn rgb8888_to_rgb565(rgba: [*]const u8) []u8 {
+    var ans: [WIDTH * HEIGHT * 2]u8 = undefined; // RGB565 BE
     var y: usize = 0;
     while (y < HEIGHT) : (y += 1) {
-        const src_y = HEIGHT - 1 - y; // flip: GL bottom-origin -> OLED top-origin
+        const src_y = HEIGHT - 1 - y; // GL bottom-origin -> panel top-origin
         var x: usize = 0;
         while (x < WIDTH) : (x += 1) {
-            const i = (src_y * WIDTH + x) * 4;
-            const r = px[i];
-            const g = px[i + 1];
-            const b = px[i + 2];
-            ans[y * WIDTH + x] = (@as(u16, r >> 3) << 11) | (@as(u16, g >> 2) << 5) | (b >> 3);
+            const s = (src_y * WIDTH + x) * 4;
+            const r = rgba[s];
+            const g = rgba[s + 1];
+            const b = rgba[s + 2];
+            const d = (y * WIDTH + x) * 2;
+            ans[d] = (r & 0xF8) | (g >> 5); // hi
+            ans[d + 1] = ((g << 3) & 0xE0) | (b >> 3); // lo
         }
     }
     return ans;
