@@ -1,6 +1,6 @@
 const std = @import("std");
 const rl = @import("raylib");
-const Ssd1351 = @import("oled").Ssd1351;
+const Ssd1351 = @import("oled.zig").Ssd1351;
 const config = @import("config");
 
 pub const WIDTH = 128;
