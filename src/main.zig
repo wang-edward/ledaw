@@ -362,9 +362,9 @@ pub fn main() !void {
 
         // draw UI
         interface.preRender();
-        defer interface.postRender();
         {
             g_app.render();
         }
+        try interface.postRender();
     }
 }

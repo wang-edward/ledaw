@@ -1,14 +1,18 @@
 const std = @import("std");
 const rl = @import("raylib");
+const Ssd1351 = @import("oled.zig").Ssd1351;
+const config = @import("config");
 
 pub const WIDTH = 128;
 pub const HEIGHT = 128;
 
 var target: rl.RenderTexture2D = undefined;
+var oled: Ssd1351 = undefined;
 
 pub fn init() !void {
     // rl.setConfigFlags(.{ .window_resizable = true }); // commented because it looks weird with aerospace window manager
     rl.initWindow(512, 512, "LeDaw");
+    oled = try Ssd1351.init();
 
     target = try rl.loadRenderTexture(WIDTH, HEIGHT);
     rl.setTargetFPS(60);
@@ -18,6 +22,8 @@ pub fn init() !void {
 pub fn deinit() void {
     rl.unloadRenderTexture(target);
     rl.closeWindow();
+
+    oled.deinit();
 }
 
 pub fn preRender() void {
@@ -25,7 +31,7 @@ pub fn preRender() void {
     rl.clearBackground(rl.Color.black);
 }
 
-pub fn postRender() void {
+pub fn postRender() !void {
     const screen_width = rl.getScreenWidth();
     const screen_height = rl.getScreenHeight();
     const square_len = @min(screen_width, screen_height);
@@ -37,30 +43,56 @@ pub fn postRender() void {
     rl.beginDrawing();
     defer rl.endDrawing();
 
-    // render the 128x128 square
-    rl.drawTexturePro(
-        target.texture,
-        rl.Rectangle{
-            .x = 0,
-            .y = 0,
-            .width = @floatFromInt(target.texture.width),
-            .height = -@as(f32, @floatFromInt(target.texture.height)), // flip Y
-        },
-        rl.Rectangle{
-            .x = pos_x,
-            .y = pos_y,
-            .width = square_len_f,
-            .height = square_len_f,
-        },
-        rl.Vector2{ .x = 0, .y = 0 },
-        0.0,
-        rl.Color.white,
-    );
+    if (config.hw) {
+        const image = try rl.loadImageFromTexture(target.texture);
+        defer rl.unloadImage(image);
+        const rgba: [*]const u8 = @ptrCast(image.data);
+        var fb: [WIDTH * HEIGHT * 2]u8 = undefined;
+        rgb8888_to_rgb565(rgba, &fb);
+        try oled.show(&fb);
+    } else {
+        // render the 128x128 square
+        rl.drawTexturePro(
+            target.texture,
+            rl.Rectangle{
+                .x = 0,
+                .y = 0,
+                .width = @floatFromInt(target.texture.width),
+                .height = -@as(f32, @floatFromInt(target.texture.height)), // flip Y
+            },
+            rl.Rectangle{
+                .x = pos_x,
+                .y = pos_y,
+                .width = square_len_f,
+                .height = square_len_f,
+            },
+            rl.Vector2{ .x = 0, .y = 0 },
+            0.0,
+            rl.Color.white,
+        );
+    }
 }
 
 // ---------------------------------------
 // utility stuff
 // ---------------------------------------
+
+fn rgb8888_to_rgb565(rgba: [*]const u8, out: *[WIDTH * HEIGHT * 2]u8) void {
+    var y: usize = 0;
+    while (y < HEIGHT) : (y += 1) {
+        const src_y = HEIGHT - 1 - y; // openGL texture has Y flipped
+        var x: usize = 0;
+        while (x < WIDTH) : (x += 1) {
+            const s = (src_y * WIDTH + x) * 4;
+            const r = rgba[s];
+            const g = rgba[s + 1];
+            const b = rgba[s + 2];
+            const d = (y * WIDTH + x) * 2;
+            out[d] = (r & 0xF8) | (g >> 5); // hi
+            out[d + 1] = ((g << 3) & 0xE0) | (b >> 3); // lo
+        }
+    }
+}
 
 pub fn drawTextCentered(text: [:0]const u8, center_x: i32, center_y: i32, font_size: i32, color: rl.Color) void {
     const text_width = rl.measureText(text, font_size);

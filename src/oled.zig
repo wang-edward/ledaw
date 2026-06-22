@@ -115,12 +115,12 @@ const Gpio = struct {
     }
 };
 
-const Ssd1351 = struct {
+pub const Ssd1351 = struct {
     spi: Spi,
     dc: Gpio,
     rst: Gpio,
 
-    fn init() !Ssd1351 {
+    pub fn init() !Ssd1351 {
         const self = Ssd1351{
             .spi = try Spi.open(SPI_DEV, SPI_MODE, SPI_HZ),
             .dc = try Gpio.open(GPIO_CHIP, DC_LINE),
@@ -131,7 +131,7 @@ const Ssd1351 = struct {
         return self;
     }
 
-    fn deinit(self: Ssd1351) void {
+    pub fn deinit(self: Ssd1351) void {
         self.cmd(0xAE) catch {};
         self.spi.close();
         self.dc.close();
@@ -228,13 +228,13 @@ const Ssd1351 = struct {
     }
 
     /// Push a 128*128*2 byte RGB565 BE framebuffer to the panel.
-    fn show(self: Ssd1351, fb: []const u8) !void {
+    pub fn show(self: Ssd1351, fb: []const u8) !void {
         std.debug.assert(fb.len == FB_BYTES);
         try self.setWindow();
         try self.dataBulk(fb);
     }
 
-    fn fill(self: Ssd1351, r: u8, g: u8, b: u8) !void {
+    pub fn fill(self: Ssd1351, r: u8, g: u8, b: u8) !void {
         var fb: [FB_BYTES]u8 = undefined;
         const hi: u8 = (r & 0xF8) | (g >> 5);
         const lo: u8 = ((g << 3) & 0xE0) | (b >> 3);
