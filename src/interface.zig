@@ -49,7 +49,7 @@ pub fn postRender() !void {
         defer rl.unloadImage(image);
         const rgba: [*]const u8 = @ptrCast(image.data);
         var fb: [WIDTH * HEIGHT * 2]u8 = undefined;
-        rgb8888_to_rgb565(rgba, fb);
+        rgb8888_to_rgb565(rgba, &fb);
         try oled.show(&fb);
     } else {
         // render the 128x128 square
