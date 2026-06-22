@@ -115,7 +115,7 @@ const Gpio = struct {
     }
 };
 
-const Ssd1351 = struct {
+pub const Ssd1351 = struct {
     spi: Spi,
     dc: Gpio,
     rst: Gpio,
