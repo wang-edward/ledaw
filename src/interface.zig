@@ -44,7 +44,6 @@ pub fn postRender() !void {
     defer rl.endDrawing();
 
     if (config.hw) {
-        // copy target texture to oled
         const image = try rl.loadImageFromTexture(target.texture);
         defer rl.unloadImage(image);
         const rgba: [*]const u8 = @ptrCast(image.data);
@@ -81,7 +80,7 @@ pub fn postRender() !void {
 fn rgb8888_to_rgb565(rgba: [*]const u8, out: *[WIDTH * HEIGHT * 2]u8) void {
     var y: usize = 0;
     while (y < HEIGHT) : (y += 1) {
-        const src_y = HEIGHT - 1 - y; // GL bottom-origin -> panel top-origin
+        const src_y = HEIGHT - 1 - y; // openGL texture has Y flipped
         var x: usize = 0;
         while (x < WIDTH) : (x += 1) {
             const s = (src_y * WIDTH + x) * 4;
