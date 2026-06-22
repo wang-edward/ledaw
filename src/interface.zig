@@ -45,7 +45,7 @@ pub fn postRender() void {
 
     if (config.hw) {
         // copy target texture to oled
-        const image = rl.loadImageFromTexture(target.texture);
+        const image = try rl.loadImageFromTexture(target.texture);
         defer rl.unloadImage(image);
         const rgb8888: [*]const u8 = @ptrCast(image.data);
         var fb = rgb8888_to_rgb565(rgb8888);
