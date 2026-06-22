@@ -7,7 +7,7 @@ pub const WIDTH = 128;
 pub const HEIGHT = 128;
 
 var target: rl.RenderTexture2D = undefined;
-var oled = undefined;
+var oled: Ssd1351 = undefined;
 
 pub fn init() !void {
     // rl.setConfigFlags(.{ .window_resizable = true }); // commented because it looks weird with aerospace window manager
