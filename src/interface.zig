@@ -12,7 +12,7 @@ var oled: Ssd1351 = undefined;
 pub fn init() !void {
     // rl.setConfigFlags(.{ .window_resizable = true }); // commented because it looks weird with aerospace window manager
     rl.initWindow(512, 512, "LeDaw");
-    oled = Ssd1351.init();
+    oled = try Ssd1351.init();
 
     target = try rl.loadRenderTexture(WIDTH, HEIGHT);
     rl.setTargetFPS(60);
