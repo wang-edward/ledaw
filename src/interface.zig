@@ -77,7 +77,7 @@ pub fn postRender() void {
 // utility stuff
 // ---------------------------------------
 
-fn rgb8888_to_rgb565(rgb8888: []const u8) []u16 {
+fn rgb8888_to_rgb565(px: []const u8) []u16 {
     var ans: [WIDTH * HEIGHT]u16 = undefined;
     var y: usize = 0;
     while (y < HEIGHT) : (y += 1) {
