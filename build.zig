@@ -51,7 +51,12 @@ pub fn build(b: *std.Build) void {
 
     // raylib
     const raylib = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize });
-    const raylib_hw = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize, .opengl_version = rlz.OpenglVersion.gles_2 });
+    const raylib_hw = b.dependency("raylib_zig", .{
+        .target = target,
+        .optimize = optimize,
+        .opengl_version = rlz.OpenglVersion.gles_2,
+        .platform = rlz.PlatformBackend.drm,
+    });
 
     const main_mod = c.mod("src/main.zig", &.{
         .{ .name = "raylib", .module = raylib.module("raylib") },
