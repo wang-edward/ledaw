@@ -39,7 +39,7 @@ const Ctx = struct {
         exe.root_module.addOptions("config", options);
         b.installArtifact(exe);
         const run = b.addRunArtifact(exe);
-        run.step.dependOn(b.getInstallStep());
+        // run.step.dependOn(b.getInstallStep());
         if (b.args) |args| run.addArgs(args);
         b.step(step_name, step_desc).dependOn(&run.step);
     }
