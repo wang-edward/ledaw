@@ -28,6 +28,12 @@ const Ctx = struct {
         const exe = b.addExecutable(.{ .name = name, .root_module = root });
         for (libs) |lib| exe.linkLibrary(lib);
         if (libs.len > 0) exe.linkLibC();
+        if (hw) {
+            exe.linkSystemLibrary("GLESv2");
+            exe.linkSystemLibrary("EGL");
+            exe.linkSystemLibrary("gbm");
+            exe.linkSystemLibrary("drm");
+        }
         const options = b.addOptions();
         options.addOption(bool, "hw", hw);
         exe.root_module.addOptions("config", options);
