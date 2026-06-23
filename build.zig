@@ -28,12 +28,17 @@ const Ctx = struct {
         const exe = b.addExecutable(.{ .name = name, .root_module = root });
         for (libs) |lib| exe.linkLibrary(lib);
         if (libs.len > 0) exe.linkLibC();
+        if (hw) {
+            exe.linkSystemLibrary("GLESv2");
+            exe.linkSystemLibrary("EGL");
+            exe.linkSystemLibrary("gbm");
+            exe.linkSystemLibrary("drm");
+        }
         const options = b.addOptions();
         options.addOption(bool, "hw", hw);
         exe.root_module.addOptions("config", options);
         b.installArtifact(exe);
         const run = b.addRunArtifact(exe);
-        run.step.dependOn(b.getInstallStep());
         if (b.args) |args| run.addArgs(args);
         b.step(step_name, step_desc).dependOn(&run.step);
     }
@@ -51,7 +56,12 @@ pub fn build(b: *std.Build) void {
 
     // raylib
     const raylib = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize });
-    const raylib_hw = b.dependency("raylib_zig", .{ .target = target, .optimize = optimize, .opengl_version = rlz.OpenglVersion.gles_2 });
+    const raylib_hw = b.dependency("raylib_zig", .{
+        .target = target,
+        .optimize = optimize,
+        .opengl_version = rlz.OpenglVersion.gles_2,
+        .platform = rlz.PlatformBackend.drm,
+    });
 
     const main_mod = c.mod("src/main.zig", &.{
         .{ .name = "raylib", .module = raylib.module("raylib") },
