@@ -17,9 +17,19 @@ run
 zig build run
 ```
 
+run on the Pi
+```
+zig build hw
+```
+
 test
 ```
 zig build test --summary all
+```
+
+fuzz
+```
+zig build fuzz
 ```
 
 ## pics
