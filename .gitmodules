@@ -1,3 +1,0 @@
-[submodule "external/pi-gen"]
-	path = external/pi-gen
-	url = https://github.com/RPi-Distro/pi-gen.git
