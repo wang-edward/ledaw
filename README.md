@@ -27,5 +27,8 @@ zig build test --summary all
 <img width="624" height="652" alt="Screenshot 2026-03-18 at 12 51 50 AM" src="https://github.com/user-attachments/assets/0f78a561-713b-41d4-afca-ff4cd20b876a" />
 <img width="624" height="652" alt="Screenshot 2026-03-18 at 12 52 29 AM" src="https://github.com/user-attachments/assets/0fae416f-4942-49c6-9abd-050148f576ba" />
 
-## Video demo (pretty outdated)
+## Video demo
 [![video demo](https://img.youtube.com/vi/XMdhAa6qCPk/0.jpg)](https://www.youtube.com/watch?v=XMdhAa6qCPk)
+
+## Video demo 2 (art project)
+[![art demo](https://img.youtube.com/vi/T37_Ot39h1g/0.jpg)](https://www.youtube.com/watch?v=T37_Ot39h1g)
