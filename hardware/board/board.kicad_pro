@@ -416,7 +416,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "RV1,D1-42,SW1-46,U1,Module1",
+    "used_designators": "J1-5,P1-3,SW1-46,RV1,D1-42,U1,Module1",
     "variants": []
   },
   "sheets": [
