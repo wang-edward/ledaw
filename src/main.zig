@@ -258,7 +258,19 @@ pub fn audioThreadMain() !void {
     }
     must(c.soundio_connect(sio));
     c.soundio_flush_events(sio);
-    const idx = c.soundio_default_output_device_index(sio);
+    var idx = -1;
+    var i: c_int = 0;
+    while (i < c.soundio_output_device_count(sio)) : (i += 1) {
+        const d = c.soundio_get_output_device(sio, i) orelse continue;
+        defer c.soundio_device_unref(d);
+        const name = std.mem.span(d.*.name);
+        if (std.mem.indexOf(u8, name, "max98088") != null and d.*.is_raw == false) {
+            idx = 1;
+            break;
+        }
+    }
+    if (idx < 0) return error.NoOutputDeviceFound;
+
     if (idx < 0) return error.NoOutputDeviceFound;
     const dev = c.soundio_get_output_device(sio, idx) orelse return error.NoMem;
     defer c.soundio_device_unref(dev);
