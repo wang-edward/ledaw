@@ -258,12 +258,16 @@ pub fn audioThreadMain() !void {
     }
     must(c.soundio_connect(sio));
     c.soundio_flush_events(sio);
+    const device_count = c.soundio_output_device_count(sio);
+    std.debug.print("=== soundio output devices ({d}) ===\n", .{device_count});
     var idx: c_int = -1;
     var i: c_int = 0;
-    while (i < c.soundio_output_device_count(sio)) : (i += 1) {
+    while (i < device_count) : (i += 1) {
         const d = c.soundio_get_output_device(sio, i) orelse continue;
         defer c.soundio_device_unref(d);
         const name = std.mem.span(d.*.name);
+        const id = std.mem.span(d.*.id);
+        std.debug.print("  [{d}] raw={} id={s} name={s}\n", .{ i, d.*.is_raw, id, name });
         if (std.mem.indexOf(u8, name, "max98088") != null and d.*.is_raw == false) {
             idx = 1;
             break;
