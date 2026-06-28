@@ -256,7 +256,8 @@ pub fn audioThreadMain() !void {
         if (sio) |p| c.soundio_destroy(p);
         sio = null;
     }
-    must(c.soundio_connect(sio));
+    // must(c.soundio_connect(sio)); // default
+    must(c.soundio_connect_backend(sio, c.SoundIoBackendAlsa));
     c.soundio_flush_events(sio);
     const device_count = c.soundio_output_device_count(sio);
     std.debug.print("=== soundio output devices ({d}) ===\n", .{device_count});
@@ -269,8 +270,8 @@ pub fn audioThreadMain() !void {
         const id = std.mem.span(d.*.id);
         std.debug.print("  [{d}] raw={} id={s} name={s}\n", .{ i, d.*.is_raw, id, name });
         if (std.mem.indexOf(u8, name, "max98088") != null and d.*.is_raw == false) {
-            idx = 1;
-            break;
+            idx = i;
+            // break;
         }
     }
     if (idx < 0) return error.NoOutputDeviceFound;
