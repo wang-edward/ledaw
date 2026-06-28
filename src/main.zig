@@ -258,7 +258,7 @@ pub fn audioThreadMain() !void {
     }
     must(c.soundio_connect(sio));
     c.soundio_flush_events(sio);
-    var idx = -1;
+    var idx: c_int = -1;
     var i: c_int = 0;
     while (i < c.soundio_output_device_count(sio)) : (i += 1) {
         const d = c.soundio_get_output_device(sio, i) orelse continue;
