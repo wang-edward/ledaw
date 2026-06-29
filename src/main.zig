@@ -50,7 +50,7 @@ pub const SAMPLE_RATE: f32 = 48_000;
 fn must(ok: c_int) void {
     if (ok != c.SoundIoErrorNone) {
         std.debug.print("soundio error: {s}\n", .{c.soundio_strerror(ok)});
-        @panic("soundio error");
+        g_run_audio.store(false, .release);
     }
 }
 
