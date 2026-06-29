@@ -48,7 +48,10 @@ pub var g_run_audio = std.atomic.Value(bool).init(true);
 pub const SAMPLE_RATE: f32 = 48_000;
 
 fn must(ok: c_int) void {
-    if (ok != c.SoundIoErrorNone) @panic("soundio error");
+    if (ok != c.SoundIoErrorNone) {
+        std.debug.print("soundio error: {s}\n", .{c.soundio_strerror(ok)});
+        @panic("soundio error");
+    }
 }
 
 fn write_callback(
