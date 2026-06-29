@@ -4,8 +4,8 @@ const posix = std.posix;
 
 const SPI_DEV = "/dev/spidev0.0";
 const GPIO_CHIP = "/dev/gpiochip0";
-const DC_LINE: u32 = 25;
-const RST_LINE: u32 = 27;
+const DC_LINE: u32 = 5;
+const RST_LINE: u32 = 6;
 const SPI_HZ: u32 = 10_000_000;
 const SPI_MODE: u8 = 0b11; // mode 3, matches Waveshare config.py
 
