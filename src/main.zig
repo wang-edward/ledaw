@@ -272,7 +272,7 @@ pub fn audioThreadMain() !void {
         const id = std.mem.span(d.*.id);
         std.debug.print("  [{d}] raw={} id={s}\n", .{ i, d.*.is_raw, id });
         // TODO use hw:CARD for better performance
-        if (std.mem.startsWith(u8, id, "plughw:CARD=ledawmax98088") and d.*.is_raw == false) {
+        if (std.mem.startsWith(u8, id, "hw:CARD=ledawmax98088") and d.*.is_raw == false) {
             idx = i;
             break;
         }
