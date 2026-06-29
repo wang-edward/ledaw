@@ -256,8 +256,8 @@ pub fn audioThreadMain() !void {
         if (sio) |p| c.soundio_destroy(p);
         sio = null;
     }
-    // must(c.soundio_connect(sio)); // default
-    must(c.soundio_connect_backend(sio, c.SoundIoBackendAlsa));
+    must(c.soundio_connect(sio)); // default
+    // must(c.soundio_connect_backend(sio, c.SoundIoBackendAlsa));
     c.soundio_flush_events(sio);
     const device_count = c.soundio_output_device_count(sio);
     std.debug.print("=== soundio output devices ({d}) ===\n", .{device_count});
@@ -276,7 +276,6 @@ pub fn audioThreadMain() !void {
     }
     if (idx < 0) return error.NoOutputDeviceFound;
 
-    if (idx < 0) return error.NoOutputDeviceFound;
     const dev = c.soundio_get_output_device(sio, idx) orelse return error.NoMem;
     defer c.soundio_device_unref(dev);
     out = c.soundio_outstream_create(dev) orelse return error.NoMem;
