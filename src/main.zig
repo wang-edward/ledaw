@@ -260,7 +260,7 @@ pub fn audioThreadMain() !void {
         sio = null;
     }
     must(c.soundio_connect(sio)); // default
-    // must(c.soundio_connect_backend(sio, c.SoundIoBackendAlsa));
+    // must(c.soundio_connect_backend(sio, c.SoundIoBackendAlsa)); // TODO is alsa default on pi?
     c.soundio_flush_events(sio);
     const device_count = c.soundio_output_device_count(sio);
     std.debug.print("=== soundio output devices ({d}) ===\n", .{device_count});
@@ -269,12 +269,12 @@ pub fn audioThreadMain() !void {
     while (i < device_count) : (i += 1) {
         const d = c.soundio_get_output_device(sio, i) orelse continue;
         defer c.soundio_device_unref(d);
-        const name = std.mem.span(d.*.name);
         const id = std.mem.span(d.*.id);
-        std.debug.print("  [{d}] raw={} id={s} name={s}\n", .{ i, d.*.is_raw, id, name });
-        if (std.mem.indexOf(u8, name, "max98088") != null and d.*.is_raw == false) {
+        std.debug.print("  [{d}] raw={} id={s}\n", .{ i, d.*.is_raw, id });
+        // TODO use hw:CARD for better performance
+        if (std.mem.startsWith(u8, id, "plughw:CARD=ledawmax98088") and d.*.is_raw == false) {
             idx = i;
-            // break;
+            break;
         }
     }
     if (idx < 0) return error.NoOutputDeviceFound;
