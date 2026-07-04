@@ -3303,135 +3303,148 @@
 		)
 		(uuid "ffb8a966-53bb-4e42-96c0-afd14a53a6ec")
 	)
-	(label "io_C5"
-		(at 222.25 45.72 0)
+	(hierarchical_label "matrix_C5"
+		(shape input)
+		(at 222.25 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "216a754c-bb66-4139-8889-2a1de52240a0")
+		(uuid "01d703fc-26ab-4e35-86a5-08f313a16018")
 	)
-	(label "io_C3"
-		(at 166.37 45.72 0)
+	(hierarchical_label "matrix_R2"
+		(shape input)
+		(at 41.91 85.09 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "2adcea09-eed3-4197-8411-6e8ee222d545")
+		(uuid "342739b0-e328-49ee-abaf-41076d48d352")
 	)
-	(label "io_R2"
-		(at 41.91 85.09 0)
+	(hierarchical_label "matrix_C0"
+		(shape input)
+		(at 82.55 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "4e7a8156-e6a0-464d-8899-fc22731387ee")
+		(uuid "531478a2-b06f-4a2e-b14e-2e4068af6523")
 	)
-	(label "io_R0"
-		(at 41.91 57.15 0)
+	(hierarchical_label "matrix_C1"
+		(shape input)
+		(at 110.49 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "50e973f7-a8f4-4c3a-8c96-dc02e770bdb9")
+		(uuid "55013ec8-fda4-4956-aecc-23383666ef32")
 	)
-	(label "io_C1"
-		(at 110.49 45.72 0)
+	(hierarchical_label "matrix_C4"
+		(shape input)
+		(at 194.31 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "57df08d0-0a5c-40bf-9d77-895ad383ee7f")
+		(uuid "60464da7-a961-4fac-bee2-33cf54a4a466")
 	)
-	(label "io_C0"
-		(at 82.55 45.72 0)
+	(hierarchical_label "matrix_R3"
+		(shape input)
+		(at 41.91 99.06 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "5da3f752-cc82-460f-8278-ac2c4b705667")
+		(uuid "644dfb01-a337-43e8-8dfe-9531b8d6a83d")
 	)
-	(label "io_R1"
-		(at 41.91 71.12 0)
+	(hierarchical_label "matrix_R0"
+		(shape input)
+		(at 41.91 57.15 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "693ce41a-bfd1-49ab-a4e9-3fc3996f3e15")
+		(uuid "87fbf3e2-8a37-444e-9da2-e479f66a0ff3")
 	)
-	(label "io_C4"
-		(at 194.31 45.72 0)
+	(hierarchical_label "matrix_R4"
+		(shape input)
+		(at 41.91 114.3 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "72fe9e9d-0ad5-448d-803b-100f3bebcbc0")
+		(uuid "8d796e69-0af0-46c0-95a0-a50b9a3c6cbe")
 	)
-	(label "io_R3"
-		(at 41.91 99.06 0)
+	(hierarchical_label "matrix_R5"
+		(shape input)
+		(at 41.91 129.54 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "99ab919e-eb7f-4b32-bb2e-2f845eb1ff33")
+		(uuid "8d8109a7-c0ee-49e7-97ce-e7802df4e487")
 	)
-	(label "io_C2"
-		(at 138.43 45.72 0)
+	(hierarchical_label "matrix_R1"
+		(shape input)
+		(at 41.91 71.12 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "a6cffb7a-499f-462f-a8df-5091a891ba38")
+		(uuid "92cbd828-6137-4a9c-9827-eeff1057d3e4")
 	)
-	(label "io_R5"
-		(at 41.91 129.54 0)
+	(hierarchical_label "matrix_C3"
+		(shape input)
+		(at 166.37 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "b0e00b7d-6ee5-45a8-a1a9-01795522cdcf")
+		(uuid "b4fdc32a-5e53-436b-9b19-3b249764cea8")
 	)
-	(label "io_R4"
-		(at 41.91 114.3 0)
+	(hierarchical_label "matrix_C2"
+		(shape input)
+		(at 138.43 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "c8f3fef3-62af-4431-a804-6b67babafeb9")
+		(uuid "e77d05af-9790-48ce-943e-c8ed07a7581a")
 	)
-	(label "io_C6"
-		(at 250.19 45.72 0)
+	(hierarchical_label "matrix_C6"
+		(shape input)
+		(at 250.19 45.72 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify left)
 		)
-		(uuid "eff75c97-1a20-4a13-86f0-0694b8c0e79f")
+		(uuid "e892d0e8-cbbe-4eba-b9b6-f3202c85ee5e")
 	)
 	(symbol
 		(lib_id "Diode:LL4148")
@@ -3445,7 +3458,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "026bdfe3-f6f2-4e14-b13d-b7c813df7a8d")
-		(property "Reference" "D29"
+		(property "Reference" "D34"
 			(at 215.9 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3528,7 +3541,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D29")
+					(reference "D34")
 					(unit 1)
 				)
 			)
@@ -3546,7 +3559,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "045f81a1-419c-4644-aee6-3ce83d30e3fe")
-		(property "Reference" "SW18"
+		(property "Reference" "SW22"
 			(at 148.59 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3566,7 +3579,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -3607,7 +3620,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW18")
+					(reference "SW22")
 					(unit 1)
 				)
 			)
@@ -3625,7 +3638,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "09063a51-e3b3-41ed-9838-4be98cf0ae56")
-		(property "Reference" "D33"
+		(property "Reference" "D39"
 			(at 243.84 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3708,7 +3721,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D33")
+					(reference "D39")
 					(unit 1)
 				)
 			)
@@ -3827,7 +3840,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0f81da4e-0004-431d-ad95-a5c5629804dc")
-		(property "Reference" "D17"
+		(property "Reference" "D16"
 			(at 132.08 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3910,7 +3923,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D17")
+					(reference "D16")
 					(unit 1)
 				)
 			)
@@ -3928,7 +3941,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "10698dcf-0588-41f3-b0e9-f694ed238dc1")
-		(property "Reference" "SW38"
+		(property "Reference" "SW42"
 			(at 232.41 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3948,7 +3961,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -3989,7 +4002,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW38")
+					(reference "SW42")
 					(unit 1)
 				)
 			)
@@ -4007,7 +4020,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "112adf96-a510-4b58-8800-4db713ba66f5")
-		(property "Reference" "SW7"
+		(property "Reference" "SW9"
 			(at 92.71 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4027,7 +4040,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -4068,7 +4081,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW7")
+					(reference "SW9")
 					(unit 1)
 				)
 			)
@@ -4086,7 +4099,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "119b4df2-2777-4eea-a9c4-659ba97ec4a4")
-		(property "Reference" "D10"
+		(property "Reference" "D3"
 			(at 76.2 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4169,7 +4182,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D10")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -4187,7 +4200,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "126cf9fd-00f2-41f8-8cd5-3b1364eaec79")
-		(property "Reference" "D14"
+		(property "Reference" "D26"
 			(at 187.96 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4270,7 +4283,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D14")
+					(reference "D26")
 					(unit 1)
 				)
 			)
@@ -4288,7 +4301,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "12767dd7-72c4-4bc0-bff9-6301b08b81c1")
-		(property "Reference" "D11"
+		(property "Reference" "D9"
 			(at 104.14 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4371,7 +4384,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D11")
+					(reference "D9")
 					(unit 1)
 				)
 			)
@@ -4389,7 +4402,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13553372-a3c2-4b61-a781-a651eb387e55")
-		(property "Reference" "D6"
+		(property "Reference" "D8"
 			(at 104.14 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4472,7 +4485,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D6")
+					(reference "D8")
 					(unit 1)
 				)
 			)
@@ -4490,7 +4503,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13629c14-e428-4c34-9812-be2e841263c6")
-		(property "Reference" "D21"
+		(property "Reference" "D11"
 			(at 104.14 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4573,7 +4586,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D21")
+					(reference "D11")
 					(unit 1)
 				)
 			)
@@ -4591,7 +4604,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13a5c64f-1131-400c-b586-32808ae802f5")
-		(property "Reference" "SW16"
+		(property "Reference" "SW12"
 			(at 92.71 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4611,7 +4624,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -4652,7 +4665,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW16")
+					(reference "SW12")
 					(unit 1)
 				)
 			)
@@ -4670,7 +4683,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13eeaa07-7c66-4f7f-be17-98ea9d5ef126")
-		(property "Reference" "D13"
+		(property "Reference" "D21"
 			(at 160.02 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4753,7 +4766,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D13")
+					(reference "D21")
 					(unit 1)
 				)
 			)
@@ -4771,7 +4784,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "17cf5856-95f9-4295-8172-7937814de27d")
-		(property "Reference" "D35"
+		(property "Reference" "D41"
 			(at 243.84 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4854,7 +4867,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D35")
+					(reference "D41")
 					(unit 1)
 				)
 			)
@@ -4872,7 +4885,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "186b4454-ed14-44e6-9e3f-89988ef8ad43")
-		(property "Reference" "SW45"
+		(property "Reference" "SW38"
 			(at 204.47 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4892,7 +4905,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -4933,7 +4946,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW45")
+					(reference "SW38")
 					(unit 1)
 				)
 			)
@@ -4951,7 +4964,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1b6d9249-b223-46fe-988a-d71b752c3993")
-		(property "Reference" "D38"
+		(property "Reference" "D18"
 			(at 132.08 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5034,7 +5047,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D38")
+					(reference "D18")
 					(unit 1)
 				)
 			)
@@ -5052,7 +5065,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1c2cf484-16ad-43c7-bbed-5b0827ff8037")
-		(property "Reference" "SW34"
+		(property "Reference" "SW37"
 			(at 204.47 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5072,7 +5085,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -5113,7 +5126,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW34")
+					(reference "SW37")
 					(unit 1)
 				)
 			)
@@ -5131,7 +5144,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d8f99f5-fbcc-45d9-88a2-ab9210436baf")
-		(property "Reference" "SW10"
+		(property "Reference" "SW5"
 			(at 64.77 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5151,7 +5164,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5192,7 +5205,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW10")
+					(reference "SW5")
 					(unit 1)
 				)
 			)
@@ -5210,7 +5223,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "216479a3-df9c-42c4-8164-1ca2a24ddd5a")
-		(property "Reference" "SW12"
+		(property "Reference" "SW16"
 			(at 120.65 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5230,7 +5243,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5271,7 +5284,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW12")
+					(reference "SW16")
 					(unit 1)
 				)
 			)
@@ -5289,7 +5302,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23c6ef52-3b31-4444-80fc-be1436d309cd")
-		(property "Reference" "D31"
+		(property "Reference" "D37"
 			(at 243.84 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5372,7 +5385,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D31")
+					(reference "D37")
 					(unit 1)
 				)
 			)
@@ -5390,7 +5403,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2a9fcabc-96d7-4f08-bfe0-47afc2956048")
-		(property "Reference" "D5"
+		(property "Reference" "D2"
 			(at 76.2 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5473,7 +5486,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D5")
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -5491,7 +5504,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2fe4f1af-7ace-4516-b4cf-f18ebbc9bef4")
-		(property "Reference" "SW26"
+		(property "Reference" "SW28"
 			(at 176.53 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5511,7 +5524,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5552,7 +5565,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW26")
+					(reference "SW28")
 					(unit 1)
 				)
 			)
@@ -5570,7 +5583,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33b0a1aa-5ef5-4cde-85d3-8690d3774a72")
-		(property "Reference" "SW27"
+		(property "Reference" "SW29"
 			(at 176.53 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5590,7 +5603,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5631,7 +5644,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW27")
+					(reference "SW29")
 					(unit 1)
 				)
 			)
@@ -5649,7 +5662,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "37c3603e-a79c-4119-92d9-40a2db56d80a")
-		(property "Reference" "SW20"
+		(property "Reference" "SW7"
 			(at 64.77 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5669,7 +5682,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -5710,7 +5723,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW20")
+					(reference "SW7")
 					(unit 1)
 				)
 			)
@@ -5728,7 +5741,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3839d347-7436-4ddb-80cd-97403ff5243b")
-		(property "Reference" "SW35"
+		(property "Reference" "SW39"
 			(at 232.41 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5748,7 +5761,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5789,7 +5802,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW35")
+					(reference "SW39")
 					(unit 1)
 				)
 			)
@@ -5807,7 +5820,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3c7c1231-6f02-44a2-9b70-b964a6129cd0")
-		(property "Reference" "SW9"
+		(property "Reference" "SW15"
 			(at 120.65 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5827,7 +5840,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5868,7 +5881,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW9")
+					(reference "SW15")
 					(unit 1)
 				)
 			)
@@ -5886,7 +5899,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "41e357d6-c6af-4080-8c43-afffa25f7c8c")
-		(property "Reference" "SW44"
+		(property "Reference" "SW32"
 			(at 176.53 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5906,7 +5919,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -5947,7 +5960,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW44")
+					(reference "SW32")
 					(unit 1)
 				)
 			)
@@ -5965,7 +5978,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "458e0853-b511-44bb-8a26-82216d730cd6")
-		(property "Reference" "SW32"
+		(property "Reference" "SW35"
 			(at 204.47 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5985,7 +5998,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -6026,7 +6039,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW32")
+					(reference "SW35")
 					(unit 1)
 				)
 			)
@@ -6044,7 +6057,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45a8fb54-da08-4a96-b11b-78887e6c46ce")
-		(property "Reference" "SW6"
+		(property "Reference" "SW4"
 			(at 64.77 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6064,7 +6077,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6105,7 +6118,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW6")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
@@ -6123,7 +6136,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4ab23e1f-fcfb-4326-b33d-7df61a99d608")
-		(property "Reference" "SW13"
+		(property "Reference" "SW17"
 			(at 120.65 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6143,7 +6156,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -6184,7 +6197,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW13")
+					(reference "SW17")
 					(unit 1)
 				)
 			)
@@ -6202,7 +6215,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e95cb5c-1e62-4bd0-9901-cedf6fb0fac4")
-		(property "Reference" "D8"
+		(property "Reference" "D20"
 			(at 160.02 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6285,7 +6298,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D8")
+					(reference "D20")
 					(unit 1)
 				)
 			)
@@ -6404,7 +6417,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52867e9c-6472-4775-a118-3bbe60c4e5c2")
-		(property "Reference" "D12"
+		(property "Reference" "D15"
 			(at 132.08 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6487,7 +6500,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D12")
+					(reference "D15")
 					(unit 1)
 				)
 			)
@@ -6505,7 +6518,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "536c4fa8-b9cb-4f09-a6e1-5b410373d14c")
-		(property "Reference" "D41"
+		(property "Reference" "D36"
 			(at 215.9 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6588,7 +6601,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D41")
+					(reference "D36")
 					(unit 1)
 				)
 			)
@@ -6606,7 +6619,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "55b0afc3-e433-413b-a1ba-4ff4a1ab5ff7")
-		(property "Reference" "SW28"
+		(property "Reference" "SW30"
 			(at 176.53 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6626,7 +6639,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -6667,7 +6680,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW28")
+					(reference "SW30")
 					(unit 1)
 				)
 			)
@@ -6685,7 +6698,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5d7fe4f4-b54e-4874-99e2-8c43b8fe34fb")
-		(property "Reference" "D30"
+		(property "Reference" "D35"
 			(at 215.9 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6768,7 +6781,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D30")
+					(reference "D35")
 					(unit 1)
 				)
 			)
@@ -6786,7 +6799,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5ddd7059-a253-4992-a1bc-cee0cabed6b8")
-		(property "Reference" "SW8"
+		(property "Reference" "SW10"
 			(at 92.71 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6806,7 +6819,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6847,7 +6860,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW8")
+					(reference "SW10")
 					(unit 1)
 				)
 			)
@@ -6865,7 +6878,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6064e722-2b83-4c40-9194-2fcad6a8d14e")
-		(property "Reference" "SW19"
+		(property "Reference" "SW23"
 			(at 148.59 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6885,7 +6898,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -6926,7 +6939,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW19")
+					(reference "SW23")
 					(unit 1)
 				)
 			)
@@ -6944,7 +6957,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6181c7e0-e0ce-4d20-86c5-00c6a8fc09c9")
-		(property "Reference" "D22"
+		(property "Reference" "D17"
 			(at 132.08 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7027,7 +7040,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D22")
+					(reference "D17")
 					(unit 1)
 				)
 			)
@@ -7045,7 +7058,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "630f573e-55ca-4e03-89a7-21817f657538")
-		(property "Reference" "D37"
+		(property "Reference" "D12"
 			(at 104.14 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7128,7 +7141,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D37")
+					(reference "D12")
 					(unit 1)
 				)
 			)
@@ -7146,7 +7159,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66756034-49a3-4d52-a85c-80ea5ff6beb8")
-		(property "Reference" "D27"
+		(property "Reference" "D32"
 			(at 215.9 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7229,7 +7242,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D27")
+					(reference "D32")
 					(unit 1)
 				)
 			)
@@ -7247,7 +7260,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6794ee91-d8c8-47e7-9c04-768253e19a05")
-		(property "Reference" "D28"
+		(property "Reference" "D33"
 			(at 215.9 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7330,7 +7343,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D28")
+					(reference "D33")
 					(unit 1)
 				)
 			)
@@ -7348,7 +7361,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "698bc3cf-a7d2-49a2-9864-7134b4edded9")
-		(property "Reference" "SW29"
+		(property "Reference" "SW31"
 			(at 176.53 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7368,7 +7381,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -7409,7 +7422,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW29")
+					(reference "SW31")
 					(unit 1)
 				)
 			)
@@ -7427,7 +7440,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "822efb14-9534-4ab8-be56-1c5f32b420c5")
-		(property "Reference" "D18"
+		(property "Reference" "D22"
 			(at 160.02 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7510,7 +7523,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D18")
+					(reference "D22")
 					(unit 1)
 				)
 			)
@@ -7528,7 +7541,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "841b4d4b-4eff-42c3-8472-ed4abaf0ce56")
-		(property "Reference" "SW14"
+		(property "Reference" "SW21"
 			(at 148.59 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7548,7 +7561,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -7589,7 +7602,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW14")
+					(reference "SW21")
 					(unit 1)
 				)
 			)
@@ -7607,7 +7620,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "84b44619-1691-4fe3-a60c-19ea2b76cb43")
-		(property "Reference" "SW23"
+		(property "Reference" "SW24"
 			(at 148.59 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7627,7 +7640,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -7668,7 +7681,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW23")
+					(reference "SW24")
 					(unit 1)
 				)
 			)
@@ -7686,7 +7699,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "89f3554e-fbe8-414a-b9f3-6766697137df")
-		(property "Reference" "D2"
+		(property "Reference" "D7"
 			(at 104.14 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7769,7 +7782,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D2")
+					(reference "D7")
 					(unit 1)
 				)
 			)
@@ -7787,7 +7800,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "905b5444-eba3-4184-b058-f22b35c70365")
-		(property "Reference" "SW42"
+		(property "Reference" "SW20"
 			(at 120.65 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7807,7 +7820,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -7848,7 +7861,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW42")
+					(reference "SW20")
 					(unit 1)
 				)
 			)
@@ -7866,7 +7879,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "905fe185-4b59-494f-94e0-bd09f2c8efc7")
-		(property "Reference" "SW21"
+		(property "Reference" "SW13"
 			(at 92.71 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7886,7 +7899,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -7927,7 +7940,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW21")
+					(reference "SW13")
 					(unit 1)
 				)
 			)
@@ -8046,7 +8059,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "91a8c693-6947-4b79-a3c1-87c29ed9d29b")
-		(property "Reference" "D32"
+		(property "Reference" "D38"
 			(at 243.84 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8129,7 +8142,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D32")
+					(reference "D38")
 					(unit 1)
 				)
 			)
@@ -8147,7 +8160,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9711fa57-8ade-4630-99d1-1db93ef1b310")
-		(property "Reference" "SW39"
+		(property "Reference" "SW43"
 			(at 232.41 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8167,7 +8180,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -8208,7 +8221,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW39")
+					(reference "SW43")
 					(unit 1)
 				)
 			)
@@ -8226,7 +8239,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "999905c5-0677-4cc7-a82e-d5c47ef93d5b")
-		(property "Reference" "SW33"
+		(property "Reference" "SW36"
 			(at 204.47 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8246,7 +8259,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8287,7 +8300,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW33")
+					(reference "SW36")
 					(unit 1)
 				)
 			)
@@ -8305,7 +8318,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9e332900-1e68-4c1a-a633-fa1a2411c3e8")
-		(property "Reference" "D16"
+		(property "Reference" "D10"
 			(at 104.14 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8388,7 +8401,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D16")
+					(reference "D10")
 					(unit 1)
 				)
 			)
@@ -8406,7 +8419,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a0532d24-efff-4f22-8b92-8a7bf60013cf")
-		(property "Reference" "SW22"
+		(property "Reference" "SW19"
 			(at 120.65 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8426,7 +8439,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -8467,7 +8480,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW22")
+					(reference "SW19")
 					(unit 1)
 				)
 			)
@@ -8485,7 +8498,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a460ecb2-ab8d-4cce-ae87-1ce7d4f26db1")
-		(property "Reference" "D25"
+		(property "Reference" "D29"
 			(at 187.96 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8568,7 +8581,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D25")
+					(reference "D29")
 					(unit 1)
 				)
 			)
@@ -8586,7 +8599,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a88eaf57-dc04-436f-b7a9-005f870ef8c0")
-		(property "Reference" "SW25"
+		(property "Reference" "SW27"
 			(at 176.53 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8606,7 +8619,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 176.53 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -8647,7 +8660,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW25")
+					(reference "SW27")
 					(unit 1)
 				)
 			)
@@ -8665,7 +8678,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af621e39-dcbf-4471-8b30-0c7a58e95e3d")
-		(property "Reference" "SW17"
+		(property "Reference" "SW18"
 			(at 120.65 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8685,7 +8698,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 120.65 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8726,7 +8739,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW17")
+					(reference "SW18")
 					(unit 1)
 				)
 			)
@@ -8744,7 +8757,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b05202c0-67b6-49cd-a303-37c115124f12")
-		(property "Reference" "D4"
+		(property "Reference" "D19"
 			(at 160.02 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8827,7 +8840,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D4")
+					(reference "D19")
 					(unit 1)
 				)
 			)
@@ -8845,7 +8858,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b32db715-8d65-41eb-b2cb-a28dcfd13172")
-		(property "Reference" "SW15"
+		(property "Reference" "SW6"
 			(at 64.77 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8865,7 +8878,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8906,7 +8919,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW15")
+					(reference "SW6")
 					(unit 1)
 				)
 			)
@@ -8924,7 +8937,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b56a100f-afaf-4559-8cbb-90c214c4698d")
-		(property "Reference" "SW5"
+		(property "Reference" "SW3"
 			(at 64.77 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8944,7 +8957,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -8985,7 +8998,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW5")
+					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -9003,7 +9016,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "be041eaa-27fb-4741-a675-186dbabaa005")
-		(property "Reference" "SW37"
+		(property "Reference" "SW41"
 			(at 232.41 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9023,7 +9036,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -9064,7 +9077,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW37")
+					(reference "SW41")
 					(unit 1)
 				)
 			)
@@ -9082,7 +9095,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c06938a7-29bd-40d7-9ec3-22d20cd262dc")
-		(property "Reference" "D15"
+		(property "Reference" "D4"
 			(at 76.2 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9165,7 +9178,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D15")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -9183,7 +9196,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c1d8ac7c-2ee1-4208-9fe6-bec99977b5ca")
-		(property "Reference" "D39"
+		(property "Reference" "D24"
 			(at 160.02 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9266,7 +9279,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D39")
+					(reference "D24")
 					(unit 1)
 				)
 			)
@@ -9284,7 +9297,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2e8c8a1-0431-4708-94f3-64f6627d80d4")
-		(property "Reference" "SW36"
+		(property "Reference" "SW40"
 			(at 232.41 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9304,7 +9317,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -9345,7 +9358,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW36")
+					(reference "SW40")
 					(unit 1)
 				)
 			)
@@ -9363,7 +9376,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c3902369-7a5d-43ca-8706-1012e94eb36a")
-		(property "Reference" "D7"
+		(property "Reference" "D14"
 			(at 132.08 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9446,7 +9459,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D7")
+					(reference "D14")
 					(unit 1)
 				)
 			)
@@ -9464,7 +9477,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c9d1b3b4-3e16-4b34-9ec5-724690c74fd7")
-		(property "Reference" "D9"
+		(property "Reference" "D25"
 			(at 187.96 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9547,7 +9560,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D9")
+					(reference "D25")
 					(unit 1)
 				)
 			)
@@ -9565,7 +9578,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cacd6ebd-f515-4c00-bbe8-94eaf82c77af")
-		(property "Reference" "D3"
+		(property "Reference" "D13"
 			(at 132.08 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9648,7 +9661,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D3")
+					(reference "D13")
 					(unit 1)
 				)
 			)
@@ -9666,7 +9679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1ffc28d-ddc3-4ec7-949d-20d0cfb10f16")
-		(property "Reference" "SW30"
+		(property "Reference" "SW33"
 			(at 204.47 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9686,7 +9699,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -9727,7 +9740,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW30")
+					(reference "SW33")
 					(unit 1)
 				)
 			)
@@ -9745,7 +9758,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d2773fca-7a7e-4dc8-ad85-0e0a82fb3757")
-		(property "Reference" "SW40"
+		(property "Reference" "SW8"
 			(at 64.77 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9765,7 +9778,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 64.77 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -9806,7 +9819,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW40")
+					(reference "SW8")
 					(unit 1)
 				)
 			)
@@ -9824,7 +9837,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d4a11bbb-82ca-4bf9-a7b8-38f51d76cb49")
-		(property "Reference" "D24"
+		(property "Reference" "D28"
 			(at 187.96 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9907,7 +9920,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D24")
+					(reference "D28")
 					(unit 1)
 				)
 			)
@@ -9925,7 +9938,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d4fe82e5-e037-4f01-9f5f-948bfdfe689f")
-		(property "Reference" "D26"
+		(property "Reference" "D31"
 			(at 215.9 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10008,7 +10021,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D26")
+					(reference "D31")
 					(unit 1)
 				)
 			)
@@ -10026,7 +10039,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d93467bf-e162-4d64-a379-9dbb22f6b92b")
-		(property "Reference" "D40"
+		(property "Reference" "D30"
 			(at 187.96 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10109,7 +10122,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D40")
+					(reference "D30")
 					(unit 1)
 				)
 			)
@@ -10127,7 +10140,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9dc9187-e43a-41b4-a8bd-6fd89fe6a9a6")
-		(property "Reference" "SW43"
+		(property "Reference" "SW26"
 			(at 148.59 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10147,7 +10160,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -10188,7 +10201,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW43")
+					(reference "SW26")
 					(unit 1)
 				)
 			)
@@ -10206,7 +10219,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dee405f2-987e-4318-aa4b-db1918b47496")
-		(property "Reference" "SW24"
+		(property "Reference" "SW25"
 			(at 148.59 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10226,7 +10239,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 148.59 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -10267,7 +10280,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW24")
+					(reference "SW25")
 					(unit 1)
 				)
 			)
@@ -10305,7 +10318,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -10364,7 +10377,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e6aad255-e9b1-42d5-a6df-a1da3efa86d9")
-		(property "Reference" "D34"
+		(property "Reference" "D40"
 			(at 243.84 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10447,7 +10460,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D34")
+					(reference "D40")
 					(unit 1)
 				)
 			)
@@ -10465,7 +10478,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8bc5508-30d5-4972-9f45-878a04118c35")
-		(property "Reference" "SW46"
+		(property "Reference" "SW44"
 			(at 232.41 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10485,7 +10498,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 232.41 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -10526,7 +10539,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW46")
+					(reference "SW44")
 					(unit 1)
 				)
 			)
@@ -10544,7 +10557,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e94f321d-8f45-4486-b0b8-c12091abd4a1")
-		(property "Reference" "SW31"
+		(property "Reference" "SW34"
 			(at 204.47 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10564,7 +10577,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 204.47 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -10605,7 +10618,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW31")
+					(reference "SW34")
 					(unit 1)
 				)
 			)
@@ -10623,7 +10636,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f071d8eb-517b-43c6-b627-bfdeab8b6aef")
-		(property "Reference" "D20"
+		(property "Reference" "D5"
 			(at 76.2 117.856 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10706,7 +10719,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D20")
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -10724,7 +10737,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f0ae012d-5c16-477e-9467-b3edbaf1d9fe")
-		(property "Reference" "D36"
+		(property "Reference" "D6"
 			(at 76.2 133.096 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10807,7 +10820,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D36")
+					(reference "D6")
 					(unit 1)
 				)
 			)
@@ -10825,7 +10838,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f698c052-0ae7-482d-b563-1a7ccbd9dc75")
-		(property "Reference" "SW41"
+		(property "Reference" "SW14"
 			(at 92.71 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10845,7 +10858,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "ledaw:ks-33-2.0"
 			(at 92.71 134.62 0)
 			(hide yes)
 			(show_name no)
@@ -10886,7 +10899,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW41")
+					(reference "SW14")
 					(unit 1)
 				)
 			)
@@ -10904,7 +10917,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f9fd53aa-0598-4788-813f-90a083697ab9")
-		(property "Reference" "D19"
+		(property "Reference" "D27"
 			(at 187.96 88.646 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10987,7 +11000,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D19")
+					(reference "D27")
 					(unit 1)
 				)
 			)

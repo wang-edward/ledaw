@@ -3,4 +3,7 @@
 	(lib (name "CM4IO") (type "KiCad") (uri "${KIPRJMOD}/symbols/CM4IO.kicad_sym") (options "") (descr ""))
 	(lib (name "MAX98089ETN_T") (type "KiCad") (uri "${KIPRJMOD}/symbols/MAX98089ETN_T.kicad_sym") (options "") (descr ""))
 	(lib (name "util") (type "KiCad") (uri "${KIPRJMOD}/symbols/util.kicad_sym") (options "") (descr ""))
+	(lib (name "THB001P") (type "KiCad") (uri "${KIPRJMOD}/symbols/THB001P.kicad_sym") (options "") (descr ""))
+	(lib (name "MCU_RaspberryPi_RP2350") (type "KiCad") (uri "/Users/edw/github/ledaw/hardware/RP2350_80QFN_minimal/MCU_RaspberryPi_RP2350.kicad_sym") (options "") (descr ""))
+	(lib (name "PEC11R-4015F-S0024") (type "KiCad") (uri "${KIPRJMOD}/symbols/PEC11R-4015F-S0024.kicad_sym") (options "") (descr ""))
 )
