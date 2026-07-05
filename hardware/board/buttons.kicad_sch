@@ -448,6 +448,12 @@
 		(uuid "3a59a58a-0a1f-414c-83ba-fda1afbaa5f9")
 	)
 	(junction
+		(at 250.19 124.46)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3d55453f-0f07-46e6-957a-3e8cfe3b7a54")
+	)
+	(junction
 		(at 250.19 81.28)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -628,12 +634,6 @@
 		(uuid "a6d51ad5-2ba6-44c8-9ab7-54a65e1b1c0e")
 	)
 	(junction
-		(at 250.19 124.46)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "aa4e679f-b011-40c1-bd48-a887a22cf825")
-	)
-	(junction
 		(at 86.36 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -802,6 +802,16 @@
 			(type default)
 		)
 		(uuid "012b920a-4b35-47db-bcdf-dfaa54cf6e55")
+	)
+	(wire
+		(pts
+			(xy 250.19 124.46) (xy 250.19 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "013886b0-39d3-4f4b-ace3-0b99c333c1d0")
 	)
 	(wire
 		(pts
@@ -1125,7 +1135,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 129.54) (xy 198.12 129.54)
+			(xy 198.12 129.54) (xy 250.19 129.54)
 		)
 		(stroke
 			(width 0)
@@ -2145,16 +2155,6 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 139.7) (xy 226.06 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90f19322-34db-40dd-ab86-4cbf1f819cdf")
-	)
-	(wire
-		(pts
 			(xy 191.77 124.46) (xy 194.31 124.46)
 		)
 		(stroke
@@ -2322,16 +2322,6 @@
 			(type default)
 		)
 		(uuid "a5b0f8f1-c18e-4dca-9bd4-7ef8768d387f")
-	)
-	(wire
-		(pts
-			(xy 247.65 139.7) (xy 250.19 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6e22e78-edbc-44d7-9858-878d7bfc86f6")
 	)
 	(wire
 		(pts
@@ -2735,16 +2725,6 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 139.7) (xy 226.06 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ceec9963-a5ee-4311-b795-46bddc27ac70")
-	)
-	(wire
-		(pts
 			(xy 114.3 95.25) (xy 114.3 85.09)
 		)
 		(stroke
@@ -2782,16 +2762,6 @@
 			(type default)
 		)
 		(uuid "d17c4623-f0a7-48cc-9ec4-4688a23a87de")
-	)
-	(wire
-		(pts
-			(xy 250.19 124.46) (xy 250.19 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d25c17ac-7ea6-4a10-9c36-34d8378e8f87")
 	)
 	(wire
 		(pts
@@ -3172,16 +3142,6 @@
 			(type default)
 		)
 		(uuid "f715f559-b26b-4056-9aee-c3fe766923c4")
-	)
-	(wire
-		(pts
-			(xy 237.49 139.7) (xy 240.03 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f759c337-1d02-4001-86f2-cbc15bbb350b")
 	)
 	(wire
 		(pts
@@ -7948,107 +7908,6 @@
 	)
 	(symbol
 		(lib_id "Diode:LL4148")
-		(at 243.84 139.7 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "90746742-43d3-49c7-9d8a-128f5c12b72e")
-		(property "Reference" "D42"
-			(at 243.84 133.096 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LL4148"
-			(at 243.84 135.636 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_MiniMELF"
-			(at 243.84 135.255 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "http://www.vishay.com/docs/85557/ll4148.pdf"
-			(at 243.84 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 243.84 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 243.84 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 243.84 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1784c5a6-a3d7-46c0-bc38-fa7dcec941da")
-		)
-		(pin "2"
-			(uuid "b1a41c5f-67ff-4dde-9d94-891e052bda4a")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "D42")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Diode:LL4148")
 		(at 243.84 81.28 180)
 		(unit 1)
 		(body_style 1)
@@ -10461,85 +10320,6 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
 					(reference "D40")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 232.41 139.7 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e8bc5508-30d5-4972-9f45-878a04118c35")
-		(property "Reference" "SW44"
-			(at 232.41 132.08 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push"
-			(at 232.41 134.62 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "ledaw:ks-33-2.0"
-			(at 232.41 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e677a796-e2f4-42ba-80c4-2f25a2c5675a")
-		)
-		(pin "2"
-			(uuid "c7e874b8-86d8-407a-89a4-b509e805f242")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f"
-					(reference "SW44")
 					(unit 1)
 				)
 			)

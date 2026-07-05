@@ -6621,7 +6621,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ-3523-SMT_Horizontal"
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ1-3525N_Horizontal"
 			(at 207.01 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -8525,7 +8525,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ledaw:CUI_SJ-43514-SMT-TR"
+		(property "Footprint" "ledaw:CUI_SJ-43514"
 			(at 207.01 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9686,7 +9686,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ-3523-SMT_Horizontal"
+		(property "Footprint" "Connector_Audio:Jack_3.5mm_CUI_SJ1-3525N_Horizontal"
 			(at 71.12 107.95 0)
 			(hide yes)
 			(show_name no)
