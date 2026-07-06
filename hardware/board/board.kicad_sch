@@ -5872,7 +5872,7 @@
 	)
 	(sheet
 		(at 217.17 62.23)
-		(size 21.59 21.59)
+		(size 38.1 40.64)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -5898,7 +5898,7 @@
 			)
 		)
 		(property "Sheetfile" "mcu.kicad_sch"
-			(at 217.17 84.4046 0)
+			(at 217.17 103.4546 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
