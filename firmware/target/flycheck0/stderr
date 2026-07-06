@@ -1,0 +1,10 @@
+    Updating crates.io index
+error: failed to select a version for `embassy-rp`.
+    ... required by package `firmware v0.1.0 (/Users/edw/github/ledaw/firmware)`
+versions that meet the requirements `^0.2` are: 0.2.0
+
+package `firmware` depends on `embassy-rp` with feature `rp2040` but `embassy-rp` does not have that feature.
+ available features: boot2-at25sf128a, boot2-gd25q64cs, boot2-generic-03h, boot2-is25lp080, boot2-none, boot2-ram-memcpy, boot2-w25q080, boot2-w25x10cl, chrono, critical-section-impl, default, defmt, intrinsics, log, qspi-as-gpio, rom-func-cache, rom-v2-intrinsics, rt, run-from-ram, time-driver, unstable-pac
+
+
+failed to select a version for `embassy-rp` which could resolve this conflict

@@ -1,0 +1,19 @@
+[target.thumbv6m-none-eabi]
+runner = "probe-rs run --chip RP2040"
+
+[build]
+target = "thumbv6m-none-eabi"
+
+[env]
+DEFMT_LOG = "debug"
+
+# on rp2354
+# thumbv8m.main-none-eabihf
+# --chip RP2354
+
+# # USB flash
+# [target.thumbv6m-none-eabi]
+# runner = "elf2uf2-rs -d"
+#
+# [build]
+# target = "thumbv6m-none-eabi"
