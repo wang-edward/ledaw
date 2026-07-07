@@ -6375,6 +6375,17 @@
 		)
 		(uuid "df0b81e2-aa10-4206-98be-502ae6ab05f9")
 	)
+	(text "from CM4 perspective\nso MCU_RX goes to UART1 TX"
+		(exclude_from_sim no)
+		(at 197.612 85.344 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f6e75a34-61f8-482b-8024-8402a482e738")
+	)
 	(junction
 		(at 342.9 107.95)
 		(diameter 0)
@@ -10067,16 +10078,6 @@
 		)
 		(uuid "50c011ad-49e0-4415-8fa9-234aed036f97")
 	)
-	(label "SWD"
-		(at 129.54 250.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5dd91ccf-c460-4149-b0de-7af4f39e8b84")
-	)
 	(label "MIDI_RX"
 		(at 299.72 267.97 180)
 		(effects
@@ -10166,16 +10167,6 @@
 			(justify right bottom)
 		)
 		(uuid "88973dd1-e69d-44c1-9690-3dbbf3c23606")
-	)
-	(label "SWCLK"
-		(at 129.54 245.11 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8be44c38-c7ca-403b-b4c8-d623cb0e32f6")
 	)
 	(label "matrix_C10"
 		(at 194.31 127 180)
@@ -10617,7 +10608,7 @@
 		)
 		(uuid "fd0cd304-8444-4c03-979f-61a089f9abcd")
 	)
-	(hierarchical_label "CM5_TX"
+	(hierarchical_label "MCU_TX"
 		(shape input)
 		(at 194.31 91.44 0)
 		(effects
@@ -10628,7 +10619,18 @@
 		)
 		(uuid "55bc663a-f232-4ea9-8254-52e414eca9b1")
 	)
-	(hierarchical_label "CM4_TX"
+	(hierarchical_label "SWD"
+		(shape input)
+		(at 129.54 250.19 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5c14e154-eeae-47d8-b328-515a869ff446")
+	)
+	(hierarchical_label "MCU_RX"
 		(shape input)
 		(at 194.31 88.9 0)
 		(effects
@@ -10638,6 +10640,17 @@
 			(justify left)
 		)
 		(uuid "79246313-78cf-4bb6-8a50-6da6bbc45c24")
+	)
+	(hierarchical_label "SWCLK"
+		(shape input)
+		(at 129.58 245.11 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a353de4f-46a5-4382-a867-8719e5480833")
 	)
 	(hierarchical_label "SWD"
 		(shape input)

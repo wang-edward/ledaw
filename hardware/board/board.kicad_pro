@@ -632,7 +632,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "SW42,R5-6,R29-30,C4,C7,C60-61,#PWR8-9,#PWR11-12,#PWR14-15,#PWR105,U1",
+    "used_designators": "#PWR107",
     "variants": []
   },
   "sheets": [
@@ -651,6 +651,10 @@
     [
       "bead49b4-6be4-481c-a37b-4cba7f02eadb",
       "audio"
+    ],
+    [
+      "e77fa723-60b4-4aaf-b8c0-33f73a50a054",
+      "usb"
     ]
   ],
   "text_variables": {},
