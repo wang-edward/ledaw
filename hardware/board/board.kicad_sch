@@ -6561,7 +6561,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 137.16 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -6643,7 +6643,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 204.47 20.32 0)
 			(hide yes)
 			(show_name no)
@@ -7575,7 +7575,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 270.51 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -8431,7 +8431,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
 			(at 161.29 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -8528,7 +8528,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 212.09 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -9893,6 +9893,56 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "USBH_EN" input
+			(at 224.79 85.09 180)
+			(uuid "089b351e-a3f7-47f0-9b3e-fea50d163ef7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USB_N" bidirectional
+			(at 224.79 82.55 180)
+			(uuid "5e10140a-66f4-4c44-887d-faacc2cc9d12")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USB_OTG" input
+			(at 224.79 77.47 180)
+			(uuid "f04041d5-f3b9-4b5d-8ac6-c7bb871dd738")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USB_P" bidirectional
+			(at 224.79 80.01 180)
+			(uuid "9aeeda90-2622-4a10-9363-ea9c0fd7c000")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "USBH_~{FAULT}" input
+			(at 224.79 87.63 180)
+			(uuid "2532740c-1970-4f97-8be2-196bf7f323d8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances
