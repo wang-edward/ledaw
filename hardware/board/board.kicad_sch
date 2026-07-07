@@ -6669,6 +6669,16 @@
 	)
 	(wire
 		(pts
+			(xy 172.72 85.09) (xy 180.34 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94046954-0f8c-4800-aa74-8e65c5aea748")
+	)
+	(wire
+		(pts
 			(xy 172.72 44.45) (xy 179.07 44.45)
 		)
 		(stroke
@@ -6756,6 +6766,16 @@
 			(type default)
 		)
 		(uuid "cb90f89c-7d5f-4d67-bdf5-63931ff935cf")
+	)
+	(wire
+		(pts
+			(xy 172.72 90.17) (xy 180.34 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db6cb4be-674d-42e8-bbfe-82ac9590988d")
 	)
 	(wire
 		(pts
@@ -6856,6 +6876,26 @@
 			(justify right bottom)
 		)
 		(uuid "7d31005b-5a43-48bb-aa44-f910ce17b87e")
+	)
+	(label "D-"
+		(at 180.2588 85.09 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a5376f49-c4cc-43c9-9f94-ba53a26fb917")
+	)
+	(label "D+"
+		(at 180.34 90.17 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b419b5c2-5091-4ae0-9253-0c2de594d2ae")
 	)
 	(label "FUSE_VILM"
 		(at 264.16 39.37 180)
