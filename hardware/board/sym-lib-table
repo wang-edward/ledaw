@@ -7,4 +7,5 @@
 	(lib (name "MCU_RaspberryPi_RP2350") (type "KiCad") (uri "/Users/edw/github/ledaw/hardware/RP2350_80QFN_minimal/MCU_RaspberryPi_RP2350.kicad_sym") (options "") (descr ""))
 	(lib (name "PEC11R-4015F-S0024") (type "KiCad") (uri "${KIPRJMOD}/symbols/PEC11R-4015F-S0024.kicad_sym") (options "") (descr ""))
 	(lib (name "SJ-43514") (type "KiCad") (uri "${KIPRJMOD}/symbols/SJ-43514.kicad_sym") (options "") (descr ""))
+	(lib (name "TPS259531DSGR") (type "KiCad") (uri "${KIPRJMOD}/symbols/TPS259531DSGR.kicad_sym") (options "") (descr ""))
 )
