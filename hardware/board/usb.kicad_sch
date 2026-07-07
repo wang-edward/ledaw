@@ -2930,7 +2930,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 184.15 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -3310,7 +3310,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 184.15 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -3390,7 +3390,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "CM4IO:USB_Micro-B_EDAC_UCON00686"
 			(at 85.09 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -3482,7 +3482,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:MSOP-10_3x3mm_P0.5mm"
 			(at 148.59 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -3666,7 +3666,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 69.85 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -4023,7 +4023,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 167.64 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -4105,7 +4105,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 120.65 60.96 0)
 			(hide yes)
 			(show_name no)

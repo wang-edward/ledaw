@@ -6300,7 +6300,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TPS259531DSGR:SON50P200X200X80-9N"
+		(property "Footprint" "ledaw:SON50P200X200X80-9N"
 			(at 229.87 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -8351,7 +8351,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 179.07 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -8766,7 +8766,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 200.66 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -8926,7 +8926,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 200.66 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -9085,7 +9085,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 256.54 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -9339,7 +9339,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 248.92 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -9577,7 +9577,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 181.61 48.26 0)
 			(hide yes)
 			(show_name no)

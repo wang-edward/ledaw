@@ -20638,7 +20638,7 @@
 		(fields_autoplaced yes)
 		(uuid "fc6b47b2-d2d6-4c44-9838-6b695d03848e")
 		(property "Reference" "U8"
-			(at 264.16 304.7298 0)
+			(at 266.7 304.7298 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20647,8 +20647,8 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G125"
-			(at 264.16 307.2698 0)
+		(property "Value" "74AHC1G125DCKR"
+			(at 266.7 307.2698 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20657,7 +20657,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-353_SC-70-5"
 			(at 251.46 311.15 0)
 			(hide yes)
 			(show_name no)
