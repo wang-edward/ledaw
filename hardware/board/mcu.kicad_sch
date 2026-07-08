@@ -810,232 +810,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic_MountingPin:Conn_01x03_MountingPin"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x03_MountingPin"
-				(at 1.27 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Generic connectable mounting pin connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Conn_01x03_MountingPin_1_1"
-				(rectangle
-					(start -1.27 3.81)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -4.572) (xy 1.016 -4.572)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(text "Mounting"
-					(at 0 -4.191 0)
-					(effects
-						(font
-							(size 0.381 0.381)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 90)
-					(length 3.048)
-					(name "MountPin"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "MP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -6364,17 +6138,6 @@
 		)
 		(uuid "75507d80-fd50-4cbc-9a19-4bc240017181")
 	)
-	(text "JST Debug Connector"
-		(exclude_from_sim no)
-		(at 140.97 241.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "df0b81e2-aa10-4206-98be-502ae6ab05f9")
-	)
 	(text "from CM4 perspective\nso MCU_RX goes to UART1 TX"
 		(exclude_from_sim no)
 		(at 197.612 85.344 0)
@@ -6451,12 +6214,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "279896ff-a17a-4641-9376-bb4bfc617bb2")
-	)
-	(junction
-		(at 140.335 256.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2f2a93d7-000f-44b4-889a-be9e328eb728")
 	)
 	(junction
 		(at 119.38 48.26)
@@ -7060,16 +6817,6 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 255.27) (xy 147.32 256.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "11240b3e-f6ad-4f6b-9134-d88904f3a40e")
-	)
-	(wire
-		(pts
 			(xy 241.3 36.83) (xy 241.3 39.37)
 		)
 		(stroke
@@ -7317,16 +7064,6 @@
 			(type default)
 		)
 		(uuid "2a92d6fb-d74e-43d8-b047-fe6120f482e2")
-	)
-	(wire
-		(pts
-			(xy 140.335 256.54) (xy 147.32 256.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c772fb5-148f-4845-bd1f-afd31efdd9de")
 	)
 	(wire
 		(pts
@@ -8180,26 +7917,6 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 250.19) (xy 142.24 250.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76b5834a-f5f7-4858-a5d7-785fd8b9712f")
-	)
-	(wire
-		(pts
-			(xy 140.335 256.54) (xy 140.335 258.445)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "770d9084-fafa-4370-895d-66e407539a0d")
-	)
-	(wire
-		(pts
 			(xy 246.38 96.52) (xy 246.38 99.06)
 		)
 		(stroke
@@ -8227,16 +7944,6 @@
 			(type default)
 		)
 		(uuid "7bb6191b-75be-4b0e-8439-0cecff988ff7")
-	)
-	(wire
-		(pts
-			(xy 142.24 247.65) (xy 140.335 247.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7be89457-695e-4cf3-bc3a-5a1a3e7d5867")
 	)
 	(wire
 		(pts
@@ -8860,16 +8567,6 @@
 	)
 	(wire
 		(pts
-			(xy 140.335 247.65) (xy 140.335 256.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0038b15-fd5f-4b52-aaa5-91197825804a")
-	)
-	(wire
-		(pts
 			(xy 381 107.95) (xy 391.16 107.95)
 		)
 		(stroke
@@ -9057,16 +8754,6 @@
 			(type default)
 		)
 		(uuid "c3c7f33e-2590-4515-a3f2-c0627e08a4be")
-	)
-	(wire
-		(pts
-			(xy 129.54 245.11) (xy 142.24 245.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c44c052c-23a0-4c5e-917e-4a95a5c20954")
 	)
 	(wire
 		(pts
@@ -10629,17 +10316,6 @@
 		)
 		(uuid "55bc663a-f232-4ea9-8254-52e414eca9b1")
 	)
-	(hierarchical_label "SWD"
-		(shape input)
-		(at 129.54 250.19 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5c14e154-eeae-47d8-b328-515a869ff446")
-	)
 	(hierarchical_label "FUSE_ILM"
 		(shape input)
 		(at 187.96 200.66 0)
@@ -10661,17 +10337,6 @@
 			(justify left)
 		)
 		(uuid "79246313-78cf-4bb6-8a50-6da6bbc45c24")
-	)
-	(hierarchical_label "SWCLK"
-		(shape input)
-		(at 129.58 245.11 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a353de4f-46a5-4382-a867-8719e5480833")
 	)
 	(hierarchical_label "SWD"
 		(shape input)
@@ -11602,93 +11267,6 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
 					(reference "#PWR0101")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic_MountingPin:Conn_01x03_MountingPin")
-		(at 147.32 247.65 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1b629c18-9ac7-46b8-9ca0-9ebe733b28e4")
-		(property "Reference" "J2"
-			(at 149.86 246.38 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SM03B-SRSS-TB"
-			(at 149.86 248.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal"
-			(at 147.32 247.65 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 247.65 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 247.65 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "57e8e5e9-7fe6-44ba-b33a-682531f71bf8")
-		)
-		(pin "2"
-			(uuid "5813aa40-455a-49c4-befd-60371bd1dbb4")
-		)
-		(pin "3"
-			(uuid "357f09e1-3f50-4a2b-942b-770d4e2d1245")
-		)
-		(pin "MP"
-			(uuid "7f3fe115-da89-46e9-8e89-b3149d2dab3b")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
-					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -16220,83 +15798,6 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
 					(reference "Y1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 140.335 258.445 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "95dc2c3c-3310-4ce7-b9f9-d972e84a4af8")
-		(property "Reference" "#PWR018"
-			(at 140.335 264.795 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 140.208 262.89 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 140.335 258.445 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 140.335 258.445 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 140.335 258.445 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f79a0781-fabc-433d-a363-7578ea3626c6")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
-					(reference "#PWR018")
 					(unit 1)
 				)
 			)
