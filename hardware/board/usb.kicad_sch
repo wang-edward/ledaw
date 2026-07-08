@@ -4019,7 +4019,7 @@
 		)
 		(uuid "fe3c3053-1a61-43b1-9131-04fd15327d5d")
 	)
-	(label "FUSE_FAULT"
+	(label "FUSE_~{FLT}"
 		(at 142.24 162.56 180)
 		(effects
 			(font
