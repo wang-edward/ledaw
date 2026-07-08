@@ -1,0 +1,47 @@
+name: firmware
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+defaults:
+  run:
+    working-directory: firmware
+
+jobs:
+  building:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          target: thumbv8m.main-none-eabihf
+      - run: cargo build --release
+  linting:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+          target: thumbv8m.main-none-eabihf
+      - run: cargo clippy --all-features -- --deny=warnings
+  formatting:
+    name: format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+          target: thumbv8m.main-none-eabihf
+      - run: cargo fmt -- --check
