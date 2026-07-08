@@ -1,4 +1,4 @@
-name: Firmware
+name: firmware
 
 on:
   push:
