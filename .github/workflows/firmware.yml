@@ -1,4 +1,4 @@
-name: firmware
+name: Firmware
 
 on:
   push:
@@ -13,7 +13,7 @@ defaults:
 
 jobs:
   building:
-    name: Building
+    name: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
           target: thumbv8m.main-none-eabihf
       - run: cargo build --release
   linting:
-    name: Linting
+    name: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
           target: thumbv8m.main-none-eabihf
       - run: cargo clippy --all-features -- --deny=warnings
   formatting:
-    name: Formatting
+    name: format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
