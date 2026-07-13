@@ -548,7 +548,7 @@
   "schematic": {
     "annotate_start_num": 0,
     "annotation": {
-      "method": 0,
+      "method": 1,
       "sort_order": 1
     },
     "bom_export_filename": "${PROJECTNAME}.csv",
@@ -663,7 +663,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "TP3,#PWR36,#PWR39,#PWR121,C24,C64,FB2,R9,J5",
+    "used_designators": "TP401-418,R201-221,R401-403,R501-511,P501,Module101,ENC201-204,LS401-402,L201,U101,U201-204,U401-402,U501-503,SW301-341,FB401-406,C101,C201-227,C401-431,C501-505,MK401-402,J101-102,J201-202,J401-403,J501-502,Y201,Y401,#PWR101-109,#PWR201-252,#PWR401-444,#PWR501-515,D201,D301-341,D401",
     "variants": []
   },
   "sheets": [
