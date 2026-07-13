@@ -577,7 +577,7 @@
     "annotate_start_num": 0,
     "annotation": {
       "method": 1,
-      "sort_order": 0
+      "sort_order": 1
     },
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
@@ -748,7 +748,7 @@
         "uuid": "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
       }
     ],
-    "used_designators": "MK201-202,C101-103,C201-228,FB201-206,U101-103,U201,TP101-104,TP201-216,LS201-202,R101-103,R201-202,JP101,Y201,#PWR101-114,#PWR201-239,D201,J101-102,J201-203",
+    "used_designators": "MK201-202,C101,C201-230,FB201-206,U101-102,U201-202,TP101-102,TP201-218,LS201-202,R101-102,R201-203,JP101,Y201,#PWR101-110,#PWR201-243,D201,J101-102,J201-203",
     "variants": []
   },
   "sheets": [
