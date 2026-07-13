@@ -4891,6 +4891,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "TODO UART1"
+		(exclude_from_sim no)
+		(at 254.508 92.456 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "61b2ee13-c77f-4e23-bc77-af78e1b6b117")
+	)
 	(junction
 		(at 31.75 109.22)
 		(diameter 0)
@@ -7402,6 +7412,89 @@
 			(justify left bottom)
 		)
 		(uuid "fffc7f7a-0320-4eaa-8636-cc0ef55f5b91")
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Pin")
+		(at 260.35 105.41 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "01b1a995-1609-44ee-9b32-cc84935f1b6d")
+		(property "Reference" "J103"
+			(at 257.302 97.536 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "UART"
+			(at 257.302 100.076 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 260.35 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 260.35 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 260.35 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "49e82c00-ad5c-47d5-a46a-6b4e430636d5")
+		)
+		(pin "3"
+			(uuid "d85ee58f-0d41-46ac-988e-c434e8c1e36d")
+		)
+		(pin "1"
+			(uuid "da9a8c6c-bda2-4bdc-b7a1-42c27543fc36")
+		)
+		(instances
+			(project "board"
+				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
+					(reference "J103")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
