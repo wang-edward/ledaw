@@ -4112,6 +4112,16 @@
 	)
 	(wire
 		(pts
+			(xy 137.16 69.85) (xy 151.13 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be6987f5-1394-420f-b850-d86be6041fa1")
+	)
+	(wire
+		(pts
 			(xy 76.2 33.02) (xy 73.66 33.02)
 		)
 		(stroke
@@ -4679,6 +4689,16 @@
 			(justify right bottom)
 		)
 		(uuid "a9ed66d3-a7fc-4839-b265-b9a21ee7fc85")
+	)
+	(label "GPIO23"
+		(at 137.16 69.85 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ad22eab2-e54a-49e9-a6e2-dd04b3731df8")
 	)
 	(label "GPIO13{slash}PWM1"
 		(at 31.75 68.58 0)
@@ -6693,6 +6713,16 @@
 		(pin "CODEC_SCL" input
 			(at 151.13 64.77 180)
 			(uuid "4f1f935a-7bbb-4d19-9f1c-5908488ef84f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CODEC_1V8EN" input
+			(at 151.13 69.85 180)
+			(uuid "5be600d8-fb3b-48c7-b7f3-b72e90a0ac36")
 			(effects
 				(font
 					(size 1.27 1.27)

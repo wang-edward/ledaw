@@ -4803,16 +4803,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 171.45) (xy 49.53 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3c281a3c-a0ac-4238-9cf8-90bdfdcfa9d4")
-	)
-	(wire
-		(pts
 			(xy 261.62 77.47) (xy 261.62 71.12)
 		)
 		(stroke
@@ -5763,16 +5753,6 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 175.26) (xy 49.53 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cbe2e95a-27f6-45a3-97e8-a84f625aa031")
-	)
-	(wire
-		(pts
 			(xy 130.81 142.24) (xy 128.27 142.24)
 		)
 		(stroke
@@ -6151,16 +6131,6 @@
 		)
 		(uuid "1c8fe2d0-4ddb-49e2-86de-fc69ee2ac61e")
 	)
-	(label "1V8_EN"
-		(at 41.91 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "36d277ff-a86d-4618-97ed-30906bd02738")
-	)
 	(label "DIGMICDATA"
 		(at 62.23 87.63 180)
 		(effects
@@ -6180,16 +6150,6 @@
 			(justify left bottom)
 		)
 		(uuid "7177fd57-c8e4-4852-93a0-76c2d8df8a0a")
-	)
-	(label "GPIO23"
-		(at 41.91 171.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "71ed70c5-743c-484b-a75e-ef62e6d5c0e5")
 	)
 	(label "C1N"
 		(at 151.13 153.7591 90)
@@ -6346,6 +6306,17 @@
 			(justify right)
 		)
 		(uuid "a1a8e5c9-a815-418a-90fe-755aa1380310")
+	)
+	(hierarchical_label "CODEC_1V8EN"
+		(shape input)
+		(at 41.91 175.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "aecf12fa-f7e9-43bb-b34d-7de9ef48b8c4")
 	)
 	(hierarchical_label "CODEC_~{IRQ}"
 		(shape input)
