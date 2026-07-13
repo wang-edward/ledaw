@@ -7415,7 +7415,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "117f53e5-320c-4dcc-ab6b-7db80f96ef08")
-		(property "Reference" "#PWR0118"
+		(property "Reference" "#PWR0106"
 			(at 240.03 168.91 0)
 			(hide yes)
 			(show_name no)
@@ -7475,7 +7475,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0118")
+					(reference "#PWR0106")
 					(unit 1)
 				)
 			)
@@ -7493,7 +7493,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13b074e2-b860-4e1a-8c07-8a1922ca30ba")
-		(property "Reference" "C61"
+		(property "Reference" "C101"
 			(at 227.33 144.7862 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7557,7 +7557,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "C61")
+					(reference "C101")
 					(unit 1)
 				)
 			)
@@ -7575,7 +7575,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1606b58c-7a8a-4b23-8462-7ee013eabbbc")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR0102"
 			(at 233.68 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -7635,7 +7635,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR015")
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
@@ -7653,7 +7653,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "16889811-2150-4cac-b383-9c7c98b8f6ba")
-		(property "Reference" "Module1"
+		(property "Reference" "Module101"
 			(at 182.88 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8329,7 +8329,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "Module1")
+					(reference "Module101")
 					(unit 1)
 				)
 			)
@@ -8347,7 +8347,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2afa3b62-b5a5-4243-8671-57e07a66749b")
-		(property "Reference" "#PWR0114"
+		(property "Reference" "#PWR0107"
 			(at 31.75 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -8407,7 +8407,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0114")
+					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -8425,7 +8425,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e62237b-6ce3-4363-a543-008a1b71e8bd")
-		(property "Reference" "Module1"
+		(property "Reference" "Module101"
 			(at 68.58 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9101,7 +9101,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "Module1")
+					(reference "Module101")
 					(unit 2)
 				)
 			)
@@ -9120,7 +9120,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "54b39036-1bb1-415b-8e4f-4e8c62dd85e6")
-		(property "Reference" "#PWR0115"
+		(property "Reference" "#PWR0108"
 			(at 106.045 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -9180,7 +9180,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0115")
+					(reference "#PWR0108")
 					(unit 1)
 				)
 			)
@@ -9198,7 +9198,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5ce4291a-7db4-4673-80cd-c47b8fc1525f")
-		(property "Reference" "#PWR0116"
+		(property "Reference" "#PWR0109"
 			(at 189.23 184.15 0)
 			(hide yes)
 			(show_name no)
@@ -9258,7 +9258,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0116")
+					(reference "#PWR0109")
 					(unit 1)
 				)
 			)
@@ -9276,7 +9276,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6d07e9e4-ff94-467b-a6c3-f774254ca644")
-		(property "Reference" "#PWR0119"
+		(property "Reference" "#PWR0103"
 			(at 285.75 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -9336,7 +9336,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0119")
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -9354,7 +9354,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c4af96f-ec47-44d2-af0d-3f0ac6134ee3")
-		(property "Reference" "#PWR0117"
+		(property "Reference" "#PWR0105"
 			(at 256.54 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -9414,7 +9414,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0117")
+					(reference "#PWR0105")
 					(unit 1)
 				)
 			)
@@ -9432,7 +9432,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b32871c-f1ec-4834-b673-f07f162e0b6d")
-		(property "Reference" "#PWR0105"
+		(property "Reference" "#PWR0104"
 			(at 224.79 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -9492,7 +9492,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0105")
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -9509,7 +9509,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b35b89e6-6cc5-415e-b58e-9c6e3616bca5")
-		(property "Reference" "U3"
+		(property "Reference" "U101"
 			(at 270.002 166.37 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9587,7 +9587,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "U3")
+					(reference "U101")
 					(unit 1)
 				)
 			)
@@ -9606,7 +9606,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dc3454b7-d535-43a6-9bd4-72325c2564a2")
-		(property "Reference" "#PWR0120"
+		(property "Reference" "#PWR0101"
 			(at 248.92 129.54 0)
 			(hide yes)
 			(show_name no)
@@ -9666,7 +9666,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "#PWR0120")
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -9684,7 +9684,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ebdc5111-ed5c-4c22-93b5-3cd5745b0630")
-		(property "Reference" "J10"
+		(property "Reference" "J101"
 			(at 266.192 115.316 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9749,7 +9749,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "J10")
+					(reference "J101")
 					(unit 1)
 				)
 			)
@@ -9767,7 +9767,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fe0380e5-1335-4f28-8538-2f5a589f770a")
-		(property "Reference" "J9"
+		(property "Reference" "J102"
 			(at 266.065 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9832,7 +9832,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "J9")
+					(reference "J102")
 					(unit 1)
 				)
 			)
@@ -9969,7 +9969,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(page "4")
+					(page "2")
 				)
 			)
 		)
@@ -10075,7 +10075,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(page "2")
+					(page "3")
 				)
 			)
 		)
