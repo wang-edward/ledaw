@@ -7425,7 +7425,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "01b1a995-1609-44ee-9b32-cc84935f1b6d")
-		(property "Reference" "J103"
+		(property "Reference" "J101"
 			(at 257.302 97.536 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7490,7 +7490,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "J103")
+					(reference "J101")
 					(unit 1)
 				)
 			)
@@ -9777,7 +9777,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ebdc5111-ed5c-4c22-93b5-3cd5745b0630")
-		(property "Reference" "J101"
+		(property "Reference" "J102"
 			(at 266.192 115.316 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9842,7 +9842,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "J101")
+					(reference "J102")
 					(unit 1)
 				)
 			)
@@ -9860,7 +9860,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fe0380e5-1335-4f28-8538-2f5a589f770a")
-		(property "Reference" "J102"
+		(property "Reference" "J103"
 			(at 266.065 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9925,7 +9925,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746"
-					(reference "J102")
+					(reference "J103")
 					(unit 1)
 				)
 			)

@@ -4200,12 +4200,6 @@
 		(uuid "66865b5b-8b8b-4947-82ae-1e620c6711a9")
 	)
 	(junction
-		(at 116.84 175.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "67a371dc-6767-4755-bb63-c59ec30803fb")
-	)
-	(junction
 		(at 119.38 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5471,16 +5465,6 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 175.26) (xy 111.76 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "971bd715-e0f2-4d3a-8250-86d71c552706")
-	)
-	(wire
-		(pts
 			(xy 125.73 36.83) (xy 125.73 46.99)
 		)
 		(stroke
@@ -5958,16 +5942,6 @@
 			(type default)
 		)
 		(uuid "d784c31b-6305-4290-ba8c-2f4fb0038940")
-	)
-	(wire
-		(pts
-			(xy 116.84 175.26) (xy 133.35 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7b10d82-4e87-4db2-b266-9a18214342d3")
 	)
 	(wire
 		(pts
@@ -7154,96 +7128,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:FerriteBead_Small")
-		(at 114.3 175.26 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "13b12b16-3f0e-427c-8316-0d8267767ecb")
-		(property "Reference" "FB206"
-			(at 114.046 175.26 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "600Ohm@100MHz"
-			(at 114.3 172.212 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
-			(at 114.3 177.038 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Ferrite bead, small symbol"
-			(at 114.3 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C341663"
-			(at 114.3 175.26 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c245ceb0-bb22-4676-9a9d-afb0cc2acdc6")
-		)
-		(pin "2"
-			(uuid "09745c81-fe82-4de5-9bfb-7aab409c19c8")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "FB206")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+1V8")
 		(at 73.66 156.21 0)
 		(unit 1)
@@ -8346,7 +8230,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "371e95cb-404f-49cc-bdc1-ee392a4fdadc")
-		(property "Reference" "C217"
+		(property "Reference" "C216"
 			(at 29.21 99.822 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8419,7 +8303,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C217")
+					(reference "C216")
 					(unit 1)
 				)
 			)
@@ -8437,7 +8321,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "37c41575-ae59-4253-b3e4-1ca4fcde8122")
-		(property "Reference" "C224"
+		(property "Reference" "C223"
 			(at 167.64 138.4362 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8512,7 +8396,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C224")
+					(reference "C223")
 					(unit 1)
 				)
 			)
@@ -9228,7 +9112,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "48a501b0-3548-49e5-99d6-9d6e994a236e")
-		(property "Reference" "C221"
+		(property "Reference" "C220"
 			(at 85.852 115.57 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9301,7 +9185,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C221")
+					(reference "C220")
 					(unit 1)
 				)
 			)
@@ -9588,7 +9472,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "517f2120-4ede-4fde-834d-6215692252d6")
-		(property "Reference" "C218"
+		(property "Reference" "C217"
 			(at 85.09 104.394 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9661,7 +9545,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C218")
+					(reference "C217")
 					(unit 1)
 				)
 			)
@@ -9860,7 +9744,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5718bbd0-6e2e-44f8-9728-b5e67eff3da9")
-		(property "Reference" "C226"
+		(property "Reference" "C225"
 			(at 137.668 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9935,7 +9819,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C226")
+					(reference "C225")
 					(unit 1)
 				)
 			)
@@ -10127,83 +10011,6 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
 					(reference "MK202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 116.84 180.34 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5bff382e-8d94-4930-9da3-8d19f8aab22d")
-		(property "Reference" "#PWR0244"
-			(at 116.84 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 113.03 182.118 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.84 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "795a1c82-06ce-408f-8b3b-d3a4e9b2fcc1")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "#PWR0244")
 					(unit 1)
 				)
 			)
@@ -10543,7 +10350,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5f577110-1b5b-499f-9ce5-45eb21b80218")
-		(property "Reference" "C228"
+		(property "Reference" "C227"
 			(at 156.972 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10618,7 +10425,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C228")
+					(reference "C227")
 					(unit 1)
 				)
 			)
@@ -10636,7 +10443,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6065d35a-ebc8-4652-96ab-b3ce4b7b0d52")
-		(property "Reference" "C223"
+		(property "Reference" "C222"
 			(at 243.84 123.1962 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10711,7 +10518,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C223")
+					(reference "C222")
 					(unit 1)
 				)
 			)
@@ -10880,6 +10687,98 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
 					(reference "#PWR0226")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 55.88 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "687376b6-b170-4db6-abdb-4ba748ac1457")
+		(property "Reference" "C230"
+			(at 49.022 119.888 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "47pF"
+			(at 49.022 122.428 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 55.88 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 55.88 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C14857"
+			(at 55.88 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "da9db3aa-4699-495c-b624-3e5b5547f61c")
+		)
+		(pin "2"
+			(uuid "7860eb3a-c33e-4172-8cc5-c2cc8d6d3ddc")
+		)
+		(instances
+			(project "board"
+				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
+					(reference "C230")
 					(unit 1)
 				)
 			)
@@ -11079,7 +10978,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6ad5c8d9-da04-4b18-9a93-3a95bdea069d")
-		(property "Reference" "C230"
+		(property "Reference" "C229"
 			(at 76.2 163.8362 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11154,7 +11053,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C230")
+					(reference "C229")
 					(unit 1)
 				)
 			)
@@ -11801,7 +11700,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8e46691b-0cd5-482c-9923-f60ac8d1f19c")
-		(property "Reference" "C225"
+		(property "Reference" "C224"
 			(at 176.53 138.4362 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11876,7 +11775,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C225")
+					(reference "C224")
 					(unit 1)
 				)
 			)
@@ -12418,7 +12317,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9ec71641-d9e6-45e4-b31e-1ebb593bc7a7")
-		(property "Reference" "C219"
+		(property "Reference" "C218"
 			(at 85.09 109.474 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12491,7 +12390,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C219")
+					(reference "C218")
 					(unit 1)
 				)
 			)
@@ -13000,98 +12899,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 116.84 177.8 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ae86653e-397c-4522-84e1-39f3b651c99e")
-		(property "Reference" "C231"
-			(at 109.982 177.038 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "47pF"
-			(at 109.982 179.578 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 116.84 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 116.84 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C14857"
-			(at 116.84 177.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6122b7b0-db59-444a-9322-e269d37e3d0b")
-		)
-		(pin "2"
-			(uuid "18085e64-ed12-4047-9357-546dab82d2a4")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C231")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 86.36 87.63 180)
 		(unit 1)
@@ -13281,7 +13088,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b0ee4055-4e2f-4d46-a2ed-6a85b810eba8")
-		(property "Reference" "C227"
+		(property "Reference" "C226"
 			(at 149.352 140.97 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13356,7 +13163,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C227")
+					(reference "C226")
 					(unit 1)
 				)
 			)
@@ -13631,7 +13438,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bfd2dc86-c4d2-4107-a9eb-048d634f7263")
-		(property "Reference" "C229"
+		(property "Reference" "C228"
 			(at 48.26 163.8362 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13706,7 +13513,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C229")
+					(reference "C228")
 					(unit 1)
 				)
 			)
@@ -14920,7 +14727,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f0dd76fd-a24e-406a-8647-98079b780a5e")
-		(property "Reference" "C222"
+		(property "Reference" "C221"
 			(at 86.106 120.65 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14993,7 +14800,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C222")
+					(reference "C221")
 					(unit 1)
 				)
 			)
@@ -15900,7 +15707,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fa9d6ff0-96c5-4b99-bda4-f1f111bd82e1")
-		(property "Reference" "C220"
+		(property "Reference" "C219"
 			(at 243.84 109.2262 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15975,7 +15782,7 @@
 		(instances
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "C220")
+					(reference "C219")
 					(unit 1)
 				)
 			)
