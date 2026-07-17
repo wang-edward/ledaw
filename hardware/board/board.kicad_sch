@@ -5605,6 +5605,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 113.03) (xy 152.4 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a648775-2a7c-4e1e-b811-4f6fa7165b2b")
+	)
+	(wire
+		(pts
 			(xy 106.045 55.88) (xy 106.045 63.5)
 		)
 		(stroke
@@ -6345,16 +6355,6 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 97.79) (xy 213.36 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a2fec7c4-9f65-4265-9ceb-9ad7e0a267bd")
-	)
-	(wire
-		(pts
 			(xy 99.06 55.88) (xy 106.045 55.88)
 		)
 		(stroke
@@ -6953,16 +6953,6 @@
 		)
 		(uuid "2512eaf6-f791-40cf-b4b4-fa525fb2cc25")
 	)
-	(label "CODEC_~{IRQ}"
-		(at 227.33 97.79 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "2be17f62-a879-4ead-a217-f55e352345dc")
-	)
 	(label "USB2_P"
 		(at 111.76 53.34 180)
 		(effects
@@ -7112,6 +7102,16 @@
 			(justify right bottom)
 		)
 		(uuid "7d7e6752-78c2-4b90-9a98-28ea68a350db")
+	)
+	(label "CODEC_~{IRQ}"
+		(at 138.43 113.03 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "82e79c30-6df8-4445-bceb-01526ad1824c")
 	)
 	(label "MCU_SWCLK"
 		(at 299.72 134.62 0)
