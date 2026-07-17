@@ -11882,7 +11882,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9269c64a-3dc0-4b1c-a5ad-50a02d0f955d")
 		(property "Reference" "LS202"
 			(at 265.43 115.5701 0)
@@ -13942,7 +13942,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d93dabbd-0b1a-4e59-bf6a-518e3776b033")
 		(property "Reference" "LS201"
 			(at 265.43 76.1999 0)
