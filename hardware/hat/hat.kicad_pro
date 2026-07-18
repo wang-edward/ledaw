@@ -748,7 +748,7 @@
         "uuid": "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
       }
     ],
-    "used_designators": "LS201-202,U101-102,U201-202,C101,C201-229,C231,FB201-205,MK201-202,J101-102,J201-203,TP101-102,TP201-219,CX201,JP101,R101-102,R201-204,Y201,D201,#PWR101-110,#PWR201-242,#PWR244",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
