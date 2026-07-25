@@ -9542,7 +9542,7 @@
 	(symbol
 		(lib_id "Jumper:Jumper_2_Open")
 		(at 276.86 128.27 0)
-		(mirror y)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9552,7 +9552,7 @@
 		(dnp no)
 		(uuid "52679e94-21db-4057-9eb0-34e0690ebc5d")
 		(property "Reference" "JP102"
-			(at 276.86 130.556 0)
+			(at 276.86 134.874 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9562,7 +9562,7 @@
 			)
 		)
 		(property "Value" "Jumper_SWD_Open"
-			(at 276.86 133.096 0)
+			(at 276.86 132.334 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10426,7 +10426,7 @@
 	)
 	(symbol
 		(lib_id "Jumper:Jumper_2_Open")
-		(at 276.86 123.19 180)
+		(at 276.86 123.19 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10436,7 +10436,7 @@
 		(dnp no)
 		(uuid "dd297fce-1597-43df-b485-070f645a5b28")
 		(property "Reference" "JP101"
-			(at 276.86 117.602 0)
+			(at 276.86 113.792 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10446,7 +10446,7 @@
 			)
 		)
 		(property "Value" "Jumper_SWCLK_Open"
-			(at 276.86 115.316 0)
+			(at 276.86 116.078 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
