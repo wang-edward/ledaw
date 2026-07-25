@@ -6617,6 +6617,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 90.17) (xy 152.4 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a631427b-0190-4b2e-82fc-be2e30c604de")
+	)
+	(wire
+		(pts
 			(xy 38.1 154.94) (xy 31.75 154.94)
 		)
 		(stroke
@@ -6807,6 +6817,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 95.25) (xy 152.4 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0a2e1f2-7848-49a8-9a91-c84e2cbca62e")
+	)
+	(wire
+		(pts
 			(xy 213.36 143.51) (xy 218.44 143.51)
 		)
 		(stroke
@@ -6824,16 +6844,6 @@
 			(type default)
 		)
 		(uuid "c5ba05b1-abd4-4561-9156-fde66954f0de")
-	)
-	(wire
-		(pts
-			(xy 227.33 102.87) (xy 213.36 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6c36d63-5dff-43fe-848a-f82b53cee0fb")
 	)
 	(wire
 		(pts
@@ -7245,6 +7255,16 @@
 		)
 		(uuid "3ae697eb-25ab-4fa1-8ac4-2f35a78d9e30")
 	)
+	(label "USBH_EN"
+		(at 138.43 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3e6a70fe-9276-49d4-8a4d-8f5a0b334a18")
+	)
 	(label "MCU_SWCLK"
 		(at 304.8 123.19 180)
 		(effects
@@ -7455,6 +7475,16 @@
 		)
 		(uuid "a4eaebe5-5827-4477-a0a6-09bb37c26dbf")
 	)
+	(label "RST"
+		(at 139.7 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a957fa37-fa5b-41e9-b3dc-837108f11bf5")
+	)
 	(label "I2C1_SDA"
 		(at 139.7 118.11 0)
 		(effects
@@ -7644,16 +7674,6 @@
 			(justify right bottom)
 		)
 		(uuid "eb89b64c-8461-48dc-b4a3-b6938fbe4b71")
-	)
-	(label "USBH_EN"
-		(at 227.33 102.87 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fd8a5313-149d-4aa7-b0a9-f2737f0b963e")
 	)
 	(label "PCM_FS"
 		(at 266.7 58.42 0)
