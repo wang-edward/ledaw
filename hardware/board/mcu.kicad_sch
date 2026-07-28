@@ -6797,16 +6797,6 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 86.36) (xy 194.31 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f7af011-9041-4867-8765-fe7a64c6ed09")
-	)
-	(wire
-		(pts
 			(xy 342.9 99.06) (xy 353.06 99.06)
 		)
 		(stroke
@@ -7507,6 +7497,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 109.22) (xy 194.31 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55765df1-28c7-47fe-8aba-a49e02a114fd")
+	)
+	(wire
+		(pts
 			(xy 179.07 101.6) (xy 194.31 101.6)
 		)
 		(stroke
@@ -7724,6 +7724,16 @@
 			(type default)
 		)
 		(uuid "68531c22-25db-4979-99e8-6bbbec769c08")
+	)
+	(wire
+		(pts
+			(xy 179.07 106.68) (xy 194.31 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "685cc14e-d788-4256-a56b-fc9b291b8da6")
 	)
 	(wire
 		(pts
@@ -9227,16 +9237,6 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 83.82) (xy 194.31 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e3a00cfd-0eb1-4a4e-8838-315d79b6017f")
-	)
-	(wire
-		(pts
 			(xy 287.02 175.26) (xy 300.99 175.26)
 		)
 		(stroke
@@ -9985,15 +9985,15 @@
 		)
 		(uuid "4ff69a60-3b88-49e6-9c41-72b1324ebea4")
 	)
-	(label "ENC4_SW"
-		(at 194.31 86.36 180)
+	(label "ENC3_SW"
+		(at 194.31 106.68 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "54c00c8e-24aa-4ea4-bb0f-d3a563bed405")
+		(uuid "5d0c56eb-ad55-44f4-be9c-c0f2af9daa69")
 	)
 	(label "MIDI_RX"
 		(at 299.72 267.97 180)
@@ -10245,6 +10245,16 @@
 		)
 		(uuid "acacbab7-ce4a-4e25-a3e0-9a7717208119")
 	)
+	(label "ENC4_SW"
+		(at 194.31 109.22 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "affc3212-ff6e-41c0-a99a-da67224950df")
+	)
 	(label "JOYSTICK_SW"
 		(at 194.31 104.14 180)
 		(effects
@@ -10484,16 +10494,6 @@
 			(justify right bottom)
 		)
 		(uuid "d3540791-b181-42c7-b982-3150665b8b15")
-	)
-	(label "ENC3_SW"
-		(at 194.31 83.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d828a12e-ea82-4dcc-8376-6c34bc69e8f4")
 	)
 	(label "ENC2_B"
 		(at 330.2 107.95 180)
