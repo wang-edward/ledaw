@@ -78,11 +78,11 @@
       ],
       "drc_exclusions": [
         [
-          "clearance|113700000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|24f70a14-29b3-4241-989a-e42ce57dd1c8",
+          "clearance|113750000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|24f70a14-29b3-4241-989a-e42ce57dd1c8",
           "hole is part of footprint"
         ],
         [
-          "clearance|114800000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|fbb8b948-81de-4071-ad5a-c5939370081a",
+          "clearance|114750000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|fbb8b948-81de-4071-ad5a-c5939370081a",
           "hole is part of footprint"
         ]
       ],
