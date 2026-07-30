@@ -78,14 +78,6 @@
       ],
       "drc_exclusions": [
         [
-          "clearance|113750000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|24f70a14-29b3-4241-989a-e42ce57dd1c8",
-          "hole is part of footprint"
-        ],
-        [
-          "clearance|114750000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|fbb8b948-81de-4071-ad5a-c5939370081a",
-          "hole is part of footprint"
-        ],
-        [
           "copper_edge_clearance|155825000|83680000|2f9bd8b6-8742-426d-abbf-c8344b245e09|a164ff18-eaf1-4953-afd1-1e1e53f22a17",
           "port protrudes"
         ],
