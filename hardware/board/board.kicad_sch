@@ -5647,6 +5647,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 146.05) (xy 152.4 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21e61fd8-276e-44d0-9b66-62db45b6f5e3")
+	)
+	(wire
+		(pts
 			(xy 213.36 148.59) (xy 213.36 151.13)
 		)
 		(stroke
@@ -5744,6 +5754,16 @@
 			(type default)
 		)
 		(uuid "2cebdaf5-7007-470b-bf55-6f1ec51916cf")
+	)
+	(wire
+		(pts
+			(xy 138.43 148.59) (xy 152.4 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d60f068-db0e-4cf0-b526-684d1f5eef41")
 	)
 	(wire
 		(pts
@@ -6084,16 +6104,6 @@
 			(type default)
 		)
 		(uuid "5800c726-7f8e-4390-8e52-dec276738533")
-	)
-	(wire
-		(pts
-			(xy 138.43 74.93) (xy 152.4 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "58a1e2ed-c76e-482e-b9fc-b233f14706d3")
 	)
 	(wire
 		(pts
@@ -6877,16 +6887,6 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 95.25) (xy 152.4 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0a2e1f2-7848-49a8-9a91-c84e2cbca62e")
-	)
-	(wire
-		(pts
 			(xy 213.36 143.51) (xy 218.44 143.51)
 		)
 		(stroke
@@ -7295,16 +7295,6 @@
 		)
 		(uuid "36b96f52-aea0-4f80-8957-d673ffd4b347")
 	)
-	(label "USB2_~{FAULT}"
-		(at 138.43 74.93 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "36d4abcb-f183-436e-adf2-38ce5016d46b")
-	)
 	(label "CODEC_CLKEN"
 		(at 265.43 64.77 0)
 		(effects
@@ -7314,16 +7304,6 @@
 			(justify left bottom)
 		)
 		(uuid "3ae697eb-25ab-4fa1-8ac4-2f35a78d9e30")
-	)
-	(label "USBH_EN"
-		(at 138.43 95.25 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3e6a70fe-9276-49d4-8a4d-8f5a0b334a18")
 	)
 	(label "MCU_SWCLK"
 		(at 304.8 123.19 180)
@@ -7474,6 +7454,16 @@
 			(justify left bottom)
 		)
 		(uuid "8cc747c6-fcbf-4693-be68-0c6cdd09bcdf")
+	)
+	(label "USBH_EN"
+		(at 138.43 148.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8f210764-082b-4933-848f-9aff943d6553")
 	)
 	(label "UART0_TX"
 		(at 242.57 105.41 0)
@@ -7744,6 +7734,16 @@
 			(justify left bottom)
 		)
 		(uuid "ed97c3bf-4bf1-4612-a2e4-c5cd8b9281d5")
+	)
+	(label "USB2_~{FAULT}"
+		(at 138.43 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f1da4eab-1ee4-4c25-bc89-f196dde53e1e")
 	)
 	(label "UART2_RX"
 		(at 326.39 128.27 0)
