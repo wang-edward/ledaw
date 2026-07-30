@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.2,
-          "height": 0.4,
-          "width": 0.4
+          "drill": 0.3,
+          "height": 0.6,
+          "width": 0.6
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -84,6 +84,14 @@
         [
           "clearance|114750000|98000000|91261624-9885-4aec-8f3c-d81f3b3144de|fbb8b948-81de-4071-ad5a-c5939370081a",
           "hole is part of footprint"
+        ],
+        [
+          "copper_edge_clearance|155825000|83680000|2f9bd8b6-8742-426d-abbf-c8344b245e09|a164ff18-eaf1-4953-afd1-1e1e53f22a17",
+          "port protrudes"
+        ],
+        [
+          "copper_edge_clearance|157750000|83680000|2f9bd8b6-8742-426d-abbf-c8344b245e09|b15f0bfe-423b-4a3b-9c1e-b84b91f02091",
+          "port protrudes"
         ]
       ],
       "meta": {
@@ -673,7 +681,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "",
+    "used_designators": "LS201-202,J204-205",
     "variants": []
   },
   "sheets": [
