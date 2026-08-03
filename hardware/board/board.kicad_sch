@@ -7840,6 +7840,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C52016391"
+			(at 260.35 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "49e82c00-ad5c-47d5-a46a-6b4e430636d5")
 		)
@@ -9728,7 +9739,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "52679e94-21db-4057-9eb0-34e0690ebc5d")
 		(property "Reference" "JP102"
 			(at 276.86 134.874 0)
@@ -10357,7 +10368,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "b35b89e6-6cc5-415e-b58e-9c6e3616bca5")
 		(property "Reference" "U101"
 			(at 270.002 166.37 0)
@@ -10612,7 +10623,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "dd297fce-1597-43df-b485-070f645a5b28")
 		(property "Reference" "JP101"
 			(at 276.86 113.792 0)
@@ -10747,6 +10758,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C52016391"
+			(at 266.7 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "4b253727-72e8-43d9-9811-353a6ea04b60")
 		)
@@ -10819,6 +10841,17 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 287.02 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52016391"
 			(at 287.02 125.73 0)
 			(hide yes)
 			(show_name no)

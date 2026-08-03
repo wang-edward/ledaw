@@ -3440,6 +3440,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 215.9 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "8f783ee2-6e0f-4925-831b-1de7edf70c16")
 		)
@@ -3464,7 +3475,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "045f81a1-419c-4644-aee6-3ce83d30e3fe")
 		(property "Reference" "SW411"
@@ -3620,6 +3631,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 243.84 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "978dd373-5cab-46db-b12b-8d76fd97b1c7")
 		)
@@ -3711,6 +3733,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 76.2 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 76.2 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -3822,6 +3855,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 132.08 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "80a9987b-b222-4e69-afb0-d23a612fd9ae")
 		)
@@ -3846,7 +3890,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "10698dcf-0588-41f3-b0e9-f694ed238dc1")
 		(property "Reference" "SW434"
@@ -3925,7 +3969,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "112adf96-a510-4b58-8800-4db713ba66f5")
 		(property "Reference" "SW402"
@@ -4081,6 +4125,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 76.2 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "99613d18-b8c7-4b01-a4de-a950da516a11")
 		)
@@ -4172,6 +4227,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 383.54 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 383.54 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -4283,6 +4349,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 104.14 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "774a5265-9911-46b6-8f03-91618b340259")
 		)
@@ -4374,6 +4451,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 299.72 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 299.72 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -4485,6 +4573,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 299.72 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "99949777-6376-4a65-ba49-774732867b5d")
 		)
@@ -4509,7 +4608,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "13a5c64f-1131-400c-b586-32808ae802f5")
 		(property "Reference" "SW429"
@@ -4665,6 +4764,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 160.02 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4ea86fcc-29cd-4d5a-9e4c-5cf46f770481")
 		)
@@ -4766,6 +4876,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 327.66 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f284e6a4-feca-4fa2-9423-dcb34eacc1a1")
 		)
@@ -4790,7 +4911,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1c2cf484-16ad-43c7-bbed-5b0827ff8037")
 		(property "Reference" "SW427"
@@ -4869,7 +4990,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1d8f99f5-fbcc-45d9-88a2-ab9210436baf")
 		(property "Reference" "SW415"
@@ -4948,7 +5069,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "216479a3-df9c-42c4-8164-1ca2a24ddd5a")
 		(property "Reference" "SW410"
@@ -5104,6 +5225,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 243.84 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9ac45b9f-d39e-43cd-8dbb-e5b900dcb7d2")
 		)
@@ -5205,6 +5337,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 271.78 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9914f8be-dfc5-4ba0-8870-dbe468371949")
 		)
@@ -5229,7 +5372,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "2fe4f1af-7ace-4516-b4cf-f18ebbc9bef4")
 		(property "Reference" "SW412"
@@ -5308,7 +5451,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "33b0a1aa-5ef5-4cde-85d3-8690d3774a72")
 		(property "Reference" "SW419"
@@ -5387,7 +5530,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "37c3603e-a79c-4119-92d9-40a2db56d80a")
 		(property "Reference" "SW422"
@@ -5466,7 +5609,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "3839d347-7436-4ddb-80cd-97403ff5243b")
 		(property "Reference" "SW407"
@@ -5545,7 +5688,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "3c7c1231-6f02-44a2-9b70-b964a6129cd0")
 		(property "Reference" "SW403"
@@ -5624,7 +5767,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "458e0853-b511-44bb-8a26-82216d730cd6")
 		(property "Reference" "SW420"
@@ -5703,7 +5846,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "45a8fb54-da08-4a96-b11b-78887e6c46ce")
 		(property "Reference" "SW408"
@@ -5782,7 +5925,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "4ab23e1f-fcfb-4326-b33d-7df61a99d608")
 		(property "Reference" "SW417"
@@ -5938,6 +6081,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 355.6 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "16699623-bf05-4809-87e3-c1644e9aebb0")
 		)
@@ -6029,6 +6183,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 355.6 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 355.6 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -6140,6 +6305,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 132.08 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "58025800-8ef9-452f-805e-c0e7cdab18f9")
 		)
@@ -6164,7 +6340,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "55b0afc3-e433-413b-a1ba-4ff4a1ab5ff7")
 		(property "Reference" "SW432"
@@ -6320,6 +6496,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 411.48 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b1551f60-eacd-4c92-9aff-3dc9c129c210")
 		)
@@ -6344,7 +6531,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5ddd7059-a253-4992-a1bc-cee0cabed6b8")
 		(property "Reference" "SW409"
@@ -6423,7 +6610,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "6064e722-2b83-4c40-9194-2fcad6a8d14e")
 		(property "Reference" "SW418"
@@ -6579,6 +6766,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 327.66 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2bcfcce1-038a-4877-918c-c55f65f10a49")
 		)
@@ -6670,6 +6868,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 299.72 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 299.72 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -6781,6 +6990,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 411.48 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "faff68e5-89dc-46da-8780-565edec664de")
 		)
@@ -6882,6 +7102,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 215.9 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b4fc45f8-88b3-4023-9638-db7bb9e711ee")
 		)
@@ -6906,7 +7137,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "698bc3cf-a7d2-49a2-9864-7134b4edded9")
 		(property "Reference" "SW426"
@@ -7062,6 +7293,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 438.15 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0dfce0ec-9ab7-4cc2-b647-50c327f4840c")
 		)
@@ -7163,6 +7405,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 160.02 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e9e8a255-848f-41cd-ac64-b8597273bbe2")
 		)
@@ -7187,7 +7440,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "841b4d4b-4eff-42c3-8472-ed4abaf0ce56")
 		(property "Reference" "SW404"
@@ -7266,7 +7519,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "84b44619-1691-4fe3-a60c-19ea2b76cb43")
 		(property "Reference" "SW431"
@@ -7422,6 +7675,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 104.14 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0639dbe8-f850-43f6-ad14-4087828c7f24")
 		)
@@ -7446,7 +7710,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "8ed9a019-b518-4293-819f-cfcb1af66696")
 		(property "Reference" "SW439"
@@ -7525,7 +7789,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "905b5444-eba3-4184-b058-f22b35c70365")
 		(property "Reference" "SW437"
@@ -7604,7 +7868,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "905fe185-4b59-494f-94e0-bd09f2c8efc7")
 		(property "Reference" "SW423"
@@ -7760,6 +8024,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 438.15 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "173865ce-3b55-4de0-a982-fb9505d36224")
 		)
@@ -7784,7 +8059,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "999905c5-0677-4cc7-a82e-d5c47ef93d5b")
 		(property "Reference" "SW433"
@@ -7940,6 +8215,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 104.14 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9e2ce800-78f3-4312-9b79-2272fcaf94f6")
 		)
@@ -7964,7 +8250,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a0532d24-efff-4f22-8b92-8a7bf60013cf")
 		(property "Reference" "SW424"
@@ -8120,6 +8406,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 383.54 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a3b3ed2b-4a7c-4ef5-b5dc-30bf0e6c40f2")
 		)
@@ -8144,7 +8441,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a88eaf57-dc04-436f-b7a9-005f870ef8c0")
 		(property "Reference" "SW405"
@@ -8223,7 +8520,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "af621e39-dcbf-4471-8b30-0c7a58e95e3d")
 		(property "Reference" "SW430"
@@ -8379,6 +8676,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 160.02 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9e5411d9-7002-4960-82ce-fcb08d4325dd")
 		)
@@ -8403,7 +8711,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "b32db715-8d65-41eb-b2cb-a28dcfd13172")
 		(property "Reference" "SW428"
@@ -8482,7 +8790,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "b56a100f-afaf-4559-8cbb-90c214c4698d")
 		(property "Reference" "SW401"
@@ -8561,7 +8869,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "be041eaa-27fb-4741-a675-186dbabaa005")
 		(property "Reference" "SW421"
@@ -8717,6 +9025,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 76.2 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e89f67f3-4b9d-471f-bdbb-ce5e2727f9bb")
 		)
@@ -8818,6 +9137,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 355.6 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "39d8dece-0257-4f4d-a6c7-31a3e3e9df97")
 		)
@@ -8842,7 +9172,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c2e8c8a1-0431-4708-94f3-64f6627d80d4")
 		(property "Reference" "SW414"
@@ -8998,6 +9328,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 327.66 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "bc1512f9-1786-4936-a479-02005dc313a2")
 		)
@@ -9022,7 +9363,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "c3f535dd-3551-43f7-8f5d-f00143a8ee2a")
 		(property "Reference" "SW440"
@@ -9178,6 +9519,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 410.21 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "804ddd19-a9e3-4537-98f2-e476b846a7fb")
 		)
@@ -9269,6 +9621,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 187.96 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 187.96 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -9380,6 +9743,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "5e234324-494e-4111-ac50-a9f706f03300")
 		)
@@ -9404,7 +9778,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ce414789-4f45-4153-8b4e-c6db6024bd60")
 		(property "Reference" "SW441"
@@ -9483,7 +9857,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d1ffc28d-ddc3-4ec7-949d-20d0cfb10f16")
 		(property "Reference" "SW406"
@@ -9562,7 +9936,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d2773fca-7a7e-4dc8-ad85-0e0a82fb3757")
 		(property "Reference" "SW435"
@@ -9718,6 +10092,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 187.96 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "8c5cfc6d-f743-4058-a87a-eadc2202a408")
 		)
@@ -9819,6 +10204,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 215.9 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "87980868-55ab-4f29-adb1-b5a95b24ecdd")
 		)
@@ -9843,7 +10239,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d9dc9187-e43a-41b4-a8bd-6fd89fe6a9a6")
 		(property "Reference" "SW438"
@@ -9922,7 +10318,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "dee405f2-987e-4318-aa4b-db1918b47496")
 		(property "Reference" "SW425"
@@ -10001,7 +10397,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e51d29ac-5cd4-490b-b644-9dad7bdcd412")
 		(property "Reference" "SW416"
@@ -10157,6 +10553,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 243.84 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3c7ac670-9461-4961-92cd-9b03717e16bd")
 		)
@@ -10181,7 +10588,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e94f321d-8f45-4486-b0b8-c12091abd4a1")
 		(property "Reference" "SW413"
@@ -10337,6 +10744,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 271.78 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a9efb131-092d-493c-91e1-b8f622605430")
 		)
@@ -10428,6 +10846,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 271.78 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 271.78 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -10539,6 +10968,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 383.54 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4036821a-f8f8-443f-bc06-ecbea7db0913")
 		)
@@ -10563,7 +11003,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "f698c052-0ae7-482d-b563-1a7ccbd9dc75")
 		(property "Reference" "SW436"
@@ -10709,6 +11149,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 187.96 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C78608"
 			(at 187.96 81.28 0)
 			(hide yes)
 			(show_name no)

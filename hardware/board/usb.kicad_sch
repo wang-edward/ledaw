@@ -3237,6 +3237,10 @@
 		(color 0 0 0 0)
 		(uuid "e8d4e8bf-0911-4df2-9f3b-dce7478f73da")
 	)
+	(no_connect
+		(at 88.9 114.3)
+		(uuid "51431fb2-3633-4a45-8327-34f2872fb820")
+	)
 	(wire
 		(pts
 			(xy 80.01 170.18) (xy 80.01 173.99)
@@ -4967,6 +4971,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C165948"
+			(at 36.83 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "B4"
 			(uuid "e6284f45-8c8c-4e67-a710-8d561996a18c")
 		)
@@ -5287,6 +5302,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C2158037"
+			(at 105.41 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "76091776-7f51-4cb2-ab62-be9e57adf183")
 		)
@@ -5405,30 +5431,6 @@
 				(justify bottom)
 			)
 		)
-		(property "Package" "WSON-8 Texas Instruments"
-			(at 109.22 160.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Price" "None"
-			(at 109.22 160.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
 		(property "Check_prices" "https://www.snapeda.com/parts/TPS259531DSGR/Texas+Instruments/view-part/?ref=eda"
 			(at 109.22 160.02 0)
 			(hide yes)
@@ -5513,7 +5515,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Availability" "In Stock"
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 109.22 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -5525,7 +5527,7 @@
 				(justify bottom)
 			)
 		)
-		(property "MANUFACTURER" "Texas Instruments"
+		(property "LCSC" "C2155674"
 			(at 109.22 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -5534,7 +5536,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 			)
 		)
 		(pin "6"
@@ -5762,7 +5763,7 @@
 				)
 			)
 		)
-		(property "Footprint" "CM4IO:USB_Micro-B_EDAC_UCON00686"
+		(property "Footprint" "Connector_USB:USB_Micro-B_Molex_47346-0001"
 			(at 85.09 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -5785,6 +5786,17 @@
 			)
 		)
 		(property "Description" "USB Micro Type B connector"
+			(at 81.28 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C132560"
 			(at 81.28 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -5844,7 +5856,7 @@
 				)
 			)
 		)
-		(property "Value" "FSUSB42MX"
+		(property "Value" "FSUSB42MUX"
 			(at 147.32 109.22 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5877,6 +5889,17 @@
 			)
 		)
 		(property "Description" ""
+			(at 148.59 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C11355"
 			(at 148.59 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -6459,6 +6482,17 @@
 			)
 		)
 		(property "Description" "USB 2.0-only Type-C Plug connector"
+			(at 204.47 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C165948"
 			(at 204.47 68.58 0)
 			(hide yes)
 			(show_name no)

@@ -11398,6 +11398,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C78608"
+			(at 260.35 267.97 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "48e66e60-196c-4522-905f-7e48576f1a6f")
 		)
@@ -13235,6 +13246,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C7473281"
+			(at 271.78 267.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "90ee3767-a80e-44f5-a005-c51c633f6c4b")
 		)
@@ -14316,7 +14338,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7c9b0ba8-08bd-47ed-87e6-eb218d6db87b")
 		(property "Reference" "ENC301"
 			(at 248.666 74.676 90)
@@ -14406,7 +14428,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "7cd6c818-5bd4-41dd-9df6-b96c08224b24")
 		(property "Reference" "J301"
@@ -15607,30 +15629,6 @@
 				(justify bottom)
 			)
 		)
-		(property "Package" "None"
-			(at 350.52 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Price" "None"
-			(at 350.52 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
 		(property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda"
 			(at 350.52 181.61 0)
 			(hide yes)
@@ -15703,7 +15701,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Availability" "In Stock"
+		(property "MANUFACTURER" "CNK"
 			(at 350.52 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -15715,8 +15713,8 @@
 				(justify bottom)
 			)
 		)
-		(property "MANUFACTURER" "CNK"
-			(at 350.52 181.61 0)
+		(property "LCSC" "C2685355"
+			(at 350.52 181.61 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15724,7 +15722,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 			)
 		)
 		(pin "D"
@@ -15854,7 +15851,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "94d241fd-a207-464b-8e86-c9effe6e91f5")
 		(property "Reference" "ENC302"
 			(at 296.926 74.676 90)
@@ -16082,6 +16079,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C20625731"
+			(at 48.26 197.485 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "54801022-84e4-4cc2-bcf8-6d28d34b873f")
 		)
@@ -16273,30 +16281,6 @@
 				(justify bottom)
 			)
 		)
-		(property "Package" "None"
-			(at 379.73 163.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Price" "None"
-			(at 379.73 163.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
 		(property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda"
 			(at 379.73 163.83 0)
 			(hide yes)
@@ -16369,7 +16353,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Availability" "In Stock"
+		(property "MANUFACTURER" "CNK"
 			(at 379.73 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -16381,7 +16365,7 @@
 				(justify bottom)
 			)
 		)
-		(property "MANUFACTURER" "CNK"
+		(property "LCSC" "C2685355"
 			(at 379.73 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -16390,7 +16374,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 			)
 		)
 		(pin "D"
@@ -16847,30 +16830,6 @@
 				(justify bottom)
 			)
 		)
-		(property "Package" "None"
-			(at 350.52 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
-		(property "Price" "None"
-			(at 350.52 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-			)
-		)
 		(property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda"
 			(at 350.52 152.4 0)
 			(hide yes)
@@ -16943,7 +16902,7 @@
 				(justify bottom)
 			)
 		)
-		(property "Availability" "In Stock"
+		(property "MANUFACTURER" "CNK"
 			(at 350.52 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -16955,8 +16914,8 @@
 				(justify bottom)
 			)
 		)
-		(property "MANUFACTURER" "CNK"
-			(at 350.52 152.4 0)
+		(property "LCSC" "C2685355"
+			(at 350.52 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16964,7 +16923,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify bottom)
 			)
 		)
 		(pin "D"
@@ -17251,7 +17209,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a7847dfb-cc99-4ec2-89f5-dbd0cac2b3d5")
 		(property "Reference" "ENC304"
 			(at 393.446 74.676 90)
@@ -17658,7 +17616,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "b28da439-3030-4af9-b87f-f4e634486923")
 		(property "Reference" "J302"
 			(at 294.64 310.5151 0)
@@ -18221,7 +18179,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c61e5dee-325c-42dc-bff4-c2be0ff2b5c6")
 		(property "Reference" "ENC303"
 			(at 345.186 74.676 90)
@@ -20195,6 +20153,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C39843328"
+			(at 142.24 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9fd88a4e-4c29-4760-bb71-bcaae2079ae0")
 		)
@@ -20502,6 +20471,17 @@
 			)
 		)
 		(property "Description" "Single Buffer Gate Tri-State, Low-Voltage CMOS"
+			(at 251.46 311.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C151890"
 			(at 251.46 311.15 0)
 			(hide yes)
 			(show_name no)

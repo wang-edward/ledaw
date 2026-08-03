@@ -6911,7 +6911,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "09d69a24-cdb1-4a2c-bbbb-73619bb3c482")
 		(property "Reference" "J201"
 			(at 214.63 86.9951 0)
@@ -7647,6 +7647,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C5183929"
+			(at 260.35 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a127f6e2-5c45-41cf-8a8c-706240f03a14")
 		)
@@ -7750,7 +7761,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1e7c9900-6ac6-4424-9d86-59df78d5e2cc")
 		(property "Reference" "TP206"
 			(at 194.31 90.9321 0)
@@ -7839,7 +7850,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1ec2f9b9-e65b-48ba-8979-0515fe68305c")
 		(property "Reference" "TP204"
@@ -7930,7 +7941,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "23a2fc9e-3e90-4b29-8ba8-57e2806e72b0")
 		(property "Reference" "TP214"
 			(at 175.006 124.714 0)
@@ -8197,7 +8208,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "29e1cdf8-9319-4143-83e1-5a32950e4309")
 		(property "Reference" "TP201"
 			(at 95.25 60.198 0)
@@ -8442,7 +8453,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "36984255-a237-491c-b6f4-40c7df68c79c")
 		(property "Reference" "TP217"
 			(at 49.784 149.352 0)
@@ -8942,7 +8953,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C4992301"
+		(property "LCSC" "C20182909"
 			(at 207.01 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -9061,7 +9072,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4646f9a1-e36e-4e71-891a-83b189d9bdb6")
 		(property "Reference" "TP205"
 			(at 243.586 75.946 0)
@@ -9247,7 +9258,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "48028766-2e7a-413a-b3cb-09ddf66659bd")
 		(property "Reference" "TP208"
 			(at 93.98 109.474 0)
@@ -9684,7 +9695,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "4d89c915-1770-4a43-baf7-b6fd99cb4ac3")
 		(property "Reference" "LS202"
 			(at 274.32 115.5701 0)
@@ -9776,7 +9787,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "51394cd5-299b-4244-b4f1-c70e128b0540")
 		(property "Reference" "TP218"
 			(at 67.564 160.02 0)
@@ -10230,7 +10241,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "57f0195f-f4b1-4e13-9c6d-e8f483f8d9ab")
 		(property "Reference" "TP216"
 			(at 243.586 114.046 0)
@@ -11097,7 +11108,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "69a65d66-6c7c-44fb-a140-e5d1a0665348")
 		(property "Reference" "TP213"
 			(at 90.424 120.904 0)
@@ -11642,7 +11653,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "745512c3-929c-4de5-866d-00bf42c1bdeb")
 		(property "Reference" "TP210"
 			(at 243.586 100.076 0)
@@ -11966,6 +11977,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C5183929"
+			(at 260.35 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "60b69d83-3075-466b-b8f8-4c417809ed12")
 		)
@@ -12080,7 +12102,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "8bfdad4c-1609-4ed3-b8f6-bdd9ce6228fc")
 		(property "Reference" "LS201"
 			(at 274.32 76.1999 0)
@@ -12512,7 +12534,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9b309a3f-6b00-43ed-94fd-d8e02bdb8c66")
 		(property "Reference" "J203"
 			(at 64.77 122.5551 0)
@@ -12608,7 +12630,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9caf387b-f410-4a6b-b008-43c0af5f90bd")
 		(property "Reference" "TP212"
 			(at 181.61 118.618 0)
@@ -13199,7 +13221,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ad15759a-dba7-4dbd-81ae-e847c4dd2603")
 		(property "Reference" "TP203"
@@ -13289,7 +13311,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "aea3f8d7-b816-47e3-8348-7e6a26cdb8b3")
 		(property "Reference" "TP207"
 			(at 87.63 92.202 0)
@@ -13378,7 +13400,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "af5aa87f-8217-4b88-8faa-affd2b391ea4")
 		(property "Reference" "TP209"
 			(at 180.848 99.822 0)
@@ -13728,7 +13750,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "be0faf11-fd16-4f6f-b199-e8e590fdbd3e")
 		(property "Reference" "TP202"
 			(at 243.586 61.722 0)
@@ -15750,7 +15772,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "f91ac5c6-678f-45d9-9a85-224d98e3b4d6")
 		(property "Reference" "TP215"
 			(at 90.424 125.476 0)
@@ -16345,7 +16367,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fcebba18-32b5-436c-8712-9d4b259364da")
 		(property "Reference" "TP211"
 			(at 93.98 114.554 0)
