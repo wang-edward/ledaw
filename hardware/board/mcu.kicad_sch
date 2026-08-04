@@ -13287,7 +13287,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "3.3u"
+		(property "Value" "3.3uF"
 			(at 80.01 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13322,6 +13322,17 @@
 		)
 		(property "Description" ""
 			(at 78.74 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C42411119"
+			(at 78.74 74.93 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
