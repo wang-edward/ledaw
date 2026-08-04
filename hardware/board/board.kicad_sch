@@ -7247,7 +7247,7 @@
 		)
 		(uuid "fefaa51b-66d9-47df-bc48-41c1190665f0")
 	)
-	(label "SPI0_CE0"
+	(label "SPI0_CE1"
 		(at 226.06 92.71 180)
 		(effects
 			(font
@@ -7697,7 +7697,7 @@
 		)
 		(uuid "d8fa3b48-7e2e-40f3-9675-2eff54c2d430")
 	)
-	(label "SPI0_CE0"
+	(label "SPI0_CE1"
 		(at 247.65 170.18 0)
 		(effects
 			(font
@@ -8158,7 +8158,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "16889811-2150-4cac-b383-9c7c98b8f6ba")
 		(property "Reference" "Module101"
@@ -9173,7 +9173,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "4e62237b-6ce3-4363-a543-008a1b71e8bd")
 		(property "Reference" "Module101"
