@@ -2851,6 +2851,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "0dcc9202-9113-45b6-a164-c9ecf6791cc7")
 			(effects
 				(font
@@ -4750,6 +4751,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "8fd22830-f8c7-4a8d-ab02-ce4de7f05bad")
 			(effects
 				(font
@@ -5117,6 +5119,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "6ef43938-982b-43da-a487-0340d0938b15")
 			(effects
 				(font
@@ -6476,6 +6479,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "f4d045d5-fd46-447b-9386-600c0936623c")
 			(effects
 				(font
@@ -6736,6 +6740,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "6b4a1b7f-2cce-4897-a2d2-57799ddb1a05")
 			(effects
 				(font
@@ -9680,6 +9685,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "f58cb70a-eb73-4ca4-ab0a-d6ecf1fee8de")
 			(effects
 				(font
@@ -9787,6 +9793,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "5428c30e-3860-440e-966b-e8a668287268")
 			(effects
 				(font
@@ -10353,6 +10360,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.15 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "697ea81f-4e75-44fa-aafa-984a45becbbc")
 			(effects
 				(font
@@ -61272,7 +61280,7 @@
 		(uuid "98deb985-c92f-4691-a548-d2aee1cf8a00")
 	)
 	(gr_text "LeDaw\nEdward Wang\nAugust 2026"
-		(at 336.25 201.75 0)
+		(at 356.5 201.5 0)
 		(layer "F.SilkS")
 		(uuid "09e4756a-5ea2-464a-9a51-02479a2f714e")
 		(effects
