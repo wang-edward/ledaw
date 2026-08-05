@@ -7,7 +7,7 @@
 		(at 4.5 -5.5 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "f7e85ac6-c0a7-460a-9226-3c288a11c4aa")
+		(uuid "12c818b1-afc3-4296-87f6-503544996a60")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 		(at 0 1 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "4174711a-68fa-4b9f-b9a0-ea3cc1fe9cf4")
+		(uuid "6544af53-bf5a-42c2-acb2-8c767d6f169c")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "c2183101-8b72-431a-b88c-0395cf7d8915")
+		(uuid "d9cfa1e2-b545-41ae-80a9-4d2cdd2e76c2")
 		(effects
 			(font
 				(size 1 1)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "4a3a7219-bc91-45cc-acdf-2ab7a94dff3f")
+		(uuid "8d124660-f966-483f-8146-dda5e1debc1e")
 		(effects
 			(font
 				(size 1 1)
@@ -64,7 +64,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "cd6924be-902d-44fc-a238-9b7682d49567")
+		(uuid "54443e5f-ec8c-49a2-84f2-d3f360c358ff")
 	)
 	(fp_rect
 		(start -3.2 -4.05)
@@ -75,7 +75,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "6cba6c8b-08d0-4426-9a79-ee6ade9b2777")
+		(uuid "57d0059a-0a50-46c4-bccf-05a6146cb43a")
 	)
 	(fp_rect
 		(start -7.5 -7.5)
@@ -86,7 +86,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "2ca4722a-1378-4b4e-b87e-e2bf852041a3")
+		(uuid "8a0372a8-13f8-4ffc-a549-cb9b27793676")
 	)
 	(fp_rect
 		(start -10 -10)
@@ -97,13 +97,13 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "0cfbb979-d771-4262-ab21-d9de2c864d92")
+		(uuid "4391149f-b238-45fc-b49e-9771fba1d621")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "25e00472-8343-43cb-b76b-d6e76db988f9")
+		(uuid "234abda1-6631-4f85-a422-7825dfb0c3de")
 		(effects
 			(font
 				(size 1 1)
@@ -116,7 +116,7 @@
 		(size 5.25 5.25)
 		(drill 5.25)
 		(layers "*.Cu" "*.Mask")
-		(uuid "b2144d75-70d6-4549-a03a-e60bc9027765")
+		(uuid "248c284e-d782-4419-a466-cd743648aa5a")
 	)
 	(pad "1" thru_hole oval
 		(at -4.4 4.7 90)
@@ -124,7 +124,7 @@
 		(drill oval 2 0.9)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "21c75b59-2ca6-4596-89d7-08053ca253f8")
+		(uuid "58e0a52f-8791-4887-80d1-7b5bf470103d")
 	)
 	(pad "2" thru_hole oval
 		(at 2.6 5.75)
@@ -132,7 +132,18 @@
 		(drill oval 2 0.9)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "e9371c8a-3305-45de-90c8-b175c6ebc9c9")
+		(uuid "5ab1cadb-1296-4647-ad27-40c8b489f80a")
 	)
 	(embedded_fonts no)
+	(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+		(offset
+			(xyz 0 0 2.5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
 )

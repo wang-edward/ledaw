@@ -209,12 +209,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/1d8f99f5-fbcc-45d9-88a2-ab9210436baf")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -303,6 +297,17 @@
 			(uuid "b26ed5e5-2430-4ef0-93e4-7527be4f4726")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -362,12 +367,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/55b0afc3-e433-413b-a1ba-4ff4a1ab5ff7")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -456,6 +455,17 @@
 			(uuid "942bb9ca-7114-48f8-821f-f2788f29ec48")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:THB001P"
 		(locked yes)
@@ -473,7 +483,7 @@
 				)
 			)
 		)
-		(property "Value" "THB001P"
+		(property "Value" "CNK_THB001P"
 			(at 0.25 2 0)
 			(layer "F.Fab")
 			(uuid "178ef683-1a80-45e0-ab93-a64b2da7b165")
@@ -506,153 +516,9 @@
 				)
 			)
 		)
-		(property "MF" "C&K"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fb26b55f-971b-4ca7-995b-f588e49c5bb8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" "19.85mm"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0c4b70d0-8401-4a7e-aef0-a5a1ce404bf9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a7c6df93-882c-4d18-995b-b4597bd4c572")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "STANDARD" "Manufacturer Recommendations"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4ddc465d-d142-435b-b483-c728f1270fc7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "PARTREV" "27 Jan 22"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fa65a43d-d346-4619-a73b-c64b4334390e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=snap"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "248bdc80-b738-479e-844a-f991f85c99d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MP" "THB001P"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7064f98e-4255-4578-aa11-e7ffd68a7c4b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "SNAPEDA_PN" "THB001P"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "20281881-5607-47c7-a2a4-08b10ae10129")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MANUFACTURER" "CNK"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ab43646f-e8a2-4c91-a731-708c973f09d8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC" "C2685355"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f91d2ad7-322f-44ed-882b-bd86d5515546")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/9d8058aa-087f-4de6-ba98-962ef71688f6")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "VR1_1" "VR1_2" "VR1_3")
-			)
-			(unit
-				(name "B")
-				(pins "VR2_1" "VR2_2" "VR2_3")
-			)
-			(unit
-				(name "C")
-				(pins "C" "D" "A" "B")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1424,6 +1290,17 @@
 			(uuid "40c45424-8550-44fb-b696-5f33743ab936")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/THB001P.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -1483,12 +1360,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/a88eaf57-dc04-436f-b7a9-005f870ef8c0")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -1577,6 +1448,17 @@
 			(uuid "83e2bf35-1394-4c93-a863-d942120c125b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -1636,12 +1518,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/c3f535dd-3551-43f7-8f5d-f00143a8ee2a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -1730,6 +1606,17 @@
 			(uuid "f0aa9293-5fb7-4cba-ba77-9362a43d5bd4")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(layer "F.Cu")
@@ -1954,7 +1841,7 @@
 		(uuid "23a0f165-ecef-4c57-9778-07217b279bcd")
 		(at 167.5 103.5)
 		(property "Reference" "ENC302"
-			(at 0 0 0)
+			(at -3.075 -9.385 0)
 			(layer "F.SilkS")
 			(uuid "591244fd-0cd5-489f-b622-d8be47322e0c")
 			(effects
@@ -2001,12 +1888,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/94d241fd-a207-464b-8e86-c9effe6e91f5")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "A" "C" "B" "S1" "S2")
-			)
-		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2281,6 +2162,17 @@
 			(uuid "8963734e-7f78-4527-b900-f2faff458cd7")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/pec11r-4015f-s0024.stp"
+			(offset
+				(xyz 0 0 5.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 180)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -2340,12 +2232,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/8ed9a019-b518-4293-819f-cfcb1af66696")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2434,6 +2320,17 @@
 			(uuid "f8ae208e-596d-40bc-8b47-c368ff7f2661")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -2493,12 +2390,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/84b44619-1691-4fe3-a60c-19ea2b76cb43")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2587,6 +2478,17 @@
 			(uuid "0313e2b4-edbe-4323-bb13-aee3aa5d67a0")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -2646,12 +2548,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/5ddd7059-a253-4992-a1bc-cee0cabed6b8")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2740,6 +2636,17 @@
 			(uuid "e9a3c2ce-1159-4b89-86bb-d0b0d5000a66")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -2799,12 +2706,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/33b0a1aa-5ef5-4cde-85d3-8690d3774a72")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2893,6 +2794,17 @@
 			(uuid "507c4b03-8021-4a69-bfb4-1005dd170e3c")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -2952,12 +2864,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/4ab23e1f-fcfb-4326-b33d-7df61a99d608")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3046,6 +2952,17 @@
 			(uuid "96f3663f-e844-49c6-a8dd-868447c675c7")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:bf-32-s-8ohm"
 		(locked yes)
@@ -3260,12 +3177,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/10698dcf-0588-41f3-b0e9-f694ed238dc1")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3354,6 +3265,17 @@
 			(uuid "994f482c-4ccc-4336-889b-730e64f95a35")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -3413,12 +3335,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d2773fca-7a7e-4dc8-ad85-0e0a82fb3757")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3507,6 +3423,17 @@
 			(uuid "b86b4558-a3bb-41fe-ae6f-d24183fa4baa")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -3566,12 +3493,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/6064e722-2b83-4c40-9194-2fcad6a8d14e")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3660,6 +3581,17 @@
 			(uuid "c1bcfcd1-a4bd-491c-aac8-4f647c069c77")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -3719,12 +3651,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/905fe185-4b59-494f-94e0-bd09f2c8efc7")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3813,6 +3739,17 @@
 			(uuid "921e9adb-a5fb-4a76-b6ba-f36d4ec06d45")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -3872,12 +3809,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/045f81a1-419c-4644-aee6-3ce83d30e3fe")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3966,6 +3897,17 @@
 			(uuid "b8ebe7c4-a4f2-48a6-8098-67262a40790b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4025,12 +3967,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d9dc9187-e43a-41b4-a8bd-6fd89fe6a9a6")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4119,6 +4055,17 @@
 			(uuid "bc309285-d7f0-4a19-b4a6-fdfeff3e18ef")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4178,12 +4125,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/458e0853-b511-44bb-8a26-82216d730cd6")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4272,6 +4213,17 @@
 			(uuid "3fab6acd-c272-4948-8997-54a719a5b7cb")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4331,12 +4283,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/f698c052-0ae7-482d-b563-1a7ccbd9dc75")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4425,6 +4371,17 @@
 			(uuid "e5499002-98a4-4dc3-9c7d-89e8f98d5645")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4484,12 +4441,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/dee405f2-987e-4318-aa4b-db1918b47496")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4578,6 +4529,17 @@
 			(uuid "61cd7a8f-facf-4397-af17-a50253454c13")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4637,12 +4599,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/3839d347-7436-4ddb-80cd-97403ff5243b")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4731,6 +4687,17 @@
 			(uuid "71a9fbcb-61ea-456e-93a2-7cadaf0dd7b3")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -4790,12 +4757,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/b32db715-8d65-41eb-b2cb-a28dcfd13172")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4884,6 +4845,17 @@
 			(uuid "e9a977b6-9257-4a14-9b52-1611f3198cc8")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:XDCR_PEC11R-4015F-S0024"
 		(locked yes)
@@ -4891,7 +4863,7 @@
 		(uuid "871143a4-5695-451d-bf15-a520f80a642c")
 		(at 127.5 103.5)
 		(property "Reference" "ENC301"
-			(at 0 0 0)
+			(at -3.075 -9.385 0)
 			(layer "F.SilkS")
 			(uuid "7dd12807-bf59-43c2-b11c-9da7e64a29d2")
 			(effects
@@ -4938,12 +4910,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/7c9b0ba8-08bd-47ed-87e6-eb218d6db87b")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "A" "C" "B" "S1" "S2")
-			)
-		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5226,7 +5192,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -90 -0 -180)
+				(xyz -90 -0 180)
 			)
 		)
 	)
@@ -5288,12 +5254,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/be041eaa-27fb-4741-a675-186dbabaa005")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5382,6 +5342,17 @@
 			(uuid "05ac6347-e48f-4843-a7a2-c4f6cf5f360b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -5441,12 +5412,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/1c2cf484-16ad-43c7-bbed-5b0827ff8037")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5535,6 +5500,17 @@
 			(uuid "217e62b7-3d96-4355-9696-f2d90315f05c")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -5594,12 +5570,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/905b5444-eba3-4184-b058-f22b35c70365")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5688,6 +5658,17 @@
 			(uuid "ade37401-b247-437c-bfc9-44c18c2a8c53")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -5747,12 +5728,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/841b4d4b-4eff-42c3-8472-ed4abaf0ce56")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5841,6 +5816,17 @@
 			(uuid "834efacf-7375-4455-82e4-2e12657c3887")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -5900,12 +5886,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/698bc3cf-a7d2-49a2-9864-7134b4edded9")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5994,6 +5974,17 @@
 			(uuid "e8f80e52-5755-4107-b96c-76e5d65d6138")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -6053,12 +6044,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/af621e39-dcbf-4471-8b30-0c7a58e95e3d")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6147,6 +6132,17 @@
 			(uuid "f39cda96-3d79-40c2-9f41-8529cf7f460b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -6206,12 +6202,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/3c7c1231-6f02-44a2-9b70-b964a6129cd0")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6300,6 +6290,17 @@
 			(uuid "6cc67c56-84f0-4168-9f03-e0314e765eab")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -6359,12 +6360,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/e94f321d-8f45-4486-b0b8-c12091abd4a1")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6453,6 +6448,17 @@
 			(uuid "6efdd61c-4f7f-41e4-adf3-481b624794d8")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:bf-32-s-8ohm"
 		(locked yes)
@@ -6776,12 +6782,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/13a5c64f-1131-400c-b586-32808ae802f5")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6870,6 +6870,17 @@
 			(uuid "962e15f8-6b7f-4b14-a95f-f0894af0497b")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -6929,12 +6940,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/b56a100f-afaf-4559-8cbb-90c214c4698d")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7202,12 +7207,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/2fe4f1af-7ace-4516-b4cf-f18ebbc9bef4")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7296,6 +7295,17 @@
 			(uuid "2b567d7c-50d8-4d81-abe7-cd149f23c947")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -7355,12 +7365,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/216479a3-df9c-42c4-8164-1ca2a24ddd5a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7449,6 +7453,17 @@
 			(uuid "0cf3170e-e3b4-443b-8ba6-e6d7c5312ded")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:XDCR_PEC11R-4015F-S0024"
 		(locked yes)
@@ -7456,7 +7471,7 @@
 		(uuid "af01930a-ec97-4040-84f5-f32c189720f4")
 		(at 307.5 103.5)
 		(property "Reference" "ENC304"
-			(at 0 0 0)
+			(at -3.075 -9.385 0)
 			(layer "F.SilkS")
 			(uuid "926eb523-4db4-470e-a0c4-fd079114cca3")
 			(effects
@@ -7503,12 +7518,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/a7847dfb-cc99-4ec2-89f5-dbd0cac2b3d5")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "A" "C" "B" "S1" "S2")
-			)
-		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7783,6 +7792,17 @@
 			(uuid "776c00da-a7b0-4164-87ce-e579945e7797")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/pec11r-4015f-s0024.stp"
+			(offset
+				(xyz 0 0 5.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 180)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -7842,12 +7862,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/45a8fb54-da08-4a96-b11b-78887e6c46ce")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7936,6 +7950,17 @@
 			(uuid "2db7f42b-2f6e-4ad5-a3ce-3fd3443b2616")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -7995,12 +8020,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/e51d29ac-5cd4-490b-b644-9dad7bdcd412")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8089,6 +8108,17 @@
 			(uuid "b7c7de3a-1284-4e0e-a820-982809bad4c9")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -8148,12 +8178,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d1ffc28d-ddc3-4ec7-949d-20d0cfb10f16")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8242,6 +8266,17 @@
 			(uuid "65a3ddfa-46a8-40f6-bf18-f7dfe0819939")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:waveshare-1.5inch-oled"
 		(locked yes)
@@ -8301,12 +8336,6 @@
 		(path "/b35b89e6-6cc5-415e-b58e-9c6e3616bca5")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5" "6" "7")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8573,6 +8602,17 @@
 			(uuid "dede11a3-2cca-4a9a-938b-eb1471569be9")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/1_5inch-rgb-oled-module_asm-1110.stp"
+			(offset
+				(xyz 0 0.4 7)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -180)
+			)
+		)
 	)
 	(footprint "ledaw:XDCR_PEC11R-4015F-S0024"
 		(locked yes)
@@ -8580,7 +8620,7 @@
 		(uuid "ca37c619-cf6b-401a-bf1f-ea4cc24cefa9")
 		(at 267.5 103.5)
 		(property "Reference" "ENC303"
-			(at 0 0 0)
+			(at -3.075 -9.385 0)
 			(layer "F.SilkS")
 			(uuid "d8fde8ac-967d-4d04-a3b4-45f3758e627a")
 			(effects
@@ -8627,12 +8667,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/c61e5dee-325c-42dc-bff4-c2be0ff2b5c6")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "A" "C" "B" "S1" "S2")
-			)
-		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8907,6 +8941,17 @@
 			(uuid "1f982ef3-86d9-4595-a787-6680131aa835")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/pec11r-4015f-s0024.stp"
+			(offset
+				(xyz 0 0 5.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 180)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -8966,12 +9011,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/37c3603e-a79c-4119-92d9-40a2db56d80a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9060,6 +9099,17 @@
 			(uuid "c6036c29-15c8-4f7e-84ab-04c32bb15a2a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(locked yes)
@@ -9228,12 +9278,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/ce414789-4f45-4153-8b4e-c6db6024bd60")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9322,6 +9366,17 @@
 			(uuid "6996b98c-228b-4531-b3b4-5fc55127df7a")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -9381,12 +9436,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/112adf96-a510-4b58-8800-4db713ba66f5")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9475,6 +9524,17 @@
 			(uuid "6afdcc19-3784-4a3d-bf29-843c8d2743a1")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "ledaw:ks-33-2.0"
 		(locked yes)
@@ -9534,12 +9594,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/a0532d24-efff-4f22-8b92-8a7bf60013cf")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9628,6 +9682,17 @@
 			(uuid "bc733c91-c37d-4754-9c45-e70bcebeef28")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(locked yes)
@@ -9796,12 +9861,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/c2e8c8a1-0431-4708-94f3-64f6627d80d4")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9890,6 +9949,17 @@
 			(uuid "9c3b0ab1-fbf3-400d-b4fe-f3f454655278")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
 		(locked yes)
@@ -10167,12 +10237,6 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/999905c5-0677-4cc7-a82e-d5c47ef93d5b")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -10261,6 +10325,17 @@
 			(uuid "841a916a-8105-40f4-9d22-fdae6973cf3d")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3d/Gateron KS-33.step"
+			(offset
+				(xyz 0 0 2.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "B.Cu")
@@ -18122,29 +18197,9 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" "C597931"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b543cf58-cd6b-4d39-948b-dea07373ad54")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(path "/3873c5f6-324b-4a51-bcb1-ff25d3fcaf52")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -19021,15 +19076,15 @@
 			(uuid "7e75a34f-8241-4c62-85b2-8975a6d55333")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_Hirose_DF40.3dshapes/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.step"
+		(model "${KIPRJMOD}/3d/CM4IO.3dshapes/DF40C-100DS.stp"
 			(offset
-				(xyz 0 0 0)
+				(xyz 6.12 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -90 -0 -90)
 			)
 		)
 	)
@@ -27024,64 +27079,9 @@
 				(justify mirror)
 			)
 		)
-		(property "Field4" "Hirose"
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6ef37250-cd6b-4a82-bbb8-39ed77fa4627")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Field5" "2x DF40C-100DS-0.4V"
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0571d94e-0cad-4842-a3a1-ecb42e0dff46")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(path "/4e62237b-6ce3-4363-a543-008a1b71e8bd")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "2" "4" "6" "8" "10" "12" "14" "16" "18" "20" "22" "24" "26" "28"
-					"30" "32" "34" "36" "38" "40" "42" "44" "46" "48" "50" "52" "54" "56"
-					"58" "60" "62" "64" "66" "68" "70" "72" "74" "76" "78" "80" "82" "84"
-					"86" "88" "90" "92" "94" "96" "98" "100" "1" "3" "5" "7" "9" "11" "13"
-					"15" "17" "19" "21" "23" "25" "27" "29" "31" "33" "35" "37" "39" "41"
-					"43" "45" "47" "49" "51" "53" "55" "57" "59" "61" "63" "65" "67" "69"
-					"71" "73" "75" "77" "79" "81" "83" "85" "87" "89" "91" "93" "95" "97"
-					"99"
-				)
-			)
-			(unit
-				(name "B")
-				(pins "102" "104" "106" "108" "110" "112" "114" "116" "118" "120" "122"
-					"124" "126" "128" "130" "132" "134" "136" "138" "140" "142" "144" "146"
-					"148" "150" "152" "154" "156" "158" "160" "162" "164" "166" "168" "170"
-					"172" "174" "176" "178" "180" "182" "184" "186" "188" "190" "192" "194"
-					"196" "198" "200" "101" "103" "105" "107" "109" "111" "113" "115" "117"
-					"119" "121" "123" "125" "127" "129" "131" "133" "135" "137" "139" "141"
-					"143" "145" "147" "149" "151" "153" "155" "157" "159" "161" "163" "165"
-					"167" "169" "171" "173" "175" "177" "179" "181" "183" "185" "187" "189"
-					"191" "193" "195" "197" "199"
-				)
-			)
-		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -56784,29 +56784,9 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" "C597931"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b4660d4a-c9da-40e9-8e9d-70e790feefd4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(path "/f257c452-f38f-43c7-adb5-0593a3c60cfd")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -57683,15 +57663,15 @@
 			(uuid "c856838c-9344-4e5d-a283-936010deaa81")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_Hirose_DF40.3dshapes/Hirose_DF40C-100DS-0.4V_2x50_P0.4mm.step"
+		(model "${KIPRJMOD}/3d/CM4IO.3dshapes/DF40C-100DS.stp"
 			(offset
-				(xyz 0 0 0)
+				(xyz 6.12 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -90 -0 -90)
 			)
 		)
 	)
