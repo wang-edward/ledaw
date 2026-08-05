@@ -29218,7 +29218,7 @@
 			(uuid "44f57a76-de84-4e97-89c7-c9bff57b44fa")
 		)
 		(embedded_fonts no)
-		(model "./CM4.3dshapes/DF40C-100DS.stp"
+		(model "${KIPRJMOD}/3d/CM4IO.3dshapes/DF40C-100DS.stp"
 			(offset
 				(xyz -0.46 15.38 0)
 			)
@@ -29229,7 +29229,7 @@
 				(xyz -90 0 0)
 			)
 		)
-		(model "./CM4IO.3dshapes/DF40C-100DS.stp"
+		(model "${KIPRJMOD}/3d/CM4IO.3dshapes/DF40C-100DS.stp"
 			(offset
 				(xyz 33.46 15.38 0)
 			)
@@ -29238,6 +29238,17 @@
 			)
 			(rotate
 				(xyz -90 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/3d/CM4.step"
+			(offset
+				(xyz 52.5 -3.5 1.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -90)
 			)
 		)
 	)
