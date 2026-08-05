@@ -209,6 +209,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/1d8f99f5-fbcc-45d9-88a2-ab9210436baf")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -367,6 +373,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/55b0afc3-e433-413b-a1ba-4ff4a1ab5ff7")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -483,7 +495,7 @@
 				)
 			)
 		)
-		(property "Value" "CNK_THB001P"
+		(property "Value" "THB001P"
 			(at 0.25 2 0)
 			(layer "F.Fab")
 			(uuid "178ef683-1a80-45e0-ab93-a64b2da7b165")
@@ -516,9 +528,153 @@
 				)
 			)
 		)
+		(property "MF" "C&K"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c46358c4-080f-4ff9-a5ae-df42f0daea20")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "19.85mm"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a1356327-daa8-43e8-aa1c-e4c5d250ead5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "582386dc-482d-4331-8b60-571ea9362b8d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fa8f3b0d-2de6-437b-bd22-90b62a35cf84")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PARTREV" "27 Jan 22"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1d6fcad7-d52b-41f5-8830-4cc98b5bec9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=snap"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c44ce5a5-a9c1-4cb3-89b1-1e9a58114eab")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MP" "THB001P"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bb4125d3-22b3-472e-a945-f65edaa60336")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "SNAPEDA_PN" "THB001P"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "acc88904-b7ba-4ecb-8306-533b0b6455d5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MANUFACTURER" "CNK"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b126fead-5e39-49ed-971a-8bfcb11699f5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C2685355"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "719ad250-9a97-42a3-a97b-d0039950f6b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/9d8058aa-087f-4de6-ba98-962ef71688f6")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "VR1_1" "VR1_2" "VR1_3")
+			)
+			(unit
+				(name "B")
+				(pins "VR2_1" "VR2_2" "VR2_3")
+			)
+			(unit
+				(name "C")
+				(pins "C" "D" "A" "B")
+			)
+		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1360,6 +1516,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/a88eaf57-dc04-436f-b7a9-005f870ef8c0")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -1518,6 +1680,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/c3f535dd-3551-43f7-8f5d-f00143a8ee2a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -1841,7 +2009,7 @@
 		(uuid "23a0f165-ecef-4c57-9778-07217b279bcd")
 		(at 167.5 103.5)
 		(property "Reference" "ENC302"
-			(at -3.075 -9.385 0)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(uuid "591244fd-0cd5-489f-b622-d8be47322e0c")
 			(effects
@@ -1888,6 +2056,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/94d241fd-a207-464b-8e86-c9effe6e91f5")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "A" "C" "B" "S1" "S2")
+			)
+		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2232,6 +2406,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/8ed9a019-b518-4293-819f-cfcb1af66696")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2390,6 +2570,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/84b44619-1691-4fe3-a60c-19ea2b76cb43")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2548,6 +2734,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/5ddd7059-a253-4992-a1bc-cee0cabed6b8")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2706,6 +2898,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/33b0a1aa-5ef5-4cde-85d3-8690d3774a72")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -2864,6 +3062,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/4ab23e1f-fcfb-4326-b33d-7df61a99d608")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3177,6 +3381,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/10698dcf-0588-41f3-b0e9-f694ed238dc1")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3335,6 +3545,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d2773fca-7a7e-4dc8-ad85-0e0a82fb3757")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3493,6 +3709,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/6064e722-2b83-4c40-9194-2fcad6a8d14e")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3651,6 +3873,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/905fe185-4b59-494f-94e0-bd09f2c8efc7")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3809,6 +4037,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/045f81a1-419c-4644-aee6-3ce83d30e3fe")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -3967,6 +4201,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d9dc9187-e43a-41b4-a8bd-6fd89fe6a9a6")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4125,6 +4365,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/458e0853-b511-44bb-8a26-82216d730cd6")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4283,6 +4529,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/f698c052-0ae7-482d-b563-1a7ccbd9dc75")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4441,6 +4693,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/dee405f2-987e-4318-aa4b-db1918b47496")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4599,6 +4857,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/3839d347-7436-4ddb-80cd-97403ff5243b")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4757,6 +5021,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/b32db715-8d65-41eb-b2cb-a28dcfd13172")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -4863,7 +5133,7 @@
 		(uuid "871143a4-5695-451d-bf15-a520f80a642c")
 		(at 127.5 103.5)
 		(property "Reference" "ENC301"
-			(at -3.075 -9.385 0)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(uuid "7dd12807-bf59-43c2-b11c-9da7e64a29d2")
 			(effects
@@ -4910,6 +5180,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/7c9b0ba8-08bd-47ed-87e6-eb218d6db87b")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "A" "C" "B" "S1" "S2")
+			)
+		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5254,6 +5530,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/be041eaa-27fb-4741-a675-186dbabaa005")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5412,6 +5694,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/1c2cf484-16ad-43c7-bbed-5b0827ff8037")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5570,6 +5858,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/905b5444-eba3-4184-b058-f22b35c70365")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5728,6 +6022,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/841b4d4b-4eff-42c3-8472-ed4abaf0ce56")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -5886,6 +6186,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/698bc3cf-a7d2-49a2-9864-7134b4edded9")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6044,6 +6350,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/af621e39-dcbf-4471-8b30-0c7a58e95e3d")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6202,6 +6514,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/3c7c1231-6f02-44a2-9b70-b964a6129cd0")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6360,6 +6678,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/e94f321d-8f45-4486-b0b8-c12091abd4a1")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6782,6 +7106,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/13a5c64f-1131-400c-b586-32808ae802f5")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -6940,6 +7270,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/b56a100f-afaf-4559-8cbb-90c214c4698d")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7207,6 +7543,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/2fe4f1af-7ace-4516-b4cf-f18ebbc9bef4")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7365,6 +7707,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/216479a3-df9c-42c4-8164-1ca2a24ddd5a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -7471,7 +7819,7 @@
 		(uuid "af01930a-ec97-4040-84f5-f32c189720f4")
 		(at 307.5 103.5)
 		(property "Reference" "ENC304"
-			(at -3.075 -9.385 0)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(uuid "926eb523-4db4-470e-a0c4-fd079114cca3")
 			(effects
@@ -7518,6 +7866,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/a7847dfb-cc99-4ec2-89f5-dbd0cac2b3d5")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "A" "C" "B" "S1" "S2")
+			)
+		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7862,6 +8216,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/45a8fb54-da08-4a96-b11b-78887e6c46ce")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8020,6 +8380,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/e51d29ac-5cd4-490b-b644-9dad7bdcd412")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8178,6 +8544,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/d1ffc28d-ddc3-4ec7-949d-20d0cfb10f16")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8336,6 +8708,12 @@
 		(path "/b35b89e6-6cc5-415e-b58e-9c6e3616bca5")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2" "3" "4" "5" "6" "7")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -8620,7 +8998,7 @@
 		(uuid "ca37c619-cf6b-401a-bf1f-ea4cc24cefa9")
 		(at 267.5 103.5)
 		(property "Reference" "ENC303"
-			(at -3.075 -9.385 0)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(uuid "d8fde8ac-967d-4d04-a3b4-45f3758e627a")
 			(effects
@@ -8667,6 +9045,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/c61e5dee-325c-42dc-bff4-c2be0ff2b5c6")
 		(sheetname "/mcu/")
 		(sheetfile "mcu.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "A" "C" "B" "S1" "S2")
+			)
+		)
 		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9011,6 +9395,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/37c3603e-a79c-4119-92d9-40a2db56d80a")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9278,6 +9668,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/ce414789-4f45-4153-8b4e-c6db6024bd60")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9436,6 +9832,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/112adf96-a510-4b58-8800-4db713ba66f5")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9594,6 +9996,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/a0532d24-efff-4f22-8b92-8a7bf60013cf")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -9861,6 +10269,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/c2e8c8a1-0431-4708-94f3-64f6627d80d4")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -10237,6 +10651,12 @@
 		(path "/c4d314f2-7502-4a7f-ae5f-cbca93031f6d/983efcc0-de63-4ee6-a137-eccfc1685d0f/999905c5-0677-4cc7-a82e-d5c47ef93d5b")
 		(sheetname "/mcu/buttons/")
 		(sheetfile "buttons.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
@@ -18197,9 +18617,29 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C597931"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "6761226b-9e23-4178-944a-98788987cbca")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/3873c5f6-324b-4a51-bcb1-ff25d3fcaf52")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -27079,9 +27519,64 @@
 				(justify mirror)
 			)
 		)
+		(property "Field4" "Hirose"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "8d5a54c2-8b63-4c21-b4e5-d55acb58b54b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Field5" "2x DF40C-100DS-0.4V"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c7ab13f8-b021-4d46-a98b-5d5e2ab09dac")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/4e62237b-6ce3-4363-a543-008a1b71e8bd")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "4" "6" "8" "10" "12" "14" "16" "18" "20" "22" "24" "26" "28"
+					"30" "32" "34" "36" "38" "40" "42" "44" "46" "48" "50" "52" "54" "56"
+					"58" "60" "62" "64" "66" "68" "70" "72" "74" "76" "78" "80" "82" "84"
+					"86" "88" "90" "92" "94" "96" "98" "100" "1" "3" "5" "7" "9" "11" "13"
+					"15" "17" "19" "21" "23" "25" "27" "29" "31" "33" "35" "37" "39" "41"
+					"43" "45" "47" "49" "51" "53" "55" "57" "59" "61" "63" "65" "67" "69"
+					"71" "73" "75" "77" "79" "81" "83" "85" "87" "89" "91" "93" "95" "97"
+					"99"
+				)
+			)
+			(unit
+				(name "B")
+				(pins "102" "104" "106" "108" "110" "112" "114" "116" "118" "120" "122"
+					"124" "126" "128" "130" "132" "134" "136" "138" "140" "142" "144" "146"
+					"148" "150" "152" "154" "156" "158" "160" "162" "164" "166" "168" "170"
+					"172" "174" "176" "178" "180" "182" "184" "186" "188" "190" "192" "194"
+					"196" "198" "200" "101" "103" "105" "107" "109" "111" "113" "115" "117"
+					"119" "121" "123" "125" "127" "129" "131" "133" "135" "137" "139" "141"
+					"143" "145" "147" "149" "151" "153" "155" "157" "159" "161" "163" "165"
+					"167" "169" "171" "173" "175" "177" "179" "181" "183" "185" "187" "189"
+					"191" "193" "195" "197" "199"
+				)
+			)
+		)
 		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -56795,9 +57290,29 @@
 				(justify mirror)
 			)
 		)
+		(property "LCSC" "C597931"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9eab2597-9365-4501-aaa9-4de258ba2747")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(path "/f257c452-f38f-43c7-adb5-0593a3c60cfd")
 		(sheetname "/")
 		(sheetfile "board.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins)
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
