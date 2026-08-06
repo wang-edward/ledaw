@@ -127,6 +127,13 @@ pub fn build(b: *std.Build) void {
             .hw = false,
             .root = c.mod("test/test_display.zig", &.{}),
         },
+        .{
+            .name = "test_uart",
+            .step = "test_uart",
+            .desc = "Run uart test",
+            .hw = false,
+            .root = c.mod("test/test_uart.zig", &.{}),
+        },
     };
     for (targets) |t| c.app(t.name, t.root, t.libs, t.step, t.desc, t.hw);
 
