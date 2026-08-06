@@ -52,22 +52,13 @@ const Ctx = struct {
         link_libc: bool,
     ) void {
         const b = c.b;
-
         const exe = b.addExecutable(.{
             .name = name,
             .root_module = c.mod(src, &.{}),
         });
-
-        if (link_libc) {
-            exe.linkLibC();
-        }
-
+        if (link_libc) exe.linkLibC();
         const run = b.addRunArtifact(exe);
-
-        if (b.args) |args| {
-            run.addArgs(args);
-        }
-
+        if (b.args) |args| run.addArgs(args);
         b.step(step_name, step_desc).dependOn(&run.step);
     }
 };
