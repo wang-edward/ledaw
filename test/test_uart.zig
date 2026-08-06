@@ -20,8 +20,8 @@ pub fn main() !void {
     _ = c.cfsetispeed(&tty, c.B115200);
     _ = c.cfsetospeed(&tty, c.B115200);
 
-    tty.c_cflag |= c.CLOCAL | c.CREAD;
-    tty.c_cflag &= ~(c.CSTOPB | c.PARENB | c.CRTSCTS);
+    tty.c_cflag &= ~@as(c.tcflag_t, c.CSTOPB | c.PARENB | c.CRTSCTS);
+    tty.c_cflag |= @as(c.tcflag_t, c.CLOCAL | c.CREAD);
 
     tty.c_cc[c.VMIN] = 1;
     tty.c_cc[c.VTIME] = 0;
