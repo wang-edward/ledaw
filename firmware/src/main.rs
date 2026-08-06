@@ -7,8 +7,10 @@
 use defmt::*;
 use defmt_rtt as _;
 use embedded_hal::digital::OutputPin;
+use hal::uart::{DataBits, StopBits, UartConfig, UartPeripheral};
 use panic_probe as _;
 use rp235x_hal::clocks::init_clocks_and_plls;
+use rp235x_hal::fugit::RateExtU32;
 use rp235x_hal::{self as hal, entry};
 use rp235x_hal::{Clock, pac};
 
@@ -52,6 +54,15 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
+    let uart_pins = (pins.gpio0.into_function(), pins.gpio1.into_function());
+
+    let uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
+        .enable(
+            UartConfig::new(115_200u32.Hz(), DataBits::Eight, None, StopBits::One),
+            clocks.peripheral_clock.freq(),
+        )
+        .unwrap();
+
     // This is the correct pin on the Raspberry Pico 2 board. On other boards, even if they have an
     // on-board LED, it might need to be changed.
     //
@@ -70,6 +81,9 @@ fn main() -> ! {
         info!("off!");
         led_pin.set_low().unwrap();
         delay.delay_ms(500);
+
+        uart.write_full_blocking(b"1234 1234\r\n");
+        // delay.delay_ms(100);
     }
 }
 
