@@ -42,6 +42,25 @@ const Ctx = struct {
         if (b.args) |args| run.addArgs(args);
         b.step(step_name, step_desc).dependOn(&run.step);
     }
+
+    fn simple(
+        c: Ctx,
+        name: []const u8,
+        src: []const u8,
+        step_name: []const u8,
+        step_desc: []const u8,
+        link_libc: bool,
+    ) void {
+        const b = c.b;
+        const exe = b.addExecutable(.{
+            .name = name,
+            .root_module = c.mod(src, &.{}),
+        });
+        if (link_libc) exe.linkLibC();
+        const run = b.addRunArtifact(exe);
+        if (b.args) |args| run.addArgs(args);
+        b.step(step_name, step_desc).dependOn(&run.step);
+    }
 };
 
 pub fn build(b: *std.Build) void {
@@ -120,14 +139,30 @@ pub fn build(b: *std.Build) void {
                 },
             }),
         },
+    };
+    const simple_targets = [_]struct {
+        name: []const u8,
+        src: []const u8,
+        step: []const u8,
+        desc: []const u8,
+        libc: bool = false,
+    }{
         .{
             .name = "test_display",
+            .src = "test/test_display.zig",
             .step = "test_display",
             .desc = "Run display test",
-            .hw = false,
-            .root = c.mod("test/test_display.zig", &.{}),
+        },
+        .{
+            .name = "test_uart",
+            .src = "test/test_uart.zig",
+            .step = "test_uart",
+            .desc = "Run UART test",
+            .libc = true,
         },
     };
+
+    for (simple_targets) |t| c.simple(t.name, t.src, t.step, t.desc, t.libc);
     for (targets) |t| c.app(t.name, t.root, t.libs, t.step, t.desc, t.hw);
 
     // unit tests
