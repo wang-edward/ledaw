@@ -1,36 +1,35 @@
-how to get zig 0.15.1
-```
-brew install asdf
-asdf plugin add zig https://github.com/asdf-community/asdf-zig.git
-asdf install zig 0.15.1
-asdf set zig 0.15.1
-zig env
+# ledaw
+
+run desktop app
+```sh
+cargo run
 ```
 
 build
-```
-zig build
-```
-
-run
-```
-zig build run
+```sh
+cargo build
 ```
 
-run on the Pi
-```
-zig build hw
+build firmware
+```sh
+cargo build -p firmware
 ```
 
 test
-```
-zig build test --summary all
+```sh
+cargo test
 ```
 
-fuzz
+lint + format
+```sh
+rustup component add clippy rustfmt
+cargo clippy --all-targets --all-features
+cargo fmt --check
 ```
-zig build fuzz
-```
+
+## Firmware
+
+see [`firmware/README.md`](firmware/README.md) for flashing the rp2350.
 
 ## pics
 <img width="624" height="652" alt="Screenshot 2026-03-18 at 12 51 28 AM" src="https://github.com/user-attachments/assets/21b99671-06a6-4e23-bf77-3efe01ce5a65" />
