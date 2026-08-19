@@ -1,6 +1,3 @@
-# Firmware
-Rust firmware for the RP2354 on the PCB. It targets `thumbv8m.main-none-eabihf`.
-
 ## Prerequisites
 Install the embedded Rust target:
 ```sh
@@ -31,12 +28,12 @@ Run this from the `firmware` directory so Cargo loads its embedded target and ru
 cargo build
 ```
 
-## Flash And Run Over SWD
+Flash And Run Over SWD
 ```sh
 cargo embed
 ```
 
-## Check Probe Connection
+Check Probe Connection
 ```sh
 probe-rs list
 probe-rs info --chip RP235x
