@@ -22,7 +22,7 @@ cargo test
 
 lint + format
 ```sh
-rustup component add clippy rustfmt
+# rustup component add clippy rustfmt  # if you don't have it
 cargo clippy --all-targets --all-features
 cargo fmt --check
 ```
