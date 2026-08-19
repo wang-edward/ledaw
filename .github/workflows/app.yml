@@ -22,11 +22,11 @@ jobs:
       matrix:
         check:
           - name: format
-            command: cargo fmt --check
+            command: cargo fmt -p ledaw --check
           - name: test
-            command: cargo test --all-targets
+            command: cargo test -p ledaw --all-targets
           - name: clippy
-            command: cargo clippy --all-targets -- -D warnings
+            command: cargo clippy -p ledaw --all-targets -- -D warnings
     name: ${{ matrix.check.name }}
     steps:
       - uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
         with:
           shared-key: ci
 
-      - run: xvfb-run -a cargo run --bin fuzz -- 1
+      - run: xvfb-run -a cargo run -p ledaw --bin fuzz -- 1
 
   gigafuzz:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
         with:
           shared-key: ci
 
-      - run: cargo build --bin fuzz && for seed in $(seq 1 20); do xvfb-run -a target/debug/fuzz "$seed"; done
+      - run: cargo build -p ledaw --bin fuzz && for seed in $(seq 1 20); do xvfb-run -a target/debug/fuzz "$seed"; done
 
   line_count:
     runs-on: ubuntu-latest
@@ -81,10 +81,10 @@ jobs:
             git ls-files "$@" | xargs wc -l | awk 'END { print $1 }'
           }
 
-          all_code=$(count 'src' ':!src/lib.rs' ':!src/bin/**')
-          core=$(count 'src' ':!src/lib.rs' ':!src/bin/**' ':!src/plugin.rs' ':!src/plugin/**' ':!src/instrument.rs' ':!src/instrument/**')
-          components=$(count 'src/plugin.rs' 'src/plugin' 'src/instrument.rs' 'src/instrument')
-          test=$(count 'src/lib.rs' 'src/bin')
+          all_code=$(count 'app/src' ':!app/src/lib.rs' ':!app/src/bin/**')
+          core=$(count 'app/src' ':!app/src/lib.rs' ':!app/src/bin/**' ':!app/src/plugin.rs' ':!app/src/plugin/**' ':!app/src/instrument.rs' ':!app/src/instrument/**')
+          components=$(count 'app/src/plugin.rs' 'app/src/plugin' 'app/src/instrument.rs' 'app/src/instrument')
+          test=$(count 'app/src/lib.rs' 'app/src/bin')
 
           {
             echo '## Line Counts'
