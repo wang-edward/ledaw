@@ -3,7 +3,17 @@ name: firmware
 on:
   push:
     branches: [main]
+    paths:
+      - 'firmware/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/firmware.yml'
   pull_request:
+    paths:
+      - 'firmware/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/firmware.yml'
 
 env:
   CARGO_TERM_COLOR: always
@@ -26,8 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
@@ -38,8 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt

@@ -3,11 +3,17 @@ name: app
 on:
   push:
     branches: [main]
+    paths:
+      - 'app/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/app.yml'
   pull_request:
-
-permissions:
-  contents: read
-  packages: read
+    paths:
+      - 'app/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - '.github/workflows/app.yml'
 
 jobs:
   check:
