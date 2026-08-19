@@ -51,7 +51,13 @@ jobs:
         with:
           shared-key: ci
 
-      - run: xvfb-run -a cargo run -p ledaw --bin fuzz -- 1
+      - name: fuzz
+        shell: bash
+        run: |
+          seed=$(od -An -N8 -tu8 /dev/urandom | tr -d ' ')
+          echo "Seed: $seed"
+          echo "Reproduce with: cargo run -p ledaw --bin fuzz -- $seed"
+          xvfb-run -a cargo run -p ledaw --bin fuzz -- "$seed"
 
   gigafuzz:
     runs-on: ubuntu-latest
@@ -67,7 +73,17 @@ jobs:
         with:
           shared-key: ci
 
-      - run: cargo build -p ledaw --bin fuzz && for seed in $(seq 1 20); do xvfb-run -a target/debug/fuzz "$seed"; done
+      - name: gigafuzz
+        shell: bash
+        run: |
+          cargo build -p ledaw --bin fuzz
+
+          for run in $(seq 1 20); do
+            seed=$(od -An -N8 -tu8 /dev/urandom | tr -d ' ')
+            echo "Run $run/20 — seed: $seed"
+            echo "Reproduce with: target/debug/fuzz $seed"
+            xvfb-run -a target/debug/fuzz "$seed"
+          done
 
   line_count:
     runs-on: ubuntu-latest
