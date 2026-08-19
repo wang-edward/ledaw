@@ -1,0 +1,17 @@
+[package]
+name = "lebeat"
+version = "0.1.0"
+edition = "2024"
+default-run = "ledaw"
+
+[dependencies]
+cpal = "0.15"
+raylib = "5"
+
+[lib]
+name = "ledaw"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ledaw"
+path = "src/main.rs"
