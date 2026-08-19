@@ -1,3 +1,4 @@
 [workspace]
 members = ["app", "firmware"]
-resolver = "2"
+default-members = ["app"]
+resolver = "3"
