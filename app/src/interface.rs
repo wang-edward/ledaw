@@ -88,12 +88,15 @@ pub fn rl_key(k: Key) -> KeyboardKey {
 
 /// Collect this frame's key presses then releases (mirrors `interface.nextEvent`'s order).
 pub fn poll_events(rl: &RaylibHandle) -> Vec<Event> {
+    use raylib::consts::KeyboardKey::*;
     let mut out = Vec::new();
     for &k in POLL_KEYS.iter() {
         if rl.is_key_pressed(rl_key(k)) {
             out.push(Event {
                 ty: EventType::KeyPress,
                 key: k,
+                shift: rl.is_key_down(KEY_LEFT_SHIFT),
+                meta: rl.is_key_down(KEY_LEFT_SUPER),
             });
         }
     }
@@ -102,6 +105,8 @@ pub fn poll_events(rl: &RaylibHandle) -> Vec<Event> {
             out.push(Event {
                 ty: EventType::KeyRelease,
                 key: k,
+                shift: rl.is_key_down(KEY_LEFT_SHIFT),
+                meta: rl.is_key_down(KEY_LEFT_SUPER),
             });
         }
     }
