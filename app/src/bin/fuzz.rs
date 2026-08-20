@@ -4,7 +4,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 use raylib::prelude::*;
 
 use ledaw::engine::{Engine, Track, TrackSource};
-use ledaw::input::{Event, EventType, POLL_KEYS};
+use ledaw::input::{Event, EventType, Mods, POLL_KEYS};
 use ledaw::instrument::Instrument;
 use ledaw::instrument::sampler::Sampler;
 use ledaw::interface::{HEIGHT, WIDTH};
@@ -73,8 +73,12 @@ fn main() {
                 EventType::KeyRelease
             },
             key,
-            shift: rng.coin(),
-            meta: rng.coin(),
+            mods: match (rng.coin(), rng.coin()) {
+                (false, false) => Mods::None,
+                (true, false) => Mods::Shift,
+                (false, true) => Mods::Meta,
+                (true, true) => Mods::ShiftMeta,
+            },
         };
         app.handle_event(ev);
 

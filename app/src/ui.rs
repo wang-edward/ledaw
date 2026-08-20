@@ -14,7 +14,7 @@ use std::sync::{Arc, Mutex};
 use raylib::prelude::*;
 
 use crate::engine::{Engine, MAX_PLUGINS, PLUGIN_LIST, PluginKind, PluginUi, TrackSource, create};
-use crate::input::{Event, EventType, Key};
+use crate::input::{Event, EventType, Key, Mods};
 use crate::instrument::sampler::Sampler;
 use crate::instrument::{Instrument, InstrumentUi};
 use crate::interface::{HEIGHT, WIDTH, draw_text_centered};
@@ -266,50 +266,62 @@ impl TimelineUi {
 
     fn handle_event(&mut self, ev: Event, eng: &mut Engine) {
         match self.screen {
-            TimelineScreen::Overview => match ev.key {
-                Key::Enter => self.screen = TimelineScreen::Track,
-                Key::E => self.screen = TimelineScreen::MidiEditor,
-                Key::H => {
+            TimelineScreen::Overview => match (ev.key, ev.mods) {
+                (Key::Enter, _) => self.screen = TimelineScreen::Track,
+                (Key::E, _) => self.screen = TimelineScreen::MidiEditor,
+                (Key::H, _) => {
                     self.cursor.start -= self.step_size;
                     self.cursor_focus();
                 }
-                Key::L => {
+                (Key::L, _) => {
                     self.cursor.start += self.step_size;
                     self.cursor_focus();
                 }
-                Key::J => {
+                (Key::J, _) => {
                     let at = eng.timeline.active_track;
                     if at + 1 < eng.track_count() {
                         eng.set_active_track(at + 1);
                     }
                 }
-                Key::K => {
+                (Key::K, _) => {
                     let at = eng.timeline.active_track;
                     if at > 0 {
                         eng.set_active_track(at - 1);
                     }
                 }
-                Key::Space => eng.toggle_play(),
-                Key::Backspace => eng.reset(),
-                Key::R => eng.toggle_record(),
-                Key::Equal if eng.track_count() < crate::engine::MAX_TRACKS => {
-                    let track = crate::engine::Track::new(TrackSource::Instrument {
-                        instrument: Instrument::Sampler(Sampler::default()),
-                        notes: Vec::new(),
-                    });
-                    let track_ui = TrackUi::new(&track.source);
-                    if eng.add_track(track) {
-                        self.tracks.push(track_ui);
+                (Key::Space, _) => eng.toggle_play(),
+                (Key::Backspace, _) => eng.reset(),
+                (Key::R, _) => eng.toggle_record(),
+                (Key::O, Mods::None) => {
+                    if eng.track_count() < crate::engine::MAX_TRACKS {
+                        let track = crate::engine::Track::new(TrackSource::Instrument {
+                            instrument: Instrument::Sampler(Sampler::default()),
+                            notes: Vec::new(),
+                        });
+                        let track_ui = TrackUi::new(&track.source);
+                        if eng.add_track(track) {
+                            self.tracks.push(track_ui);
+                        }
                     }
                 }
-                Key::Minus if eng.track_count() > 1 => {
+                (Key::O, Mods::Shift) => {
+                    if eng.track_count() < crate::engine::MAX_TRACKS {
+                        let track =
+                            crate::engine::Track::new(TrackSource::Audio { clips: Vec::new() });
+                        let track_ui = TrackUi::new(&track.source);
+                        if eng.add_track(track) {
+                            self.tracks.push(track_ui);
+                        }
+                    }
+                }
+                (Key::Minus, _) if eng.track_count() > 1 => {
                     let at = eng.timeline.active_track;
                     if eng.remove_track(at) {
                         self.tracks.remove(at);
                     }
                 }
-                Key::RightBracket => self.frame.radius = (self.frame.radius / 2.0).max(2.0),
-                Key::LeftBracket => self.frame.radius = (self.frame.radius * 2.0).min(128.0),
+                (Key::RightBracket, _) => self.frame.radius = (self.frame.radius / 2.0).max(2.0),
+                (Key::LeftBracket, _) => self.frame.radius = (self.frame.radius * 2.0).min(128.0),
                 _ => {}
             },
             TimelineScreen::MidiEditor => {

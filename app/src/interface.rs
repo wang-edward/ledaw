@@ -7,7 +7,7 @@
 
 use raylib::prelude::*;
 
-use crate::input::{Event, EventType, Key, POLL_KEYS};
+use crate::input::{Event, EventType, Key, Mods, POLL_KEYS};
 
 pub const WIDTH: i32 = 128;
 pub const HEIGHT: i32 = 128;
@@ -90,13 +90,21 @@ pub fn rl_key(k: Key) -> KeyboardKey {
 pub fn poll_events(rl: &RaylibHandle) -> Vec<Event> {
     use raylib::consts::KeyboardKey::*;
     let mut out = Vec::new();
+    let mods = match (
+        rl.is_key_down(KEY_LEFT_SHIFT),
+        rl.is_key_down(KEY_LEFT_SUPER),
+    ) {
+        (false, false) => Mods::None,
+        (true, false) => Mods::Shift,
+        (false, true) => Mods::Meta,
+        (true, true) => Mods::ShiftMeta,
+    };
     for &k in POLL_KEYS.iter() {
         if rl.is_key_pressed(rl_key(k)) {
             out.push(Event {
                 ty: EventType::KeyPress,
                 key: k,
-                shift: rl.is_key_down(KEY_LEFT_SHIFT),
-                meta: rl.is_key_down(KEY_LEFT_SUPER),
+                mods,
             });
         }
     }
@@ -105,8 +113,7 @@ pub fn poll_events(rl: &RaylibHandle) -> Vec<Event> {
             out.push(Event {
                 ty: EventType::KeyRelease,
                 key: k,
-                shift: rl.is_key_down(KEY_LEFT_SHIFT),
-                meta: rl.is_key_down(KEY_LEFT_SUPER),
+                mods,
             });
         }
     }
