@@ -266,7 +266,7 @@ impl TimelineUi {
 
     fn handle_event(&mut self, ev: Event, eng: &mut Engine) {
         match self.screen {
-            TimelineScreen::Overview => match (ev.key, ev.mods()) {
+            TimelineScreen::Overview => match (ev.key, ev.mods) {
                 (Key::Enter, _) => self.screen = TimelineScreen::Track,
                 (Key::E, _) => self.screen = TimelineScreen::MidiEditor,
                 (Key::H, _) => {
@@ -292,7 +292,7 @@ impl TimelineUi {
                 (Key::Space, _) => eng.toggle_play(),
                 (Key::Backspace, _) => eng.reset(),
                 (Key::R, _) => eng.toggle_record(),
-                (Key::O, Mods::None | Mods::Meta) => {
+                (Key::O, Mods::None) => {
                     if eng.track_count() < crate::engine::MAX_TRACKS {
                         let track = crate::engine::Track::new(TrackSource::Instrument {
                             instrument: Instrument::Sampler(Sampler::default()),
@@ -304,7 +304,7 @@ impl TimelineUi {
                         }
                     }
                 }
-                (Key::O, Mods::Shift | Mods::ShiftMeta) => {
+                (Key::O, Mods::Shift) => {
                     if eng.track_count() < crate::engine::MAX_TRACKS {
                         let track =
                             crate::engine::Track::new(TrackSource::Audio { clips: Vec::new() });

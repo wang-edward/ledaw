@@ -166,9 +166,3 @@ pub struct Event {
     pub key: Key,
     pub mods: Mods,
 }
-
-impl Event {
-    pub fn mods(&self) -> Mods {
-        self.mods
-    }
-}
