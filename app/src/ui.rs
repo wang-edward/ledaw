@@ -292,26 +292,21 @@ impl TimelineUi {
                 (Key::Space, _) => eng.toggle_play(),
                 (Key::Backspace, _) => eng.reset(),
                 (Key::R, _) => eng.toggle_record(),
-                (Key::O, Mods::None) => {
-                    if eng.track_count() < crate::engine::MAX_TRACKS {
-                        let track = crate::engine::Track::new(TrackSource::Instrument {
-                            instrument: Instrument::Sampler(Sampler::default()),
-                            notes: Vec::new(),
-                        });
-                        let track_ui = TrackUi::new(&track.source);
-                        if eng.add_track(track) {
-                            self.tracks.push(track_ui);
-                        }
+                (Key::O, Mods::None) if eng.track_count() < crate::engine::MAX_TRACKS => {
+                    let track = crate::engine::Track::new(TrackSource::Instrument {
+                        instrument: Instrument::Sampler(Sampler::default()),
+                        notes: Vec::new(),
+                    });
+                    let track_ui = TrackUi::new(&track.source);
+                    if eng.add_track(track) {
+                        self.tracks.push(track_ui);
                     }
                 }
-                (Key::O, Mods::Shift) => {
-                    if eng.track_count() < crate::engine::MAX_TRACKS {
-                        let track =
-                            crate::engine::Track::new(TrackSource::Audio { clips: Vec::new() });
-                        let track_ui = TrackUi::new(&track.source);
-                        if eng.add_track(track) {
-                            self.tracks.push(track_ui);
-                        }
+                (Key::O, Mods::Shift) if eng.track_count() < crate::engine::MAX_TRACKS => {
+                    let track = crate::engine::Track::new(TrackSource::Audio { clips: Vec::new() });
+                    let track_ui = TrackUi::new(&track.source);
+                    if eng.add_track(track) {
+                        self.tracks.push(track_ui);
                     }
                 }
                 (Key::Minus, _) if eng.track_count() > 1 => {
