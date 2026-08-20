@@ -73,6 +73,8 @@ fn main() {
                 EventType::KeyRelease
             },
             key,
+            shift: rng.coin(),
+            meta: rng.coin(),
         };
         app.handle_event(ev);
 

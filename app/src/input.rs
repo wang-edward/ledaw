@@ -156,4 +156,6 @@ pub enum EventType {
 pub struct Event {
     pub ty: EventType,
     pub key: Key,
+    pub shift: bool,
+    pub meta: bool,
 }
