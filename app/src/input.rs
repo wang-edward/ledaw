@@ -152,10 +152,23 @@ pub enum EventType {
     KeyRelease,
 }
 
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Mods {
+    None,
+    Shift,
+    Meta,
+    ShiftMeta,
+}
+
 #[derive(Clone, Copy, Debug)]
 pub struct Event {
     pub ty: EventType,
     pub key: Key,
-    pub shift: bool,
-    pub meta: bool,
+    pub mods: Mods,
+}
+
+impl Event {
+    pub fn mods(&self) -> Mods {
+        self.mods
+    }
 }
