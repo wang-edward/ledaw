@@ -99,6 +99,74 @@ mod tests {
     }
 
     #[test]
+    fn timeline_midi_is_sample_accurate() {
+        use crate::audio::AudioBuffer;
+        use crate::engine::{Engine, Track, TrackSource};
+        use crate::instrument::Instrument;
+
+        let mut engine = Engine::new(SR, 120.0);
+        engine.add_track(Track::new(TrackSource::Instrument {
+            instrument: Instrument::Sampler(Sampler::new(AudioBuffer {
+                samples: vec![1.0; BLOCK * 2],
+                sample_rate: SR,
+            })),
+            notes: vec![Note {
+                start: 64,
+                end: 192,
+                note: 60,
+            }],
+        }));
+        engine.toggle_play();
+
+        let mut out = vec![0.0; BLOCK];
+        engine.process_block(&mut out);
+
+        assert!(out[..64].iter().all(|sample| *sample == 0.0));
+        assert!(out[64..192].iter().any(|sample| *sample != 0.0));
+        assert!(out[192..].iter().all(|sample| *sample == 0.0));
+    }
+
+    #[test]
+    fn timeline_midi_retriggers_at_shared_boundaries_and_ignores_empty_notes() {
+        use crate::audio::AudioBuffer;
+        use crate::engine::{Engine, Track, TrackSource};
+        use crate::instrument::Instrument;
+
+        let mut engine = Engine::new(SR, 120.0);
+        engine.add_track(Track::new(TrackSource::Instrument {
+            instrument: Instrument::Sampler(Sampler::new(AudioBuffer {
+                samples: vec![1.0; BLOCK * 2],
+                sample_rate: SR,
+            })),
+            notes: vec![
+                Note {
+                    start: 0,
+                    end: 64,
+                    note: 60,
+                },
+                Note {
+                    start: 64,
+                    end: 128,
+                    note: 60,
+                },
+                Note {
+                    start: 160,
+                    end: 160,
+                    note: 67,
+                },
+            ],
+        }));
+        engine.toggle_play();
+
+        let mut out = vec![0.0; BLOCK];
+        engine.process_block(&mut out);
+
+        assert!(out[..64].iter().any(|sample| *sample != 0.0));
+        assert!(out[64..128].iter().any(|sample| *sample != 0.0));
+        assert!(out[128..].iter().all(|sample| *sample == 0.0));
+    }
+
+    #[test]
     fn audio_clip_plays_only_while_transport_runs() {
         use crate::audio::AudioBuffer;
         use crate::engine::{AudioClip, Engine, Track, TrackSource};

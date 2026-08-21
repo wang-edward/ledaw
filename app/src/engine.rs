@@ -23,6 +23,7 @@ pub struct Engine {
     audio_record_start: Frame,
     audio_record_sample_rate: f32,
     audio_record_buffer: Vec<Sample>,
+    scheduled_notes: Vec<ScheduledNote>,
 }
 
 pub struct Timeline {
@@ -47,6 +48,13 @@ pub enum TrackSource {
     },
 }
 
+#[derive(Clone, Copy)]
+struct ScheduledNote {
+    frame: Frame,
+    note: u8,
+    is_on: bool,
+}
+
 pub struct AudioClip {
     pub(crate) start: Frame,
     pub(crate) audio: AudioBuffer,
@@ -65,6 +73,7 @@ impl Engine {
             audio_record_start: 0,
             audio_record_sample_rate: sample_rate,
             audio_record_buffer: Vec::with_capacity((sample_rate * 60.0 * 3.0) as usize), // preallocate 3 minutes
+            scheduled_notes: Vec::with_capacity(1_000),
         }
     }
 
@@ -247,26 +256,63 @@ impl Engine {
     }
 
     /// Fill `out` (mono) with one block. Asserts finiteness in debug builds.
-    /// This is block-accurate midi, not sample accurate.
     pub fn process_block(&mut self, out: &mut [Sample]) {
         let start = self.timeline.playhead;
         let end = start + out.len() as u64;
         out.fill(0.0);
 
-        for t in &mut self.timeline.tracks {
-            if self.playing
-                && let TrackSource::Instrument { instrument, notes } = &mut t.source
-            {
-                for note in notes {
-                    if start <= note.start && note.start < end {
-                        instrument.note_on(note.note);
-                    }
-                    if start <= note.end && note.end < end {
-                        instrument.note_off(note.note);
-                    }
+        let playing = self.playing;
+        let ctx = &self.ctx;
+        let (tracks, scheduled_notes) = (&mut self.timeline.tracks, &mut self.scheduled_notes);
+        for track in tracks {
+            if !playing {
+                track.process(ctx, start, false, out);
+                continue;
+            }
+
+            let TrackSource::Instrument { notes, .. } = &track.source else {
+                track.process(ctx, start, true, out);
+                continue;
+            };
+
+            scheduled_notes.clear();
+            for note in notes.iter().filter(|note| note.start < note.end) {
+                if start <= note.start && note.start < end {
+                    scheduled_notes.push(ScheduledNote {
+                        frame: note.start,
+                        note: note.note,
+                        is_on: true,
+                    });
+                }
+                if start <= note.end && note.end < end {
+                    scheduled_notes.push(ScheduledNote {
+                        frame: note.end,
+                        note: note.note,
+                        is_on: false,
+                    });
                 }
             }
-            t.process(&self.ctx, start, self.playing, out);
+            scheduled_notes.sort_unstable_by_key(|event| (event.frame, event.is_on));
+
+            let mut segment_start = start;
+            for event in scheduled_notes.iter().copied() {
+                let segment_end = event.frame;
+                if segment_start < segment_end {
+                    let offset = (segment_start - start) as usize;
+                    let end_offset = (segment_end - start) as usize;
+                    track.process(ctx, segment_start, true, &mut out[offset..end_offset]);
+                }
+                if event.is_on {
+                    track.note_on(event.note);
+                } else {
+                    track.note_off(event.note);
+                }
+                segment_start = segment_end;
+            }
+            if segment_start < end {
+                let offset = (segment_start - start) as usize;
+                track.process(ctx, segment_start, true, &mut out[offset..]);
+            }
         }
 
         if self.playing {
