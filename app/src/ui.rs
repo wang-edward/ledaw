@@ -264,34 +264,69 @@ impl TimelineUi {
         }
     }
 
+    fn seek_to_cursor(&mut self, eng: &mut Engine) {
+        eng.set_playhead(midi::beats_to_frames(
+            self.cursor.left(),
+            eng.bpm(),
+            eng.sample_rate(),
+        ));
+        self.frame.center = self.cursor.left();
+    }
+
+    fn cursor_to_playhead(&mut self, eng: &Engine) {
+        let beat = frames_to_beats(eng.timeline.playhead, eng.bpm(), eng.sample_rate());
+        self.cursor.start = (beat / self.bar_width).floor() * self.bar_width;
+        self.frame.center = beat;
+        self.cursor_focus();
+    }
+
     fn handle_event(&mut self, ev: Event, eng: &mut Engine) {
         match self.screen {
             TimelineScreen::Overview => match (ev.key, ev.mods) {
                 (Key::Enter, _) => self.screen = TimelineScreen::Track,
                 (Key::E, _) => self.screen = TimelineScreen::MidiEditor,
-                (Key::H, _) => {
-                    self.cursor.start -= self.step_size;
+                (Key::H, _) if !eng.playing && !eng.recording => {
+                    self.cursor.start = (self.cursor.start - self.step_size).max(0.0);
                     self.cursor_focus();
                 }
-                (Key::L, _) => {
+                (Key::L, _) if !eng.playing && !eng.recording => {
                     self.cursor.start += self.step_size;
                     self.cursor_focus();
                 }
-                (Key::J, _) => {
+                (Key::J, _) if !eng.recording => {
                     let at = eng.timeline.active_track;
                     if at + 1 < eng.track_count() {
                         eng.set_active_track(at + 1);
                     }
                 }
-                (Key::K, _) => {
+                (Key::K, _) if !eng.recording => {
                     let at = eng.timeline.active_track;
                     if at > 0 {
                         eng.set_active_track(at - 1);
                     }
                 }
-                (Key::Space, _) => eng.toggle_play(),
-                (Key::Backspace, _) => eng.reset(),
-                (Key::R, _) => eng.toggle_record(),
+                (Key::Space, _) => {
+                    if eng.playing {
+                        eng.toggle_play();
+                        self.cursor_to_playhead(eng);
+                    } else {
+                        self.seek_to_cursor(eng);
+                        eng.toggle_play();
+                    }
+                }
+                (Key::Backspace, _) if !eng.playing && !eng.recording => {
+                    self.cursor.start = 0.0;
+                    self.cursor_focus();
+                }
+                (Key::R, _) => {
+                    if eng.recording {
+                        eng.toggle_record();
+                        self.cursor_to_playhead(eng);
+                    } else {
+                        self.seek_to_cursor(eng);
+                        eng.toggle_record();
+                    }
+                }
                 (Key::O, Mods::None) if eng.track_count() < crate::engine::MAX_TRACKS => {
                     let track = crate::engine::Track::new(TrackSource::Instrument {
                         instrument: Instrument::Sampler(Sampler::default()),
@@ -342,12 +377,13 @@ impl TimelineUi {
                 let num_rows = eng.track_count().min(crate::engine::MAX_TRACKS);
                 let b = frames_to_beats(eng.timeline.playhead, eng.bpm(), eng.sample_rate());
 
-                if b > self.frame.right() || b < self.frame.left() {
+                if eng.playing {
                     self.frame.center = b;
                 }
 
-                let bar = (b / self.bar_width).floor() as i32;
-                let beat_in_bar = (b % self.bar_width) as i32;
+                let position = if eng.playing { b } else { self.cursor.left() };
+                let bar = (position / self.bar_width).floor() as i32;
+                let beat_in_bar = (position % self.bar_width) as i32;
                 let label = format!("{}.{}", bar + 1, beat_in_bar + 1);
                 draw_text_centered(d, &label, WIDTH / 2, HEADER_HEIGHT / 2, 8, Color::WHITE);
 
@@ -472,11 +508,13 @@ impl TimelineUi {
                     d.draw_line(x, HEADER_HEIGHT, x, HEIGHT, Color::WHITE);
                 }
 
-                let lp = (self.cursor.left() - self.frame.left()) / self.frame.width();
-                let rp = (self.cursor.right() - self.frame.left()) / self.frame.width();
-                let lx = (lp * w) as i32;
-                let rx = (rp * w) as i32;
-                d.draw_rectangle_lines(lx, y, rx - lx, ROW_HEIGHT, Color::ORANGE);
+                if !eng.playing && !eng.recording {
+                    let lp = (self.cursor.left() - self.frame.left()) / self.frame.width();
+                    let rp = (self.cursor.right() - self.frame.left()) / self.frame.width();
+                    let lx = (lp * w) as i32;
+                    let rx = (rp * w) as i32;
+                    d.draw_rectangle_lines(lx, y, rx - lx, ROW_HEIGHT, Color::ORANGE);
+                }
             }
             TimelineScreen::MidiEditor => {
                 d.draw_text("MIDI_EDITOR", 30, 30, 10, Color::LIGHTGRAY);
