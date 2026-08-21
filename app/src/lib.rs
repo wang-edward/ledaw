@@ -104,10 +104,12 @@ mod tests {
         use crate::engine::{Engine, Track, TrackSource};
         use crate::instrument::Instrument;
 
+        let mut samples = vec![0.0; BLOCK * 2];
+        samples[0] = 1.0;
         let mut engine = Engine::new(SR, 120.0);
         engine.add_track(Track::new(TrackSource::Instrument {
             instrument: Instrument::Sampler(Sampler::new(AudioBuffer {
-                samples: vec![1.0; BLOCK * 2],
+                samples,
                 sample_rate: SR,
             })),
             notes: vec![Note {
@@ -132,10 +134,12 @@ mod tests {
         use crate::engine::{Engine, Track, TrackSource};
         use crate::instrument::Instrument;
 
+        let mut samples = vec![0.0; BLOCK * 2];
+        samples[0] = 1.0;
         let mut engine = Engine::new(SR, 120.0);
         engine.add_track(Track::new(TrackSource::Instrument {
             instrument: Instrument::Sampler(Sampler::new(AudioBuffer {
-                samples: vec![1.0; BLOCK * 2],
+                samples,
                 sample_rate: SR,
             })),
             notes: vec![
@@ -161,9 +165,13 @@ mod tests {
         let mut out = vec![0.0; BLOCK];
         engine.process_block(&mut out);
 
-        assert!(out[..64].iter().any(|sample| *sample != 0.0));
-        assert!(out[64..128].iter().any(|sample| *sample != 0.0));
-        assert!(out[128..].iter().all(|sample| *sample == 0.0));
+        assert_eq!(out[0], 1.0);
+        assert_eq!(out[64], 1.0);
+        assert!(
+            out.iter()
+                .enumerate()
+                .all(|(i, sample)| i == 0 || i == 64 || *sample == 0.0)
+        );
     }
 
     #[test]
