@@ -9,9 +9,9 @@ Install [cargo-embed](https://probe.rs/docs/tools/cargo-embed/):
 cargo install cargo-embed
 ```
 
-Load the Raspberry Pi Debug Probe firmware onto the RP2040.
+Load the Raspberry Pi Debug Probe firmware onto the RP2040. (MacOS)
 ```sh
-cp probe/debugprobe_on_pico.uf2 /media/$USER/RPI-RP2/
+cp probe/debugprobe_on_pico.uf2 /Volumes/RPI-RP2/
 ```
 
 Connect the RP2040 to the computer over USB and connect its SWD pins to the RP2350:
