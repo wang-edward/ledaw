@@ -7567,16 +7567,6 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 185.42) (xy 187.96 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5ae2d5a1-fb31-4b86-bd4a-735f084aafc0")
-	)
-	(wire
-		(pts
 			(xy 227.33 510.54) (xy 242.57 510.54)
 		)
 		(stroke
@@ -10604,17 +10594,6 @@
 			(justify right bottom)
 		)
 		(uuid "fd0cd304-8444-4c03-979f-61a089f9abcd")
-	)
-	(hierarchical_label "FUSE_ILM"
-		(shape input)
-		(at 187.96 185.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "668d708a-34f0-47b6-9681-01805a566180")
 	)
 	(hierarchical_label "MCU_RX"
 		(shape input)
