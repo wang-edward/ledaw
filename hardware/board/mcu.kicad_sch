@@ -6606,6 +6606,12 @@
 		(uuid "65e24b3c-146d-4c96-9fc4-deac9a82f19e")
 	)
 	(junction
+		(at 107.95 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "68b163f4-7cb9-4921-b03f-d55d20a5110b")
+	)
+	(junction
 		(at 246.38 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6917,7 +6923,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 57.15) (xy 97.79 57.15)
+			(xy 90.17 57.15) (xy 107.95 57.15)
 		)
 		(stroke
 			(width 0)
@@ -8024,16 +8030,6 @@
 			(type default)
 		)
 		(uuid "62c0bd0f-8fff-4d01-b176-0f7e813fd960")
-	)
-	(wire
-		(pts
-			(xy 97.79 57.15) (xy 107.95 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64294e17-ccb7-492d-956d-8f31072097af")
 	)
 	(wire
 		(pts
@@ -10446,7 +10442,7 @@
 		(uuid "81ee5e72-eb1b-42cd-a4a3-3908e0f1b5e3")
 	)
 	(label "VREG_AVDD"
-		(at 98.425 57.15 0)
+		(at 93.98 57.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13911,6 +13907,84 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
 					(reference "U303")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 107.95 57.15 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5624d9a0-b260-4bdc-b2eb-c7d70d03189c")
+		(property "Reference" "TP303"
+			(at 110.49 52.5779 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MCU_VREG_AVDD"
+			(at 110.49 55.1179 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 113.03 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 113.03 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 107.95 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8635f738-0591-497c-b029-5ab8df3675fc")
+		)
+		(instances
+			(project "board"
+				(path "/dd13fd41-39ab-4435-9074-5024f1786746/c4d314f2-7502-4a7f-ae5f-cbca93031f6d"
+					(reference "TP303")
 					(unit 1)
 				)
 			)
