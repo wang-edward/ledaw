@@ -808,7 +808,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "D303,Module102,#PWR131-132",
+    "used_designators": "#PWR354-355,C329-330",
     "variants": []
   },
   "sheets": [
