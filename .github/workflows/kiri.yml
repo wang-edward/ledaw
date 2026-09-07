@@ -28,6 +28,6 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - uses: wang-edward/kiri-github-action@v2.0.9
+      - uses: wang-edward/kiri-github-action@v2
         with:
           project-file: hardware/board/board.kicad_pro
