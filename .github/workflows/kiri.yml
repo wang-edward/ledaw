@@ -1,0 +1,33 @@
+name: KiCad diff
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    paths:
+      - 'hardware/board/**'
+      - '.github/workflows/kiri.yml'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: kiri-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  kiri:
+    # Fork PRs receive a read-only token and cannot safely publish previews.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - if: github.event.action != 'closed'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - uses: wang-edward/kiri-github-action@v2.0.8
+        with:
+          project-file: hardware/board/board.kicad_pro
