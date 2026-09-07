@@ -1,0 +1,655 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="https://cdn.rawgit.com/ccampbell/mousetrap/825ce50c/mousetrap.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="kiri.css" integrity="">
+		<title>workspace</title>
+	</head>
+	<body>
+
+		<div id="server_offline" style="display: none;">
+		</div>
+
+		<div class="container fill no-gutters" style="background-color: #333; overflow-y: hidden; overflow-x: hidden; padding: 0px 10px 0px 10px; margin: 0px;">
+			<div class="row fill align-items-start no-gutters" style="overflow-y: hidden; overflow-x: hidden; padding: 0px 0px 0px 0px; margin: 0px;">
+				<div class="col align-self-start justify-content-start col-3 no-gutters" style="height: 100%; overflow-y: hidden; overflow-x: hidden; padding: 0px 0px 0px 0px; margin: 0px;">
+					<div class="list-group 3 no-gutters" style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 8px; height: 95%;">
+						<span style="margin-top: 1em"></span>
+						<h3 class="text-light" style="margin-left: 5px;">Kicad Revision Inspector</h3>
+						<div id="sch_title" style="display: inline; margin-left: 5px;">
+							<h4 class="text-warning text-bold" style="margin-bottom: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Sch | [title]</h4>
+							<p class="text-light text-sm" >Rev. [rev] ([date])</p>
+						</div>
+						<div id="pcb_title" style="display: none; margin-left: 5px;">
+							<h4 class="text-info text-bold" style="margin-bottom: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">PCB | [title]</h4>
+							<p class="text-light text-sm">Rev. [rev] ([date])</p>
+						</div>
+						<p class="text-light" >
+							<span style="margin-left:5px; margin-right:0.5em" class="iconify" data-icon="fa-solid:code-branch" data-inline="false"></span>
+							Commits
+						</p>
+						<div class="form-check scrollbox" style="padding: 0px 4px 8px 0px; margin: 0px; margin-right: 4px; overflow-y: scroll">
+							<form id="commits_form" class="overflow-auto scrollbox-content">
+								<!-- FILL_COMMITS_HERE -->
+								<!-- Commit 1 -->
+								<input class="chkGroup" type="checkbox" id="f7daf94" name="commit" value="f7daf94" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="f7daf94">
+								    <table data-toggle="tooltip" title="<div>Commit: f7daf94</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>barrel jack and power conns</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 01 | </span> <span class="text-success font-weight-normal">f7daf94</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">barrel jack and power conns</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 2 -->
+								<input class="chkGroup" type="checkbox" id="4c47066" name="commit" value="4c47066" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="4c47066">
+								    <table data-toggle="tooltip" title="<div>Commit: 4c47066</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>giga test points</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 02 | </span> <span class="text-success font-weight-normal">4c47066</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">giga test points</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 3 -->
+								<input class="chkGroup" type="checkbox" id="18c54ef" name="commit" value="18c54ef" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="18c54ef">
+								    <table data-toggle="tooltip" title="<div>Commit: 18c54ef</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>use 1v8 audio LDO</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 03 | </span> <span class="text-success font-weight-normal">18c54ef</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">use 1v8 audio LDO</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 4 -->
+								<input class="chkGroup" type="checkbox" id="d64f110" name="commit" value="d64f110" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="d64f110">
+								    <table data-toggle="tooltip" title="<div>Commit: d64f110</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>some conns</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 04 | </span> <span class="text-success font-weight-normal">d64f110</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">some conns</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 5 -->
+								<input class="chkGroup" type="checkbox" id="4ec2c16" name="commit" value="4ec2c16" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="4ec2c16">
+								    <table data-toggle="tooltip" title="<div>Commit: 4ec2c16</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>i2c pullup</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 05 | </span> <span class="text-success font-weight-normal">4ec2c16</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">i2c pullup</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 6 -->
+								<input class="chkGroup" type="checkbox" id="a65c7d7" name="commit" value="a65c7d7" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="a65c7d7">
+								    <table data-toggle="tooltip" title="<div>Commit: a65c7d7</br>Date: 2026-09-06</br>Author: Edward Wang </br>Description:</br>3v3out, delete usb, add leds, LDO</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 06 | </span> <span class="text-success font-weight-normal">a65c7d7</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #ff0000;" data-inline="false"; data-icon="bx:bx-x"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-09-06 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">3v3out, delete usb, add leds, LDO</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								<!-- Commit 7 -->
+								<input class="chkGroup" type="checkbox" id="88617e8" name="commit" value="88617e8" onchange="update_commits()">
+								<label class="text-sm-left list-group-item" style="display: block; width: 445px; margin-left: 0px;" for="88617e8">
+								    <table data-toggle="tooltip" title="<div>Commit: 88617e8</br>Date: 2026-08-25</br>Author: Edward Wang </br>Description:</br>readme (grafted, origin/main)</div>">
+								        <tr>
+								            <td rowspan=2 style="vertical-align: top; width: 1.8em;">
+								                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+								                    <path d="M7.5 10.5a3 3 0 010-6m0 6a3 3 0 000-6m0 6V15m0-10.5V0" stroke="currentColor"></path>
+								                </svg>
+								            </td>
+								            <td style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis;">
+								                <span class="text-muted"> 07 | </span> <span class="text-success font-weight-normal">88617e8</span> <span class="text-muted"> | </span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #A6E22E;" data-inline="false"; data-icon="carbon:schematics"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #F92672;" data-inline="false"; data-icon="codicon:circuit-board"></span> <span class="iconify" style="padding-left: 0px; padding-right: 0px; width: 14px; height: 14px; color: #888888;" data-inline="false"; data-icon="bi:file-earmark-text"></span> <span class="text-muted font-weight-normal"> | 2026-08-25 | Edward Wang </span>
+								            </td>
+								        </tr>
+								        <tr>
+								            <td>
+								                <em class="text-info" style=" line-height: 0.7;">readme (grafted, origin/main)</em>
+								            </td>
+								        </tr>
+								    </table>
+								</label>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="col align-self-start justify-content-start col-7 no-gutters" style="background-color: #333; padding: 0px 0px 0px 0px; margin: 0px; height: 90vh;">
+
+					<div class="row no-gutters" style="width: 100%; padding: 0px 0px 0px 0px; margin: 0px;">
+
+						<div class="container no-gutters" style="width: 100%; flex: 1; padding: 0px 0px 0px 0px; margin: 0px;">
+
+							<div class="row no-gutters" style="width: 100%; margin: 0px 0px 0px 5px;">
+
+								<form class="inline" style="padding: 0px 0px 0px 0px; margin: 20px 0px 0px 10px;">
+									<div id="view_mode" class="form-group row btn-group btn-group-toggle" data-toggle="buttons" role="group" aria-label="View Mode">
+										<label id="show_sch_lbl" data-toggle="tooltip" title="Schematic View (s)" class="btn btn-secondary active" onclick="show_sch()">
+											<input id="show_sch" type="radio" name="view_mode" value="show_sch" checked>
+											<span class="iconify" style="width: 20px; height: 20px;" data-icon="carbon:schematics" data-inline="false"></span>
+										</label>
+										<label id="show_pcb_lbl" data-toggle="tooltip" title="Layout View (s)" class="btn btn-secondary" onclick="show_pcb()">
+											<input id="show_pcb" type="radio" name="view_mode" value="show_pcb" >
+											<span class="iconify" style="width: 20px; height: 20px;" data-icon="codicon:circuit-board" data-inline="false"></span>
+										</label>
+									</div>
+								</form>
+
+								<span style="width: 2em"></span>
+
+								<form class="inline" style="padding: 0px 0px 0px 0px; margin: 20px 0px 0px 20px;">
+									<div id="svg_controls" class="form-group btn-group btn-group-toggle" role="group" aria-label="Zoom Level">
+										<button id="zoom-in" data-toggle="tooltip" title="Zoom In (+)" name="svg_controls" type="button" aria-pressed="false" class="btn btn-secondary" onclick="this.blur();">
+										<span class="iconify" style="width: 20px; height: 20px;" data-icon="akar-icons:zoom-in" data-inline="false"></span>
+										</button>
+										<button id="zoom-out" data-toggle="tooltip" title="Zoom Out (-)" name="svg_controls" type="button" aria-pressed="false" class="btn btn-secondary" onclick="this.blur();" >
+										<span class="iconify" style="width: 20px; height: 20px;" data-icon="akar-icons:zoom-out" data-inline="false"></span>
+										</button>
+										<button id="zoom-fit" data-toggle="tooltip" title="Fit View (0)" name="svg_controls" type="button" aria-pressed="false" class="btn btn-secondary" onclick="this.blur();" >
+										<span class="iconify" style="width: 20px; height: 20px;" data-icon="carbon:center-to-fit" data-inline="false"></span>
+										</button>
+									</div>
+								</form>
+
+								<span style="width: 1em"></span>
+
+								<form class="inline" style="padding: 0px 0px 0px 0px; margin: 20px 0px 0px 20px;">
+									<div id="info_controls" class="form-group btn-group btn-group-toggle" role="group" aria-label="Info">
+										<button id="info-btn" data-toggle="modal" title="Info (i)" name="info_controls" type="button" aria-pressed="false" class="btn btn-secondary" data-target="#shortcuts-modal" onclick="this.blur();">
+											<span class="iconify" style="width: 20px; height: 20px;" data-icon="akar-icons:info" data-inline="false"></span>
+										</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+					<div class="col no-gutters" style="width: 100%; padding: 0px 0px 0px 0px; margin: 0px; height: 100%; ">
+						<div class="col no-gutters" style="width: 100%; height: 90%; padding: 0px 0px 0px 0px; margin: 0px;">
+							<div id="legend" class="rounded no-gutters" style="background-color: #222; width: 100%; padding: 8px 5px 8px 5px; margin: 0px;">
+								<iframe name="hidden_post_target" class="hidden_iframe"></iframe>
+								<span id=commit1_legend style="margin-left:0.5em; margin-right:0.2em; color: #00FFFF; width: 10px; height: 10px;" class="iconify" data-icon="teenyicons-square-solid"></span>
+								<small id="commit1_legend_text" class="text-sm text-light">
+									Newest
+									<span class="text-monospace">
+										<form id="KICAD_COMMIT_1" class="form-inline" style="display: inline;" action="index.html" method="post" target="hidden_post_target">
+											<input id="commit1_hash" type="hidden" name="hash" value="[KICAD_COMMIT_1]">
+											<input id="commit1_kicad_pro_path" type="hidden" name="kicad_pro_path" value=".kiri/f7daf94/board.kicad_pro">
+											(<a data-toggle="tooltip" title="Launch Kicad at this Rev" id="commit1_legend_hash" href="javascript:{}" onclick="document.getElementById('KICAD_COMMIT_1').submit();">[COMMIT_1_HASH]</a>)
+										</form>
+									</span>
+								</small>
+								<span style="display: inline; width: 2em;"></span>
+								<span id="commit2_legend" style="display: inline; margin-left:1em; margin-right:0.2em; color: #880808; width: 10px; height: 10px;" class="iconify" data-icon="teenyicons-square-solid"></span>
+								<small id="commit2_legend_text" class="text-sm text-light">
+									Oldest
+									<span class="text-monospace">
+										<form id="KICAD_COMMIT_2" class="form-inline" style="display: inline;" action="index.html" method="post" target="hidden_post_target">
+											<input id="commit2_hash" type="hidden" name="hash" value="[KICAD_COMMIT_2]">
+											<input id="commit2_kicad_pro_path" type="hidden" name="kicad_pro_path" value=".kiri/4c47066/board.kicad_pro">
+											(<a data-toggle="tooltip" title="Launch Kicad at this Rev" id="commit2_legend_hash" href="javascript:{}" onclick="document.getElementById('KICAD_COMMIT_2').submit();">[COMMIT_2_HASH]</a>)
+										</form>
+									</span>
+								</small>
+								<span id="commit3_legend" style="margin-left:1em; margin-right:0.2em; color: #807F7F; width: 10px; height: 10px;" class="iconify" data-icon="teenyicons-square-solid"></span>
+								<small id="commit3_legend_text" class="text-sm text-light">
+									Unchanged
+								</small>
+							</div>
+
+							<div id="diff-container" class="position-relative" style="height: 94%; padding: 0px">
+								<!-- SVGS_GOES_HERE -->
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col align-self-start justify-content-start col-1 no-gutters" style="width: 100%; padding: 0px 0px 0px 0px; margin: 0px; height: 100vh;" >
+
+					<div class="list-group no-gutters" id="pages_list" style="display: inline;">
+						<div class="form-check no-gutters" style="width: 180px; padding-top: 1em">
+							<p class="text-light">
+								<span style="margin-right:0.5em; width: 20px; height: 20px;" class="iconify" data-icon="gridicons:next-page" data-inline="false"></span>
+								Pages
+							</p>
+							<div class="row" style="height: 85%; width: 300px;">
+								<div class="col" style="height: 100%; width: 100%">
+									<div id="pages_list_div" class="form-check scrollbox" style="height: 100%; width: 100%; padding: 0px 0px 8px 0px; margin: 0px; overflow-y: scroll; max-height: 90vh;">
+										<form id="pages_list_form" class="overflow-auto scrollbox-content">
+											<!-- FILL_PAGES_HERE -->
+											<!-- Page 1 -->
+											<input id="board" data-toggle="tooltip" title="board.kicad_sch" type="radio" value="board.kicad_sch" name="pages" checked="checked" onchange="change_page()">
+											<label for="board" data-toggle="tooltip" title="board.kicad_sch" id="label-board" class="rounded text-sm-left list-group-item radio-box" onclick="change_page_onclick()" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											    <span data-toggle="tooltip" title="board.kicad_sch" style="margin-left:0.5em; margin-right:0.1em;" class="iconify" data-icon="gridicons:pages" data-inline="false"></span>
+											    board
+											</label>
+											<!-- Page 2 -->
+											<input id="audio" data-toggle="tooltip" title="audio.kicad_sch" type="radio" value="audio.kicad_sch" name="pages"  onchange="change_page()">
+											<label for="audio" data-toggle="tooltip" title="audio.kicad_sch" id="label-audio" class="rounded text-sm-left list-group-item radio-box" onclick="change_page_onclick()" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											    <span data-toggle="tooltip" title="audio.kicad_sch" style="margin-left:0.5em; margin-right:0.1em;" class="iconify" data-icon="gridicons:pages" data-inline="false"></span>
+											    audio
+											</label>
+											<!-- Page 3 -->
+											<input id="mcu" data-toggle="tooltip" title="mcu.kicad_sch" type="radio" value="mcu.kicad_sch" name="pages"  onchange="change_page()">
+											<label for="mcu" data-toggle="tooltip" title="mcu.kicad_sch" id="label-mcu" class="rounded text-sm-left list-group-item radio-box" onclick="change_page_onclick()" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											    <span data-toggle="tooltip" title="mcu.kicad_sch" style="margin-left:0.5em; margin-right:0.1em;" class="iconify" data-icon="gridicons:pages" data-inline="false"></span>
+											    mcu
+											</label>
+											<!-- Page 4 -->
+											<input id="buttons" data-toggle="tooltip" title="buttons.kicad_sch" type="radio" value="buttons.kicad_sch" name="pages"  onchange="change_page()">
+											<label for="buttons" data-toggle="tooltip" title="buttons.kicad_sch" id="label-buttons" class="rounded text-sm-left list-group-item radio-box" onclick="change_page_onclick()" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											    <span data-toggle="tooltip" title="buttons.kicad_sch" style="margin-left:0.5em; margin-right:0.1em;" class="iconify" data-icon="gridicons:pages" data-inline="false"></span>
+											    buttons
+											</label>
+											<!-- Page 5 -->
+											<input id="usb" data-toggle="tooltip" title="usb.kicad_sch" type="radio" value="usb.kicad_sch" name="pages"  onchange="change_page()">
+											<label for="usb" data-toggle="tooltip" title="usb.kicad_sch" id="label-usb" class="rounded text-sm-left list-group-item radio-box" onclick="change_page_onclick()" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+											    <span data-toggle="tooltip" title="usb.kicad_sch" style="margin-left:0.5em; margin-right:0.1em;" class="iconify" data-icon="gridicons:pages" data-inline="false"></span>
+											    usb
+											</label>
+											
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="list-group no-gutters" id="layers_list" style="display: none; height: 100%;">
+						<div class="form-check no-gutters" style="width: 180px; padding-top: 1em; height: 100%; ">
+							<p class="text-light">
+								<span style="margin-right:0.5em; width: 20px; height: 20px;" class="iconify" data-icon="teenyicons:layers-solid" data-inline="false"></span>
+								Layers
+							</p>
+							<div class="row" style="height: 85%; width: 300px;">
+								<div class="col" style="height: 100%; width: 100%">
+									<div id="layers_list_div" class="form-check scrollbox" style="height: 100%; width: 100%; padding: 0px 0px 8px 0px; margin: 0px; overflow-y: scroll; max-height: 90vh;">
+										<form id="layers_list_form" class="overflow-auto scrollbox-content">
+											<!-- FILL_LAYERS_HERE -->
+											<!-- Layer 1 -->
+											<input  id="layer-00" value="layer-F_Cu" type="radio" name="layers" onchange="change_layer()" checked='checked'>
+											<label for="layer-00" id="label-layer-00" data-toggle="tooltip" title="0, F_Cu" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #952927" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Cu
+											</label>
+											<!-- Layer 2 -->
+											<input  id="layer-01" value="layer-F_Mask" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-01" id="label-layer-01" data-toggle="tooltip" title="1, F_Mask" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #C2C200" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Mask
+											</label>
+											<!-- Layer 3 -->
+											<input  id="layer-11" value="layer-B_Adhesive" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-11" id="label-layer-11" data-toggle="tooltip" title="11, B_Adhesive" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Adhesive
+											</label>
+											<!-- Layer 4 -->
+											<input  id="layer-13" value="layer-F_Paste" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-13" id="label-layer-13" data-toggle="tooltip" title="13, F_Paste" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Paste
+											</label>
+											<!-- Layer 5 -->
+											<input  id="layer-15" value="layer-B_Paste" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-15" id="label-layer-15" data-toggle="tooltip" title="15, B_Paste" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Paste
+											</label>
+											<!-- Layer 6 -->
+											<input  id="layer-17" value="layer-User_Drawings" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-17" id="label-layer-17" data-toggle="tooltip" title="17, User_Drawings" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_Drawings
+											</label>
+											<!-- Layer 7 -->
+											<input  id="layer-19" value="layer-User_Comments" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-19" id="label-layer-19" data-toggle="tooltip" title="19, User_Comments" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_Comments
+											</label>
+											<!-- Layer 8 -->
+											<input  id="layer-02" value="layer-B_Cu" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-02" id="label-layer-02" data-toggle="tooltip" title="2, B_Cu" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #C200C2" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Cu
+											</label>
+											<!-- Layer 9 -->
+											<input  id="layer-21" value="layer-User_Eco1" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-21" id="label-layer-21" data-toggle="tooltip" title="21, User_Eco1" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_Eco1
+											</label>
+											<!-- Layer 10 -->
+											<input  id="layer-23" value="layer-User_Eco2" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-23" id="label-layer-23" data-toggle="tooltip" title="23, User_Eco2" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_Eco2
+											</label>
+											<!-- Layer 11 -->
+											<input  id="layer-25" value="layer-Edge_Cuts" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-25" id="label-layer-25" data-toggle="tooltip" title="25, Edge_Cuts" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    Edge_Cuts
+											</label>
+											<!-- Layer 12 -->
+											<input  id="layer-27" value="layer-Margin" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-27" id="label-layer-27" data-toggle="tooltip" title="27, Margin" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    Margin
+											</label>
+											<!-- Layer 13 -->
+											<input  id="layer-29" value="layer-B_Courtyard" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-29" id="label-layer-29" data-toggle="tooltip" title="29, B_Courtyard" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Courtyard
+											</label>
+											<!-- Layer 14 -->
+											<input  id="layer-03" value="layer-B_Mask" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-03" id="label-layer-03" data-toggle="tooltip" title="3, B_Mask" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #C20000" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Mask
+											</label>
+											<!-- Layer 15 -->
+											<input  id="layer-31" value="layer-F_Courtyard" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-31" id="label-layer-31" data-toggle="tooltip" title="31, F_Courtyard" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #359632" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Courtyard
+											</label>
+											<!-- Layer 16 -->
+											<input  id="layer-33" value="layer-B_Fab" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-33" id="label-layer-33" data-toggle="tooltip" title="33, B_Fab" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #A74AA8" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Fab
+											</label>
+											<!-- Layer 17 -->
+											<input  id="layer-35" value="layer-F_Fab" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-35" id="label-layer-35" data-toggle="tooltip" title="35, F_Fab" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #3DC9C9" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Fab
+											</label>
+											<!-- Layer 18 -->
+											<input  id="layer-39" value="layer-User_1" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-39" id="label-layer-39" data-toggle="tooltip" title="39, User_1" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #943197" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_1
+											</label>
+											<!-- Layer 19 -->
+											<input  id="layer-04" value="layer-In1_Cu" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-04" id="label-layer-04" data-toggle="tooltip" title="4, In1_Cu" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #0000C2" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    In1_Cu
+											</label>
+											<!-- Layer 20 -->
+											<input  id="layer-41" value="layer-User_2" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-41" id="label-layer-41" data-toggle="tooltip" title="41, User_2" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #7AC0F4" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_2
+											</label>
+											<!-- Layer 21 -->
+											<input  id="layer-43" value="layer-User_3" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-43" id="label-layer-43" data-toggle="tooltip" title="43, User_3" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #008500" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_3
+											</label>
+											<!-- Layer 22 -->
+											<input  id="layer-45" value="layer-User_4" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-45" id="label-layer-45" data-toggle="tooltip" title="45, User_4" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: #D357D2" class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    User_4
+											</label>
+											<!-- Layer 23 -->
+											<input  id="layer-05" value="layer-F_Silkscreen" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-05" id="label-layer-05" data-toggle="tooltip" title="5, F_Silkscreen" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Silkscreen
+											</label>
+											<!-- Layer 24 -->
+											<input  id="layer-06" value="layer-In2_Cu" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-06" id="label-layer-06" data-toggle="tooltip" title="6, In2_Cu" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    In2_Cu
+											</label>
+											<!-- Layer 25 -->
+											<input  id="layer-07" value="layer-B_Silkscreen" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-07" id="label-layer-07" data-toggle="tooltip" title="7, B_Silkscreen" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    B_Silkscreen
+											</label>
+											<!-- Layer 26 -->
+											<input  id="layer-09" value="layer-F_Adhesive" type="radio" name="layers" onchange="change_layer()" >
+											<label for="layer-09" id="label-layer-09" data-toggle="tooltip" title="9, F_Adhesive" class="rounded text-sm-left list-group-item radio-box" onclick="change_layer_onclick()">
+											    <span style="margin-left:0.5em; margin-right:0.1em; color: " class="iconify" data-icon="teenyicons-square-solid" data-inline="false"></span>
+											    F_Adhesive
+											</label>
+											
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade text-light" id="shortcuts-modal" tabindex="-1" role="dialog" aria-labelledby="shortcuts-modal-title" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="shortcuts-modal-title">Shortcuts</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+
+						<h5>Commits List</h5>
+
+						<table>
+							<tbody>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd><span class="iconify" data-icon="typcn-arrow-up" data-inline="false"></span></kbd></small></td>
+								<td>Move commits par upwards</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd><span class="iconify" data-icon="typcn-arrow-down" data-inline="false"></span></kbd></small></td>
+								<td>Move commits par downwards</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>[</kbd> or <kbd>Ctrl + <span class="iconify" data-icon="typcn-arrow-up" data-inline="false"></span></kbd></small></td>
+								<td>Move 2nd commit upwards</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>]</kbd> or <kbd>Ctrl + <span class="iconify" data-icon="typcn-arrow-down" data-inline="false"></span></kbd></small></td>
+								<td>Move 2nd commit downwards</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>r</kbd></small></td>
+								<td>Reset commit selection to the top 2 commits</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<hr class="hr_shortcuts">
+						<h5>View, sheets and layers</h5>
+
+						<table>
+							<tbody>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>s</kbd></small></td>
+								<td>Switch Schematic/Layout view</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>q</kbd></small></td>
+								<td>Toggle visibility of newest commit</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>w</kbd></small></td>
+								<td>Toggle visibility of oldest commit</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd><span class="iconify" data-icon="typcn-arrow-right" data-inline="false"></span></kbd></small></td>
+								<td>Select next page/layer</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd><span class="iconify" data-icon="typcn-arrow-left" data-inline="false"></span></kbd></small></td>
+								<td>Select previous page/layer</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Ctrl + <span class="iconify" data-icon="typcn-arrow-right" data-inline="false"></span></kbd></small></td>
+								<td>Select next page/layer (cycling)</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Ctrl + <span class="iconify" data-icon="typcn-arrow-left" data-inline="false"></span></kbd></small></td>
+								<td>Select previous page/layer (cycling)</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<hr class="hr_shortcuts">
+						<h5>Diff Pan and Zoom</h5>
+
+						<table>
+							<tbody>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>+</kbd></small></td>
+								<td>Zoom in</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>-</kbd></small></td>
+								<td>Zoom out</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>0</kbd></small></td>
+								<td>Zoom fit</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Alt + <span class="iconify" data-icon="typcn-arrow-up" data-inline="false"></span></kbd></small></td>
+								<td>Pan svg up</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Alt + <span class="iconify" data-icon="typcn-arrow-down" data-inline="false"></span></kbd></small></td>
+								<td>Pan svg down</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Alt + <span class="iconify" data-icon="typcn-arrow-left" data-inline="false"></span></kbd></small></td>
+								<td>Pan svg left</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>Alt + <span class="iconify" data-icon="typcn-arrow-right" data-inline="false"></span></kbd></small></td>
+								<td>Pan svg right</td>
+							</tr>
+							</tbody>
+						</table>
+
+						<hr class="hr_shortcuts">
+						<h5>Miscellaneous</h5>
+
+						<table>
+							<tbody>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>f</kbd></small></td>
+								<td>Toggle full screen view</td>
+							</tr>
+							<tr>
+								<td class="shortcut_col"><small class="text-sm text-muted"><kbd>i</kbd></small></td>
+								<td>Shows this info view</td>
+							</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="modal-footer">
+						<small class="text-sm">
+							<a href="https://github.com/leoheck/kiri" target="_blank">Kicad Revision Inspector (KiRI)</a> by Leandro Heck
+						</small>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js" integrity=""></script>
+		<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js" integrity=""></script>
+		<script src="./kiri.js" integrity="" crossorigin="anonymous"></script>
+	</body>
+</html>
