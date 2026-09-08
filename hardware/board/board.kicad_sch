@@ -11601,6 +11601,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C381116"
+			(at 226.06 26.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "dbd6e8c8-3f5a-468b-ba46-8a6fe7392e2b")
 		)
