@@ -2646,7 +2646,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 142.748 123.19 90)
 			(hide yes)
 			(show_name no)
@@ -2877,7 +2877,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "footprints:SMBJ5.0A-TR"
+		(property "Footprint" "Diode_SMD:D_SMB"
 			(at 90.424 158.75 0)
 			(hide yes)
 			(show_name no)
@@ -3093,7 +3093,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro_Mini"
 			(at 154.94 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -3328,7 +3328,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 142.748 110.49 90)
 			(hide yes)
 			(show_name no)
@@ -3689,7 +3689,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Keystone_5015_Micro_Mini"
 			(at 62.23 152.4 0)
 			(hide yes)
 			(show_name no)
