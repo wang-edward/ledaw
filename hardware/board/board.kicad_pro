@@ -213,6 +213,7 @@
         0.0,
         0.4,
         0.5,
+        1.0,
         2.0
       ],
       "tuning_pattern_settings": {
@@ -808,7 +809,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "",
+    "used_designators": "TP106,R322,D302,J112,#PWR353",
     "variants": []
   },
   "sheets": [
