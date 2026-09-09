@@ -8,7 +8,7 @@
 		(unlocked yes)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "bd48fed3-708c-4140-a905-c49b9abf0df4")
+		(uuid "1e21abde-0f9e-42e8-ad44-018aff3a4383")
 		(effects
 			(font
 				(size 1 1)
@@ -18,9 +18,8 @@
 	)
 	(property "Value" "named_TestPoint"
 		(at 0 2.1 0)
-		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "e84e6373-208e-427d-9884-939c9c5de639")
+		(uuid "6bc474d1-547d-4a91-96d0-afacea7971fd")
 		(effects
 			(font
 				(size 1 1)
@@ -33,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "7b914dcb-778c-49d7-9337-6ebb469675c5")
+		(uuid "fc500d63-70dc-434b-885a-7cdfc2d9cb62")
 		(effects
 			(font
 				(size 1 1)
@@ -46,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "b73f89d3-4ab9-486b-ac73-fbd628529d12")
+		(uuid "cff2abae-c081-4864-a189-fa447b453fda")
 		(effects
 			(font
 				(size 1 1)
@@ -65,7 +64,7 @@
 		)
 		(fill no)
 		(layer "F.SilkS")
-		(uuid "6f99b82a-d68f-4452-a762-e28362f5334a")
+		(uuid "133a36d7-7c1a-4d3b-93d1-8564eda715b7")
 	)
 	(fp_line
 		(start -2.15 -1.35)
@@ -75,7 +74,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "ec1bfea8-aaa1-4cf7-a96d-4102fdf6768f")
+		(uuid "5090061f-9254-417f-9688-be73c1158034")
 	)
 	(fp_line
 		(start -2.15 1.35)
@@ -85,7 +84,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "ece0a880-82c4-449f-8c00-7623a540b0b7")
+		(uuid "d6bb5337-81a9-4fa7-9666-b2251fe9a3b2")
 	)
 	(fp_line
 		(start 2.15 -1.35)
@@ -95,7 +94,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "bd7c71d5-b669-488e-a147-fa11c2a9f688")
+		(uuid "722c938a-53af-4c6f-a5da-478c7fd2c258")
 	)
 	(fp_line
 		(start 2.15 1.35)
@@ -105,7 +104,7 @@
 			(type solid)
 		)
 		(layer "F.CrtYd")
-		(uuid "f051f492-d0a6-42bc-aac3-0c0087d2ea93")
+		(uuid "7e41ff4f-8f2c-4d79-81ee-b0c50cbed3a6")
 	)
 	(fp_rect
 		(start -1.35 -0.5)
@@ -116,14 +115,14 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "ce56693a-384e-4511-a6a1-13df45d639b3")
+		(uuid "4072ed6f-ccbb-443a-b52e-b502ef4baa9d")
 	)
 	(pad "1" smd roundrect
 		(at 0 0)
 		(size 3.4 1.8)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.1388888889)
-		(uuid "6b486cc5-9256-4d22-96f6-6c18d56f6359")
+		(uuid "29465e0f-e3df-4c91-8851-fd26bd6c54da")
 	)
 	(embedded_fonts no)
 )

@@ -13578,7 +13578,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MCU_VREG_AVDD"
+		(property "Value" "MCU_VREGA"
 			(at 110.49 55.1179 0)
 			(show_name no)
 			(do_not_autoplace no)
