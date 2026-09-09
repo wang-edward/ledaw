@@ -501,7 +501,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "ledaw"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -797,6 +799,14 @@
     "meta": {
       "version": 1
     },
+    "ngspice": {
+      "fix_include_paths": true,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 4,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "reuse_designators": true,
@@ -809,7 +819,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "TP106,R322,D302,J112,#PWR353",
+    "used_designators": "TP106-107,R322,D302,J112,#PWR353",
     "variants": []
   },
   "sheets": [
