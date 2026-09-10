@@ -150,6 +150,25 @@ impl Engine {
         }
     }
 
+    pub fn is_recording_track(&self, track_idx: usize) -> bool {
+        self.recording && self.recording_track == Some(track_idx)
+    }
+
+    pub fn recording_preview_notes(&self) -> impl Iterator<Item = Note> + '_ {
+        let held_notes = self
+            .held_notes
+            .iter()
+            .enumerate()
+            .filter_map(move |(note, start)| {
+                start.map(|start| Note {
+                    start,
+                    end: self.timeline.playhead,
+                    note: note as u8,
+                })
+            });
+        self.record_buffer.iter().copied().chain(held_notes)
+    }
+
     /// Accept interleaved input frames from the audio-input callback.
     pub fn record_audio_input<T>(
         &mut self,
