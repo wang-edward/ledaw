@@ -36,5 +36,5 @@ cargo embed
 Check Probe Connection
 ```sh
 probe-rs list
-probe-rs info --chip RP235x
+probe-rs info --chip RP235x --protocol swd
 ```
