@@ -1,12 +1,9 @@
-//! Blinks the LED on a Pico board
-//!
-//! This will blink an LED attached to GP25, which is the pin the Pico uses for the on-board LED.
 #![no_std]
 #![no_main]
 
 use defmt::*;
 use defmt_rtt as _;
-use embedded_hal::digital::OutputPin;
+use embedded_hal::digital::{InputPin, OutputPin};
 use hal::uart::{DataBits, StopBits, UartConfig, UartPeripheral};
 use panic_probe as _;
 use rp235x_hal::clocks::init_clocks_and_plls;
@@ -55,35 +52,69 @@ fn main() -> ! {
     );
 
     let uart_pins = (pins.gpio0.into_function(), pins.gpio1.into_function());
-
-    let uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
+    let _uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
         .enable(
             UartConfig::new(115_200u32.Hz(), DataBits::Eight, None, StopBits::One),
             clocks.peripheral_clock.freq(),
         )
         .unwrap();
 
-    // This is the correct pin on the Raspberry Pico 2 board. On other boards, even if they have an
-    // on-board LED, it might need to be changed.
-    //
-    // Notably, on the Pico 2 W, the LED is not connected to any of the RP2350 GPIOs but to the cyw43 module instead.
-    // One way to do that is by using [embassy](https://github.com/embassy-rs/embassy/blob/main/examples/rp/src/bin/wifi_blinky.rs)
-    //
-    // If you have a Pico W and want to toggle a LED with a simple GPIO output pin, you can connect an external
-    // LED to one of the GPIO pins, and reference that pin here. Don't forget adding an appropriate resistor
-    // in series with the LED.
-    let mut led_pin = pins.gpio25.into_push_pull_output();
+    // Switches connect a row to each diode's anode; its cathode connects to the column.
+    // Rows are active high and idle rows are low so only the selected row can raise a column.
+    let mut rows = [
+        pins.gpio16.into_push_pull_output().into_dyn_pin(),
+        pins.gpio17.into_push_pull_output().into_dyn_pin(),
+        pins.gpio18.into_push_pull_output().into_dyn_pin(),
+    ];
+    for row in &mut rows {
+        row.set_low().unwrap();
+    }
+
+    // Columns are listed in physical column order, GPIO32 through GPIO19.
+    let mut columns = [
+        pins.gpio32.into_pull_down_input().into_dyn_pin(),
+        pins.gpio31.into_pull_down_input().into_dyn_pin(),
+        pins.gpio30.into_pull_down_input().into_dyn_pin(),
+        pins.gpio29.into_pull_down_input().into_dyn_pin(),
+        pins.gpio28.into_pull_down_input().into_dyn_pin(),
+        pins.gpio27.into_pull_down_input().into_dyn_pin(),
+        pins.gpio26.into_pull_down_input().into_dyn_pin(),
+        pins.gpio25.into_pull_down_input().into_dyn_pin(),
+        pins.gpio24.into_pull_down_input().into_dyn_pin(),
+        pins.gpio23.into_pull_down_input().into_dyn_pin(),
+        pins.gpio22.into_pull_down_input().into_dyn_pin(),
+        pins.gpio21.into_pull_down_input().into_dyn_pin(),
+        pins.gpio20.into_pull_down_input().into_dyn_pin(),
+        pins.gpio19.into_pull_down_input().into_dyn_pin(),
+    ];
+    let mut previous = [u16::MAX; 3];
 
     loop {
-        info!("on!");
-        led_pin.set_high().unwrap();
-        delay.delay_ms(500);
-        info!("off!");
-        led_pin.set_low().unwrap();
-        delay.delay_ms(500);
+        let mut scan = [0u16; 3];
 
-        uart.write_full_blocking(b"1234 1234\r\n");
-        // delay.delay_ms(100);
+        for (row_index, row) in rows.iter_mut().enumerate() {
+            row.set_high().unwrap();
+            delay.delay_us(5);
+
+            for (column_index, column) in columns.iter_mut().enumerate() {
+                if column.is_high().unwrap() {
+                    scan[row_index] |= 1 << column_index;
+                }
+            }
+
+            row.set_low().unwrap();
+        }
+
+        if scan != previous {
+            // Each bit is a pressed key; bit 0 is GPIO32 and bit 13 is GPIO19.
+            info!(
+                "matrix: {=u16:04x} {=u16:04x} {=u16:04x}",
+                scan[0], scan[1], scan[2]
+            );
+            previous = scan;
+        }
+
+        delay.delay_ms(1);
     }
 }
 
