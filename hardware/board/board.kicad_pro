@@ -213,6 +213,7 @@
         0.0,
         0.4,
         0.5,
+        1.0,
         2.0
       ],
       "tuning_pattern_settings": {
@@ -500,7 +501,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "ledaw"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -795,6 +798,14 @@
     "legacy_lib_list": [],
     "meta": {
       "version": 1
+    },
+    "ngspice": {
+      "fix_include_paths": true,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 4,
+      "workbook_filename": ""
     },
     "page_layout_descr_file": "",
     "plot_directory": "",
