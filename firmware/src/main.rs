@@ -59,7 +59,6 @@ fn main() -> ! {
         )
         .unwrap();
 
-    // Switches connect a row to each diode's anode; its cathode connects to the column.
     // Rows are active high and idle rows are low so only the selected row can raise a column.
     let mut rows = [
         pins.gpio16.into_push_pull_output().into_dyn_pin(),
@@ -70,7 +69,6 @@ fn main() -> ! {
         row.set_low().unwrap();
     }
 
-    // Columns are listed in physical column order, GPIO32 through GPIO19.
     let mut columns = [
         pins.gpio32.into_pull_down_input().into_dyn_pin(),
         pins.gpio31.into_pull_down_input().into_dyn_pin(),
