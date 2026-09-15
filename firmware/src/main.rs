@@ -1,7 +1,8 @@
 #![no_std]
 #![no_main]
 
-use defmt::*;
+use core::fmt::Write as _;
+use defmt::info;
 use defmt_rtt as _;
 use embedded_hal::digital::{InputPin, OutputPin};
 use hal::uart::{DataBits, StopBits, UartConfig, UartPeripheral};
@@ -51,8 +52,10 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
+    // board.kicad_sch + mcu.kicad_sch: U301 GPIO0 TX -> CM4 GPIO9 RXD4,
+    // U301 GPIO1 RX <- CM4 GPIO8 TXD4. This is RP2354 UART0, not UART1.
     let uart_pins = (pins.gpio0.into_function(), pins.gpio1.into_function());
-    let _uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
+    let mut uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
         .enable(
             UartConfig::new(115_200u32.Hz(), DataBits::Eight, None, StopBits::One),
             clocks.peripheral_clock.freq(),
@@ -109,6 +112,13 @@ fn main() -> ! {
                 "matrix: {=u16:04x} {=u16:04x} {=u16:04x}",
                 scan[0], scan[1], scan[2]
             );
+            // Plain text for test/test_uart.zig: three row masks, 115200 8N1.
+            write!(
+                uart,
+                "matrix: {:04x} {:04x} {:04x}\r\n",
+                scan[0], scan[1], scan[2]
+            )
+            .unwrap();
             previous = scan;
         }
 
