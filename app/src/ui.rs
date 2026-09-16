@@ -496,6 +496,23 @@ impl TimelineUi {
                             }
                         }
                     }
+
+                    if eng.is_recording_track(i) {
+                        for note in eng.recording_preview_notes() {
+                            let sb = frames_to_beats(note.start, eng.bpm(), eng.sample_rate());
+                            let eb = frames_to_beats(note.end, eng.bpm(), eng.sample_rate());
+                            if eb < self.frame.left() || sb > self.frame.right() {
+                                continue;
+                            }
+                            let lp = (sb - self.frame.left()) / self.frame.width();
+                            let rp = (eb - self.frame.left()) / self.frame.width();
+                            let x1 = (lp * w).max(0.0) as i32;
+                            let x2 = (rp * w).min(w) as i32;
+                            let slot = 23 - (note.note % 24) as i32;
+                            let ny = row_y + 2 + slot;
+                            d.draw_line(x1, ny, x2.max(x1 + 1), ny, Color::RED);
+                        }
+                    }
                 }
 
                 let row = eng.timeline.active_track as i32;

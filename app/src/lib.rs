@@ -99,6 +99,39 @@ mod tests {
     }
 
     #[test]
+    fn recording_preview_shows_completed_and_held_notes() {
+        use crate::engine::{Engine, Track, TrackSource};
+        use crate::instrument::Instrument;
+
+        let mut engine = Engine::new(SR, 120.0);
+        engine.add_track(Track::new(TrackSource::Instrument {
+            instrument: Instrument::Sampler(Sampler::default()),
+            notes: Vec::new(),
+        }));
+        engine.toggle_record();
+        assert!(engine.is_recording_track(0));
+
+        engine.note_on(60);
+        let mut out = vec![0.0; BLOCK];
+        engine.process_block(&mut out);
+
+        let preview: Vec<_> = engine.recording_preview_notes().collect();
+        assert_eq!(preview.len(), 1);
+        assert_eq!(preview[0].start, 0);
+        assert_eq!(preview[0].end, BLOCK as u64);
+        assert_eq!(preview[0].note, 60);
+
+        engine.note_off(60);
+        let preview: Vec<_> = engine.recording_preview_notes().collect();
+        assert_eq!(preview.len(), 1);
+        assert_eq!(preview[0].end, BLOCK as u64);
+
+        engine.toggle_record();
+        assert!(!engine.is_recording_track(0));
+        assert_eq!(engine.recording_preview_notes().count(), 0);
+    }
+
+    #[test]
     fn audio_clip_plays_only_while_transport_runs() {
         use crate::audio::AudioBuffer;
         use crate::engine::{AudioClip, Engine, Track, TrackSource};
