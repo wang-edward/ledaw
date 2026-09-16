@@ -16,7 +16,7 @@ const enable_flags: c.tcflag_t =
     @as(c.tcflag_t, c.CREAD);
 
 pub fn main() !void {
-    const fd = c.open("/dev/ttyAMA4", c.O_RDONLY | c.O_NOCTTY);
+    const fd = c.open("/dev/ttyAMA4", c.O_RDWR | c.O_NOCTTY);
     if (fd < 0) return error.CouldNotOpenUart;
     defer _ = c.close(fd);
 
@@ -37,6 +37,15 @@ pub fn main() !void {
 
     if (c.tcsetattr(fd, c.TCSANOW, &tty) != 0)
         return error.CouldNotApplySettings;
+
+    // Test CM4 -> MCU as well; the firmware should reply "pong".
+    const ping = "ping\n";
+    var sent: usize = 0;
+    while (sent < ping.len) {
+        const count = c.write(fd, ping[sent..].ptr, ping.len - sent);
+        if (count <= 0) return error.UartWriteFailed;
+        sent += @intCast(count);
+    }
 
     var buffer: [256]u8 = undefined;
 

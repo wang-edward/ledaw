@@ -1,7 +1,8 @@
 #![no_std]
 #![no_main]
 
-use defmt::*;
+use core::fmt::Write as _;
+use defmt::info;
 use defmt_rtt as _;
 use embedded_hal::digital::{InputPin, OutputPin};
 use hal::uart::{DataBits, StopBits, UartConfig, UartPeripheral};
@@ -52,7 +53,7 @@ fn main() -> ! {
     );
 
     let uart_pins = (pins.gpio0.into_function(), pins.gpio1.into_function());
-    let _uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
+    let mut uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
         .enable(
             UartConfig::new(115_200u32.Hz(), DataBits::Eight, None, StopBits::One),
             clocks.peripheral_clock.freq(),
@@ -109,6 +110,13 @@ fn main() -> ! {
                 "matrix: {=u16:04x} {=u16:04x} {=u16:04x}",
                 scan[0], scan[1], scan[2]
             );
+            // send over uart (mostly as a test)
+            write!(
+                uart,
+                "matrix: {:04x} {:04x} {:04x}\r\n",
+                scan[0], scan[1], scan[2]
+            )
+            .unwrap();
             previous = scan;
         }
 

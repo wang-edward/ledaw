@@ -38,3 +38,8 @@ Check Probe Connection
 probe-rs list
 probe-rs info --chip RP235x --protocol swd
 ```
+
+Examples
+```
+cargo embed --example uart_echo
+```
