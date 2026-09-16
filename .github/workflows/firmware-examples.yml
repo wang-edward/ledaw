@@ -1,0 +1,25 @@
+name: firmware examples
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'firmware/examples/**'
+  pull_request:
+    paths:
+      - 'firmware/examples/**'
+
+defaults:
+  run:
+    working-directory: firmware
+
+jobs:
+  examples:
+    name: examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: thumbv8m.main-none-eabihf
+      - run: cargo build -p firmware --examples --release
