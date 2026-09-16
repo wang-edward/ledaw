@@ -89,8 +89,26 @@ fn main() -> ! {
         pins.gpio19.into_pull_down_input().into_dyn_pin(),
     ];
     let mut previous = [u16::MAX; 3];
+    let ping = b"ping\n";
+    let mut ping_index = 0;
 
     loop {
+        // Poll without blocking matrix scanning; a command can span reads.
+        let mut received = [0u8; 32];
+        if let Ok(count) = uart.read_raw(&mut received) {
+            for &byte in &received[..count] {
+                if byte == ping[ping_index] {
+                    ping_index += 1;
+                    if ping_index == ping.len() {
+                        uart.write_full_blocking(b"pong\r\n");
+                        ping_index = 0;
+                    }
+                } else {
+                    ping_index = usize::from(byte == ping[0]);
+                }
+            }
+        }
+
         let mut scan = [0u16; 3];
 
         for (row_index, row) in rows.iter_mut().enumerate() {
