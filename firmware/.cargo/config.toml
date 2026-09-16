@@ -24,6 +24,10 @@ rustflags = [
 [build]
 target = "thumbv8m.main-none-eabihf"
 
+[alias]
+# Plain terminal output is needed for the joystick's ANSI redraw controls.
+joystick = ["run", "--example", "joystick", "--config", "target.thumbv8m.main-none-eabihf.runner = 'probe-rs run --chip RP235x --protocol swd --speed 20000 --log-format {s}'"]
+
 [env]
 DEFMT_LOG = "debug"
 
