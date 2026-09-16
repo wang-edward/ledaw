@@ -110,7 +110,7 @@ fn main() -> ! {
                 "matrix: {=u16:04x} {=u16:04x} {=u16:04x}",
                 scan[0], scan[1], scan[2]
             );
-            // Plain text for test/test_uart.zig: three row masks, 115200 8N1.
+            // send over uart (mostly as a test)
             write!(
                 uart,
                 "matrix: {:04x} {:04x} {:04x}\r\n",
