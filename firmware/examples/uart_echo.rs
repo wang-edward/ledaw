@@ -43,8 +43,6 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
-    // board.kicad_sch + mcu.kicad_sch: U301 GPIO0 TX -> CM4 GPIO9 RXD4,
-    // U301 GPIO1 RX <- CM4 GPIO8 TXD4. This is RP2354 UART0, not UART1.
     let uart_pins = (pins.gpio0.into_function(), pins.gpio1.into_function());
     let uart = UartPeripheral::new(pac.UART0, uart_pins, &mut pac.RESETS)
         .enable(
