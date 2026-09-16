@@ -38,7 +38,7 @@ pub fn main() !void {
     if (c.tcsetattr(fd, c.TCSANOW, &tty) != 0)
         return error.CouldNotApplySettings;
 
-    // Test CM4 -> MCU as well as MCU -> CM4; the firmware replies "pong".
+    // Test CM4 -> MCU; the firmware should reply "pong".
     const ping = "ping\n";
     var sent: usize = 0;
     while (sent < ping.len) {
