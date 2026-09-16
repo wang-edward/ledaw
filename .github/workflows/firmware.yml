@@ -5,14 +5,12 @@ on:
     branches: [main]
     paths:
       - 'firmware/**'
-      - '!firmware/examples/**'
       - 'Cargo.toml'
       - 'Cargo.lock'
       - '.github/workflows/firmware.yml'
   pull_request:
     paths:
       - 'firmware/**'
-      - '!firmware/examples/**'
       - 'Cargo.toml'
       - 'Cargo.lock'
       - '.github/workflows/firmware.yml'
@@ -33,6 +31,15 @@ jobs:
         with:
           target: thumbv8m.main-none-eabihf
       - run: cargo build --release
+  examples:
+    name: examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: thumbv8m.main-none-eabihf
+      - run: cargo build -p firmware --examples --release
   linting:
     name: lint
     runs-on: ubuntu-latest
