@@ -213,7 +213,6 @@
         0.0,
         0.4,
         0.5,
-        1.0,
         2.0
       ],
       "tuning_pattern_settings": {
@@ -501,9 +500,7 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [
-      "ledaw"
-    ],
+    "pinned_footprint_libs": [],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -799,14 +796,6 @@
     "meta": {
       "version": 1
     },
-    "ngspice": {
-      "fix_include_paths": true,
-      "meta": {
-        "version": 0
-      },
-      "model_mode": 4,
-      "workbook_filename": ""
-    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "reuse_designators": true,
@@ -819,7 +808,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "",
+    "used_designators": "J503,CR501,U502-504,R105,R503-508,C501-503,#PWR123,#PWR501-502,#PWR505-506,#PWR508-513,#PWR516",
     "variants": []
   },
   "sheets": [
