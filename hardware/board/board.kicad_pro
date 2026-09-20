@@ -76,7 +76,16 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "clearance|113750000|97985000|c61269ca-6166-4782-8d89-714c87e85298|9693cbd5-06cb-4534-8737-b5d0deadcc4d",
+          "hole is part of footprint"
+        ],
+        [
+          "clearance|114750000|97985000|c61269ca-6166-4782-8d89-714c87e85298|6a8e7d1b-26a7-4f3e-8d28-bb21f076690f",
+          "hole is part of footprint"
+        ]
+      ],
       "meta": {
         "version": 2
       },
