@@ -11214,7 +11214,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LDO_IN"
+		(property "Value" "LDO_IN(5V)"
 			(at 168.91 234.1879 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11816,7 +11816,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "LDO_OUT"
+		(property "Value" "LDO_OUT(3V3)"
 			(at 203.2 234.1879 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14342,7 +14342,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "RUN"
 			(at 271.78 165.8619 0)
 			(show_name no)
 			(do_not_autoplace no)
