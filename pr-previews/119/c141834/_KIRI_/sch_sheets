@@ -1,0 +1,5 @@
+board|board.kicad_sch||board|board
+audio|audio.kicad_sch||audio|board-audio
+mcu|mcu.kicad_sch||mcu|board-mcu
+buttons|buttons.kicad_sch||buttons|board-mcu-buttons
+usb|usb.kicad_sch||usb|board-usb
