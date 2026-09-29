@@ -13893,7 +13893,7 @@
 				)
 			)
 		)
-		(property "LSCC" "C400102"
+		(property "LCSC" "C400102"
 			(at 212.09 241.3 0)
 			(hide yes)
 			(show_name no)
