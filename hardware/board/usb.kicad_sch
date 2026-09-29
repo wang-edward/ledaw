@@ -4013,7 +4013,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "USB_OTG_ID"
+		(property "Value" "USB_OTGID"
 			(at 152.4 114.8079 0)
 			(show_name no)
 			(do_not_autoplace no)
