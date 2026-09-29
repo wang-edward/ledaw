@@ -13893,6 +13893,17 @@
 				)
 			)
 		)
+		(property "LSCC" "C400102"
+			(at 212.09 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "700f2924-83ed-45a2-8c7d-a4acc5f0aad5")
 		)
