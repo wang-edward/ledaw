@@ -1,0 +1,88 @@
+(footprint "CUI_SJ-3523-SMT-TR"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at -2.829485 -6.144725 0)
+		(layer "F.SilkS")
+		(uuid "8189d7a3-1dd6-467c-b9a0-d84680f7044c")
+		(effects
+			(font
+				(size 1.001583 1.001583)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CUI_SJ-3523-SMT-TR"
+		(at 5.4327 6.368155 0)
+		(layer "F.Fab")
+		(uuid "304d606d-ea88-4cd7-bb77-9136c8ae3df9")
+		(effects
+			(font
+				(size 1.000496 1.000496)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bb471aac-335b-4c11-8a14-0baa65753916")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2827b457-7680-487c-adbe-14bb995bb605")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(pad "" np_thru_hole circle
+		(at -3.5 0)
+		(size 1.6 1.6)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(uuid "ae66daef-1152-487d-af29-931f09d605b3")
+	)
+	(pad "" np_thru_hole circle
+		(at 3.5 0)
+		(size 1.6 1.6)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(uuid "49a39d20-e608-49e8-bca8-83ec44a4a271")
+	)
+	(pad "R" smd rect
+		(at -2.7 -3.675)
+		(size 2.4 2.55)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "01ff5d03-eef7-456a-b76a-6255630ad103")
+	)
+	(pad "S" smd rect
+		(at -4.6 3.675)
+		(size 2.4 2.55)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "0738e2a7-2785-4638-bdf5-4df77f98800d")
+	)
+	(pad "T" smd rect
+		(at 4.7 3.675)
+		(size 2.9 2.55)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "bd93ad6c-a18f-49b1-aa7d-ffe907192950")
+	)
+	(embedded_fonts no)
+)
