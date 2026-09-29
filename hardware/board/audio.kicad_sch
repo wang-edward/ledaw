@@ -6899,7 +6899,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "0c1ae9c5-17ef-423a-a227-34ffb0edf828")
 		(property "Reference" "#PWR0231"
 			(at 241.3 119.38 0)
@@ -6913,7 +6912,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 241.3 118.11 0)
+			(at 244.348 115.062 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7082,7 +7081,7 @@
 				)
 			)
 		)
-		(property "Value" "600Ohm@100MHz"
+		(property "Value" "600Ohm@100MHz, 1A"
 			(at 231.1019 80.01 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9516,7 +9515,7 @@
 				)
 			)
 		)
-		(property "Value" "600Ohm@100MHz"
+		(property "Value" "600Ohm@100MHz, 1A"
 			(at 231.1019 118.11 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9866,7 +9865,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5d100feb-7ed4-43a4-9867-fb93d348acc7")
 		(property "Reference" "#PWR0220"
 			(at 241.3 81.28 0)
@@ -9880,7 +9878,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 241.3 80.01 0)
+			(at 244.602 76.962 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10309,7 +10307,7 @@
 				)
 			)
 		)
-		(property "Value" "600Ohm@100MHz"
+		(property "Value" "600Ohm@100MHz, 1A"
 			(at 229.8319 66.04 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11478,7 +11476,7 @@
 				)
 			)
 		)
-		(property "Value" "600Ohm@100MHz"
+		(property "Value" "600Ohm@100MHz, 1A"
 			(at 231.1019 104.14 90)
 			(show_name no)
 			(do_not_autoplace no)
