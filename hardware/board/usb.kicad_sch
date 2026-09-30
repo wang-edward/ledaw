@@ -3433,6 +3433,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "34eee394-6ec4-4038-878a-6833483f99cc")
+		(property "LCSC" "C17520"
+			(at 140.97 123.19 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R502"
 			(at 138.43 121.92 0)
 			(show_name no)
@@ -3487,7 +3492,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 140.97 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -3498,7 +3503,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-072K2L"
+		(property "MPN" "0805W8F2201T5E"
 			(at 140.97 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -3509,7 +3514,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-2.20KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 140.97 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -4081,6 +4086,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7978eeac-ced6-4fc5-af20-9c977456c077")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 156.21 45.72 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 156.21 45.72 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C503"
 			(at 158.75 44.4562 0)
 			(show_name no)
@@ -4136,7 +4151,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 156.21 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -4656,6 +4671,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ad1a7016-bc55-41b1-94ba-3011cfa4a4f8")
+		(property "LCSC" "C17520"
+			(at 140.97 110.49 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R501"
 			(at 138.43 109.22 0)
 			(show_name no)
@@ -4710,7 +4730,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 140.97 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -4721,7 +4741,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-072K2L"
+		(property "MPN" "0805W8F2201T5E"
 			(at 140.97 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -4732,7 +4752,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-2.20KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 140.97 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -5560,6 +5580,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f5c408d6-9d1e-4165-9c7b-a6e59c96d180")
+		(property "MPN" "0805W8F1004T5E"
+			(at 85.09 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 85.09 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R503"
 			(at 82.55 45.7199 0)
 			(show_name no)
@@ -5615,7 +5645,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C6351850"
+		(property "LCSC" "C17514"
 			(at 85.09 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -5652,6 +5682,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f7355005-19b0-4ea8-883a-d2a8b82ada9d")
+		(property "LCSC" "C97502"
+			(at 102.87 125.73 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "U501"
 			(at 102.87 115.57 0)
 			(show_name no)
@@ -5683,7 +5718,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tpd2eusb30a.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tpd2eusb30.pdf"
 			(at 102.87 125.73 0)
 			(hide yes)
 			(show_name no)

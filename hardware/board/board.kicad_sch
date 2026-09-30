@@ -9973,6 +9973,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0883e42d-8d4a-4297-a23e-06c226c8bec1")
+		(property "LCSC" "C17673"
+			(at 124.46 111.76 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R103"
 			(at 122.682 110.5916 0)
 			(show_name no)
@@ -10027,7 +10032,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 124.46 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -10038,7 +10043,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-071KL"
+		(property "MPN" "0805W8F4701T5E"
 			(at 124.46 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -10049,7 +10054,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-1.00KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 124.46 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -11264,6 +11269,21 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1cea091c-4a41-4a2a-b49b-93dc7dc9d86f")
+		(property "LCSC" "C52016391"
+			(at 274.32 143.51 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "MPN" "HX PH254-01-03-Z-L11.5"
+			(at 274.32 143.51 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "hanxia"
+			(at 274.32 143.51 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "J104"
 			(at 271.78 144.7801 0)
 			(show_name no)
@@ -11427,6 +11447,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "244ec221-5dfc-41fe-8be2-02d1b34c796b")
+		(property "LCSC" "C2297"
+			(at 328.93 34.29 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "D101"
 			(at 331.9018 33.2994 90)
 			(show_name no)
@@ -11481,7 +11506,7 @@
 				)
 			)
 		)
-		(property "Part Description" "	Green 572nm LED Indication - Discrete 2.2V 2-SMD, No Lead"
+		(property "Part Description" "Green LED, 0805, Vf 2.6-3.1 V at 5 mA"
 			(at 328.93 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -11492,7 +11517,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Lite-On Inc."
+		(property "Manufacturer" "Hubei KENTO Elec"
 			(at 328.93 34.29 90)
 			(hide yes)
 			(show_name no)
@@ -11503,7 +11528,7 @@
 				)
 			)
 		)
-		(property "MPN" "LTST-S270KGKT"
+		(property "MPN" "KT-0805G"
 			(at 328.93 34.29 90)
 			(hide yes)
 			(show_name no)
@@ -11514,7 +11539,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "160-1478-1-ND"
+		(property "Digi-Key_PN" ""
 			(at 328.93 34.29 90)
 			(hide yes)
 			(show_name no)
@@ -11951,6 +11976,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "473fd539-2987-4a62-ae85-ffbe8b07a6b8")
+		(property "LCSC" "C67531"
+			(at 360.68 48.26 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "U104"
 			(at 362.204 45.72 0)
 			(show_name no)
@@ -11984,7 +12014,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/74LVC1G07.pdf"
 			(at 360.68 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -12159,6 +12189,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4bb00c41-cebb-4c7b-863b-d8521e764d15")
+		(property "LCSC" "C17673"
+			(at 127 111.76 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R104"
 			(at 128.778 110.5916 0)
 			(show_name no)
@@ -12213,7 +12248,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -12224,7 +12259,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-071KL"
+		(property "MPN" "0805W8F4701T5E"
 			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -12235,7 +12270,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-1.00KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -13045,6 +13080,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4ea27c86-5584-4dcb-aab0-651508534d1a")
+		(property "LCSC" "C17513"
+			(at 328.93 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R101"
 			(at 330.708 45.8216 0)
 			(show_name no)
@@ -13099,7 +13139,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 328.93 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -13110,7 +13150,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-071KL"
+		(property "MPN" "0805W8F1001T5E"
 			(at 328.93 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -13121,7 +13161,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-1.00KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 328.93 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -13561,6 +13601,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "57ae1884-063b-4271-8350-c2d2cc4a3cbe")
+		(property "LCSC" "C84256"
+			(at 368.3 29.21 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "D102"
 			(at 371.2718 28.2194 90)
 			(show_name no)
@@ -13615,7 +13660,7 @@
 				)
 			)
 		)
-		(property "Part Description" "	Red 620nm LED Indication - Discrete 2.2V 2-SMD, No Lead"
+		(property "Part Description" "Red LED, 0805"
 			(at 368.3 29.21 0)
 			(hide yes)
 			(show_name no)
@@ -13626,7 +13671,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Lite-On Inc."
+		(property "Manufacturer" "NATIONSTAR"
 			(at 368.3 29.21 90)
 			(hide yes)
 			(show_name no)
@@ -13637,7 +13682,7 @@
 				)
 			)
 		)
-		(property "MPN" "LTST-S270KRKT"
+		(property "MPN" "NCD0805R1"
 			(at 368.3 29.21 90)
 			(hide yes)
 			(show_name no)
@@ -13648,7 +13693,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "160-1479-1-ND"
+		(property "Digi-Key_PN" ""
 			(at 368.3 29.21 90)
 			(hide yes)
 			(show_name no)
@@ -14084,6 +14129,21 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7a774a14-165b-4ca3-8020-e6db08b2c254")
+		(property "LCSC" "C380346"
+			(at 170.18 241.3 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "MPN" "TCC0805X7R106K100FT"
+			(at 170.18 241.3 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 170.18 241.3 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C104"
 			(at 173.101 240.1316 0)
 			(show_name no)
@@ -14475,6 +14535,21 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8c592006-b792-419f-b999-476817c1d105")
+		(property "LCSC" "C52016391"
+			(at 227.33 184.15 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "MPN" "HX PH254-01-03-Z-L11.5"
+			(at 227.33 184.15 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "hanxia"
+			(at 227.33 184.15 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "J106"
 			(at 229.87 182.8799 0)
 			(show_name no)
@@ -14638,6 +14713,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9e01edd9-e577-4e6d-b7bf-65c6056957ab")
+		(property "LCSC" "C17513"
+			(at 368.3 38.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R102"
 			(at 370.078 36.9316 0)
 			(show_name no)
@@ -14692,7 +14772,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "UNI-ROYAL"
 			(at 368.3 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14703,7 +14783,7 @@
 				)
 			)
 		)
-		(property "MPN" "RC0603FR-071KL"
+		(property "MPN" "0805W8F1001T5E"
 			(at 368.3 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -14714,7 +14794,7 @@
 				)
 			)
 		)
-		(property "Digi-Key_PN" "311-1.00KHRCT-ND"
+		(property "Digi-Key_PN" ""
 			(at 368.3 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -15872,6 +15952,21 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dcb6a7ad-fe54-4010-b6e7-5cd5d2543367")
+		(property "LCSC" "C26537"
+			(at 187.96 236.22 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "MPN" "NCP1117ST33T3G"
+			(at 187.96 236.22 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "onsemi"
+			(at 187.96 236.22 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "U105"
 			(at 187.96 230.0732 0)
 			(show_name no)
@@ -15903,7 +15998,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF"
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/ncp1117-d.pdf"
 			(at 190.5 242.57 0)
 			(hide yes)
 			(show_name no)

@@ -6972,6 +6972,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0be3fc42-8785-47a7-93ed-ba7bc703aeb3")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 130.81 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 130.81 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C207"
 			(at 130.81 41.402 90)
 			(show_name no)
@@ -7025,7 +7035,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 130.81 46.99 90)
 			(hide yes)
 			(show_name no)
@@ -7233,6 +7243,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "12bf7f57-cbd4-4749-a194-d656e4385a1c")
+		(property "MPN" "BLM21PG601SN1D"
+			(at 231.14 83.82 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "Murata"
+			(at 231.14 83.82 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "FB203"
 			(at 231.1019 77.47 90)
 			(show_name no)
@@ -7275,7 +7295,7 @@
 				)
 			)
 		)
-		(property "Description" "Ferrite bead, small symbol"
+		(property "Description" "600 Ohm at 100 MHz, 1.4 A, 0.14 Ohm max DCR; speaker output ferrite bead"
 			(at 231.14 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -7286,7 +7306,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C341663"
+		(property "LCSC" "C41556732"
 			(at 231.14 83.82 90)
 			(hide yes)
 			(show_name no)
@@ -7816,6 +7836,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "284dcac7-7316-497a-8758-fd7ef757476a")
+		(property "MPN" "TPS7A2018PDBVR"
+			(at 60.96 161.29 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 60.96 161.29 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "U202"
 			(at 60.96 151.13 0)
 			(show_name no)
@@ -8419,6 +8449,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "37c41575-ae59-4253-b3e4-1ca4fcde8122")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 170.18 139.7 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 170.18 139.7 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C223"
 			(at 167.64 138.4362 0)
 			(show_name no)
@@ -8474,7 +8514,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 170.18 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -8941,6 +8981,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "46db379c-4b8f-4784-a298-5b06f89f1638")
+		(property "MPN" "X1G0041710019"
+			(at 59.69 45.72 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "EPSON"
+			(at 59.69 45.72 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "Y201"
 			(at 71.12 39.2998 0)
 			(show_name no)
@@ -8972,7 +9022,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://support.epson.biz/td/api/doc_check.php?mode=dl&lang=en&Parts=SG-210SED"
+		(property "Datasheet" "https://download.epsondevice.com/td/pdf/app/SG-210STF_en.pdf"
 			(at 57.15 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -8983,7 +9033,7 @@
 				)
 			)
 		)
-		(property "Description" "Crystal Oscillator Low Profile / High Stability SPXO"
+		(property "Description" "SG-210STF 12.288 MHz CMOS oscillator, 2.5 x 2.0 mm; pin 1 standby, 2 GND, 3 OUT, 4 VCC"
 			(at 59.69 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -9114,6 +9164,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "48a501b0-3548-49e5-99d6-9d6e994a236e")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 88.9 116.84 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 88.9 116.84 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C220"
 			(at 85.852 115.57 90)
 			(show_name no)
@@ -9167,7 +9227,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 88.9 116.84 90)
 			(hide yes)
 			(show_name no)
@@ -9204,6 +9264,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4bf4023a-f726-466f-87c8-f78fe0d1cd49")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 113.03 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 113.03 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C205"
 			(at 113.03 41.402 90)
 			(show_name no)
@@ -9257,7 +9327,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 113.03 46.99 90)
 			(hide yes)
 			(show_name no)
@@ -9440,7 +9510,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C474881"
+		(property "LCSC" ""
 			(at 269.24 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -9567,6 +9637,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "517f2120-4ede-4fde-834d-6215692252d6")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 82.55 105.41 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 82.55 105.41 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C217"
 			(at 85.09 104.394 90)
 			(show_name no)
@@ -9620,7 +9700,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 82.55 105.41 90)
 			(hide yes)
 			(show_name no)
@@ -9749,6 +9829,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "525f9c17-2ae7-466c-a226-bde7871e8b92")
+		(property "MPN" "BLM21PG601SN1D"
+			(at 231.14 121.92 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "Murata"
+			(at 231.14 121.92 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "FB205"
 			(at 231.1019 115.57 90)
 			(show_name no)
@@ -9791,7 +9881,7 @@
 				)
 			)
 		)
-		(property "Description" "Ferrite bead, small symbol"
+		(property "Description" "600 Ohm at 100 MHz, 1.4 A, 0.14 Ohm max DCR; speaker output ferrite bead"
 			(at 231.14 121.92 0)
 			(hide yes)
 			(show_name no)
@@ -9802,7 +9892,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C341663"
+		(property "LCSC" "C41556732"
 			(at 231.14 121.92 90)
 			(hide yes)
 			(show_name no)
@@ -9839,6 +9929,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5718bbd0-6e2e-44f8-9728-b5e67eff3da9")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 139.7 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 139.7 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C225"
 			(at 137.668 144.78 0)
 			(show_name no)
@@ -9894,7 +9994,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 139.7 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -10355,6 +10455,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5f577110-1b5b-499f-9ce5-45eb21b80218")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 154.94 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 154.94 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C227"
 			(at 156.972 144.78 0)
 			(show_name no)
@@ -10410,7 +10520,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 154.94 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -10541,6 +10651,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6279083d-69b7-41a9-9ace-5eae7bbdfa5c")
+		(property "MPN" "BLM21PG601SN1D"
+			(at 229.87 69.85 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "Murata"
+			(at 229.87 69.85 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "FB202"
 			(at 229.8319 63.5 90)
 			(show_name no)
@@ -10583,7 +10703,7 @@
 				)
 			)
 		)
-		(property "Description" "Ferrite bead, small symbol"
+		(property "Description" "600 Ohm at 100 MHz, 1.4 A, 0.14 Ohm max DCR; speaker output ferrite bead"
 			(at 229.87 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -10594,7 +10714,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C341663"
+		(property "LCSC" "C41556732"
 			(at 229.87 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -10802,6 +10922,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6ad5c8d9-da04-4b18-9a93-3a95bdea069d")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 90.17 165.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 90.17 165.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C229"
 			(at 92.71 163.8362 0)
 			(show_name no)
@@ -10857,7 +10987,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 90.17 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -11254,6 +11384,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8332af68-1ccd-43ce-93bb-9bb8c8e41ec4")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 121.92 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 121.92 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C206"
 			(at 123.444 41.402 90)
 			(show_name no)
@@ -11307,7 +11447,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 121.92 46.99 90)
 			(hide yes)
 			(show_name no)
@@ -11579,7 +11719,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C474881"
+		(property "LCSC" ""
 			(at 269.24 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -11710,6 +11850,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "91d2ceb5-3dd4-4ee2-b67d-ce4017e18ade")
+		(property "MPN" "BLM21PG601SN1D"
+			(at 231.14 107.95 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "Murata"
+			(at 231.14 107.95 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "FB204"
 			(at 231.1019 101.6 90)
 			(show_name no)
@@ -11752,7 +11902,7 @@
 				)
 			)
 		)
-		(property "Description" "Ferrite bead, small symbol"
+		(property "Description" "600 Ohm at 100 MHz, 1.4 A, 0.14 Ohm max DCR; speaker output ferrite bead"
 			(at 231.14 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -11763,7 +11913,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C341663"
+		(property "LCSC" "C41556732"
 			(at 231.14 107.95 90)
 			(hide yes)
 			(show_name no)
@@ -12051,6 +12201,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9ec71641-d9e6-45e4-b31e-1ebb593bc7a7")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 82.55 110.49 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 82.55 110.49 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C218"
 			(at 85.09 109.474 90)
 			(show_name no)
@@ -12104,7 +12264,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 82.55 110.49 90)
 			(hide yes)
 			(show_name no)
@@ -12141,6 +12301,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a21c5906-c3b2-4e22-80af-b362e6a7cebe")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 148.59 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 148.59 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C209"
 			(at 148.59 41.402 90)
 			(show_name no)
@@ -12194,7 +12364,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 148.59 46.99 90)
 			(hide yes)
 			(show_name no)
@@ -12733,6 +12903,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b0ee4055-4e2f-4d46-a2ed-6a85b810eba8")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 147.32 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 147.32 146.05 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C226"
 			(at 149.352 140.97 90)
 			(show_name no)
@@ -12788,7 +12968,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 147.32 146.05 90)
 			(hide yes)
 			(show_name no)
@@ -12826,6 +13006,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b3246588-da88-4c87-ab61-87aaf65863f0")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 81.28 90.17 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 81.28 90.17 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "CX201"
 			(at 77.724 91.694 0)
 			(show_name no)
@@ -12879,7 +13069,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 81.28 90.17 90)
 			(hide yes)
 			(show_name no)
@@ -12917,6 +13107,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bfd2dc86-c4d2-4107-a9eb-048d634f7263")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 45.72 165.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 45.72 165.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C228"
 			(at 48.26 163.8362 0)
 			(show_name no)
@@ -12972,7 +13172,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 45.72 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -14191,6 +14391,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f0dd76fd-a24e-406a-8647-98079b780a5e")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 88.9 121.92 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 88.9 121.92 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C221"
 			(at 86.106 120.65 90)
 			(show_name no)
@@ -14244,7 +14454,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 88.9 121.92 90)
 			(hide yes)
 			(show_name no)
@@ -15264,6 +15474,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fb396d8e-0c70-414f-9cb3-d187c5cfb009")
+		(property "MPN" "TCC0805X7R105K500DT"
+			(at 139.7 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "CCTC"
+			(at 139.7 46.99 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "C208"
 			(at 139.7 41.402 90)
 			(show_name no)
@@ -15317,7 +15537,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C28323"
+		(property "LCSC" "C376926"
 			(at 139.7 46.99 90)
 			(hide yes)
 			(show_name no)

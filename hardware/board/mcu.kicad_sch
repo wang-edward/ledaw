@@ -13760,6 +13760,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5d14b0ff-074f-4a51-a3a2-a52b83c88cdc")
+		(property "LCSC" "C22548"
+			(at 212.09 172.72 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R322"
 			(at 213.868 171.5516 0)
 			(show_name no)
@@ -13814,7 +13819,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "Yageo"
+		(property "Manufacturer" "YAGEO"
 			(at 212.09 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -14545,6 +14550,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "77b081f2-641c-458e-8ded-16cccf4439f2")
+		(property "MPN" "RC0402FR-0733RL"
+			(at 86.36 57.15 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 86.36 57.15 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R301"
 			(at 85.1916 55.372 0)
 			(show_name no)
@@ -14599,7 +14614,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25105"
+		(property "LCSC" "C138002"
 			(at 86.36 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -15758,6 +15773,16 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8998c3e7-83af-405e-b3bc-b98b4fa6d633")
+		(property "MPN" "RC0402FR-071KL"
+			(at 66.04 202.565 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 66.04 202.565 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "R318"
 			(at 66.04 197.3072 90)
 			(show_name no)
@@ -15810,7 +15835,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C11702"
+		(property "LCSC" "C106235"
 			(at 66.04 202.565 90)
 			(hide yes)
 			(show_name no)
@@ -21970,6 +21995,11 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ff9406cb-bbef-43eb-98c2-7f8249b0508d")
+		(property "LCSC" "C965817"
+			(at 212.09 165.1 0)
+			(hide yes)
+			(effects (font (size 1.27 1.27)))
+		)
 		(property "Reference" "D302"
 			(at 215.0618 164.1094 90)
 			(show_name no)
@@ -22024,7 +22054,7 @@
 				)
 			)
 		)
-		(property "Part Description" ""
+		(property "Part Description" "Blue LED, 0805"
 			(at 212.09 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -22035,7 +22065,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "XINGLIGHT"
 			(at 212.09 165.1 90)
 			(hide yes)
 			(show_name no)
@@ -22046,7 +22076,7 @@
 				)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "XL-2012UBC"
 			(at 212.09 165.1 90)
 			(hide yes)
 			(show_name no)
