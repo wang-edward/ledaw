@@ -1085,6 +1085,148 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:NetTie_2"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "NT"
+				(at 0 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "NetTie_2"
+				(at 0 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Net tie, 2 pins"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "net tie short"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Net*Tie*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "NetTie_2_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "NetTie_2_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:R_Small"
 			(pin_numbers
 				(hide yes)
@@ -4328,12 +4470,6 @@
 		(uuid "24547c1d-5fc7-419d-85f2-5ddff8676ce3")
 	)
 	(junction
-		(at 200.66 105.41)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2552e36d-e9fa-4cb6-978f-f09e63fe2f3b")
-	)
-	(junction
 		(at 90.17 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4394,18 +4530,6 @@
 		(uuid "6ed278f3-988d-4d2f-b6cb-801dc5d58290")
 	)
 	(junction
-		(at 198.12 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "82318fe7-7be3-45d9-9220-19d933373b80")
-	)
-	(junction
-		(at 193.04 110.49)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8289a0db-d95c-4ccb-915d-2f1a3084d0ab")
-	)
-	(junction
 		(at 241.3 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4424,16 +4548,22 @@
 		(uuid "90d8b735-aebb-4910-879e-de88811b9757")
 	)
 	(junction
+		(at 200.66 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "97ff31ed-093b-40c6-8163-2c3d1972b15c")
+	)
+	(junction
+		(at 193.04 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9b201e0a-a85f-4f3b-b402-a97480e5e95c")
+	)
+	(junction
 		(at 69.85 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9e825fec-c92e-40a5-8341-c76ac7d8ed3d")
-	)
-	(junction
-		(at 190.5 113.03)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a4c0c1fa-fd4b-45a7-890b-a969cc9a0447")
 	)
 	(junction
 		(at 125.73 36.83)
@@ -4490,6 +4620,12 @@
 		(uuid "c1726eac-3c1a-4e46-8d88-e3e0a4bdfc57")
 	)
 	(junction
+		(at 198.12 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c851aca7-e49d-41b0-885e-b83e5270cb13")
+	)
+	(junction
 		(at 127 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4506,6 +4642,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "de8f6794-5354-4198-9dcf-9e07cef4e445")
+	)
+	(junction
+		(at 190.5 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ed6e803d-3a69-442d-929e-8d85c0068623")
 	)
 	(junction
 		(at 72.39 105.41)
@@ -4586,6 +4728,16 @@
 			(type default)
 		)
 		(uuid "056cd776-6db0-4438-aa7c-d4129a3484b6")
+	)
+	(wire
+		(pts
+			(xy 184.15 142.24) (xy 184.15 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07ec5317-0c0b-4b17-ac39-1ca486ac4733")
 	)
 	(wire
 		(pts
@@ -4749,16 +4901,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 107.95) (xy 198.12 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e802e51-f42e-46f4-b0d1-bca1ade795a6")
-	)
-	(wire
-		(pts
 			(xy 45.72 116.84) (xy 55.88 116.84)
 		)
 		(stroke
@@ -4816,6 +4958,16 @@
 			(type default)
 		)
 		(uuid "29aed442-ca63-4ffb-9853-224e1a186b27")
+	)
+	(wire
+		(pts
+			(xy 184.15 107.95) (xy 198.12 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2beadbcb-87dd-40e7-95fc-cd2e6e5ccd40")
 	)
 	(wire
 		(pts
@@ -5179,7 +5331,7 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 110.49) (xy 185.42 110.49)
+			(xy 193.04 110.49) (xy 176.53 110.49)
 		)
 		(stroke
 			(width 0)
@@ -5349,7 +5501,7 @@
 	)
 	(wire
 		(pts
-			(xy 185.42 110.49) (xy 185.42 107.95)
+			(xy 176.53 110.49) (xy 176.53 107.95)
 		)
 		(stroke
 			(width 0)
@@ -5586,6 +5738,16 @@
 			(type default)
 		)
 		(uuid "9cbe50a5-9c3d-4dcd-aa2b-b32ffc2c9cde")
+	)
+	(wire
+		(pts
+			(xy 184.15 107.95) (xy 184.15 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9dc7bd07-c2f7-4b98-88b1-0f4731763815")
 	)
 	(wire
 		(pts
@@ -6179,7 +6341,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 107.95) (xy 185.42 107.95)
+			(xy 170.18 107.95) (xy 176.53 107.95)
 		)
 		(stroke
 			(width 0)
@@ -8505,6 +8667,88 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
 					(reference "#PWR0230")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:NetTie_2")
+		(at 184.15 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d572769-f02f-4d6b-8d16-694c4e5e63bd")
+		(property "Reference" "NT201"
+			(at 185.42 137.1599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "NetTie_2"
+			(at 185.42 139.6999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
+			(at 184.15 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 184.15 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Net tie, 2 pins"
+			(at 184.15 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "98cf5c07-2b29-47bb-9203-bb56a3b588f3")
+		)
+		(pin "1"
+			(uuid "fb5ca9f7-eef6-476d-9926-016057c0329a")
+		)
+		(instances
+			(project "board"
+				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
+					(reference "NT201")
 					(unit 1)
 				)
 			)
@@ -12662,83 +12906,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 187.96 107.95 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b9b0c778-75e5-42dc-a7bb-c9bc2e752308")
-		(property "Reference" "#PWR0229"
-			(at 187.96 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 187.96 112.014 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 187.96 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 187.96 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 187.96 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0e5ecf74-6770-44b6-b374-cf5fb2deaccb")
-		)
-		(instances
-			(project "board"
-				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
-					(reference "#PWR0229")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 45.72 165.1 0)
 		(unit 1)
@@ -13852,6 +14019,83 @@
 			(project "board"
 				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
 					(reference "#PWR0236")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 184.15 142.24 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "eefd7dee-d220-4f80-8eb1-8918593ba551")
+		(property "Reference" "#PWR0229"
+			(at 184.15 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 184.15 146.304 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 184.15 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 184.15 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 184.15 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "aa2500a4-3a4b-4963-af39-5ab44071b449")
+		)
+		(instances
+			(project "board"
+				(path "/dd13fd41-39ab-4435-9074-5024f1786746/bead49b4-6be4-481c-a37b-4cba7f02eadb"
+					(reference "#PWR0229")
 					(unit 1)
 				)
 			)

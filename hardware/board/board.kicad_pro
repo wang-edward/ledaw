@@ -844,7 +844,7 @@
         "uuid": "dd13fd41-39ab-4435-9074-5024f1786746"
       }
     ],
-    "used_designators": "H101-108",
+    "used_designators": "#PWR229,NT201,H101-108",
     "variants": []
   },
   "sheets": [
