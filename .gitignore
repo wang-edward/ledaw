@@ -79,3 +79,19 @@ rustc-ice-*.txt
 Cargo.lock
 target/
 
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+ENV/
+env/
+
+.env
+
+# Testing and caches
+.pytest_cache/
+.mypy_cache/
