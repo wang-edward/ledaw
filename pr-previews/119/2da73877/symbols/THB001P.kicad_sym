@@ -1,0 +1,229 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "THB001P" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "U" (id 0) (at -5.08 5.08 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "THB001P" (id 1) (at -5.08 2.54 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "THB001P:CNK_THB001P" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MF" "C&K" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MAXIMUM_PACKAGE_HEIGHT" "19.85mm" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Package" "None" (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Price" "None" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Check_prices" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=eda" (id 8) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "STANDARD" "Manufacturer Recommendations" (id 9) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "PARTREV" "27 Jan 22" (id 10) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "SnapEDA_Link" "https://www.snapeda.com/parts/THB001P/C%2526K/view-part/?ref=snap" (id 11) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MP" "THB001P" (id 12) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Description" "\n                        \n                            Multi-Directional Thumbstick, 2 Axis, Center Momentary Switch, 12VDC, THB Series | C&K THB001P\n                        \n" (id 13) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "SNAPEDA_PN" "THB001P" (id 14) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Availability" "In Stock" (id 15) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "CNK" (id 16) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "THB001P_1_0"
+      (polyline
+        (pts (xy -5.08 0.0) (xy -4.572 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -4.572 0.0) (xy -3.81 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -3.81 1.016) (xy -2.54 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -2.54 -1.27) (xy -1.27 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -1.27 1.016) (xy 0.0 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 0.0 -1.27) (xy 1.27 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 1.27 1.016) (xy 2.54 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 2.54 -1.27) (xy 3.81 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 3.81 1.016) (xy 4.572 0.0)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 4.572 0.0) (xy 5.08 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 -1.27) (xy 1.27 -2.54)) (stroke (width 0.2032))
+      )
+      (polyline
+        (pts (xy -1.27 -2.54) (xy 0.0 -1.27)) (stroke (width 0.2032))
+      )
+      (polyline
+        (pts (xy 1.27 -2.54) (xy -1.27 -2.54)) (stroke (width 0.2032))
+      )
+      (pin passive line (at -7.62 0.0 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR1_1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 7.62 0.0 180.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR1_3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 0.0 -5.08 90.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR1_2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+    (symbol "THB001P_2_0"
+      (polyline
+        (pts (xy -5.08 0.0) (xy -4.572 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -4.572 0.0) (xy -3.81 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -3.81 1.016) (xy -2.54 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -2.54 -1.27) (xy -1.27 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy -1.27 1.016) (xy 0.0 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 0.0 -1.27) (xy 1.27 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 1.27 1.016) (xy 2.54 -1.27)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 2.54 -1.27) (xy 3.81 1.016)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 3.81 1.016) (xy 4.572 0.0)) (stroke (width 0.254))
+      )
+      (polyline
+        (pts (xy 4.572 0.0) (xy 5.08 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 -1.27) (xy 1.27 -2.54)) (stroke (width 0.2032))
+      )
+      (polyline
+        (pts (xy -1.27 -2.54) (xy 0.0 -1.27)) (stroke (width 0.2032))
+      )
+      (polyline
+        (pts (xy 1.27 -2.54) (xy -1.27 -2.54)) (stroke (width 0.2032))
+      )
+      (pin passive line (at -7.62 0.0 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR2_1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 7.62 0.0 180.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR2_3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 0.0 -5.08 90.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "VR2_2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+    (symbol "THB001P_3_0"
+      (polyline
+        (pts (xy -2.54 0.0) (xy 2.794 2.1336)) (stroke (width 0.1524))
+      )
+      (circle (center 2.54 0.0) (radius 0.3302)
+        (stroke (width 0.1524)) (fill (type none))
+      )
+      (polyline
+        (pts (xy 5.08 0.0) (xy 2.921 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -2.54 0.0) (xy -5.08 0.0)) (stroke (width 0.1524))
+      )
+      (pin passive line (at -7.62 0.0 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "C"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -7.62 0.0 0) (length 2.54) hide
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "D"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 7.62 0.0 180.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "A"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at 7.62 0.0 180.0) (length 2.54) hide
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "B"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
