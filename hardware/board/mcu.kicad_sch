@@ -16896,7 +16896,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ABM8-272-T3"
+		(property "Value" "X322512MMB4SI"
 			(at 41.91 189.865 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16939,7 +16939,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C20625731"
+		(property "LCSC" "C50430"
 			(at 48.26 197.485 90)
 			(hide yes)
 			(show_name no)

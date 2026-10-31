@@ -54782,7 +54782,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "ABM8-272-T3"
+		(property "Value" "X322512MMB4SI"
 			(at 0 -2.45 0)
 			(layer "B.Fab")
 			(uuid "b0e3675d-9d93-46a9-bc57-71810f42302d")
@@ -54831,7 +54831,7 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" "C20625731"
+		(property "LCSC" "C50430"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
