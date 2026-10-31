@@ -37,6 +37,8 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+# ...except the fab outputs (BOM / CPL) that get uploaded with the gerbers
+!**/production/*.csv
 
 # Archived Backups (KiCad 6.0)
 **/*-backups/*.zip
