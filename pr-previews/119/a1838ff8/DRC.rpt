@@ -1,0 +1,1287 @@
+** Drc report for board.kicad_pcb **
+** Created on 2026-09-20T15:51:25 **
+** Report includes: Errors, Warnings **
+
+** Found 315 DRC violations **
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(201.7500 mm, 125.2500 mm): Track [+5V] on F.Cu, length 2.5000 mm
+[track_dangling]: Track has unconnected end
+    Local override; warning
+    @(95.0000 mm, 140.5000 mm): Track [/mcu/matrix_R0] on F.Cu, length 0.0500 mm
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(107.5000 mm, 83.5000 mm): Rectangle of ENC301 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(147.5000 mm, 83.5000 mm): Rectangle of ENC302 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(264.0000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(284.0000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(287.5000 mm, 83.5000 mm): Rectangle of ENC304 on F.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(279.7000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(282.0000 mm, 84.7000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(279.7000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(282.0000 mm, 83.5000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(279.7000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(280.5000 mm, 83.5000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(275.3000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(274.5000 mm, 83.5000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(275.3000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(274.5000 mm, 81.7000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(275.3000 mm, 83.5000 mm): Segment of J201 on Edge.Cuts
+    @(273.0000 mm, 83.5000 mm): Segment of J201 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(321.8000 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(320.5000 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(320.5000 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 84.8000 mm): Segment of J202 on Edge.Cuts
+    @(319.7500 mm, 84.8000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 84.8000 mm): Segment of J202 on Edge.Cuts
+    @(319.7500 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(319.7500 mm, 84.8000 mm): Segment of J202 on Edge.Cuts
+    @(315.2500 mm, 84.8000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(315.2500 mm, 84.8000 mm): Segment of J202 on Edge.Cuts
+    @(315.2500 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(315.2500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(314.5000 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(309.1500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(314.5000 mm, 80.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(309.1500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(312.8000 mm, 85.2000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(309.1500 mm, 83.5000 mm): Segment of J202 on Edge.Cuts
+    @(312.8000 mm, 83.5000 mm): Segment of J202 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(299.4500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(301.7500 mm, 84.7000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(299.4500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(301.7500 mm, 83.5000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(299.4500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(300.2500 mm, 83.5000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(295.0500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(294.2500 mm, 83.5000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(295.0500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(294.2500 mm, 81.7000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(295.0500 mm, 83.5000 mm): Segment of J203 on Edge.Cuts
+    @(292.7500 mm, 83.5000 mm): Segment of J203 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(179.7000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(182.0000 mm, 84.7000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(179.7000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(182.0000 mm, 83.5000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(179.7000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(180.5000 mm, 83.5000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(175.3000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(174.5000 mm, 83.5000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(175.3000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(174.5000 mm, 81.7000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(175.3000 mm, 83.5000 mm): Segment of J301 on Edge.Cuts
+    @(173.0000 mm, 83.5000 mm): Segment of J301 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(259.7000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(262.0000 mm, 84.7000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(259.7000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(262.0000 mm, 83.5000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(259.7000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(260.5000 mm, 83.5000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(255.3000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(254.5000 mm, 83.5000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(255.3000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(254.5000 mm, 81.7000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(255.3000 mm, 83.5000 mm): Segment of J302 on Edge.Cuts
+    @(253.0000 mm, 83.5000 mm): Segment of J302 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(122.2000 mm, 84.5000 mm): Segment of J502 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(112.8000 mm, 84.5000 mm): Segment of J502 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(153.6900 mm, 83.5500 mm): Segment of J501 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(67.5000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(161.3100 mm, 83.8100 mm): Segment of J501 on B.Silkscreen
+[silk_edge_clearance]: Silkscreen clipped by board edge
+    Rule: board setup constraints silk; warning
+    @(184.0000 mm, 83.5000 mm): Segment on Edge.Cuts
+    @(215.0000 mm, 83.7200 mm): Reference field of U102
+[text_height]: Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6400 mm)
+    Rule: board setup constraints silk text height; warning
+    @(112.7500 mm, 98.5000 mm): Reference field of U502
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(147.5000 mm, 83.5000 mm): Rectangle of ENC302 on F.Silkscreen
+    @(107.5000 mm, 83.5000 mm): Rectangle of ENC301 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(199.1000 mm, 120.9000 mm): Rectangle of TP103 on F.Silkscreen
+    @(195.2500 mm, 85.0000 mm): Rectangle of U101 on F.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(200.8800 mm, 85.2000 mm): Rectangle of U101 on F.Silkscreen
+    @(198.5000 mm, 101.0000 mm): Footprint text of U101 (VCC)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(200.8800 mm, 85.2000 mm): Rectangle of U101 on F.Silkscreen
+    @(198.5000 mm, 98.5000 mm): Footprint text of U101 (GND)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(200.8800 mm, 85.2000 mm): Rectangle of U101 on F.Silkscreen
+    @(198.5000 mm, 96.0000 mm): Footprint text of U101 (VCC)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(200.8800 mm, 85.2000 mm): Rectangle of U101 on F.Silkscreen
+    @(198.5000 mm, 111.0000 mm): Footprint text of U101 (RST)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(200.8800 mm, 85.2000 mm): Rectangle of U101 on F.Silkscreen
+    @(198.5000 mm, 103.5000 mm): Footprint text of U101 (CLK)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(287.5000 mm, 83.5000 mm): Rectangle of ENC304 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(347.5000 mm, 103.0000 mm): Reference field of LS202
+    @(347.5000 mm, 103.5000 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(335.2500 mm, 91.2500 mm): Rectangle of LS202 on F.Silkscreen
+    @(359.7500 mm, 91.2500 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(335.2500 mm, 91.2500 mm): Rectangle of LS202 on F.Silkscreen
+    @(347.5000 mm, 103.5000 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(335.2500 mm, 91.2500 mm): Rectangle of LS202 on F.Silkscreen
+    @(335.2500 mm, 91.2500 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(335.2500 mm, 91.2500 mm): Rectangle of LS202 on F.Silkscreen
+    @(359.7500 mm, 115.7500 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(335.2500 mm, 91.2500 mm): Rectangle of LS202 on F.Silkscreen
+    @(335.2500 mm, 115.7500 mm): NPTH pad of LS202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(107.5000 mm, 83.5000 mm): Rectangle of ENC301 on F.Silkscreen
+    @(147.5000 mm, 104.2700 mm): NPTH pad of MK201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(147.5000 mm, 83.5000 mm): Rectangle of ENC302 on F.Silkscreen
+    @(147.5000 mm, 104.2700 mm): NPTH pad of MK201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(195.2500 mm, 85.0000 mm): Rectangle of U101 on F.Silkscreen
+    @(201.0000 mm, 122.0000 mm): Pad 1 [+5V] of TP103 on F.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(87.5000 mm, 103.0000 mm): Reference field of LS201
+    @(87.5000 mm, 103.5000 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.2500 mm, 91.2500 mm): Rectangle of LS201 on F.Silkscreen
+    @(99.7500 mm, 91.2500 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.2500 mm, 91.2500 mm): Rectangle of LS201 on F.Silkscreen
+    @(87.5000 mm, 103.5000 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.2500 mm, 91.2500 mm): Rectangle of LS201 on F.Silkscreen
+    @(75.2500 mm, 91.2500 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.2500 mm, 91.2500 mm): Rectangle of LS201 on F.Silkscreen
+    @(99.7500 mm, 115.7500 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(75.2500 mm, 91.2500 mm): Rectangle of LS201 on F.Silkscreen
+    @(75.2500 mm, 115.7500 mm): NPTH pad of LS201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(287.5000 mm, 104.2700 mm): NPTH pad of MK202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(268.2950 mm, 123.5000 mm): PTH pad 1 [Net-(T202-Pin_1)] of T202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(263.2150 mm, 123.5000 mm): PTH pad 2 [Net-(T202-Pin_2)] of T202
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(256.7500 mm, 123.5000 mm): PTH pad 1 [Net-(T201-Pin_1)] of T201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(247.5000 mm, 83.5000 mm): Rectangle of ENC303 on F.Silkscreen
+    @(251.6700 mm, 123.5000 mm): PTH pad 2 [Net-(T201-Pin_2)] of T201
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(287.5000 mm, 83.5000 mm): Rectangle of ENC304 on F.Silkscreen
+    @(287.5000 mm, 104.2700 mm): NPTH pad of MK202
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 84.4200 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.7300 mm): Segment of U102 on B.Silkscreen
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 86.6200 mm): Circle of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+    @(226.4000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.4200 mm): Segment of U102 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.7300 mm): Segment of U102 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 84.7300 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 84.7200 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 84.7300 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(215.0000 mm, 83.7200 mm): Reference field of U102
+    @(193.5000 mm, 83.5800 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 84.7300 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 84.7200 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 86.6200 mm): Circle of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(203.6000 mm, 118.6500 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(245.5000 mm, 105.0000 mm): Reference field of R101
+    @(245.0000 mm, 87.0800 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(245.6000 mm, 109.0000 mm): Reference field of D101
+    @(245.0000 mm, 87.0800 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 118.3400 mm): Segment of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 118.6500 mm): Segment of U103 on B.Silkscreen
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 120.5400 mm): Circle of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(226.4000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.4000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+    @(226.4000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 118.6500 mm): Segment of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 118.6400 mm): Segment of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 122.4300 mm): Segment of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 120.5400 mm): Circle of U103 on B.Silkscreen
+    @(203.6000 mm, 122.4300 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 118.6500 mm): Segment of U103 on B.Silkscreen
+    @(203.6000 mm, 118.6500 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 118.6400 mm): Segment of U103 on B.Silkscreen
+    @(203.6000 mm, 118.6500 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(203.6000 mm, 88.5100 mm): Segment of U102 on B.Silkscreen
+    @(203.6000 mm, 88.5100 mm): Segment of Module101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(207.5000 mm, 129.0000 mm): Value field of J102 (CM4_DEBUG)
+    @(208.5000 mm, 129.2500 mm): Reference field of C103
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(211.5000 mm, 140.2250 mm): Reference field of JP101
+    @(216.2700 mm, 142.1700 mm): Segment of J103 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(211.1300 mm, 144.8300 mm): Segment of J103 on B.Silkscreen
+    @(211.5000 mm, 140.2250 mm): Reference field of JP101
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(287.5000 mm, 106.5000 mm): Reference field of MK202
+    @(285.4350 mm, 105.4887 mm): Segment of C220 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(254.0000 mm, 120.0000 mm): Reference field of FB203
+    @(259.4100 mm, 118.1800 mm): Segment of T201 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.4100 mm, 118.1800 mm): Segment of T201 on B.Silkscreen
+    @(252.0000 mm, 119.5000 mm): Reference field of C214
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(270.0000 mm, 118.2500 mm): Reference field of C219
+    @(270.9550 mm, 118.1800 mm): Segment of T202 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(254.0000 mm, 120.0000 mm): Reference field of FB203
+    @(259.4100 mm, 121.2000 mm): Segment of T201 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.4100 mm, 121.2000 mm): Segment of T201 on B.Silkscreen
+    @(252.0000 mm, 119.5000 mm): Reference field of C214
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(259.4100 mm, 121.2000 mm): Segment of T201 on B.Silkscreen
+    @(256.0000 mm, 120.0000 mm): Reference field of FB202
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(256.0000 mm, 120.0000 mm): Reference field of FB202
+    @(259.4100 mm, 118.1800 mm): Segment of T201 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(247.0000 mm, 136.0400 mm): Footprint text of J104 (/UART4_RX)
+    @(246.1700 mm, 134.7700 mm): Segment of J104 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(247.0000 mm, 138.5800 mm): Footprint text of J104 (/UART4_TX)
+    @(246.1700 mm, 134.7700 mm): Segment of J104 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(226.1700 mm, 134.7700 mm): Segment of J101 on B.Silkscreen
+    @(227.0000 mm, 136.0400 mm): Footprint text of J101 (/UART0_TX)
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(227.0000 mm, 138.5800 mm): Footprint text of J101 (/UART0_RX)
+    @(226.1700 mm, 134.7700 mm): Segment of J101 on B.Silkscreen
+[silk_overlap]: Silkscreen clearance
+    Rule: board setup constraints silk; warning
+    @(293.9887 mm, 115.2650 mm): Segment of C223 on B.Silkscreen
+    @(294.2500 mm, 114.7500 mm): Reference field of C223
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(175.0200 mm, 106.9500 mm): Reference field of C328
+    @(173.2000 mm, 103.5000 mm): PTH pad SH2 [<no net>] of ENC302
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(185.5000 mm, 132.7900 mm): Footprint text of J106 (/Global_EN)
+    @(177.5000 mm, 133.5000 mm): NPTH pad of SW406
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(209.2000 mm, 85.0800 mm): Pad 180 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(209.6000 mm, 85.0800 mm): Pad 178 [unconnected-(Module101B-HDMI0_TX1_N-Pad178)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.0000 mm, 85.0800 mm): Pad 176 [unconnected-(Module101B-HDMI0_TX1_P-Pad176)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.4000 mm, 85.0800 mm): Pad 174 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.8000 mm, 85.0800 mm): Pad 172 [unconnected-(Module101B-HDMI0_TX2_N-Pad172)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(211.2000 mm, 85.0800 mm): Pad 170 [unconnected-(Module101B-HDMI0_TX2_P-Pad170)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(211.6000 mm, 85.0800 mm): Pad 168 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.0000 mm, 85.0800 mm): Pad 166 [unconnected-(Module101B-HDMI1_CLK_N-Pad166)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.4000 mm, 85.0800 mm): Pad 164 [unconnected-(Module101B-HDMI1_CLK_P-Pad164)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.8000 mm, 85.0800 mm): Pad 162 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(213.2000 mm, 85.0800 mm): Pad 160 [unconnected-(Module101B-HDMI1_TX0_N-Pad160)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(213.6000 mm, 85.0800 mm): Pad 158 [unconnected-(Module101B-HDMI1_TX0_P-Pad158)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.0000 mm, 85.0800 mm): Pad 156 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.4000 mm, 85.0800 mm): Pad 154 [unconnected-(Module101B-HDMI1_TX1_N-Pad154)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.8000 mm, 85.0800 mm): Pad 152 [unconnected-(Module101B-HDMI1_TX1_P-Pad152)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(215.2000 mm, 85.0800 mm): Pad 150 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(215.6000 mm, 85.0800 mm): Pad 148 [unconnected-(Module101B-HDMI1_TX2_N-Pad148)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.0000 mm, 85.0800 mm): Pad 146 [unconnected-(Module101B-HDMI1_TX2_P-Pad146)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.4000 mm, 85.0800 mm): Pad 144 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.8000 mm, 85.0800 mm): Pad 142 [unconnected-(Module101B-CAM0_C_P-Pad142)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(217.2000 mm, 85.0800 mm): Pad 140 [unconnected-(Module101B-CAM0_C_N-Pad140)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(217.6000 mm, 85.0800 mm): Pad 138 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.0000 mm, 85.0800 mm): Pad 136 [unconnected-(Module101B-CAM0_D1_P-Pad136)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.4000 mm, 85.0800 mm): Pad 134 [unconnected-(Module101B-CAM0_D1_N-Pad134)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.8000 mm, 85.0800 mm): Pad 132 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(219.2000 mm, 85.0800 mm): Pad 130 [unconnected-(Module101B-CAM0_D0_P-Pad130)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(219.6000 mm, 85.0800 mm): Pad 128 [unconnected-(Module101B-CAM0_D0_N-Pad128)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.0000 mm, 85.0800 mm): Pad 126 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.4000 mm, 85.0800 mm): Pad 124 [unconnected-(Module101B-PCIe_TX_N-Pad124)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.8000 mm, 85.0800 mm): Pad 122 [unconnected-(Module101B-PCIe_TX_P-Pad122)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(221.2000 mm, 85.0800 mm): Pad 120 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(221.6000 mm, 85.0800 mm): Pad 118 [unconnected-(Module101B-PCIe_RX_N-Pad118)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.0000 mm, 85.0800 mm): Pad 116 [unconnected-(Module101B-PCIe_RX_P-Pad116)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.4000 mm, 85.0800 mm): Pad 114 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.8000 mm, 85.0800 mm): Pad 112 [unconnected-(Module101B-PCIe_CLK_N-Pad112)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(223.2000 mm, 85.0800 mm): Pad 110 [unconnected-(Module101B-PCIe_CLK_P-Pad110)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(223.6000 mm, 85.0800 mm): Pad 108 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.0000 mm, 85.0800 mm): Pad 106 [unconnected-(Module101B-Reserved-Pad106)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.4000 mm, 85.0800 mm): Pad 104 [unconnected-(Module101B-Reserved-Pad104)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.8000 mm, 85.0800 mm): Pad 102 [unconnected-(Module101B-PCIe_CLK_nREQ-Pad102)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(205.2000 mm, 85.0800 mm): Pad 200 [unconnected-(Module101B-HDMI0_SCL-Pad200)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(205.6000 mm, 85.0800 mm): Pad 198 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.0000 mm, 85.0800 mm): Pad 196 [unconnected-(Module101B-DSI1_D3_P-Pad196)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.4000 mm, 85.0800 mm): Pad 194 [unconnected-(Module101B-DSI1_D3_N-Pad194)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.8000 mm, 85.0800 mm): Pad 192 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(207.2000 mm, 85.0800 mm): Pad 190 [unconnected-(Module101B-HDMI0_CLK_N-Pad190)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(207.6000 mm, 85.0800 mm): Pad 188 [unconnected-(Module101B-HDMI0_CLK_P-Pad188)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.0000 mm, 85.0800 mm): Pad 186 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.4000 mm, 85.0800 mm): Pad 184 [unconnected-(Module101B-HDMI0_TX0_N-Pad184)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.8000 mm, 85.0800 mm): Pad 182 [unconnected-(Module101B-HDMI0_TX0_P-Pad182)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(207.6000 mm, 88.1600 mm): Pad 187 [unconnected-(Module101B-DSI1_C_N-Pad187)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.0000 mm, 88.1600 mm): Pad 185 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.4000 mm, 88.1600 mm): Pad 183 [unconnected-(Module101B-DSI1_D1_P-Pad183)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(208.8000 mm, 88.1600 mm): Pad 181 [unconnected-(Module101B-DSI1_D1_N-Pad181)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(209.2000 mm, 88.1600 mm): Pad 179 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(209.6000 mm, 88.1600 mm): Pad 177 [unconnected-(Module101B-DSI1_D0_P-Pad177)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.0000 mm, 88.1600 mm): Pad 175 [unconnected-(Module101B-DSI1_D0_N-Pad175)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.4000 mm, 88.1600 mm): Pad 173 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(210.8000 mm, 88.1600 mm): Pad 171 [unconnected-(Module101B-DSI0_C_P-Pad171)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(211.2000 mm, 88.1600 mm): Pad 169 [unconnected-(Module101B-DSI0_C_N-Pad169)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(211.6000 mm, 88.1600 mm): Pad 167 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.0000 mm, 88.1600 mm): Pad 165 [unconnected-(Module101B-DSI0_D1_P-Pad165)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.4000 mm, 88.1600 mm): Pad 163 [unconnected-(Module101B-DSI0_D1_N-Pad163)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(212.8000 mm, 88.1600 mm): Pad 161 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(213.2000 mm, 88.1600 mm): Pad 159 [unconnected-(Module101B-DSI0_D0_P-Pad159)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(213.6000 mm, 88.1600 mm): Pad 157 [unconnected-(Module101B-DSI0_D0_N-Pad157)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.0000 mm, 88.1600 mm): Pad 155 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.4000 mm, 88.1600 mm): Pad 153 [unconnected-(Module101B-HDMI0_HOTPLUG-Pad153)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(214.8000 mm, 88.1600 mm): Pad 151 [unconnected-(Module101B-HDMI0_CEC-Pad151)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(215.2000 mm, 88.1600 mm): Pad 149 [unconnected-(Module101B-HDMI1_CEC-Pad149)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(215.6000 mm, 88.1600 mm): Pad 147 [unconnected-(Module101B-HDMI1_SCL-Pad147)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.0000 mm, 88.1600 mm): Pad 145 [unconnected-(Module101B-HDMI1_SDA-Pad145)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.4000 mm, 88.1600 mm): Pad 143 [unconnected-(Module101B-HDMI1_HOTPLUG-Pad143)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(216.8000 mm, 88.1600 mm): Pad 141 [unconnected-(Module101B-CAM1_D3_P-Pad141)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(217.2000 mm, 88.1600 mm): Pad 139 [unconnected-(Module101B-CAM1_D3_N-Pad139)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(217.6000 mm, 88.1600 mm): Pad 137 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.0000 mm, 88.1600 mm): Pad 135 [unconnected-(Module101B-CAM1_D2_P-Pad135)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.4000 mm, 88.1600 mm): Pad 133 [unconnected-(Module101B-CAM1_D2_N-Pad133)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(218.8000 mm, 88.1600 mm): Pad 131 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(219.2000 mm, 88.1600 mm): Pad 129 [unconnected-(Module101B-CAM1_C_P-Pad129)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(219.6000 mm, 88.1600 mm): Pad 127 [unconnected-(Module101B-CAM1_C_N-Pad127)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.0000 mm, 88.1600 mm): Pad 125 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.4000 mm, 88.1600 mm): Pad 123 [unconnected-(Module101B-CAM1_D1_P-Pad123)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(220.8000 mm, 88.1600 mm): Pad 121 [unconnected-(Module101B-CAM1_D1_N-Pad121)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(221.2000 mm, 88.1600 mm): Pad 119 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(221.6000 mm, 88.1600 mm): Pad 117 [unconnected-(Module101B-CAM1_D0_P-Pad117)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.0000 mm, 88.1600 mm): Pad 115 [unconnected-(Module101B-CAM1_D0_N-Pad115)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.4000 mm, 88.1600 mm): Pad 113 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(222.8000 mm, 88.1600 mm): Pad 111 [unconnected-(Module101B-VDAC_COMP-Pad111)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(223.2000 mm, 88.1600 mm): Pad 109 [unconnected-(Module101B-PCIe_nRST-Pad109)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(223.6000 mm, 88.1600 mm): Pad 107 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.0000 mm, 88.1600 mm): Pad 105 [/USB2_P] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.4000 mm, 88.1600 mm): Pad 103 [/USB2_N] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(224.8000 mm, 88.1600 mm): Pad 101 [/USB2_OTG_ID] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(205.2000 mm, 88.1600 mm): Pad 199 [unconnected-(Module101B-HDMI0_SDA-Pad199)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(205.6000 mm, 88.1600 mm): Pad 197 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.0000 mm, 88.1600 mm): Pad 195 [unconnected-(Module101B-DSI1_D2_P-Pad195)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.4000 mm, 88.1600 mm): Pad 193 [unconnected-(Module101B-DSI1_D2_N-Pad193)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(206.8000 mm, 88.1600 mm): Pad 191 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 84.7300 mm): Rectangle of U102 on B.Silkscreen
+    @(207.2000 mm, 88.1600 mm): Pad 189 [unconnected-(Module101B-DSI1_C_P-Pad189)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(215.0000 mm, 84.7300 mm): Circle of U102 on B.Silkscreen
+    @(214.8000 mm, 85.0800 mm): Pad 152 [unconnected-(Module101B-HDMI1_TX1_P-Pad152)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(215.0000 mm, 84.7300 mm): Circle of U102 on B.Silkscreen
+    @(215.2000 mm, 85.0800 mm): Pad 150 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(205.2000 mm, 119.0000 mm): Pad 100 [unconnected-(Module101A-nEXTRST-Pad100)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(205.6000 mm, 119.0000 mm): Pad 98 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.0000 mm, 119.0000 mm): Pad 96 [unconnected-(Module101A-AnalogIP0-Pad96)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.4000 mm, 119.0000 mm): Pad 94 [unconnected-(Module101A-AnalogIP1-Pad94)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.8000 mm, 119.0000 mm): Pad 92 [/RUN_PG] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(207.2000 mm, 119.0000 mm): Pad 90 [Net-(Module101A-+1.8v_(Output)-Pad88)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(207.6000 mm, 119.0000 mm): Pad 88 [Net-(Module101A-+1.8v_(Output)-Pad88)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.0000 mm, 119.0000 mm): Pad 86 [Net-(Module101A-GPIO_VREF(1.8v/3.3v_Input))] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.4000 mm, 119.0000 mm): Pad 84 [Net-(Module101A-GPIO_VREF(1.8v/3.3v_Input))] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.8000 mm, 119.0000 mm): Pad 82 [unconnected-(Module101A-SDA0-Pad82)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(209.2000 mm, 119.0000 mm): Pad 80 [unconnected-(Module101A-SCL0-Pad80)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(209.6000 mm, 119.0000 mm): Pad 78 [Net-(Module101A-GPIO_VREF(1.8v/3.3v_Input))] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.0000 mm, 119.0000 mm): Pad 76 [unconnected-(Module101A-Reserved-Pad76)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.4000 mm, 119.0000 mm): Pad 74 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.8000 mm, 119.0000 mm): Pad 72 [unconnected-(Module101A-SD_DAT6-Pad72)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(211.2000 mm, 119.0000 mm): Pad 70 [unconnected-(Module101A-SD_DAT7-Pad70)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(211.6000 mm, 119.0000 mm): Pad 68 [unconnected-(Module101A-SD_DAT4-Pad68)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.0000 mm, 119.0000 mm): Pad 66 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.4000 mm, 119.0000 mm): Pad 64 [unconnected-(Module101A-SD_DAT5-Pad64)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.8000 mm, 119.0000 mm): Pad 62 [unconnected-(Module101A-SD_CMD-Pad62)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(213.2000 mm, 119.0000 mm): Pad 60 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(213.6000 mm, 119.0000 mm): Pad 58 [/I2C1_SDA] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(214.0000 mm, 119.0000 mm): Pad 56 [/I2C1_SCL] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(214.4000 mm, 119.0000 mm): Pad 54 [/CODEC_~{IRQ}] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(214.8000 mm, 119.0000 mm): Pad 52 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(215.2000 mm, 119.0000 mm): Pad 50 [unconnected-(Module101A-GPIO17-Pad50)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(215.6000 mm, 119.0000 mm): Pad 48 [/RUN] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(216.0000 mm, 119.0000 mm): Pad 46 [/CODEC_1V8EN] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(216.4000 mm, 119.0000 mm): Pad 44 [/SPI0_MOSI] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(216.8000 mm, 119.0000 mm): Pad 42 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(219.2000 mm, 119.0000 mm): Pad 30 [/DC] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(219.6000 mm, 119.0000 mm): Pad 28 [/SWD] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(220.0000 mm, 119.0000 mm): Pad 26 [/PCM_FS] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(220.4000 mm, 119.0000 mm): Pad 24 [unconnected-(Module101A-GPIO26-Pad24)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(220.8000 mm, 119.0000 mm): Pad 22 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(221.2000 mm, 119.0000 mm): Pad 20 [unconnected-(Module101A-EEPROM_nWP-Pad20)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(221.6000 mm, 119.0000 mm): Pad 18 [unconnected-(Module101A-Ethernet_SYNC_OUT(1.8v)-Pad18)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(222.0000 mm, 119.0000 mm): Pad 16 [unconnected-(Module101A-Ethernet_SYNC_IN(1.8v)-Pad16)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(222.4000 mm, 119.0000 mm): Pad 14 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(222.8000 mm, 119.0000 mm): Pad 12 [unconnected-(Module101A-Ethernet_Pair0_P-Pad12)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(223.2000 mm, 119.0000 mm): Pad 10 [unconnected-(Module101A-Ethernet_Pair0_N-Pad10)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(223.6000 mm, 119.0000 mm): Pad 8 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(224.0000 mm, 119.0000 mm): Pad 6 [unconnected-(Module101A-Ethernet_Pair1_N-Pad6)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(224.4000 mm, 119.0000 mm): Pad 4 [unconnected-(Module101A-Ethernet_Pair1_P-Pad4)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(224.8000 mm, 119.0000 mm): Pad 2 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(217.2000 mm, 119.0000 mm): Pad 40 [/UART4_RX] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(217.6000 mm, 119.0000 mm): Pad 38 [/SPI0_SCLK] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(218.0000 mm, 119.0000 mm): Pad 36 [unconnected-(Module101A-ID_SD-Pad36)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(218.4000 mm, 119.0000 mm): Pad 34 [/RST] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(218.8000 mm, 119.0000 mm): Pad 32 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(205.2000 mm, 122.0800 mm): Pad 99 [/Global_EN] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(205.6000 mm, 122.0800 mm): Pad 97 [unconnected-(Module101A-Camera_GPIO-Pad97)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.0000 mm, 122.0800 mm): Pad 95 [/nPWR_LED] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.4000 mm, 122.0800 mm): Pad 93 [/nRPIBOOT] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(206.8000 mm, 122.0800 mm): Pad 91 [unconnected-(Module101A-BT_nDisable-Pad91)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(207.2000 mm, 122.0800 mm): Pad 89 [unconnected-(Module101A-WiFi_nDisable-Pad89)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(207.6000 mm, 122.0800 mm): Pad 87 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.0000 mm, 122.0800 mm): Pad 85 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.4000 mm, 122.0800 mm): Pad 83 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(208.8000 mm, 122.0800 mm): Pad 81 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(209.2000 mm, 122.0800 mm): Pad 79 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(209.6000 mm, 122.0800 mm): Pad 77 [+5V] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.0000 mm, 122.0800 mm): Pad 75 [unconnected-(Module101A-SD_PWR_ON-Pad75)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.4000 mm, 122.0800 mm): Pad 73 [unconnected-(Module101A-SD_VDD_Override-Pad73)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(210.8000 mm, 122.0800 mm): Pad 71 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(211.2000 mm, 122.0800 mm): Pad 69 [unconnected-(Module101A-SD_DAT2-Pad69)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(211.6000 mm, 122.0800 mm): Pad 67 [unconnected-(Module101A-SD_DAT1-Pad67)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.0000 mm, 122.0800 mm): Pad 65 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.4000 mm, 122.0800 mm): Pad 63 [unconnected-(Module101A-SD_DAT0-Pad63)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(212.8000 mm, 122.0800 mm): Pad 61 [unconnected-(Module101A-SD_DAT3-Pad61)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(213.2000 mm, 122.0800 mm): Pad 59 [GND] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(213.6000 mm, 122.0800 mm): Pad 57 [unconnected-(Module101A-SD_CLK-Pad57)] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(214.0000 mm, 122.0800 mm): Pad 55 [/UART0_TX] of Module101 on B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(226.4000 mm, 118.6500 mm): Rectangle of U103 on B.Silkscreen
+    @(214.4000 mm, 122.0800 mm): Pad 53 [GND] of Module101 on B.Cu
+
+** Found 0 unconnected pads **
+
+** Found 4 Footprint errors **
+[net_conflict]: No pad found for pin 1 in schematic
+    Local override; warning
+    @(87.5000 mm, 103.5000 mm): Footprint LS201
+[net_conflict]: No pad found for pin 2 in schematic
+    Local override; warning
+    @(87.5000 mm, 103.5000 mm): Footprint LS201
+[net_conflict]: No pad found for pin 1 in schematic
+    Local override; warning
+    @(347.5000 mm, 103.5000 mm): Footprint LS202
+[net_conflict]: No pad found for pin 2 in schematic
+    Local override; warning
+    @(347.5000 mm, 103.5000 mm): Footprint LS202
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
