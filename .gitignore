@@ -37,6 +37,8 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+# ...except the fab outputs (BOM / CPL) that get uploaded with the gerbers
+!**/production/*.csv
 
 # Archived Backups (KiCad 6.0)
 **/*-backups/*.zip
@@ -79,3 +81,19 @@ rustc-ice-*.txt
 Cargo.lock
 target/
 
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+ENV/
+env/
+
+.env
+
+# Testing and caches
+.pytest_cache/
+.mypy_cache/
